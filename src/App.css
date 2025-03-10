@@ -1,0 +1,19 @@
+* {
+	scrollbar-width: thin;
+	scrollbar-color: transparent var(--primary);
+	user-select: none;
+}
+
+*::-webkit-scrollbar {
+	width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--primary);
+	border-radius: 0;
+	border: none;
+}

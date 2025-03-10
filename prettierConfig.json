@@ -1,0 +1,17 @@
+{
+	"arrowParens": "always",
+	"bracketSameLine": false,
+	"bracketSpacing": true,
+	"color": "uppercase",
+	"eslintIntegration": true,
+	"ignorePath": "~/github.com/jdvober/dotfiles/.config/prettier/.prettierignore",
+	"jsxBracketSameLine": false,
+	"jsxSingleQuote": true,
+	"semi": false,
+	"singleAttiributePerLine": true,
+	"singleQuote": true,
+	"tabWidth": 4,
+	"trailingComma": "es5",
+	"useEditorConfig": false,
+	"useTabs": true
+}

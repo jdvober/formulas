@@ -1,6 +1,6 @@
 import { createSystem, defaultConfig, mergeConfigs } from '@chakra-ui/react'
 
-import { Colors } from './colors/colors'
+import { C as Colors } from './colors/colors'
 
 const config = mergeConfigs(defaultConfig, {
 	strictTokens: true,

@@ -1,8 +1,9 @@
-import { dracComment, dracOrange, dracRed } from '@/theme/colors/colors'
-import { Box, HStack, Text } from '@chakra-ui/react'
+import { dracBg2, dracComment, dracRed } from '@/theme/colors/colors'
+import { Box, For, GridItem, HStack, SimpleGrid, Text } from '@chakra-ui/react'
 import {
 	FloatingArrow,
 	arrow,
+	offset,
 	useFloating,
 	useHover,
 	useInteractions,
@@ -64,7 +65,7 @@ export const FmtA: FmtAProps = ({ vars }) => {
 		}
 	}, [])
 
-	const [isOpen, setIsOpen] = useState(false)
+	const [isOpen, setIsOpen] = useState(true)
 	const arrowRef = useRef(null)
 	const { refs, floatingStyles, context } = useFloating({
 		open: isOpen,
@@ -73,6 +74,7 @@ export const FmtA: FmtAProps = ({ vars }) => {
 			arrow({
 				element: arrowRef,
 			}),
+			offset(32), // Spacing of the floating popover from the reference element.
 		],
 	})
 
@@ -86,8 +88,10 @@ export const FmtA: FmtAProps = ({ vars }) => {
 			</Box>
 			{isOpen && (
 				<Box
-					border='1px solid green'
-					mt='2vh'
+					border={`3px solid ${dracComment}`}
+					background={dracBg2}
+					p='2vw'
+					w='auto'
 					ref={refs.setFloating}
 					style={floatingStyles}
 					{...getFloatingProps()}
@@ -99,28 +103,50 @@ export const FmtA: FmtAProps = ({ vars }) => {
 						height={14}
 						fill={dracRed}
 					/>
-					<HStack>
-						<Text color={dracOrange}>
-							<Latex>{`${a.val.longName}`}</Latex>
-						</Text>
-						<Text color={dracComment}>
-							<Latex>{`$\\Rightarrow$`}</Latex>
-						</Text>
-						<Text color={dracOrange}>
-							<HStack>
-								{a.units.map((unit, i) => {
-									return a.units.length === i + 1 ? (
-										<Latex>{`$${unit.longName}$`}</Latex>
-									) : (
-										<HStack>
-											<Latex>{`$${unit.longName}$`}</Latex>
-											<Text>{' or '}</Text>
-										</HStack>
-									)
-								})}
-							</HStack>
-						</Text>
-					</HStack>
+					{/*Content*/}
+					<For each={vars}>
+						{(item, index) => (
+							<SimpleGrid
+								columns={9}
+								key={index}
+								alignItems='center'
+							>
+								<GridItem colSpan={2} justifySelf='center'>
+									<Text fontSize='3xl'>
+										<Latex>{`$${item.val.longName}$`}</Latex>
+									</Text>
+								</GridItem>
+
+								<GridItem colSpan={1} justifySelf='center'>
+									<Text fontSize='5xl'>
+										<Latex>{`$\\Rightarrow$`}</Latex>
+									</Text>
+								</GridItem>
+
+								<GridItem colSpan={6}>
+									<HStack>
+										{item.units.map((unit, i) => {
+											return a.units.length === i + 1 ? (
+												<Text fontSize='2xl'>
+													<Latex>{`$${unit.longName}$`}</Latex>
+												</Text>
+											) : (
+												<HStack>
+													<Text
+														fontSize='2xl'
+														color={dracComment}
+													>{` or `}</Text>
+													<Text fontSize='2xl'>
+														<Latex>{`$${unit.longName}$`}</Latex>
+													</Text>
+												</HStack>
+											)
+										})}
+									</HStack>
+								</GridItem>
+							</SimpleGrid>
+						)}
+					</For>
 				</Box>
 			)}
 		</Box>

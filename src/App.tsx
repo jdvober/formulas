@@ -1,7 +1,7 @@
 import './App.css'
 
 import { FmtA } from '@/components/Formula/FmtA'
-import { Center, Spacer, VStack } from '@chakra-ui/react'
+import { Center, Spacer, Text, VStack } from '@chakra-ui/react'
 import {
 	DndContext,
 	MouseSensor,
@@ -21,7 +21,8 @@ export const App = () => {
 	return (
 		<Center fontSize='5xl' bg='dracula.dracBG'>
 			<DndContext sensors={sensors} collisionDetection={rectIntersection}>
-				<VStack alignItems='center'>
+				<VStack alignItems='center' p='1vw'>
+					<Text>Physical Science Formulas</Text>
 					<FmtA
 						vars={[
 							{
@@ -64,8 +65,6 @@ export const App = () => {
 							{
 								val: { shortName: 't', longName: 'time' },
 								units: [
-									{ shortName: 's', longName: 'seconds' },
-									{ shortName: 's', longName: 'seconds' },
 									{ shortName: 's', longName: 'seconds' },
 								],
 							},

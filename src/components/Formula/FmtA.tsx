@@ -114,12 +114,12 @@ export const FmtA: FmtAProps = ({ vars }) => {
 						<For each={vars}>
 							{(item, index) => (
 								<SimpleGrid
-									columns={9}
+									columns={3}
 									key={index}
 									w='100%'
 									alignItems='center'
 								>
-									<GridItem colSpan={2} justifySelf='center'>
+									<GridItem colSpan={1} justifySelf='center'>
 										<Text fontSize='3xl'>
 											<Latex>{`$\\color{${colors[index]}}${item.val.longName}$`}</Latex>
 										</Text>
@@ -131,14 +131,19 @@ export const FmtA: FmtAProps = ({ vars }) => {
 										</Text>
 									</GridItem>
 
-									<GridItem colSpan={6}>
+									<GridItem colSpan={'auto'}>
 										<HStack>
 											{item.units.map((unit, i) => {
 												return a.units.length ===
 													i + 1 ? (
-													<Text fontSize='2xl'>
-														<Latex>{`$\\color{${colors[index]}}${unit.longName}$`}</Latex>
-													</Text>
+													<HStack>
+														<Text fontSize='2xl'>
+															<Latex>{`$\\color{${colors[index]}}${unit.longName}$`}</Latex>
+														</Text>
+														<Text fontSize='2xl'>
+															<Latex>{`$\\color{${dracComment}}(${unit.shortName})$`}</Latex>
+														</Text>
+													</HStack>
 												) : (
 													<HStack>
 														<Text
@@ -147,6 +152,9 @@ export const FmtA: FmtAProps = ({ vars }) => {
 														>{` or `}</Text>
 														<Text fontSize='2xl'>
 															<Latex>{`$\\color{${colors[index]}}${unit.longName}$`}</Latex>
+														</Text>
+														<Text fontSize='2xl'>
+															<Latex>{`$\\color{${dracComment}}(${unit.shortName})$`}</Latex>
 														</Text>
 													</HStack>
 												)

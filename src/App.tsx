@@ -21,7 +21,22 @@ export const App = () => {
 	return (
 		<Center fontSize='5xl' bg='dracula.dracBG'>
 			<DndContext sensors={sensors} collisionDetection={rectIntersection}>
-				<FmtA a='a' b='b' c='c' />
+				<FmtA
+					vars={[
+						{
+							val: { name: 'speed', abbreviation: 's' },
+							units: ['\\frac{m}{s^2}'],
+						},
+						{
+							val: { name: 'distance', abbreviation: 'd' },
+							units: ['meters'],
+						},
+						{
+							val: { name: 'time', abbreviation: 't' },
+							units: ['seconds'],
+						},
+					]}
+				/>
 			</DndContext>
 		</Center>
 	)

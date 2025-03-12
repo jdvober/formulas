@@ -7,7 +7,8 @@
 
 ## Netlify
 
-Netlify's `Publish Directory` must be set to `dist` in the build settings.
+- `Publish Directory` must be set to `dist` in the build settings.
+- `Build Command` must be set to `vite build` in the build settings.
 
 ## Formula Formats
 

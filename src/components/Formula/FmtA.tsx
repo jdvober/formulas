@@ -1,5 +1,21 @@
-import { dracBg2, dracComment, dracRed } from '@/theme/colors/colors'
-import { Box, For, GridItem, HStack, SimpleGrid, Text } from '@chakra-ui/react'
+import {
+	dracBg2,
+	dracComment,
+	dracFg,
+	dracGreen,
+	dracPink,
+	dracPurple,
+	dracRed,
+} from '@/theme/colors/colors'
+import {
+	Box,
+	For,
+	GridItem,
+	HStack,
+	SimpleGrid,
+	Text,
+	VStack,
+} from '@chakra-ui/react'
 import {
 	FloatingArrow,
 	arrow,
@@ -35,6 +51,7 @@ type FmtAProps =
 
 export const FmtA: FmtAProps = ({ vars }) => {
 	const [a, b, c] = vars
+	const colors = [dracGreen, dracPink, dracPurple]
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
@@ -66,6 +83,7 @@ export const FmtA: FmtAProps = ({ vars }) => {
 	}, [])
 
 	const [isOpen, setIsOpen] = useState(false)
+	//const [isOpen, setIsOpen] = useState(false)
 	const arrowRef = useRef(null)
 	const { refs, floatingStyles, context } = useFloating({
 		open: isOpen,
@@ -84,11 +102,12 @@ export const FmtA: FmtAProps = ({ vars }) => {
 	return (
 		<Box ref={containerRef}>
 			<Box ref={refs.setReference} {...getReferenceProps()}>
-				<Latex>{`$${a.val.longName}=\\frac{${b.val.longName}}{${c.val.longName}}$`}</Latex>
+				<Latex>{`$\\color{${dracGreen}}${a.val.longName}\\color{${dracFg}}=\\frac{\\color{${dracPink}}${b.val.longName}}{\\color{${dracPurple}}${c.val.longName}}$`}</Latex>
 			</Box>
 			{isOpen && (
 				<Box
 					border={`3px solid ${dracComment}`}
+					borderRadius='2xl'
 					background={dracBg2}
 					p='2vw'
 					w='auto'
@@ -104,49 +123,56 @@ export const FmtA: FmtAProps = ({ vars }) => {
 						fill={dracRed}
 					/>
 					{/*Content*/}
-					<For each={vars}>
-						{(item, index) => (
-							<SimpleGrid
-								columns={9}
-								key={index}
-								alignItems='center'
-							>
-								<GridItem colSpan={2} justifySelf='center'>
-									<Text fontSize='3xl'>
-										<Latex>{`$${item.val.longName}$`}</Latex>
-									</Text>
-								</GridItem>
+					<VStack>
+						<Text fontSize='7xl' justifySelf='center'>
+							Units
+						</Text>
+						<For each={vars}>
+							{(item, index) => (
+								<SimpleGrid
+									columns={9}
+									key={index}
+									w='100%'
+									alignItems='center'
+								>
+									<GridItem colSpan={2} justifySelf='center'>
+										<Text fontSize='3xl'>
+											<Latex>{`$\\color{${colors[index]}}${item.val.longName}$`}</Latex>
+										</Text>
+									</GridItem>
 
-								<GridItem colSpan={1} justifySelf='center'>
-									<Text fontSize='5xl'>
-										<Latex>{`$\\Rightarrow$`}</Latex>
-									</Text>
-								</GridItem>
+									<GridItem colSpan={1} justifySelf='center'>
+										<Text fontSize='5xl'>
+											<Latex>{`$\\Rightarrow$`}</Latex>
+										</Text>
+									</GridItem>
 
-								<GridItem colSpan={6}>
-									<HStack>
-										{item.units.map((unit, i) => {
-											return a.units.length === i + 1 ? (
-												<Text fontSize='2xl'>
-													<Latex>{`$${unit.longName}$`}</Latex>
-												</Text>
-											) : (
-												<HStack>
-													<Text
-														fontSize='2xl'
-														color={dracComment}
-													>{` or `}</Text>
+									<GridItem colSpan={6}>
+										<HStack>
+											{item.units.map((unit, i) => {
+												return a.units.length ===
+													i + 1 ? (
 													<Text fontSize='2xl'>
-														<Latex>{`$${unit.longName}$`}</Latex>
+														<Latex>{`$\\color{${colors[index]}}${unit.longName}$`}</Latex>
 													</Text>
-												</HStack>
-											)
-										})}
-									</HStack>
-								</GridItem>
-							</SimpleGrid>
-						)}
-					</For>
+												) : (
+													<HStack>
+														<Text
+															fontSize='2xl'
+															color={dracFg}
+														>{` or `}</Text>
+														<Text fontSize='2xl'>
+															<Latex>{`$\\color{${colors[index]}}${unit.longName}$`}</Latex>
+														</Text>
+													</HStack>
+												)
+											})}
+										</HStack>
+									</GridItem>
+								</SimpleGrid>
+							)}
+						</For>
+					</VStack>
 				</Box>
 			)}
 		</Box>

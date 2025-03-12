@@ -24,16 +24,25 @@ export const App = () => {
 				<FmtA
 					vars={[
 						{
-							val: { name: 'speed', abbreviation: 's' },
-							units: ['\\frac{m}{s^2}'],
+							val: { shortName: 's', longName: 'speed' },
+							units: [
+								{
+									shortName: '\\frac{m}{s^2}',
+									longName: '\\frac{meters}{second^2}',
+								},
+							],
 						},
 						{
-							val: { name: 'distance', abbreviation: 'd' },
-							units: ['meters'],
+							val: { shortName: 'd', longName: 'distance' },
+							units: [{ shortName: 'm', longName: 'meters' }],
 						},
 						{
-							val: { name: 'time', abbreviation: 't' },
-							units: ['seconds'],
+							val: { shortName: 't', longName: 'time' },
+							units: [
+								{ shortName: 's', longName: 'seconds' },
+								{ shortName: 's', longName: 'seconds' },
+								{ shortName: 's', longName: 'seconds' },
+							],
 						},
 					]}
 				/>

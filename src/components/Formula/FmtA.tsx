@@ -19,13 +19,15 @@ import {
 import {
 	FloatingArrow,
 	arrow,
+	flip,
 	offset,
+	size,
 	useFloating,
 	useHover,
 	useInteractions,
 } from '@floating-ui/react'
 import 'katex/dist/katex.min.css'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Latex from 'react-latex-next'
 
 type Props = {
@@ -54,34 +56,6 @@ export const FmtA: FmtAProps = ({ vars }) => {
 	const colors = [dracGreen, dracPink, dracPurple]
 	const containerRef = useRef<HTMLDivElement>(null)
 
-	useEffect(() => {
-		if (containerRef.current) {
-			// Give color to the individual variables
-			const elements = containerRef.current.querySelectorAll('*')
-			// elements.forEach((element) => {
-			// 	// Do something with each element
-			// 	if (
-			// 		element.innerHTML === a.val.longName ||
-			// 		element.innerHTML === a.val.shortName
-			// 	) {
-			// 		;(element as HTMLElement).style.color = dracOrange
-			// 	}
-			// 	if (
-			// 		element.innerHTML === b.val.longName ||
-			// 		element.innerHTML === b.val.shortName
-			// 	) {
-			// 		;(element as HTMLElement).style.color = dracPurple
-			// 	}
-			// 	if (
-			// 		element.innerHTML === c.val.longName ||
-			// 		element.innerHTML === c.val.shortName
-			// 	) {
-			// 		;(element as HTMLElement).style.color = dracPink
-			// 	}
-			// })
-		}
-	}, [])
-
 	const [isOpen, setIsOpen] = useState(false)
 	//const [isOpen, setIsOpen] = useState(false)
 	const arrowRef = useRef(null)
@@ -93,6 +67,15 @@ export const FmtA: FmtAProps = ({ vars }) => {
 				element: arrowRef,
 			}),
 			offset(32), // Spacing of the floating popover from the reference element.
+			flip(),
+			size({
+				apply({ availableWidth, availableHeight, elements }) {
+					Object.assign(elements.floating.style, {
+						maxWidth: `${Math.max(0, availableWidth)}px`,
+						maxHeight: `${Math.max(0, availableHeight)}px`,
+					})
+				},
+			}),
 		],
 	})
 
@@ -111,6 +94,7 @@ export const FmtA: FmtAProps = ({ vars }) => {
 					background={dracBg2}
 					p='2vw'
 					w='auto'
+					zIndex={100}
 					ref={refs.setFloating}
 					style={floatingStyles}
 					{...getFloatingProps()}

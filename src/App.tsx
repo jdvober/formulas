@@ -1,7 +1,7 @@
 import './App.css'
 
 import { FmtA } from '@/components/Formula/FmtA'
-import { Center } from '@chakra-ui/react'
+import { Center, Spacer, VStack } from '@chakra-ui/react'
 import {
 	DndContext,
 	MouseSensor,
@@ -21,31 +21,57 @@ export const App = () => {
 	return (
 		<Center fontSize='5xl' bg='dracula.dracBG'>
 			<DndContext sensors={sensors} collisionDetection={rectIntersection}>
-				<FmtA
-					vars={[
-						{
-							val: { shortName: 's', longName: 'speed' },
-							units: [
-								{
-									shortName: '\\frac{m}{s^2}',
-									longName: '\\frac{meters}{second^2}',
-								},
-							],
-						},
-						{
-							val: { shortName: 'd', longName: 'distance' },
-							units: [{ shortName: 'm', longName: 'meters' }],
-						},
-						{
-							val: { shortName: 't', longName: 'time' },
-							units: [
-								{ shortName: 's', longName: 'seconds' },
-								{ shortName: 's', longName: 'seconds' },
-								{ shortName: 's', longName: 'seconds' },
-							],
-						},
-					]}
-				/>
+				<VStack alignItems='center'>
+					<FmtA
+						vars={[
+							{
+								val: { shortName: 'I', longName: 'current' },
+								units: [
+									{
+										shortName: 'A',
+										longName: 'Amps',
+									},
+								],
+							},
+							{
+								val: { shortName: 'V', longName: 'voltage' },
+								units: [{ shortName: 'V', longName: 'volts' }],
+							},
+							{
+								val: { shortName: 'R', longName: 'resistance' },
+								units: [
+									{ shortName: '\\Omega', longName: 'Ohms' },
+								],
+							},
+						]}
+					/>
+					<Spacer />
+					<FmtA
+						vars={[
+							{
+								val: { shortName: 's', longName: 'speed' },
+								units: [
+									{
+										shortName: '\\frac{m}{s^2}',
+										longName: '\\frac{meters}{second^2}',
+									},
+								],
+							},
+							{
+								val: { shortName: 'd', longName: 'distance' },
+								units: [{ shortName: 'm', longName: 'meters' }],
+							},
+							{
+								val: { shortName: 't', longName: 'time' },
+								units: [
+									{ shortName: 's', longName: 'seconds' },
+									{ shortName: 's', longName: 'seconds' },
+									{ shortName: 's', longName: 'seconds' },
+								],
+							},
+						]}
+					/>
+				</VStack>
 			</DndContext>
 		</Center>
 	)

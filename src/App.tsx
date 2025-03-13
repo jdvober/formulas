@@ -1,4 +1,5 @@
 import './App.css'
+import { FormulaList } from './stores/formulaList'
 
 import { FmtA } from '@/components/Formula/FmtA'
 import { Center, Spacer, Text, VStack } from '@chakra-ui/react'
@@ -23,53 +24,14 @@ export const App = () => {
 			<DndContext sensors={sensors} collisionDetection={rectIntersection}>
 				<VStack alignItems='center' p='1vw'>
 					<Text>Physical Science Formulas</Text>
-					<FmtA
-						vars={[
-							{
-								val: { shortName: 'I', longName: 'current' },
-								units: [
-									{
-										shortName: 'A',
-										longName: 'Amps',
-									},
-								],
-							},
-							{
-								val: { shortName: 'V', longName: 'voltage' },
-								units: [{ shortName: 'V', longName: 'volts' }],
-							},
-							{
-								val: { shortName: 'R', longName: 'resistance' },
-								units: [
-									{ shortName: '\\Omega', longName: 'Ohms' },
-								],
-							},
-						]}
-					/>
+					{/* Density */}
+					<FmtA vars={FormulaList[0].variables} />
 					<Spacer />
-					<FmtA
-						vars={[
-							{
-								val: { shortName: 's', longName: 'speed' },
-								units: [
-									{
-										shortName: '\\frac{m}{s^2}',
-										longName: '\\frac{meters}{second^2}',
-									},
-								],
-							},
-							{
-								val: { shortName: 'd', longName: 'distance' },
-								units: [{ shortName: 'm', longName: 'meters' }],
-							},
-							{
-								val: { shortName: 't', longName: 'time' },
-								units: [
-									{ shortName: 's', longName: 'seconds' },
-								],
-							},
-						]}
-					/>
+					{/* Speed */}
+					<FmtA vars={FormulaList[1].variables} />
+					<Spacer />
+					{/* Ohm's Law */}
+					<FmtA vars={FormulaList[2].variables} />
 				</VStack>
 			</DndContext>
 		</Center>

@@ -1,6 +1,6 @@
 import { UnitPopover } from '@/components/Formula/UnitPopover'
 import { dracFg, dracGreen, dracPink, dracPurple } from '@/theme/colors/colors'
-import { Box, Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import {
 	arrow,
 	flip,
@@ -51,11 +51,6 @@ export const FmtA: FmtAProps = ({ vars }) => {
 	const hover = useHover(context)
 
 	const { getReferenceProps, getFloatingProps } = useInteractions([hover])
-	if (vars.length != 3) {
-		return (
-			<Text>{`Error: Expected 3 variables but instead recieved ${vars.length}`}</Text>
-		)
-	}
 	return (
 		<Box ref={containerRef}>
 			<Box ref={refs.setReference} {...getReferenceProps()}>

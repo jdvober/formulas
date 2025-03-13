@@ -1,8 +1,8 @@
 import './App.css'
+import { Formula } from './components/Formula/Formula'
 import { FormulaList } from './stores/formulaList'
 
-import { FmtA } from '@/components/Formula/FmtA'
-import { Center, Spacer, Text, VStack } from '@chakra-ui/react'
+import { Center, Text, VStack } from '@chakra-ui/react'
 import {
 	DndContext,
 	MouseSensor,
@@ -24,14 +24,9 @@ export const App = () => {
 			<DndContext sensors={sensors} collisionDetection={rectIntersection}>
 				<VStack alignItems='center' p='1vw'>
 					<Text>Physical Science Formulas</Text>
-					{/* Density */}
-					<FmtA vars={FormulaList[0].variables} />
-					<Spacer />
-					{/* Speed */}
-					<FmtA vars={FormulaList[1].variables} />
-					<Spacer />
-					{/* Ohm's Law */}
-					<FmtA vars={FormulaList[2].variables} />
+					{FormulaList.map((f) => {
+						return <Formula formula={f} />
+					})}
 				</VStack>
 			</DndContext>
 		</Center>

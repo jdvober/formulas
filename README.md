@@ -1,14 +1,4 @@
-# Web Dev Template
-
-## Installing Chakra-Ui Snippets
-
-1. Navigate to root directory (contains ./src, ./public etc)
-2. `npx chakra snippet add XXXXXX`
-
-## Netlify
-
-- `Publish Directory` must be set to `dist` in the build settings.
-- `Build Command` must be set to `vite build` in the build settings.
+# Formula Sheet
 
 ## Formula Formats
 

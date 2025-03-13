@@ -66,6 +66,11 @@ type Variable = {
 	color: VariableColor
 }
 
+type Topic = {
+	title: string
+	formulas: Formula[]
+}
+
 type Formula = {
 	name: string
 	id: string

@@ -3,7 +3,7 @@ import { dracFg, dracGreen, dracPink, dracPurple } from '@/theme/colors/colors'
 import { Box } from '@chakra-ui/react'
 import {
 	arrow,
-	flip,
+	autoPlacement,
 	offset,
 	size,
 	useFloating,
@@ -36,7 +36,7 @@ export const FmtA: FmtAProps = ({ vars }) => {
 				element: arrowRef,
 			}),
 			offset(32), // Spacing of the floating popover from the reference element.
-			flip(),
+			autoPlacement(),
 			size({
 				apply({ availableWidth, availableHeight, elements }) {
 					Object.assign(elements.floating.style, {
@@ -59,9 +59,7 @@ export const FmtA: FmtAProps = ({ vars }) => {
 			{isOpen && (
 				<UnitPopover
 					vars={vars}
-					arrowRef={arrowRef}
 					floatingStyles={floatingStyles}
-					context={context}
 					getFloatingProps={getFloatingProps}
 					refs={refs}
 				/>

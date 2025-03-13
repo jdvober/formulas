@@ -1,17 +1,8 @@
 import { Units } from '@/components/Formula/Units'
-import {
-	dracBg2,
-	dracComment,
-	dracGreen,
-	dracPink,
-	dracPurple,
-	dracRed,
-} from '@/theme/colors/colors'
+import { dracBg2, dracComment } from '@/theme/colors/colors'
 import { Box, Flex, For, Text, VStack } from '@chakra-ui/react'
-import { FloatingArrow } from '@floating-ui/react'
 import 'katex/dist/katex.min.css'
 import React from 'react'
-import Latex from 'react-latex-next'
 import { v4 as uuid } from 'uuid'
 
 type Props = {
@@ -19,8 +10,6 @@ type Props = {
 	refs: any
 	floatingStyles: any
 	getFloatingProps: any
-	arrowRef: any
-	context: any
 }
 type UnitPopoverProps =
 	Props extends Record<string, never>
@@ -32,11 +21,7 @@ export const UnitPopover: UnitPopoverProps = ({
 	refs,
 	floatingStyles,
 	getFloatingProps,
-	arrowRef,
-	context,
 }) => {
-	const colors = [dracGreen, dracPink, dracPurple]
-
 	return (
 		<Box className='UnitPopover'>
 			<Box
@@ -50,13 +35,6 @@ export const UnitPopover: UnitPopoverProps = ({
 				style={floatingStyles}
 				{...getFloatingProps()}
 			>
-				<FloatingArrow
-					ref={arrowRef}
-					context={context}
-					width={28}
-					height={14}
-					fill={dracRed}
-				/>
 				{/*Content*/}
 				<VStack>
 					<Text fontSize='7xl' justifySelf='center'>
@@ -64,29 +42,12 @@ export const UnitPopover: UnitPopoverProps = ({
 					</Text>
 					<For each={vars}>
 						{(variable, index) => (
-							<Flex
-								key={index}
-								maxW='80vw'
-								alignItems='center'
-								justifyContent='start'
-							>
-								<Box maxW='20vw'>
-									<Text fontSize='3xl'>
-										<Latex>{`$\\color{${colors[index]}}${variable.symbol.long}$`}</Latex>
-									</Text>
-								</Box>
-
-								<Box ml='0.25em' mr='0.25em'>
-									<Text fontSize='5xl'>
-										<Latex>{`$\\Rightarrow$`}</Latex>
-									</Text>
-								</Box>
-
-								<Box>
+							<Flex key={index} maxW='80vw' alignItems='center'>
+								<Box m='0.25em'>
 									<Units
 										key={uuid()}
 										variable={variable}
-										index={index}
+										color={variable.color}
 									/>
 								</Box>
 							</Flex>

@@ -7,145 +7,222 @@ const variableColors: VariableColor[] = [
 	'#8BE9FD',
 ]
 
-export const FormulaList: Formula[] = [
+export const FormulaList: Topic[] = [
 	{
-		name: 'DENSITY',
-		id: uuid(),
-		format: 'A',
-		variables: [
+		title: 'Properties of Matter',
+		formulas: [
 			{
-				symbol: {
-					short: 'D',
-					long: 'density',
-				},
-				units: [
+				name: 'DENSITY',
+				id: uuid(),
+				format: 'A',
+				variables: [
 					{
-						symbol: `\\frac{g}{mL}`,
-						name: '\\frac{grams}{millileter}',
+						symbol: {
+							short: 'D',
+							long: 'density',
+						},
+						units: [
+							{
+								symbol: `\\frac{g}{mL}`,
+								name: '\\frac{grams}{millileter}',
+							},
+							{
+								symbol: `\\frac{g}{cm^3}`,
+								name: '\\frac{grams}{centimeters^3}',
+							},
+						],
+						color: variableColors[0],
 					},
 					{
-						symbol: `\\frac{g}{cm^3}`,
-						name: '\\frac{grams}{centimeters^3}',
+						symbol: {
+							short: 'm',
+							long: 'mass',
+						},
+						units: [
+							{
+								symbol: 'g',
+								name: 'grams',
+							},
+							{
+								symbol: 'kg',
+								name: 'kilograms',
+							},
+							{
+								symbol: 'mg',
+								name: 'milligrams',
+							},
+						],
+						color: variableColors[1],
+					},
+					{
+						symbol: {
+							short: 'v',
+							long: 'volume',
+						},
+						units: [
+							{
+								symbol: 'mL',
+								name: 'millilitres',
+							},
+							{
+								symbol: 'cm^3',
+								name: 'centimeters^3',
+							},
+							{
+								symbol: 'L',
+								name: 'litres',
+							},
+						],
+						color: variableColors[2],
 					},
 				],
-				color: variableColors[0],
 			},
 			{
-				symbol: {
-					short: 'm',
-					long: 'mass',
-				},
-				units: [
+				name: 'PRESSURE',
+				id: uuid(),
+				format: 'A',
+				variables: [
 					{
-						symbol: 'g',
-						name: 'grams',
+						symbol: {
+							short: 'P',
+							long: 'pressure',
+						},
+						units: [
+							{
+								symbol: `atm`,
+								name: 'atmospheres',
+							},
+							{
+								symbol: `kpa`,
+								name: 'kilopascals',
+							},
+						],
+						color: variableColors[0],
 					},
 					{
-						symbol: 'kg',
-						name: 'kilograms',
+						symbol: {
+							short: 'F',
+							long: 'force',
+						},
+						units: [
+							{
+								symbol: 'N',
+								name: 'Newtons',
+							},
+							{
+								symbol: `kg \\cdot \\frac{m}{s^2}`,
+								name: 'Newtons',
+							},
+							{
+								symbol: 'lbs',
+								name: 'pounds',
+							},
+						],
+						color: variableColors[1],
 					},
 					{
-						symbol: 'mg',
-						name: 'milligrams',
+						symbol: {
+							short: 'A',
+							long: 'Area',
+						},
+						units: [
+							{
+								symbol: 'cm^2',
+								name: 'centimeters^2',
+							},
+							{
+								symbol: 'm^2',
+								name: 'meters^2',
+							},
+						],
+						color: variableColors[2],
 					},
 				],
-				color: variableColors[1],
-			},
-			{
-				symbol: {
-					short: 'v',
-					long: 'volume',
-				},
-				units: [
-					{
-						symbol: 'mL',
-						name: 'millilitres',
-					},
-					{
-						symbol: 'cm^3',
-						name: 'centimeters^3',
-					},
-					{
-						symbol: 'L',
-						name: 'litres',
-					},
-				],
-				color: variableColors[2],
 			},
 		],
 	},
 	{
-		name: 'SPEED',
-		id: uuid(),
-		format: 'A',
-		variables: [
+		title: 'Kinematics',
+		formulas: [
 			{
-				symbol: {
-					short: 's',
-					long: 'speed',
-				},
-				units: [
+				name: 'SPEED',
+				id: uuid(),
+				format: 'A',
+				variables: [
 					{
-						symbol: '\\frac{m}{s^2}',
-						name: '\\frac{meters}{second^2}',
+						symbol: {
+							short: 's',
+							long: 'speed',
+						},
+						units: [
+							{
+								symbol: '\\frac{m}{s^2}',
+								name: '\\frac{meters}{second^2}',
+							},
+						],
+
+						color: variableColors[0],
+					},
+					{
+						symbol: {
+							short: 'd',
+							long: 'distance',
+						},
+						units: [{ symbol: 'm', name: 'meters' }],
+
+						color: variableColors[1],
+					},
+					{
+						symbol: {
+							short: 't',
+							long: 'time',
+						},
+						units: [{ symbol: 's', name: 'seconds' }],
+
+						color: variableColors[2],
 					},
 				],
-
-				color: variableColors[0],
-			},
-			{
-				symbol: {
-					short: 'd',
-					long: 'distance',
-				},
-				units: [{ symbol: 'm', name: 'meters' }],
-
-				color: variableColors[1],
-			},
-			{
-				symbol: {
-					short: 't',
-					long: 'time',
-				},
-				units: [{ symbol: 's', name: 'seconds' }],
-
-				color: variableColors[2],
 			},
 		],
 	},
 	{
-		name: 'OHMS LAW',
-		id: uuid(),
-		format: 'A',
-		variables: [
+		title: 'Electricity',
+		formulas: [
 			{
-				symbol: {
-					short: 'I',
-					long: 'current',
-				},
-				units: [
+				name: 'OHMS LAW',
+				id: uuid(),
+				format: 'A',
+				variables: [
 					{
-						symbol: 'A',
-						name: 'Amps',
+						symbol: {
+							short: 'I',
+							long: 'current',
+						},
+						units: [
+							{
+								symbol: 'A',
+								name: 'Amps',
+							},
+						],
+						color: variableColors[0],
+					},
+					{
+						symbol: {
+							short: 'V',
+							long: 'voltage',
+						},
+						units: [{ symbol: 'V', name: 'Volts' }],
+						color: variableColors[1],
+					},
+					{
+						symbol: {
+							short: 'R',
+							long: 'resistance',
+						},
+						units: [{ symbol: '\\Omega', name: 'Ohms' }],
+						color: variableColors[2],
 					},
 				],
-				color: variableColors[0],
-			},
-			{
-				symbol: {
-					short: 'V',
-					long: 'voltage',
-				},
-				units: [{ symbol: 'V', name: 'Volts' }],
-				color: variableColors[1],
-			},
-			{
-				symbol: {
-					short: 'R',
-					long: 'resistance',
-				},
-				units: [{ symbol: '\\Omega', name: 'Ohms' }],
-				color: variableColors[2],
 			},
 		],
 	},

@@ -17,13 +17,13 @@ import Latex from 'react-latex-next'
 type Props = {
 	vars: Variable[]
 }
-type FmtBProps =
+type FmtFProps =
 	Props extends Record<string, never>
 		? React.FC<Record<string, never>>
 		: React.FC<Props>
 
-export const FmtB: FmtBProps = ({ vars }) => {
-	const [a, b, c] = vars
+export const FmtF: FmtFProps = ({ vars }) => {
+	const [a, b, c, d] = vars
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	const [isOpen, setIsOpen] = useState(false)
@@ -56,12 +56,17 @@ export const FmtB: FmtBProps = ({ vars }) => {
 			<Box ref={refs.setReference} {...getReferenceProps()}>
 				<Latex>
 					{`$` +
-						`\\color{${a.color}}${a.symbol.long}` +
-						`_{${a.subscript}}` +
+						`\\color{${a.color}}${a.symbol.long}_{${a.subscript}}` +
 						`\\color{${dracFg}}=` +
-						`\\color{${b.color}}${b.symbol.long}_{${b.subscript}}}` +
+						`\\frac` +
+						`{` +
+						`\\color{${b.color}}${b.symbol.long}_{${b.subscript}}` +
+						`}` +
+						`{` +
+						`\\color{${c.color}}${c.symbol.long}_{${c.subscript}}` +
 						`\\cdot` +
-						`\\color{${c.color}}${c.symbol.long}_{${c.subscript}` +
+						`\\color{${d.color}}${d.symbol.long}_{${d.subscript}}` +
+						`}` +
 						`$`}
 				</Latex>
 			</Box>

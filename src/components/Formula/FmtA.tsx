@@ -1,5 +1,5 @@
 import { UnitPopover } from '@/components/Formula/UnitPopover'
-import { dracFg, dracGreen, dracPink, dracPurple } from '@/theme/colors/colors'
+import { dracFg } from '@/theme/colors/colors'
 import { Box } from '@chakra-ui/react'
 import {
 	arrow,
@@ -54,7 +54,19 @@ export const FmtA: FmtAProps = ({ vars }) => {
 	return (
 		<Box ref={containerRef}>
 			<Box ref={refs.setReference} {...getReferenceProps()}>
-				<Latex>{`$\\color{${dracGreen}}${a.symbol.long}\\color{${dracFg}}=\\frac{\\color{${dracPink}}${b.symbol.long}}{\\color{${dracPurple}}${c.symbol.long}}$`}</Latex>
+				<Latex>
+					{`$` +
+						`\\color{${a.color}}${a.symbol.long}_{${a.subscript}}` +
+						`\\color{${dracFg}}=` +
+						`\\frac` +
+						`{` +
+						`\\color{${b.color}}${b.symbol.long}_{${b.subscript}}` +
+						`}` +
+						`{` +
+						`\\color{${c.color}}${c.symbol.long}_{${c.subscript}}` +
+						`}` +
+						`$`}
+				</Latex>
 			</Box>
 			{isOpen && (
 				<UnitPopover

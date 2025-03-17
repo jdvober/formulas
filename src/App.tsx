@@ -1,7 +1,7 @@
 import { dracComment } from '@/theme/colors/colors'
 import './App.css'
 import { Formula } from './components/Formula/Formula'
-import { FormulaList } from './stores/formulaList'
+import { FormulaList } from './stores/FormulaList'
 
 import { Box, Center, HStack, Text, VStack } from '@chakra-ui/react'
 import {

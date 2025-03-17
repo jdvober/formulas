@@ -7,55 +7,40 @@ type Compound = {
 
 */
 
-type Result = { type: 'ok'; data: Data } | { type: 'error'; error: Error }
-type Data = { type: 'text'; content: string } | { type: 'img'; src: string }
-
-type FormatID = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G'
+type FormatID = 'VARDEF' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G'
 
 type Format =
 	| {
+			id: 'VARDEF'
+			variables: Variable[]
+	  }
+	| {
 			id: 'A'
 			variables: Variable[]
-			variations: [
-				// Variation 1
-				`$${a}=\\frac{${b}}{${c}}$`,
-
-				// Variation 2
-				`$${c}=\\frac{${b}}{${a}}$`,
-
-				// Variation 3
-				`$${b}=${a}\\cdot${c}$`,
-			]
 	  }
 	| {
 			id: 'B'
 			variables: Variable[]
-			variations: string[]
 	  }
 	| {
 			id: 'C'
 			variables: Variable[]
-			variations: string[]
 	  }
 	| {
 			id: 'D'
 			variables: Variable[]
-			variations: string[]
 	  }
 	| {
 			id: 'E'
 			variables: Variable[]
-			variations: string[]
 	  }
 	| {
 			id: 'F'
 			variables: Variable[]
-			variations: string[]
 	  }
 	| {
 			id: 'G'
 			variables: Variable[]
-			variations: string[]
 	  }
 
 type VariableColor =
@@ -93,12 +78,14 @@ type VariableColor =
 	| '#7D2AF3'
 	| '#CCBEAB'
 	| '#8E7757'
+	| '#F8F8F2'
 
 type Variable = {
 	symbol: { short: string; long: string }
 	units: { symbol: string; name: string }[]
 	color: VariableColor
 	subscript: string
+	description: string
 }
 
 type Topic = {

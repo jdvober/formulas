@@ -1,7 +1,7 @@
 import { UnitPopover } from '@/components/Formula/UnitPopover'
 import { useMainStore } from '@/stores/MainStore'
 import { dracFg } from '@/theme/colors/colors'
-import { Box } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import {
 	arrow,
 	autoPlacement,
@@ -18,14 +18,14 @@ import Latex from 'react-latex-next'
 type Props = {
 	vars: Variable[]
 }
-type FmtGProps =
+type FmtVarDefProps =
 	Props extends Record<string, never>
 		? React.FC<Record<string, never>>
 		: React.FC<Props>
 
-export const FmtG: FmtGProps = ({ vars }) => {
+export const FmtVarDef: FmtVarDefProps = ({ vars }) => {
 	const longSymbols = useMainStore((state) => state.longSymbols)
-	const [a, b, c, d] = vars
+	const [LHS, RHS, description] = vars
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	const [isOpen, setIsOpen] = useState(false)
@@ -53,31 +53,27 @@ export const FmtG: FmtGProps = ({ vars }) => {
 	const hover = useHover(context)
 
 	const { getReferenceProps, getFloatingProps } = useInteractions([hover])
+
 	return (
 		<Box ref={containerRef}>
 			<Box ref={refs.setReference} {...getReferenceProps()}>
 				<Latex>
 					{`$` +
-						`\\color{${a.color}}${longSymbols == false ? a.symbol.short : a.symbol.long}_{${a.subscript}}` +
+						`\\color{${LHS.color}}${LHS.symbol[longSymbols === false ? 'short' : 'long']}_{${LHS.subscript}}` +
 						`\\color{${dracFg}}=` +
-						`\\sqrt` +
-						`{` +
-						`\\frac` +
-						`{` +
-						`\\color{${b.color}}${longSymbols == false ? b.symbol.short : b.symbol.long}_{${b.subscript}}` +
-						`\\cdot` +
-						`\\color{${c.color}}${longSymbols == false ? c.symbol.short : c.symbol.long}_{${c.subscript}}` +
-						`}` +
-						`{` +
-						`\\color{${d.color}}${d.symbol[longSymbols === false ? 'short' : 'long']}_{${d.subscript}}` +
-						`}` +
-						`}` +
+						`\\color{${RHS.color}}${RHS.symbol[longSymbols === false ? 'short' : 'long']}_{${RHS.subscript}}` +
 						`$`}
 				</Latex>
 			</Box>
+			<Text>{description.description}</Text>
 			{isOpen && (
 				<UnitPopover
-					vars={vars}
+					vars={vars.filter(
+						(v) =>
+							v.symbol[
+								longSymbols === false ? 'short' : 'long'
+							] !== '' || v.symbol.short !== ''
+					)}
 					floatingStyles={floatingStyles}
 					getFloatingProps={getFloatingProps}
 					refs={refs}

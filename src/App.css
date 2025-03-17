@@ -31,7 +31,3 @@
 .monospace {
 	font-family: 'Fira Code', monospace;
 }
-
-[style*='red']:hover {
-	scale: 1.2;
-}

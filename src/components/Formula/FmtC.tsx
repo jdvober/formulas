@@ -1,11 +1,9 @@
 import { UnitPopover } from '@/components/Formula/UnitPopover'
+import { useMainStore } from '@/stores/MainStore'
 import { dracFg } from '@/theme/colors/colors'
 import { Box } from '@chakra-ui/react'
 import {
-	arrow,
-	autoPlacement,
 	offset,
-	size,
 	useFloating,
 	useHover,
 	useInteractions,
@@ -23,6 +21,7 @@ type FmtCProps =
 		: React.FC<Props>
 
 export const FmtC: FmtCProps = ({ vars }) => {
+	const longSymbols = useMainStore((state) => state.longSymbols)
 	const [a, b, c, d] = vars
 	const containerRef = useRef<HTMLDivElement>(null)
 
@@ -32,19 +31,7 @@ export const FmtC: FmtCProps = ({ vars }) => {
 		open: isOpen,
 		onOpenChange: setIsOpen,
 		middleware: [
-			arrow({
-				element: arrowRef,
-			}),
 			offset(32), // Spacing of the floating popover from the reference element.
-			autoPlacement(),
-			size({
-				apply({ availableWidth, availableHeight, elements }) {
-					Object.assign(elements.floating.style, {
-						maxWidth: `${Math.max(0, availableWidth)}px`,
-						maxHeight: `${Math.max(0, availableHeight)}px`,
-					})
-				},
-			}),
 		],
 	})
 
@@ -52,17 +39,17 @@ export const FmtC: FmtCProps = ({ vars }) => {
 
 	const { getReferenceProps, getFloatingProps } = useInteractions([hover])
 	return (
-		<Box ref={containerRef}>
+		<Box ref={containerRef} zIndex={1}>
 			<Box ref={refs.setReference} {...getReferenceProps()}>
 				<Latex>
 					{`$` +
-						`\\color{${a.color}}${a.symbol.long}_{${a.subscript}}` +
+						`\\color{${a.color}}${longSymbols === false ? a.symbol.short : a.symbol.long}_{${a.subscript}}` +
 						`\\cdot` +
-						`\\color{${b.color}}${b.symbol.long}_{${b.subscript}}` +
+						`\\color{${b.color}}${longSymbols == false ? b.symbol.short : b.symbol.long}_{${b.subscript}}` +
 						`\\color{${dracFg}}=` +
-						`\\color{${c.color}}${c.symbol.long}_{${c.subscript}}` +
+						`\\color{${c.color}}${longSymbols == false ? c.symbol.short : c.symbol.long}_{${c.subscript}}` +
 						`\\cdot` +
-						`\\color{${d.color}}${d.symbol.long}_{${d.subscript}}` +
+						`\\color{${d.color}}${d.symbol[longSymbols === false ? 'short' : 'long']}_{${d.subscript}}` +
 						`$`}
 				</Latex>
 			</Box>

@@ -1,39 +1,41 @@
-import { create } from "zustand"
-import { createJSONStorage, persist } from "zustand/middleware"
-import { immer } from "zustand/middleware/immer"
+import { create } from 'zustand'
+import { createJSONStorage, persist } from 'zustand/middleware'
+import { immer } from 'zustand/middleware/immer'
 
 type State = {
 	/* Values go here.*/
-	exampleValue: number
+	longSymbols: boolean
 }
 
 type Action = {
 	/* Ways to alter the state go here.*/
-	updateExampleValue: ( newValue: number ) => void
+	setLongSymbols: (newValue: boolean) => void
 }
 
 export const useMainStore = create<State & Action>()(
 	persist(
-		immer( ( set ) => ( {
+		immer((set) => ({
 			///////////
 			// State //
 			///////////
-			exampleValue: 100,
+			longSymbols: true,
 
 			/////////////
 			// Actions //
 			/////////////
-			updateExampleValue: ( newValue ) => { set( ( state: State ) => { state.exampleValue = newValue } ) },
-		}
-		) ),
+			setLongSymbols: (newValue) => {
+				set((state: State) => {
+					state.longSymbols = newValue
+				})
+			},
+		})),
 		{
 			// Use Local Storage
-			name: "main-storage",
-			storage: createJSONStorage( () => localStorage ), // (optional) by default, 'localStorage' is used
+			name: 'main-storage',
+			storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
 		}
-
-	) )
-
+	)
+)
 
 // Zustand Documentation
 /*

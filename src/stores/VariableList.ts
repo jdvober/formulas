@@ -1,40 +1,68 @@
 import { match } from 'ts-pattern'
 
 export const VariableColors: VariableColor[] = [
+	//Density
 	'#fe6a00',
+	//Mass
 	'#D1B3FB',
-	'#E4F61F',
+	// Volume
+	'#07E63F',
+	// Pressure
 	'#997D00',
+	// Force
 	'#9CDEED',
+	// Area
 	'#FF0F97',
+	// Temp
 	'#073FE6',
+	// Heat Energy
 	'#FFCC95',
+	// Specific Heat Capacity
 	'#D9FD4B',
+	// Speed
 	'#91B402',
+	// Distance
 	'#6A88E2',
+	// Time
 	'#CCBEAB',
+	// Velocity
 	'#FF8604',
+	// Position
 	'#7D2AF3',
+	// Delta
 	'#E3EA9A',
+	// Acceleration
 	'#FF8787',
+	// Voltage
 	'#F40000',
+	// Current
 	'#F1FA8C',
+	// Resistance
 	'#8E7757',
+	// Momentum
 	'#50FA7B',
+	// Friction
 	'#6AE288',
+	// Mu
 	'#8BE9FD',
+	// Work
 	'#FF5555',
+	// Wave Speed
 	'#EC8DC3',
+	// Frequency
 	'#B7A48A',
+	// Wavelength
 	'#D7AF00',
+	// Power
 	'#CAFC03',
+	// Energy
 	'#1DD3FC',
 	'#BD93F9',
 	'#FFD82C',
 	'#527CFA',
-	'#07E63F',
 	'#FF79C6',
 	'#FFB86C',
+	'#E4F61F',
 ]
 
 export const Density = {
@@ -53,6 +81,7 @@ export const Density = {
 		},
 	],
 	color: VariableColors[0],
+	description: '',
 }
 export const Mass = {
 	symbol: {
@@ -74,6 +103,7 @@ export const Mass = {
 		},
 	],
 	color: VariableColors[1],
+	description: '',
 }
 export const Volume = {
 	symbol: {
@@ -95,6 +125,7 @@ export const Volume = {
 		},
 	],
 	color: VariableColors[2],
+	description: '',
 }
 export const Pressure = {
 	symbol: {
@@ -112,6 +143,7 @@ export const Pressure = {
 		},
 	],
 	color: VariableColors[3],
+	description: '',
 }
 export const Force = {
 	symbol: {
@@ -133,6 +165,29 @@ export const Force = {
 		},
 	],
 	color: VariableColors[4],
+	description: '',
+}
+export const Weight = {
+	symbol: {
+		short: 'W',
+		long: `Weight`,
+	},
+	units: [
+		{
+			symbol: 'N',
+			name: 'Newtons',
+		},
+		{
+			symbol: `kg \\cdot \\frac{m}{s^2}`,
+			name: 'Newtons',
+		},
+		{
+			symbol: 'lbs',
+			name: 'pounds',
+		},
+	],
+	color: VariableColors[4],
+	description: '',
 }
 export const Area = {
 	symbol: {
@@ -150,6 +205,7 @@ export const Area = {
 		},
 	],
 	color: VariableColors[5],
+	description: '',
 }
 export const Temperature = {
 	symbol: {
@@ -171,6 +227,7 @@ export const Temperature = {
 		},
 	],
 	color: VariableColors[6],
+	description: '',
 }
 export const HeatEnergy = {
 	symbol: {
@@ -184,11 +241,12 @@ export const HeatEnergy = {
 		},
 	],
 	color: VariableColors[7],
+	description: '',
 }
 export const SpecificHeatCapacity = {
 	symbol: {
 		short: 'c',
-		long: 'Specific~Heat~Capacity',
+		long: '\\tiny Specific~Heat~Capacity\\normalsize ',
 	},
 	units: [
 		{
@@ -197,6 +255,7 @@ export const SpecificHeatCapacity = {
 		},
 	],
 	color: VariableColors[8],
+	description: '',
 }
 export const Speed = {
 	symbol: {
@@ -205,15 +264,16 @@ export const Speed = {
 	},
 	units: [
 		{
-			symbol: '\\frac{m}{s^2}',
-			name: '\\frac{meters}{second^2}',
+			symbol: '\\frac{m}{s}',
+			name: '\\frac{meters}{seconds}',
 		},
 		{
-			symbol: '\\frac{cm}{s^2}',
-			name: '\\frac{centimeters}{second^2}',
+			symbol: '\\frac{cm}{s}',
+			name: '\\frac{centimeters}{seconds}',
 		},
 	],
 	color: VariableColors[9],
+	description: '',
 }
 export const Distance = {
 	symbol: {
@@ -227,6 +287,7 @@ export const Distance = {
 		{ symbol: 'mm', name: 'millimeters' },
 	],
 	color: VariableColors[10],
+	description: '',
 }
 export const Time = {
 	symbol: {
@@ -241,6 +302,7 @@ export const Time = {
 		{ symbol: 'days', name: 'days' },
 	],
 	color: VariableColors[11],
+	description: '',
 }
 export const Velocity = {
 	symbol: {
@@ -249,15 +311,16 @@ export const Velocity = {
 	},
 	units: [
 		{
-			symbol: '\\frac{m}{s^2}',
-			name: '\\frac{meters}{second^2}',
+			symbol: '\\frac{m}{s}',
+			name: '\\frac{meters}{second}',
 		},
 		{
-			symbol: '\\frac{cm}{s^2}',
-			name: '\\frac{centimeters}{second^2}',
+			symbol: '\\frac{cm}{s}',
+			name: '\\frac{centimeters}{second}',
 		},
 	],
 	color: VariableColors[12],
+	description: '',
 }
 export const Position = {
 	symbol: {
@@ -271,20 +334,21 @@ export const Position = {
 		{ symbol: 'mm', name: 'millimeters' },
 	],
 	color: VariableColors[13],
+	description: '',
 }
 export const Delta = (variable: Variable, subscriptType: DeltaSubscript) => {
 	const subscripts = match(subscriptType)
 		.with('NUMERICAL', () => ['1', '2'])
 		.with('NUMERICAL_ZERO_BASED', () => ['0', ''])
 		.with('INITIAL_FINAL', () => ['i', 'f'])
-		.with('STARTING_ENDING', () => ['starting', 'ending'])
+		.with('STARTING_ENDING', () => ['Starting', 'Ending'])
 		.with('BEGINNING_END', () => ['at the beginning', 'at the end'])
 		.otherwise(() => ['', ''])
 
 	return {
 		symbol: {
-			short: `\\Delta${variable.symbol.short}_{${subscripts[1]}} - ${variable.symbol.short}_{${subscripts[0]}}`,
-			long: `(${variable.symbol.long}_{${subscripts[1]}} - ${variable.symbol.long}_{${subscripts[0]}})`,
+			short: `\\color{${VariableColors[14]}}\\Delta\\color{${variable.color}}${variable.symbol.short}_{${subscripts[1]}} \\color{${VariableColors[14]}}~-~ \\color{${variable.color}}${variable.symbol.short}_{${subscripts[0]}}\\color{${VariableColors[14]}})`,
+			long: `\\color{${VariableColors[14]}}(\\color{${variable.color}}${variable.symbol.long}_{${subscripts[1]}} \\color{${VariableColors[14]}}~-~\\color{${variable.color}}${variable.symbol.long}_{${subscripts[0]}}\\color{${VariableColors[14]}})`,
 		},
 		units: variable.units.map((unit) => {
 			return {
@@ -293,7 +357,8 @@ export const Delta = (variable: Variable, subscriptType: DeltaSubscript) => {
 			}
 		}),
 
-		color: VariableColors[14],
+		color: variable.color,
+		description: '',
 	}
 }
 export const Acceleration = {
@@ -303,15 +368,16 @@ export const Acceleration = {
 	},
 	units: [
 		{
-			symbol: '\\frac{m}{s^3}',
-			name: '\\frac{meters}{second^3}',
+			symbol: '\\frac{m}{s^2}',
+			name: '\\frac{meters}{seconds^2}',
 		},
 		{
-			symbol: '\\frac{cm}{s^3}',
-			name: '\\frac{centimeters}{second^3}',
+			symbol: '\\frac{cm}{s^2}',
+			name: '\\frac{centimeters}{seconds^2}',
 		},
 	],
 	color: VariableColors[15],
+	description: '',
 }
 export const Voltage = {
 	symbol: {
@@ -320,6 +386,7 @@ export const Voltage = {
 	},
 	units: [{ symbol: 'V', name: 'Volts' }],
 	color: VariableColors[16],
+	description: '',
 }
 export const Current = {
 	symbol: {
@@ -337,6 +404,7 @@ export const Current = {
 		},
 	],
 	color: VariableColors[17],
+	description: '',
 }
 export const Resistance = {
 	symbol: {
@@ -345,6 +413,7 @@ export const Resistance = {
 	},
 	units: [{ symbol: '\\Omega', name: 'Ohms' }],
 	color: VariableColors[18],
+	description: '',
 }
 export const Momentum = {
 	symbol: {
@@ -354,10 +423,11 @@ export const Momentum = {
 	units: [
 		{
 			symbol: `kg \\cdot \\frac{m}{s^2}`,
-			name: 'Kilogram-\\frac{Meters}{Second^2}',
+			name: 'kilograms\\cdot\\frac{meters}{seconds^2}',
 		},
 	],
 	color: VariableColors[19],
+	description: '',
 }
 export const Friction = {
 	symbol: {
@@ -379,6 +449,7 @@ export const Friction = {
 		},
 	],
 	color: VariableColors[20],
+	description: '',
 }
 export const Mu = {
 	symbol: {
@@ -392,6 +463,7 @@ export const Mu = {
 		},
 	],
 	color: VariableColors[21],
+	description: '',
 }
 export const Work = {
 	symbol: {
@@ -405,6 +477,7 @@ export const Work = {
 		},
 	],
 	color: VariableColors[22],
+	description: '',
 }
 export const WaveSpeed = {
 	symbol: {
@@ -413,15 +486,16 @@ export const WaveSpeed = {
 	},
 	units: [
 		{
-			symbol: '\\frac{m}{s^2}',
-			name: '\\frac{meters}{second^2}',
+			symbol: '\\frac{m}{s}',
+			name: '\\frac{meters}{seconds}',
 		},
 		{
-			symbol: '\\frac{cm}{s^2}',
-			name: '\\frac{centimeters}{second^2}',
+			symbol: '\\frac{cm}{s}',
+			name: '\\frac{centimeters}{seconds}',
 		},
 	],
 	color: VariableColors[23],
+	description: '',
 }
 export const Frequency = {
 	symbol: {
@@ -435,6 +509,7 @@ export const Frequency = {
 		},
 	],
 	color: VariableColors[24],
+	description: '',
 }
 export const Wavelength = {
 	symbol: {
@@ -448,6 +523,7 @@ export const Wavelength = {
 		{ symbol: 'mm', name: 'millimeters' },
 	],
 	color: VariableColors[25],
+	description: '',
 }
 export const Power = {
 	symbol: {
@@ -461,6 +537,7 @@ export const Power = {
 		},
 	],
 	color: VariableColors[26],
+	description: '',
 }
 
 export const Energy = {
@@ -475,4 +552,5 @@ export const Energy = {
 		},
 	],
 	color: VariableColors[27],
+	description: '',
 }

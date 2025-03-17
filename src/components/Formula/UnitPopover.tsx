@@ -30,14 +30,13 @@ export const UnitPopover: UnitPopoverProps = ({
 				background={dracBg2}
 				p='2vw'
 				w='auto'
-				zIndex={100}
 				ref={refs.setFloating}
 				style={floatingStyles}
 				{...getFloatingProps()}
 			>
 				{/*Content*/}
 				<VStack>
-					<Text fontSize='7xl' justifySelf='center'>
+					<Text fontSize='4xl' justifySelf='center'>
 						Units
 					</Text>
 					<For each={vars}>

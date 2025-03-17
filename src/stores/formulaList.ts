@@ -1,5 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import {
+	Acceleration,
 	Area,
 	Current,
 	Delta,
@@ -8,14 +9,19 @@ import {
 	Energy,
 	Force,
 	Mass,
+	Momentum,
+	Position,
 	Pressure,
 	Resistance,
 	SpecificHeatCapacity,
 	Speed,
 	Temperature,
 	Time,
+	VariableColors,
+	Velocity,
 	Voltage,
 	Volume,
+	Weight,
 } from './VariableList'
 
 export const FormulaList: Topic[] = [
@@ -52,10 +58,33 @@ export const FormulaList: Topic[] = [
 					{ ...SpecificHeatCapacity, subscript: '' },
 					{
 						...Delta(
-							{ ...Temperature, subscript: '' },
+							{
+								symbol: {
+									short: 'T',
+									long: 'Temp',
+								},
+								units: [
+									{
+										symbol: `\\degree C`,
+										name: 'Degrees~Celcius',
+									},
+									{
+										symbol: `\\degree F`,
+										name: 'Degrees~Farenheight',
+									},
+									{
+										symbol: `K`,
+										name: 'Kelvin',
+									},
+								],
+								color: VariableColors[6],
+								description: '',
+								subscript: '',
+							},
 							'NUMERICAL'
 						),
 						subscript: '',
+						description: '',
 					},
 				],
 			},
@@ -101,7 +130,7 @@ export const FormulaList: Topic[] = [
 	},
 
 	{
-		title: 'Kinematics',
+		title: 'Motion',
 		formulas: [
 			{
 				name: 'SPEED',
@@ -111,6 +140,141 @@ export const FormulaList: Topic[] = [
 					{ ...Speed, subscript: '' },
 					{ ...Distance, subscript: '' },
 					{ ...Time, subscript: '' },
+				],
+			},
+			{
+				name: 'VELOCITY',
+				id: uuid(),
+				format: 'A',
+				variables: [
+					{ ...Velocity, subscript: '' },
+					{
+						...Delta(
+							{ ...Position, subscript: '' },
+							'STARTING_ENDING'
+						),
+						subscript: '',
+					},
+
+					{
+						...Delta({ ...Time, subscript: '' }, 'STARTING_ENDING'),
+						subscript: '',
+					},
+				],
+			},
+			{
+				name: 'ACCELERATION',
+				id: uuid(),
+				format: 'A',
+				variables: [
+					{ ...Acceleration, subscript: '' },
+					{
+						...Delta(
+							{ ...Velocity, subscript: '' },
+							'STARTING_ENDING'
+						),
+						subscript: '',
+					},
+
+					{
+						...Delta({ ...Time, subscript: '' }, 'STARTING_ENDING'),
+						subscript: '',
+					},
+				],
+			},
+			{
+				name: 'MOMENTUM',
+				id: uuid(),
+				format: 'B',
+				variables: [
+					{ ...Momentum, subscript: '' },
+					{ ...Mass, subscript: '' },
+					{ ...Velocity, subscript: '' },
+				],
+			},
+		],
+	},
+	{
+		title: 'Forces',
+		formulas: [
+			{
+				name: 'FORCE',
+				id: uuid(),
+				format: 'B',
+				variables: [
+					{ ...Force, subscript: '' },
+					{ ...Mass, subscript: '' },
+					{ ...Acceleration, subscript: '' },
+				],
+			},
+			{
+				name: 'WEIGHT',
+				id: uuid(),
+				format: 'B',
+				variables: [
+					{ ...Weight, subscript: '' },
+					{ ...Mass, subscript: '' },
+					{ ...Acceleration, subscript: 'Gravity' },
+				],
+			},
+			{
+				name: 'GRAVITATIONAL ACCELERATION',
+				id: uuid(),
+				format: 'VARDEF',
+				variables: [
+					{
+						symbol: {
+							short: 'a',
+							long: 'Acceleration',
+						},
+						units: [
+							{
+								symbol: '',
+								name: '',
+							},
+						],
+						color: '#FF8787',
+						description: '',
+						subscript: 'Gravity~On~Earth',
+					},
+					{
+						symbol: {
+							short: '10',
+							long: '10',
+						},
+						units: [
+							{
+								symbol: '\\frac{m}{s^2}',
+								name: '\\frac{meters}{seconds^2}',
+							},
+							{
+								symbol: '\\frac{cm}{s^2}',
+								name: '\\frac{centimeters}{seconds^2}',
+							},
+						],
+						color: '#FF8787',
+						description: '',
+						subscript: '',
+					},
+					{
+						symbol: {
+							short: '',
+							long: '',
+						},
+						units: [
+							{
+								symbol: '',
+								name: '',
+							},
+							{
+								symbol: '',
+								name: '',
+							},
+						],
+						color: '#FF8787',
+						description: '',
+						subscript: '',
+					},
 				],
 			},
 		],

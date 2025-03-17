@@ -17,32 +17,36 @@ export const Units: UnitsProps = ({ variable, color }) => {
 				return variable.units.length === i + 1 ? (
 					<HStack key={uuid()}>
 						<Text fontSize='2xl'>
-							{<Latex>{`$\\color{${color}}${unit.name}$`}</Latex>}
+							{
+								<Latex>{`$\\color{${color}}${unit.symbol}$`}</Latex>
+							}
 						</Text>
 						<Text fontSize='2xl'>
-							{unit.name === 'Unitless' ? null : (
-								<Latex>{`$\\color{${dracComment}}(${unit.symbol})$`}</Latex>
+							{unit.name === 'Unitless' ||
+							unit.name === '' ? null : (
+								<Latex>{`$\\color{${dracFg}}(${unit.name})$`}</Latex>
 							)}
 						</Text>
 					</HStack>
 				) : (
 					<HStack key={uuid()}>
 						<Text fontSize='2xl'>
-							<Latex>{`$\\color{${color}}${unit.name}$`}</Latex>
+							<Latex>{`$\\color{${color}}${unit.symbol}$`}</Latex>
 						</Text>
 						<Text fontSize='2xl'>
-							{unit.name === 'Unitless' ? null : (
+							{unit.name === 'Unitless' ||
+							unit.name === '' ? null : (
 								<Latex>
 									{`$` +
-										`\\color{${dracComment}}` +
+										`\\color{${dracFg}}` +
 										`(` +
-										`${unit.symbol}` +
+										`${unit.name}` +
 										`)` +
 										`$`}
 								</Latex>
 							)}
 						</Text>
-						<Text fontSize='2xl' color={dracFg}>{` or `}</Text>
+						<Text fontSize='2xl' color={dracComment}>{` or `}</Text>
 					</HStack>
 				)
 			})}

@@ -1,9 +1,10 @@
 import { UnitPopover } from '@/components/Formula/UnitPopover'
+import { useMainStore } from '@/stores/MainStore'
 import { dracFg } from '@/theme/colors/colors'
 import { Box } from '@chakra-ui/react'
 import {
 	arrow,
-	autoPlacement,
+	flip,
 	offset,
 	size,
 	useFloating,
@@ -23,6 +24,7 @@ type FmtAProps =
 		: React.FC<Props>
 
 export const FmtA: FmtAProps = ({ vars }) => {
+	const longSymbols = useMainStore((state) => state.longSymbols)
 	const [a, b, c] = vars
 	const containerRef = useRef<HTMLDivElement>(null)
 
@@ -36,7 +38,7 @@ export const FmtA: FmtAProps = ({ vars }) => {
 				element: arrowRef,
 			}),
 			offset(32), // Spacing of the floating popover from the reference element.
-			autoPlacement(),
+			flip(),
 			size({
 				apply({ availableWidth, availableHeight, elements }) {
 					Object.assign(elements.floating.style, {
@@ -52,29 +54,31 @@ export const FmtA: FmtAProps = ({ vars }) => {
 
 	const { getReferenceProps, getFloatingProps } = useInteractions([hover])
 	return (
-		<Box ref={containerRef}>
+		<Box ref={containerRef} zIndex={1}>
 			<Box ref={refs.setReference} {...getReferenceProps()}>
 				<Latex>
 					{`$` +
-						`\\color{${a.color}}${a.symbol.long}_{${a.subscript}}` +
+						`\\color{${a.color}}${longSymbols == false ? a.symbol.short : a.symbol.long}_{${a.subscript}}` +
 						`\\color{${dracFg}}=` +
 						`\\frac` +
 						`{` +
-						`\\color{${b.color}}${b.symbol.long}_{${b.subscript}}` +
+						`\\color{${b.color}}${longSymbols == false ? b.symbol.short : b.symbol.long}_{${b.subscript}}` +
 						`}` +
 						`{` +
-						`\\color{${c.color}}${c.symbol.long}_{${c.subscript}}` +
+						`\\color{${c.color}}${longSymbols == false ? c.symbol.short : c.symbol.long}_{${c.subscript}}` +
 						`}` +
 						`$`}
 				</Latex>
 			</Box>
 			{isOpen && (
-				<UnitPopover
-					vars={vars}
-					floatingStyles={floatingStyles}
-					getFloatingProps={getFloatingProps}
-					refs={refs}
-				/>
+				<Box zIndex={1}>
+					<UnitPopover
+						vars={vars}
+						floatingStyles={floatingStyles}
+						getFloatingProps={getFloatingProps}
+						refs={refs}
+					/>
+				</Box>
 			)}
 		</Box>
 	)

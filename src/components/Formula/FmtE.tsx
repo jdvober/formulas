@@ -1,4 +1,5 @@
 import { UnitPopover } from '@/components/Formula/UnitPopover'
+import { useMainStore } from '@/stores/MainStore'
 import { dracFg } from '@/theme/colors/colors'
 import { Box } from '@chakra-ui/react'
 import {
@@ -23,6 +24,7 @@ type FmtEProps =
 		: React.FC<Props>
 
 export const FmtE: FmtEProps = ({ vars }) => {
+	const longSymbols = useMainStore((state) => state.longSymbols)
 	const [a, b, c, d] = vars
 	const containerRef = useRef<HTMLDivElement>(null)
 
@@ -56,13 +58,13 @@ export const FmtE: FmtEProps = ({ vars }) => {
 			<Box ref={refs.setReference} {...getReferenceProps()}>
 				<Latex>
 					{`$` +
-						`\\color{${a.color}}${a.symbol.long}_{${a.subscript}}` +
+						`\\color{${a.color}}${longSymbols == false ? a.symbol.short : a.symbol.long}_{${a.subscript}}` +
 						`\\color{${dracFg}}=` +
-						`\\color{${b.color}}${b.symbol.long}_{${b.subscript}}` +
+						`\\color{${b.color}}${longSymbols == false ? b.symbol.short : b.symbol.long}_{${b.subscript}}` +
 						`\\cdot` +
-						`\\color{${c.color}}${c.symbol.long}_{${c.subscript}}` +
+						`\\color{${c.color}}${longSymbols == false ? c.symbol.short : c.symbol.long}_{${c.subscript}}` +
 						`\\cdot` +
-						`\\color{${d.color}}${d.symbol.long}_{${d.subscript}}` +
+						`\\color{${d.color}}${d.symbol[longSymbols === false ? 'short' : 'long']}_{${d.subscript}}` +
 						`$`}
 				</Latex>
 			</Box>

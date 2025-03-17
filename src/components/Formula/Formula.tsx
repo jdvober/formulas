@@ -5,6 +5,7 @@ import { FmtD } from '@/components/Formula/FmtD'
 import { FmtE } from '@/components/Formula/FmtE'
 import { FmtF } from '@/components/Formula/FmtF'
 import { FmtG } from '@/components/Formula/FmtG'
+import { FmtVarDef } from '@/components/Formula/FmtVarDef'
 import { dracCl, dracRed } from '@/theme/colors/colors'
 import { Box } from '@chakra-ui/react'
 import React from 'react'
@@ -24,7 +25,7 @@ export const Formula: FormulaProps = ({ formula: formula }) => {
 			return <FmtA vars={formula.variables} />
 		})
 		// Match the pattern [formula.format, formula.variables.length] with ['B', 4] and if it matches, run the function () => {return <FmtB vars={formula.variables} />}
-		.with(['B', 4], () => {
+		.with(['B', 3], () => {
 			return <FmtB vars={formula.variables} />
 		})
 		// etc, etc
@@ -43,6 +44,9 @@ export const Formula: FormulaProps = ({ formula: formula }) => {
 		.with(['G', 4], () => {
 			return <FmtG vars={formula.variables} />
 		})
+		.with(['VARDEF', 3], () => {
+			return <FmtVarDef vars={formula.variables} />
+		})
 		.otherwise(() => {
 			return (
 				<Box
@@ -58,7 +62,12 @@ export const Formula: FormulaProps = ({ formula: formula }) => {
 		})
 
 	return (
-		<Box border={`1px solid ${dracCl}`} borderRadius='0.25em' p='0.25em'>
+		<Box
+			border={`1px solid ${dracCl}`}
+			borderRadius='0.25em'
+			p='0.25em'
+			w='auto'
+		>
 			{jsxToReturn}
 		</Box>
 	)

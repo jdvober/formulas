@@ -2,6 +2,17 @@
 
 ## Formula Formats
 
+### Variable Definition
+
+$a=b$
+$c$
+
+where $b$ is a description of $a$
+
+and
+
+$c$ is any supporting text.
+
 ### Format A
 
 $a=\frac{b}{c}$

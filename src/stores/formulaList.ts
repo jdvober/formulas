@@ -78,7 +78,7 @@ export const FormulaList: Topic[] = [
 			{
 				name: "CHARLES' LAW",
 				id: uuid(),
-				format: 'D',
+				format: 'C',
 				variables: [
 					{ ...Volume, subscript: '1' },
 					{ ...Temperature, subscript: '2' },
@@ -89,7 +89,7 @@ export const FormulaList: Topic[] = [
 			{
 				name: "GAY-LUSSAC'S LAW",
 				id: uuid(),
-				format: 'D',
+				format: 'C',
 				variables: [
 					{ ...Pressure, subscript: '1' },
 					{ ...Temperature, subscript: '2' },

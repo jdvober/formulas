@@ -5,11 +5,13 @@ import { immer } from 'zustand/middleware/immer'
 type State = {
 	/* Values go here.*/
 	longSymbols: boolean
+	info: any
 }
 
 type Action = {
 	/* Ways to alter the state go here.*/
 	setLongSymbols: (newValue: boolean) => void
+	setInfo: (info: any) => void
 }
 
 export const useMainStore = create<State & Action>()(
@@ -19,6 +21,7 @@ export const useMainStore = create<State & Action>()(
 			// State //
 			///////////
 			longSymbols: true,
+			info: null,
 
 			/////////////
 			// Actions //
@@ -28,6 +31,10 @@ export const useMainStore = create<State & Action>()(
 					state.longSymbols = newValue
 				})
 			},
+			setInfo: (info) =>
+				set((state) => {
+					state.info = info
+				}),
 		})),
 		{
 			// Use Local Storage

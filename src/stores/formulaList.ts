@@ -22,7 +22,7 @@ import {
 	Voltage,
 	Volume,
 	Weight,
-} from './VariableList'
+} from './TermList'
 
 export const FormulaList: Topic[] = [
 	{
@@ -59,22 +59,22 @@ export const FormulaList: Topic[] = [
 					{
 						...Delta(
 							{
-								symbol: {
+								variableSymbol: {
 									short: 'T',
 									long: 'Temp',
 								},
 								units: [
 									{
-										symbol: `\\degree C`,
-										name: 'Degrees~Celcius',
+										short: `\\degree C`,
+										long: 'Degrees~Celcius',
 									},
 									{
-										symbol: `\\degree F`,
-										name: 'Degrees~Farenheight',
+										short: `\\degree F`,
+										long: 'Degrees~Farenheight',
 									},
 									{
-										symbol: `K`,
-										name: 'Kelvin',
+										short: `K`,
+										long: 'Kelvin',
 									},
 								],
 								color: VariableColors[6],
@@ -223,14 +223,14 @@ export const FormulaList: Topic[] = [
 				format: 'VARDEF',
 				variables: [
 					{
-						symbol: {
+						variableSymbol: {
 							short: 'a',
 							long: 'Acceleration',
 						},
 						units: [
 							{
-								symbol: '',
-								name: '',
+								short: '',
+								long: '',
 							},
 						],
 						color: '#FF8787',
@@ -238,18 +238,18 @@ export const FormulaList: Topic[] = [
 						subscript: 'Gravity~On~Earth',
 					},
 					{
-						symbol: {
+						variableSymbol: {
 							short: '10',
 							long: '10',
 						},
 						units: [
 							{
-								symbol: '\\frac{m}{s^2}',
-								name: '\\frac{meters}{seconds^2}',
+								short: '\\frac{m}{s^2}',
+								long: '\\frac{meters}{seconds^2}',
 							},
 							{
-								symbol: '\\frac{cm}{s^2}',
-								name: '\\frac{centimeters}{seconds^2}',
+								short: '\\frac{cm}{s^2}',
+								long: '\\frac{centimeters}{seconds^2}',
 							},
 						],
 						color: '#FF8787',
@@ -257,18 +257,18 @@ export const FormulaList: Topic[] = [
 						subscript: '',
 					},
 					{
-						symbol: {
+						variableSymbol: {
 							short: '',
 							long: '',
 						},
 						units: [
 							{
-								symbol: '',
-								name: '',
+								short: '',
+								long: '',
 							},
 							{
-								symbol: '',
-								name: '',
+								short: '',
+								long: '',
 							},
 						],
 						color: '#FF8787',

@@ -31,7 +31,7 @@ export const UnitPopover: UnitPopoverProps = ({
 				p='2vw'
 				w='auto'
 				ref={refs.setFloating}
-				style={floatingStyles}
+				style={{ ...floatingStyles, zIndex: 1000 }} // Set a high z-index value
 				{...getFloatingProps()}
 			>
 				{/*Content*/}

@@ -1,10 +1,10 @@
-import { dracBg2, dracComment } from '@/theme/colors/colors'
+import { InfoDisplay } from '@/components/InfoDisplay/InfoDisplay'
 import './App.css'
-import { Formula } from './components/Formula/Formula'
-import { FormulaList } from './stores/FormulaList'
 
+import { Term } from '@/components/Formula/Term'
 import { LongSymbolSwitch } from '@/components/LongSymbolSwitch'
-import { Box, Center, Flex, Text, VStack } from '@chakra-ui/react'
+import { Mass, Mu } from '@/stores/TermList'
+import { Center, Flex, Spacer, Text } from '@chakra-ui/react'
 import {
 	DndContext,
 	MouseSensor,
@@ -24,11 +24,25 @@ export const App = () => {
 	return (
 		<Center bg='dracula.dracBG'>
 			<DndContext sensors={sensors} collisionDetection={rectIntersection}>
-				<VStack alignItems='center' p='1vw'>
-					<Text fontSize='8xl'>Physical Science Formulas</Text>
-					<LongSymbolSwitch />
-
-					<Flex
+				<Flex direction='column' alignItems='center' p='1vw'>
+					<Center>
+						<Flex direction='column' alignItems='center' mb='1em'>
+							<Text fontSize='8xl'>
+								Physical Science Formulas
+							</Text>
+							<LongSymbolSwitch />
+						</Flex>
+					</Center>
+					<Term
+						term={Mass
+						}
+					/>
+					<Term
+						term={
+							Mu
+						}
+					/>
+					{/* 					<Flex
 						direction='row'
 						wrap='wrap'
 						justifyContent='center'
@@ -65,8 +79,16 @@ export const App = () => {
 								</Box>
 							)
 						})}
-					</Flex>
-				</VStack>
+					</Flex> */}
+
+					<Spacer />
+					<Center
+						m='1em'
+						style={{ position: 'fixed', bottom: 0, width: '100%' }}
+					>
+						<InfoDisplay />
+					</Center>
+				</Flex>
 			</DndContext>
 		</Center>
 	)

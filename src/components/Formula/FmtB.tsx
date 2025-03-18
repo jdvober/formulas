@@ -58,11 +58,11 @@ export const FmtB: FmtBProps = ({ vars }) => {
 			<Box ref={refs.setReference} {...getReferenceProps()}>
 				<Latex>
 					{`$` +
-						`\\color{${a.color}}${longSymbols == false ? a.symbol.short : a.symbol.long}_{${a.subscript}}` +
+						`\\color{${a.color}}${longSymbols == false ? a.variableSymbol.short : a.variableSymbol.long}_{${a.subscript}}` +
 						`\\color{${dracFg}}=` +
-						`\\color{${b.color}}${longSymbols == false ? b.symbol.short : b.symbol.long}_{${b.subscript}}` +
+						`\\color{${b.color}}${longSymbols == false ? b.variableSymbol.short : b.variableSymbol.long}_{${b.subscript}}` +
 						`\\cdot` +
-						`\\color{${c.color}}${longSymbols == false ? c.symbol.short : c.symbol.long}_{${c.subscript}}` +
+						`\\color{${c.color}}${longSymbols == false ? c.variableSymbol.short : c.variableSymbol.long}_{${c.subscript}}` +
 						`$`}
 				</Latex>
 			</Box>

@@ -80,13 +80,49 @@ type VariableColor =
 	| '#8E7757'
 	| '#F8F8F2'
 
-type Variable = {
-	symbol: { short: string; long: string }
-	units: { symbol: string; name: string }[]
+type Unit = {
+	short: string
+	long: string
+}
+
+type VariableSymbol = {
+	short: string
+	long: string
+}
+
+type TermBase = {
 	color: VariableColor
-	subscript: string
 	description: string
 }
+
+type DimensionlessVariable = TermBase & {
+	variableSymbol: VariableSymbol
+}
+
+type Variable = DimensionlessVariable & {
+	units: Unit[]
+}
+
+type DimensionlessQuantity = TermBase & {
+	magnitude: number
+}
+
+type Quantity = DimensionlessQuantity & {
+	units: Unit[]
+}
+
+type TermType =
+	| 'DIMENSIONLESS_VARIABLE'
+	| 'VARIABLE'
+	| 'DIMENSIONLESS_QUANTITY'
+	| 'QUANTITY'
+
+type Term = (
+	| DimensionlessQuantity
+	| Quantity
+	| DimensionlessVariable
+	| Variable
+) & { termType: TermType }
 
 type Topic = {
 	title: string
@@ -106,3 +142,17 @@ type DeltaSubscript =
 	| 'INITIAL_FINAL'
 	| 'BEGINNING_END'
 	| 'STARTING_ENDING'
+
+type Operator =
+	| 'ADD'
+	| 'SUBTRACT'
+	| 'MULTIPLY'
+	| 'DIVIDE'
+	| 'EXPONENT'
+	| 'ROOT'
+	| 'SUM'
+	| 'INTEGRAL'
+	| 'DERIVATIVE'
+	| 'UNION'
+
+type Operation = [Term, Term, Operator]

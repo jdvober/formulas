@@ -59,9 +59,9 @@ export const FmtVarDef: FmtVarDefProps = ({ vars }) => {
 			<Box ref={refs.setReference} {...getReferenceProps()}>
 				<Latex>
 					{`$` +
-						`\\color{${LHS.color}}${LHS.symbol[longSymbols === false ? 'short' : 'long']}_{${LHS.subscript}}` +
+						`\\color{${LHS.color}}${LHS.variableSymbol[longSymbols === false ? 'short' : 'long']}_{${LHS.subscript}}` +
 						`\\color{${dracFg}}=` +
-						`\\color{${RHS.color}}${RHS.symbol[longSymbols === false ? 'short' : 'long']}_{${RHS.subscript}}` +
+						`\\color{${RHS.color}}${RHS.variableSymbol[longSymbols === false ? 'short' : 'long']}_{${RHS.subscript}}` +
 						`$`}
 				</Latex>
 			</Box>
@@ -70,9 +70,9 @@ export const FmtVarDef: FmtVarDefProps = ({ vars }) => {
 				<UnitPopover
 					vars={vars.filter(
 						(v) =>
-							v.symbol[
+							v.variableSymbol[
 								longSymbols === false ? 'short' : 'long'
-							] !== '' || v.symbol.short !== ''
+							] !== '' || v.variableSymbol.short !== ''
 					)}
 					floatingStyles={floatingStyles}
 					getFloatingProps={getFloatingProps}

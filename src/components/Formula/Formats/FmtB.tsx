@@ -1,9 +1,12 @@
-import { UnitPopover } from '@/components/Formula/UnitPopover'
+import { UnitPopover } from '@/components/Formula/Units/UnitPopover'
 import { useMainStore } from '@/stores/MainStore'
 import { dracFg } from '@/theme/colors/colors'
 import { Box } from '@chakra-ui/react'
 import {
+	arrow,
+	autoPlacement,
 	offset,
+	size,
 	useFloating,
 	useHover,
 	useInteractions,
@@ -15,14 +18,14 @@ import Latex from 'react-latex-next'
 type Props = {
 	vars: Variable[]
 }
-type FmtCProps =
+type FmtBProps =
 	Props extends Record<string, never>
 		? React.FC<Record<string, never>>
 		: React.FC<Props>
 
-export const FmtC: FmtCProps = ({ vars }) => {
+export const FmtB: FmtBProps = ({ vars }) => {
 	const longSymbols = useMainStore((state) => state.longSymbols)
-	const [a, b, c, d] = vars
+	const [a, b, c] = vars
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	const [isOpen, setIsOpen] = useState(false)
@@ -31,7 +34,19 @@ export const FmtC: FmtCProps = ({ vars }) => {
 		open: isOpen,
 		onOpenChange: setIsOpen,
 		middleware: [
+			arrow({
+				element: arrowRef,
+			}),
 			offset(32), // Spacing of the floating popover from the reference element.
+			autoPlacement(),
+			size({
+				apply({ availableWidth, availableHeight, elements }) {
+					Object.assign(elements.floating.style, {
+						maxWidth: `${Math.max(0, availableWidth)}px`,
+						maxHeight: `${Math.max(0, availableHeight)}px`,
+					})
+				},
+			}),
 		],
 	})
 
@@ -39,17 +54,15 @@ export const FmtC: FmtCProps = ({ vars }) => {
 
 	const { getReferenceProps, getFloatingProps } = useInteractions([hover])
 	return (
-		<Box ref={containerRef} zIndex={1}>
+		<Box ref={containerRef}>
 			<Box ref={refs.setReference} {...getReferenceProps()}>
 				<Latex>
 					{`$` +
-						`\\color{${a.color}}${longSymbols === false ? a.variableSymbol.short : a.variableSymbol.long}_{${a.subscript}}` +
-						`\\cdot` +
-						`\\color{${b.color}}${longSymbols == false ? b.variableSymbol.short : b.variableSymbol.long}_{${b.subscript}}` +
+						`\\color{${a.color}}${longSymbols == false ? a.variableSymbol.short : a.variableSymbol.long}_{${a.subscript}}` +
 						`\\color{${dracFg}}=` +
-						`\\color{${c.color}}${longSymbols == false ? c.variableSymbol.short : c.variableSymbol.long}_{${c.subscript}}` +
+						`\\color{${b.color}}${longSymbols == false ? b.variableSymbol.short : b.variableSymbol.long}_{${b.subscript}}` +
 						`\\cdot` +
-						`\\color{${d.color}}${d.variableSymbol[longSymbols === false ? 'short' : 'long']}_{${d.subscript}}` +
+						`\\color{${c.color}}${longSymbols == false ? c.variableSymbol.short : c.variableSymbol.long}_{${c.subscript}}` +
 						`$`}
 				</Latex>
 			</Box>

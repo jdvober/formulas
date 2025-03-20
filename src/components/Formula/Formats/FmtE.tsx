@@ -1,4 +1,4 @@
-import { UnitPopover } from '@/components/Formula/UnitPopover'
+import { UnitPopover } from '@/components/Formula/Units/UnitPopover'
 import { useMainStore } from '@/stores/MainStore'
 import { dracFg } from '@/theme/colors/colors'
 import { Box } from '@chakra-ui/react'
@@ -18,14 +18,14 @@ import Latex from 'react-latex-next'
 type Props = {
 	vars: Variable[]
 }
-type FmtBProps =
+type FmtEProps =
 	Props extends Record<string, never>
 		? React.FC<Record<string, never>>
 		: React.FC<Props>
 
-export const FmtB: FmtBProps = ({ vars }) => {
+export const FmtE: FmtEProps = ({ vars }) => {
 	const longSymbols = useMainStore((state) => state.longSymbols)
-	const [a, b, c] = vars
+	const [a, b, c, d] = vars
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	const [isOpen, setIsOpen] = useState(false)
@@ -63,6 +63,8 @@ export const FmtB: FmtBProps = ({ vars }) => {
 						`\\color{${b.color}}${longSymbols == false ? b.variableSymbol.short : b.variableSymbol.long}_{${b.subscript}}` +
 						`\\cdot` +
 						`\\color{${c.color}}${longSymbols == false ? c.variableSymbol.short : c.variableSymbol.long}_{${c.subscript}}` +
+						`\\cdot` +
+						`\\color{${d.color}}${d.variableSymbol[longSymbols === false ? 'short' : 'long']}_{${d.subscript}}` +
 						`$`}
 				</Latex>
 			</Box>

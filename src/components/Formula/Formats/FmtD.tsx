@@ -1,10 +1,10 @@
-import { UnitPopover } from '@/components/Formula/UnitPopover'
+import { UnitPopover } from '@/components/Formula/Units/UnitPopover'
 import { useMainStore } from '@/stores/MainStore'
 import { dracFg } from '@/theme/colors/colors'
 import { Box } from '@chakra-ui/react'
 import {
 	arrow,
-	flip,
+	autoPlacement,
 	offset,
 	size,
 	useFloating,
@@ -18,14 +18,14 @@ import Latex from 'react-latex-next'
 type Props = {
 	vars: Variable[]
 }
-type FmtAProps =
+type FmtDProps =
 	Props extends Record<string, never>
 		? React.FC<Record<string, never>>
 		: React.FC<Props>
 
-export const FmtA: FmtAProps = ({ vars }) => {
+export const FmtD: FmtDProps = ({ vars }) => {
 	const longSymbols = useMainStore((state) => state.longSymbols)
-	const [a, b, c] = vars
+	const [a, b, c, d] = vars
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	const [isOpen, setIsOpen] = useState(false)
@@ -38,7 +38,7 @@ export const FmtA: FmtAProps = ({ vars }) => {
 				element: arrowRef,
 			}),
 			offset(32), // Spacing of the floating popover from the reference element.
-			flip(),
+			autoPlacement(),
 			size({
 				apply({ availableWidth, availableHeight, elements }) {
 					Object.assign(elements.floating.style, {
@@ -54,7 +54,7 @@ export const FmtA: FmtAProps = ({ vars }) => {
 
 	const { getReferenceProps, getFloatingProps } = useInteractions([hover])
 	return (
-		<Box ref={containerRef} zIndex={1}>
+		<Box ref={containerRef}>
 			<Box ref={refs.setReference} {...getReferenceProps()}>
 				<Latex>
 					{`$` +
@@ -63,22 +63,22 @@ export const FmtA: FmtAProps = ({ vars }) => {
 						`\\frac` +
 						`{` +
 						`\\color{${b.color}}${longSymbols == false ? b.variableSymbol.short : b.variableSymbol.long}_{${b.subscript}}` +
+						`\\cdot` +
+						`\\color{${c.color}}${longSymbols == false ? c.variableSymbol.short : c.variableSymbol.long}_{${c.subscript}}` +
 						`}` +
 						`{` +
-						`\\color{${c.color}}${longSymbols == false ? c.variableSymbol.short : c.variableSymbol.long}_{${c.subscript}}` +
+						`\\color{${d.color}}${d.variableSymbol[longSymbols === false ? 'short' : 'long']}_{${d.subscript}}` +
 						`}` +
 						`$`}
 				</Latex>
 			</Box>
 			{isOpen && (
-				<Box zIndex={1}>
-					<UnitPopover
-						vars={vars}
-						floatingStyles={floatingStyles}
-						getFloatingProps={getFloatingProps}
-						refs={refs}
-					/>
-				</Box>
+				<UnitPopover
+					vars={vars}
+					floatingStyles={floatingStyles}
+					getFloatingProps={getFloatingProps}
+					refs={refs}
+				/>
 			)}
 		</Box>
 	)

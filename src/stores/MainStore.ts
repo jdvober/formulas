@@ -11,7 +11,7 @@ type State = {
 type Action = {
 	/* Ways to alter the state go here.*/
 	setLongSymbols: (newValue: boolean) => void
-	setInfo: (info: any) => void
+	setInfo: (newInfo: any) => void
 }
 
 export const useMainStore = create<State & Action>()(
@@ -31,9 +31,9 @@ export const useMainStore = create<State & Action>()(
 					state.longSymbols = newValue
 				})
 			},
-			setInfo: (info) =>
+			setInfo: (newInfo) =>
 				set((state) => {
-					state.info = info
+					state.info = newInfo
 				}),
 		})),
 		{

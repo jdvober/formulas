@@ -1,17 +1,54 @@
 import { useMainStore } from '@/stores/MainStore'
 import { Box, Center, Flex, HStack, Text } from '@chakra-ui/react'
-import React from 'react'
+import { MathJax } from 'better-react-mathjax'
+import React, { useEffect, useRef, useState } from 'react'
 import { match, P } from 'ts-pattern'
 
-type Props = { term: Term }
+type Props = {
+	term: Term
+	dimensionsFromParent?: { width: number; height: number }
+	refFromParent?: React.RefObject<SVGTextElement>
+}
 type TermProps =
 	Props extends Record<string, never>
 		? React.FC<Record<string, never>>
 		: React.FC<Props>
 
-export const Term: TermProps = ({ term }) => {
+export const Term: TermProps = ({
+	term,
+	dimensionsFromParent,
+	refFromParent,
+}) => {
 	const setInfo = useMainStore((state) => state.setInfo)
 	const longSymbols = useMainStore((state) => state.longSymbols)
+	const padding = 8
+	const ref =
+		refFromParent !== undefined
+			? refFromParent
+			: useRef<SVGTextElement>(null)
+	const [dimensions, setDimensions] = useState({
+		width: 0,
+		height: 0,
+	})
+
+	// Update dimensions after the first render
+	useEffect(() => {
+		if (ref.current) {
+			const newDimensions = getDimensions()
+			setDimensions(newDimensions)
+		}
+	}, [term, longSymbols]) // Re-run if the term text changes
+
+	const getDimensions = () => {
+		if (ref.current) {
+			return {
+				width: ref.current.getBBox().width + padding,
+				height: ref.current.getBBox().height + padding,
+			}
+		}
+		return { width: 0, height: 0 }
+	}
+
 	const getInfo = (input: Term) => {
 		return (
 			match(input)
@@ -19,7 +56,7 @@ export const Term: TermProps = ({ term }) => {
 				.with(
 					{
 						termType: P.select(
-							'tt',
+							'ttype',
 							P.union('QUANTITY', 'VARIABLE')
 						),
 						units: P.select(
@@ -28,7 +65,7 @@ export const Term: TermProps = ({ term }) => {
 						),
 						description: P.select('des', P.string),
 					},
-					({ tt, units, des }) => {
+					({ ttype, units, des }) => {
 						return (
 							<Center>
 								<Flex direction='column'>
@@ -38,9 +75,9 @@ export const Term: TermProps = ({ term }) => {
 												{getVarName(input)}
 											</Text>
 											<Text>:</Text>
-											<Text> {tt.slice(0, 1)}</Text>
+											<Text> {ttype.slice(0, 1)}</Text>
 										</HStack>
-										{tt.slice(1).toLowerCase()}
+										{ttype.slice(1).toLowerCase()}
 									</Center>
 									<Center>
 										<HStack>
@@ -49,22 +86,28 @@ export const Term: TermProps = ({ term }) => {
 											</Text>
 											{units.map((unit, i) => {
 												return (
-													<HStack>
-														<Text
-															color={input.color}
-														>
-															{unit.short}
-														</Text>
-														<Text>{'('}</Text>
-														<Text>
-															{' '}
-															{unit.long}
-														</Text>
-														<Text>{')'}</Text>
-														{i < units.length &&
-														units.length > 1 ? (
-															<Box>{' or '}</Box>
-														) : null}
+													<HStack key={i}>
+														{i <
+														units.length - 1 ? (
+															<HStack
+																className={
+																	unit.long
+																}
+															>
+																<MathJax hideUntilTypeset='every'>{`\\(${unit.long}\\)`}</MathJax>
+																<Box>
+																	{' or '}
+																</Box>
+															</HStack>
+														) : (
+															<Box
+																className={
+																	unit.long
+																}
+															>
+																<MathJax hideUntilTypeset='every'>{`\\(${unit.long}\\)`}</MathJax>
+															</Box>
+														)}
 													</HStack>
 												)
 											})}
@@ -158,9 +201,42 @@ export const Term: TermProps = ({ term }) => {
 			},
 			({ s, l }) => {
 				return (
-					<Text color={term.color}>
-						{longSymbols === true ? l : s}
-					</Text>
+					<Box
+						className={`${s} ${l}`}
+						w={
+							dimensionsFromParent !== undefined
+								? dimensionsFromParent.width
+								: dimensions.width
+						}
+						h={
+							dimensionsFromParent !== undefined
+								? dimensionsFromParent.height
+								: dimensions.height
+						}
+					>
+						<svg
+							width={
+								dimensionsFromParent !== undefined
+									? dimensionsFromParent.width
+									: dimensions.width
+							}
+							height={
+								dimensionsFromParent !== undefined
+									? dimensionsFromParent.height
+									: dimensions.height
+							}
+						>
+							<text
+								ref={ref}
+								x='3'
+								y='21'
+								fontSize='40'
+								fill={term.color}
+							>
+								{longSymbols === true ? l : s}
+							</text>
+						</svg>
+					</Box>
 				)
 			}
 		)
@@ -171,7 +247,44 @@ export const Term: TermProps = ({ term }) => {
 				magnitude: P.select('m', P.number), // Select this as the value to pass to the function, and give it the name 'm'
 			},
 			({ m }) => {
-				return <Text color={term.color}>{m}</Text>
+				return (
+					<Box
+						className={`${m}`}
+						width={
+							dimensionsFromParent !== undefined
+								? dimensionsFromParent.width
+								: dimensions.width
+						}
+						height={
+							dimensionsFromParent !== undefined
+								? dimensionsFromParent.height
+								: dimensions.height
+						}
+					>
+						<svg
+							width={
+								dimensionsFromParent !== undefined
+									? dimensionsFromParent.width
+									: dimensions.width
+							}
+							height={
+								dimensionsFromParent !== undefined
+									? dimensionsFromParent.height
+									: dimensions.height
+							}
+						>
+							<text
+								ref={ref}
+								x='3'
+								y='21'
+								fontSize='40'
+								fill={term.color}
+							>
+								{m}
+							</text>
+						</svg>
+					</Box>
+				)
 			}
 		)
 		.otherwise(() => {

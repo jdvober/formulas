@@ -1,9 +1,11 @@
 import { InfoDisplay } from '@/components/InfoDisplay/InfoDisplay'
 import './App.css'
 
+import { Division } from '@/components/Formula/Operations/Division'
+import { Multiplication } from '@/components/Formula/Operations/Multiplication'
 import { Term } from '@/components/Formula/Term'
 import { LongSymbolSwitch } from '@/components/LongSymbolSwitch'
-import { Mass, Mu } from '@/stores/TermList'
+import { Density, Mass, Mu, Volume } from '@/stores/TermList'
 import { Center, Flex, Spacer, Text } from '@chakra-ui/react'
 import {
 	DndContext,
@@ -12,6 +14,7 @@ import {
 	useSensor,
 	useSensors,
 } from '@dnd-kit/core'
+import { MathJaxContext } from 'better-react-mathjax'
 
 export const App = () => {
 	const sensors = useSensors(
@@ -24,25 +27,32 @@ export const App = () => {
 	return (
 		<Center bg='dracula.dracBG'>
 			<DndContext sensors={sensors} collisionDetection={rectIntersection}>
-				<Flex direction='column' alignItems='center' p='1vw'>
-					<Center>
-						<Flex direction='column' alignItems='center' mb='1em'>
-							<Text fontSize='8xl'>
-								Physical Science Formulas
-							</Text>
-							<LongSymbolSwitch />
-						</Flex>
-					</Center>
-					<Term
-						term={Mass
-						}
-					/>
-					<Term
-						term={
-							Mu
-						}
-					/>
-					{/* 					<Flex
+				{/* Output math as SVG */}
+				<MathJaxContext
+					config={{
+						tex2svg: {
+							svg: true,
+						},
+					}}
+				>
+					<Flex direction='column' alignItems='center' p='1vw'>
+						<Center>
+							<Flex
+								direction='column'
+								alignItems='center'
+								mb='1em'
+							>
+								<Text fontSize='8xl'>
+									Physical Science Formulas
+								</Text>
+								<LongSymbolSwitch />
+							</Flex>
+						</Center>
+						<Term term={Mass} />
+						<Term term={Mu} />
+						<Multiplication terms={[Mass, Volume]} />
+						<Division terms={[Density, Volume]} />
+						{/* 					<Flex
 						direction='row'
 						wrap='wrap'
 						justifyContent='center'
@@ -81,14 +91,19 @@ export const App = () => {
 						})}
 					</Flex> */}
 
-					<Spacer />
-					<Center
-						m='1em'
-						style={{ position: 'fixed', bottom: 0, width: '100%' }}
-					>
-						<InfoDisplay />
-					</Center>
-				</Flex>
+						<Spacer />
+						<Center
+							m='1em'
+							style={{
+								position: 'fixed',
+								bottom: 0,
+								width: '100%',
+							}}
+						>
+							<InfoDisplay />
+						</Center>
+					</Flex>
+				</MathJaxContext>
 			</DndContext>
 		</Center>
 	)

@@ -1,11 +1,9 @@
 import { InfoDisplay } from '@/components/InfoDisplay/InfoDisplay'
 import './App.css'
 
-import { Division } from '@/components/Formula/Operations/Division'
-import { Multiplication } from '@/components/Formula/Operations/Multiplication'
-import { Term } from '@/components/Formula/Term'
+import { Divide } from '@/components/Formula/Operations/Divide'
 import { LongSymbolSwitch } from '@/components/LongSymbolSwitch'
-import { Density, Mass, Mu, Volume } from '@/stores/TermList'
+import { Mass, Volume } from '@/stores/TermList'
 import { Center, Flex, Spacer, Text } from '@chakra-ui/react'
 import {
 	DndContext,
@@ -24,6 +22,7 @@ export const App = () => {
 			},
 		})
 	)
+
 	return (
 		<Center bg='dracula.dracBG'>
 			<DndContext sensors={sensors} collisionDetection={rectIntersection}>
@@ -48,10 +47,12 @@ export const App = () => {
 								<LongSymbolSwitch />
 							</Flex>
 						</Center>
-						<Term term={Mass} />
+						{/* <Term term={Mass} />
 						<Term term={Mu} />
 						<Multiplication terms={[Mass, Volume]} />
-						<Division terms={[Density, Volume]} />
+						<Division terms={[Density, Volume]} /> */}
+						{/*<Divide numerator={Mass} denominator={Volume} />*/}
+						{Divide({ numerator: Mass, denominator: Volume })}
 						{/* 					<Flex
 						direction='row'
 						wrap='wrap'
@@ -90,7 +91,6 @@ export const App = () => {
 							)
 						})}
 					</Flex> */}
-
 						<Spacer />
 						<Center
 							m='1em'

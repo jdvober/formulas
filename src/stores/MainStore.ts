@@ -6,12 +6,14 @@ type State = {
 	/* Values go here.*/
 	longSymbols: boolean
 	info: any
+	latexParts: { id: string; value: string }[]
 }
 
 type Action = {
 	/* Ways to alter the state go here.*/
 	setLongSymbols: (newValue: boolean) => void
 	setInfo: (newInfo: any) => void
+	setLatexParts: (newLatexParts: { id: string; value: string }[]) => void
 }
 
 export const useMainStore = create<State & Action>()(
@@ -22,6 +24,7 @@ export const useMainStore = create<State & Action>()(
 			///////////
 			longSymbols: true,
 			info: null,
+			latexParts: [],
 
 			/////////////
 			// Actions //
@@ -31,6 +34,10 @@ export const useMainStore = create<State & Action>()(
 					state.longSymbols = newValue
 				})
 			},
+			setLatexParts: (newLatexParts) =>
+				set((state) => {
+					state.latexParts = newLatexParts
+				}),
 			setInfo: (newInfo) =>
 				set((state) => {
 					state.info = newInfo

@@ -4,6 +4,7 @@ import { MathJax } from 'better-react-mathjax'
 import React, { useEffect } from 'react'
 import { match, P } from 'ts-pattern'
 import { v4 as uuid } from 'uuid'
+import { Divide as Div } from './Divide.ts'
 
 type Props = { numerator: Term; denominator: Term } // Strings should be formatted for MathJax to render Latex as SVG
 type DivideProps =
@@ -48,7 +49,7 @@ export const Divide: DivideProps = ({ numerator, denominator }) => {
 		)
 	}
 
-	const latex = `\\frac{${getTermName(numerator)}}{${getTermName(denominator)}}`
+	const latex = Div(numerator, denominator, longSymbols)
 
 	// Add this latex to the list
 	useEffect(() => {

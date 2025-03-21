@@ -1,9 +1,15 @@
 import { InfoDisplay } from '@/components/InfoDisplay/InfoDisplay'
+import { v4 as uuid } from 'uuid'
 import './App.css'
 
-import { Divide } from '@/components/Formula/Operations/Divide'
+import { Block } from '@/components/Formula/Formats/Block'
+import {
+	Div,
+	Equals,
+	Mult,
+	Sqrt,
+} from '@/components/Formula/Operations/Operations'
 import { LongSymbolSwitch } from '@/components/LongSymbolSwitch'
-import { Mass, Volume } from '@/stores/TermList'
 import { Center, Flex, Spacer, Text } from '@chakra-ui/react'
 import {
 	DndContext,
@@ -23,16 +29,53 @@ export const App = () => {
 		})
 	)
 
+	const a = {
+		variableList: [{ id: uuid(), value: 6, color: 'red' }],
+		latexString: '6',
+	}
+
+	const b = {
+		variableList: [{ id: uuid(), value: 'x', color: 'orange' }],
+		latexString: 'x',
+	}
+
+	const c = {
+		variableList: [{ id: uuid(), value: 5, color: 'yellow' }],
+		latexString: '5',
+	}
+
+	const d = {
+		variableList: [{ id: uuid(), value: 9, color: 'green' }],
+		latexString: '9',
+	}
+
+	const e = {
+		variableList: [{ id: uuid(), value: 'y', color: 'blue' }],
+		latexString: 'y',
+	}
+
+	const f = {
+		variableList: [{ id: uuid(), value: 'z', color: 'purple' }],
+		latexString: 'z',
+	}
+
 	return (
 		<Center bg='dracula.dracBG'>
 			<DndContext sensors={sensors} collisionDetection={rectIntersection}>
 				{/* Output math as SVG */}
 				<MathJaxContext
 					config={{
-						tex2svg: {
-							svg: true,
+						loader: { load: ['input/tex', 'output/svg'] },
+						tex: {
+							inlineMath: [['\\(', '\\)']],
+							displayMath: [['\\[', '\\]']],
+						},
+						svg: {
+							fontCache: 'global',
 						},
 					}}
+					hideUntilTypeset='every'
+					// renderMode='pre'
 				>
 					<Flex direction='column' alignItems='center' p='1vw'>
 						<Center>
@@ -40,57 +83,42 @@ export const App = () => {
 								direction='column'
 								alignItems='center'
 								mb='1em'
+								wrap={'wrap'}
 							>
 								<Text fontSize='8xl'>
 									Physical Science Formulas
 								</Text>
 								<LongSymbolSwitch />
+								<Flex
+									direction='row'
+									gapX='3em'
+									m='3em'
+									wrap={'wrap'}
+								>
+									<Block>
+										{
+											Equals(
+												f,
+												Sqrt(
+													Div(
+														Mult(
+															Sqrt(
+																Div(
+																	Mult(a, b),
+																	c
+																)
+															),
+															d
+														),
+														e
+													)
+												)
+											).latexString
+										}
+									</Block>
+								</Flex>
 							</Flex>
 						</Center>
-						{/* <Term term={Mass} />
-						<Term term={Mu} />
-						<Multiplication terms={[Mass, Volume]} />
-						<Division terms={[Density, Volume]} /> */}
-						{/*<Divide numerator={Mass} denominator={Volume} />*/}
-						{Divide({ numerator: Mass, denominator: Volume })}
-						{/* 					<Flex
-						direction='row'
-						wrap='wrap'
-						justifyContent='center'
-						alignItems='center'
-						m='1em'
-					>
-						{FormulaList.map((topic) => {
-							return (
-								<Box
-									border={`1px solid ${dracComment}`}
-									borderRadius='1em'
-									p='1em'
-									boxShadow={`0 0 0.4vmin 0.4vmin ${dracBg2}`}
-									filter={`drop-shadow(${dracBg2} 0 0 0.3vmin)`}
-									m='1em'
-								>
-									<Center>
-										<Text
-											color={dracComment}
-											fontSize='6xl'
-										>
-											{topic.title}
-										</Text>
-									</Center>
-									<VStack
-										justifyContent='center'
-										wrap='wrap'
-										fontSize='4xl'
-									>
-										{topic.formulas.map((f) => {
-											return <Formula formula={f} />
-										})}
-									</VStack>
-								</Box>
-							)
-						})}
-					</Flex> */}
 						<Spacer />
 						<Center
 							m='1em'

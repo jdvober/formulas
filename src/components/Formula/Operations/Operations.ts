@@ -38,9 +38,3 @@ export const Delta = (final: TermType, initial: TermType): TermType => {
 	const latex = `${final.latexString} = ${initial.latexString}`
 	return { variableList: newVariableList, latexString: latex }
 }
-
-type Operation
-
-export const Divide = (operationHistory: ) => {
-
-}

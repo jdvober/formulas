@@ -11,7 +11,7 @@ export const Div = (a: TermType, b: TermType): TermType => {
 
 export const Mult = (a: TermType, b: TermType): TermType => {
 	const newVariableList = [...new Set([...a.variableList, ...b.variableList])]
-	const latex = `${a.latexString} \\cdot ${b.latexString}`
+	const latex = `${a.latexString}~\\boldsymbol{\\cdot}~${b.latexString}`
 	return { variableList: newVariableList, latexString: latex }
 }
 
@@ -31,10 +31,13 @@ export const Equals = (a: TermType, b: TermType): TermType => {
 	return { variableList: newVariableList, latexString: latex }
 }
 
-export const Delta = (final: TermType, initial: TermType): TermType => {
-	const newVariableList = [
-		...new Set([...final.variableList, ...initial.variableList]),
-	]
-	const latex = `${final.latexString} = ${initial.latexString}`
-	return { variableList: newVariableList, latexString: latex }
+export const Delta = (a: TermType): TermType => {
+	const latex = `\\Delta ${a.latexString}`
+	return { variableList: a.variableList, latexString: latex }
+}
+
+// (Final - Initial)
+export const DeltaExpanded = (a: TermType): TermType => {
+	const latex = `(${a.latexString}_{_{final}} - ${a.latexString}_{_{initial}})`
+	return { variableList: a.variableList, latexString: latex }
 }

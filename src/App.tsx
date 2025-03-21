@@ -2,14 +2,17 @@ import { InfoDisplay } from '@/components/InfoDisplay/InfoDisplay'
 import { v4 as uuid } from 'uuid'
 import './App.css'
 
-import { Block } from '@/components/Formula/Formats/Block'
+import { Block } from '@/components/Formula/Operations/Block'
 import {
+	Delta,
+	DeltaExpanded,
 	Div,
 	Equals,
 	Mult,
 	Sqrt,
 } from '@/components/Formula/Operations/Operations'
 import { LongSymbolSwitch } from '@/components/LongSymbolSwitch'
+import { useMainStore } from '@/stores/MainStore'
 import { Center, Flex, Spacer, Text } from '@chakra-ui/react'
 import {
 	DndContext,
@@ -28,35 +31,68 @@ export const App = () => {
 			},
 		})
 	)
+	const longSymbols = useMainStore((state) => state.longSymbols)
 
 	const a = {
-		variableList: [{ id: uuid(), value: 6, color: 'red' }],
-		latexString: '6',
+		variableList: [
+			{
+				id: uuid(),
+				value: longSymbols === true ? 6 : 6,
+				color: 'red',
+			},
+		],
+		latexString: longSymbols === true ? '6' : '6',
 	}
 
 	const b = {
-		variableList: [{ id: uuid(), value: 'x', color: 'orange' }],
-		latexString: 'x',
+		variableList: [
+			{
+				id: uuid(),
+				value: longSymbols === true ? 'position' : 'x',
+				color: 'orange',
+			},
+		],
+		latexString: longSymbols === true ? 'position' : 'x',
 	}
 
 	const c = {
-		variableList: [{ id: uuid(), value: 5, color: 'yellow' }],
-		latexString: '5',
+		variableList: [
+			{
+				id: uuid(),
+				value: longSymbols === true ? 5 : 5,
+				color: 'yellow',
+			},
+		],
+		latexString: longSymbols === true ? '5' : '5',
 	}
 
 	const d = {
-		variableList: [{ id: uuid(), value: 9, color: 'green' }],
-		latexString: '9',
+		variableList: [
+			{ id: uuid(), value: longSymbols === true ? 9 : 9, color: 'green' },
+		],
+		latexString: longSymbols === true ? '9' : '9',
 	}
 
 	const e = {
-		variableList: [{ id: uuid(), value: 'y', color: 'blue' }],
-		latexString: 'y',
+		variableList: [
+			{
+				id: uuid(),
+				value: longSymbols === true ? 'height' : 'y',
+				color: 'blue',
+			},
+		],
+		latexString: longSymbols === true ? 'height' : 'y',
 	}
 
 	const f = {
-		variableList: [{ id: uuid(), value: 'z', color: 'purple' }],
-		latexString: 'z',
+		variableList: [
+			{
+				id: uuid(),
+				value: longSymbols === true ? 'z' : 'z',
+				color: 'purple',
+			},
+		],
+		latexString: longSymbols === true ? 'z' : 'z',
 	}
 
 	return (
@@ -92,8 +128,8 @@ export const App = () => {
 								<Flex
 									direction='row'
 									gapX='3em'
-									m='3em'
 									wrap={'wrap'}
+									fontSize='3xl'
 								>
 									<Block>
 										{
@@ -104,13 +140,16 @@ export const App = () => {
 														Mult(
 															Sqrt(
 																Div(
-																	Mult(a, b),
+																	Mult(
+																		a,
+																		Delta(b)
+																	),
 																	c
 																)
 															),
 															d
 														),
-														e
+														DeltaExpanded(e)
 													)
 												)
 											).latexString

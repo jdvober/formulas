@@ -2,7 +2,7 @@ import { InfoDisplay } from '@/components/InfoDisplay/InfoDisplay'
 import { v4 as uuid } from 'uuid'
 import './App.css'
 
-import { Block } from '@/components/Formula/Operations/Block'
+import { FmtA } from '@/components/Formula/Formats/FmtA'
 import {
 	Delta,
 	DeltaExpanded,
@@ -13,9 +13,9 @@ import {
 } from '@/components/Formula/Operations/Operations'
 import { LongSymbolSwitch } from '@/components/LongSymbolSwitch'
 import { useMainStore } from '@/stores/MainStore'
-import { VariableColors } from '@/stores/TermList'
+import { Density, Mass, VariableColors, Volume } from '@/stores/TermList'
 import { dracFg } from '@/theme/colors/colors'
-import { Box, Center, Flex, Spacer, Text } from '@chakra-ui/react'
+import { Center, Flex, Spacer, Text } from '@chakra-ui/react'
 import {
 	DndContext,
 	MouseSensor,
@@ -38,7 +38,8 @@ export const App = () => {
 	type MakeVarType = {
 		variableList: {
 			id: string
-			value: string | number
+			value: { short: string | number; long: string | number }
+			subscript: { short: string | number; long: string | number }
 			color: string
 		}[]
 		latexString: string
@@ -47,13 +48,16 @@ export const App = () => {
 	const makeVar = (
 		s: string | number,
 		l: string | number,
+		subS: string | number,
+		subL: string | number,
 		color: string
 	): MakeVarType => {
 		return {
 			variableList: [
 				{
 					id: uuid(),
-					value: longSymbols === true ? l : s,
+					value: { short: s, long: l },
+					subscript: { short: subS, long: subL },
 					color: color,
 				},
 			],
@@ -63,17 +67,22 @@ export const App = () => {
 					: `\\color{${color}}${s.toString()}\\color{${dracFg}}`,
 		}
 	}
-	const a = makeVar(6, 6, VariableColors[0])
+	const a = makeVar(6, 6, '', '', VariableColors[0])
 
-	const b = makeVar('position', 'x', VariableColors[1])
+	const b = makeVar('position', 'x', '', '', VariableColors[1])
 
-	const c = makeVar(5, 5, VariableColors[2])
+	const c = makeVar(5, 5, '', '', VariableColors[2])
 
-	const d = makeVar(9, 9, VariableColors[3])
+	const d = makeVar(9, 9, '', '', VariableColors[3])
 
-	const e = makeVar('height', 'y', VariableColors[4])
+	const e = makeVar('height', 'y', '', '', VariableColors[4])
 
-	const f = makeVar('z', 'z', VariableColors[5])
+	const f = makeVar('z', 'z', '', '', VariableColors[5])
+
+	const formula1 = Equals(
+		f,
+		Sqrt(Div(Mult(Sqrt(Div(Mult(a, Delta(b)), c)), d), DeltaExpanded(e)))
+	)
 
 	return (
 		<Center bg='dracula.dracBG'>
@@ -117,41 +126,11 @@ export const App = () => {
 									wrap={'wrap'}
 									fontSize='3xl'
 								>
-									<Flex direction='row' gapX='2em'>
-										<Block>
-											{
-												Equals(
-													f,
-													Sqrt(
-														Div(
-															Mult(
-																Sqrt(
-																	Div(
-																		Mult(
-																			a,
-																			Delta(
-																				b
-																			)
-																		),
-																		c
-																	)
-																),
-																d
-															),
-															DeltaExpanded(e)
-														)
-													)
-												).latexString
-											}
-										</Block>
-										<Flex direction='column'>
-											<Box
-												color={a.variableList[0].color}
-											>
-												{a.variableList[0].value}
-											</Box>
-										</Flex>
-									</Flex>
+									{/* Format A */}
+									<FmtA
+										key={uuid()}
+										terms={[Density(), Mass(), Volume()]}
+									/>
 								</Flex>
 							</Flex>
 						</Center>

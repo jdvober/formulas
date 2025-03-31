@@ -97,6 +97,7 @@ type TermBase = {
 
 type DimensionlessVariable = TermBase & {
 	variableSymbol: VariableSymbol
+	subscript: string | number
 }
 
 type Variable = DimensionlessVariable & {
@@ -105,6 +106,7 @@ type Variable = DimensionlessVariable & {
 
 type DimensionlessQuantity = TermBase & {
 	magnitude: number
+	subscript: number | string
 }
 
 type Quantity = DimensionlessQuantity & {

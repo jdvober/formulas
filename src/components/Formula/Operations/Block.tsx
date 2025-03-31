@@ -12,6 +12,7 @@ export const Block: BlockProps = ({ children }) => {
 	return (
 		<Box className='BlockContainer'>
 			<MathJax
+				dynamic={true}
 				className={`Block ${children?.toString()}`}
 				hideUntilTypeset='every'
 			>{`\\[${children}\\]`}</MathJax>

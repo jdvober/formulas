@@ -65,291 +65,337 @@ export const VariableColors: VariableColor[] = [
 	'#E4F61F',
 ]
 
-export const Density: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'D',
-		long: 'Density',
-	},
-	units: [
-		{
-			short: `\\frac{g}{mL}`,
-			long: '\\frac{grams}{millileter}',
+export const Density = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'D',
+			long: 'Density',
 		},
-		{
-			short: `\\frac{g}{cm^3}`,
-			long: '\\frac{grams}{centimeters^3}',
-		},
-	],
-	color: VariableColors[0],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: `\\frac{g}{mL}`,
+				long: '\\frac{grams}{millileter}',
+			},
+			{
+				short: `\\frac{g}{cm^3}`,
+				long: '\\frac{grams}{centimeters^3}',
+			},
+		],
+		color: VariableColors[0],
+		description: '',
+	}
 }
-export const Mass: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'm',
-		long: 'mass',
-	},
-	units: [
-		{
-			short: 'g',
-			long: 'grams',
+export const Mass = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'm',
+			long: 'mass',
 		},
-		{
-			short: 'kg',
-			long: 'kilograms',
-		},
-		{
-			short: 'mg',
-			long: 'milligrams',
-		},
-	],
-	color: VariableColors[1],
-	description: 'The mass of an object is the amount of matter in the object.',
+		subscript: subscript || '',
+		units: [
+			{
+				short: 'g',
+				long: 'grams',
+			},
+			{
+				short: 'kg',
+				long: 'kilograms',
+			},
+			{
+				short: 'mg',
+				long: 'milligrams',
+			},
+		],
+		color: VariableColors[1],
+		description:
+			'The mass of an object is the amount of matter in the object.',
+	}
 }
-export const Volume: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'v',
-		long: 'Volume',
-	},
-	units: [
-		{
-			short: 'mL',
-			long: 'millilitres',
+export const Volume = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'v',
+			long: 'Volume',
 		},
-		{
-			short: 'cm^3',
-			long: 'centimeters^3',
-		},
-		{
-			short: 'L',
-			long: 'litres',
-		},
-	],
-	color: VariableColors[2],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: 'mL',
+				long: 'millilitres',
+			},
+			{
+				short: 'cm^3',
+				long: 'centimeters^3',
+			},
+			{
+				short: 'L',
+				long: 'litres',
+			},
+		],
+		color: VariableColors[2],
+		description: '',
+	}
 }
-export const Pressure: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'P',
-		long: 'Pressure',
-	},
-	units: [
-		{
-			short: `atm`,
-			long: 'atmospheres',
+export const Pressure = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'P',
+			long: 'Pressure',
 		},
-		{
-			short: `kpa`,
-			long: 'kilopascals',
-		},
-	],
-	color: VariableColors[3],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: `atm`,
+				long: 'atmospheres',
+			},
+			{
+				short: `kpa`,
+				long: 'kilopascals',
+			},
+		],
+		color: VariableColors[3],
+		description: '',
+	}
 }
-export const Force: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'F',
-		long: 'Force',
-	},
-	units: [
-		{
-			short: 'N',
-			long: 'Newtons',
+export const Force = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'F',
+			long: 'Force',
 		},
-		{
-			short: `kg \\cdot \\frac{m}{s^2}`,
-			long: 'Newtons',
-		},
-		{
-			short: 'lbs',
-			long: 'pounds',
-		},
-	],
-	color: VariableColors[4],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: 'N',
+				long: 'Newtons',
+			},
+			{
+				short: `kg \\cdot \\frac{m}{s^2}`,
+				long: 'Newtons',
+			},
+			{
+				short: 'lbs',
+				long: 'pounds',
+			},
+		],
+		color: VariableColors[4],
+		description: '',
+	}
 }
-export const Weight: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'W',
-		long: `Weight`,
-	},
-	units: [
-		{
-			short: 'N',
-			long: 'Newtons',
+export const Weight = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'W',
+			long: `Weight`,
 		},
-		{
-			short: `kg \\cdot \\frac{m}{s^2}`,
-			long: 'Newtons',
-		},
-		{
-			short: 'lbs',
-			long: 'pounds',
-		},
-	],
-	color: VariableColors[4],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: 'N',
+				long: 'Newtons',
+			},
+			{
+				short: `kg \\cdot \\frac{m}{s^2}`,
+				long: 'Newtons',
+			},
+			{
+				short: 'lbs',
+				long: 'pounds',
+			},
+		],
+		color: VariableColors[4],
+		description: '',
+	}
 }
-export const Area: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'A',
-		long: 'Area',
-	},
-	units: [
-		{
-			short: 'cm^2',
-			long: 'centimeters^2',
+export const Area = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'A',
+			long: 'Area',
 		},
-		{
-			short: 'm^2',
-			long: 'meters^2',
-		},
-	],
-	color: VariableColors[5],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: 'cm^2',
+				long: 'centimeters^2',
+			},
+			{
+				short: 'm^2',
+				long: 'meters^2',
+			},
+		],
+		color: VariableColors[5],
+		description: '',
+	}
 }
-export const Temperature: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'T',
-		long: 'Temperature',
-	},
-	units: [
-		{
-			short: `\\degree C`,
-			long: 'Degrees~Celcius',
+export const Temperature = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'T',
+			long: 'Temperature',
 		},
-		{
-			short: `\\degree F`,
-			long: 'Degrees~Farenheight',
-		},
-		{
-			short: `K`,
-			long: 'Kelvin',
-		},
-	],
-	color: VariableColors[6],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: `\\degree C`,
+				long: 'Degrees~Celcius',
+			},
+			{
+				short: `\\degree F`,
+				long: 'Degrees~Farenheight',
+			},
+			{
+				short: `K`,
+				long: 'Kelvin',
+			},
+		],
+		color: VariableColors[6],
+		description: '',
+	}
 }
-export const HeatEnergy: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'Q',
-		long: 'Heat~Energy',
-	},
-	units: [
-		{
-			short: `J`,
-			long: 'Joules',
+export const HeatEnergy = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'Q',
+			long: 'Heat~Energy',
 		},
-	],
-	color: VariableColors[7],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: `J`,
+				long: 'Joules',
+			},
+		],
+		color: VariableColors[7],
+		description: '',
+	}
 }
-export const SpecificHeatCapacity: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'c',
-		long: '\\tiny Specific~Heat~Capacity\\normalsize ',
-	},
-	units: [
-		{
-			short: `\\frac{J}{K \\cdot kg}`,
-			long: '\\frac{Joules}{Kelvin \\cdot kilogram}',
+export const SpecificHeatCapacity = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'c',
+			long: '\\tiny Specific~Heat~Capacity\\normalsize ',
 		},
-	],
-	color: VariableColors[8],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: `\\frac{J}{K \\cdot kg}`,
+				long: '\\frac{Joules}{Kelvin \\cdot kilogram}',
+			},
+		],
+		color: VariableColors[8],
+		description: '',
+	}
 }
-export const Speed: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 's',
-		long: 'Speed',
-	},
-	units: [
-		{
-			short: '\\frac{m}{s}',
-			long: '\\frac{meters}{seconds}',
+export const Speed = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 's',
+			long: 'Speed',
 		},
-		{
-			short: '\\frac{cm}{s}',
-			long: '\\frac{centimeters}{seconds}',
+		subscript: subscript || '',
+		units: [
+			{
+				short: '\\frac{m}{s}',
+				long: '\\frac{meters}{seconds}',
+			},
+			{
+				short: '\\frac{cm}{s}',
+				long: '\\frac{centimeters}{seconds}',
+			},
+		],
+		color: VariableColors[9],
+		description: '',
+	}
+}
+export const Distance = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'd',
+			long: 'Distance',
 		},
-	],
-	color: VariableColors[9],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{ short: 'm', long: 'meters' },
+			{ short: 'cm', long: 'centimeters' },
+			{ short: 'km', long: 'kilometers' },
+			{ short: 'mm', long: 'millimeters' },
+		],
+		color: VariableColors[10],
+		description: '',
+	}
 }
-export const Distance: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'd',
-		long: 'Distance',
-	},
-	units: [
-		{ short: 'm', long: 'meters' },
-		{ short: 'cm', long: 'centimeters' },
-		{ short: 'km', long: 'kilometers' },
-		{ short: 'mm', long: 'millimeters' },
-	],
-	color: VariableColors[10],
-	description: '',
-}
-export const Time: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 't',
-		long: 'Time',
-	},
-	units: [
-		{ short: 's', long: 'seconds' },
-		{ short: 'min', long: 'minutes' },
-		{ short: 'hrs', long: 'hours' },
-		{ short: 'ms', long: 'milliseconds' },
-		{ short: 'days', long: 'days' },
-	],
-	color: VariableColors[11],
-	description: '',
-}
-export const Velocity: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'v',
-		long: 'Velocity',
-	},
-	units: [
-		{
-			short: '\\frac{m}{s}',
-			long: '\\frac{meters}{second}',
+export const Time = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 't',
+			long: 'Time',
 		},
-		{
-			short: '\\frac{cm}{s}',
-			long: '\\frac{centimeters}{second}',
-		},
-	],
-	color: VariableColors[12],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{ short: 's', long: 'seconds' },
+			{ short: 'min', long: 'minutes' },
+			{ short: 'hrs', long: 'hours' },
+			{ short: 'ms', long: 'milliseconds' },
+			{ short: 'days', long: 'days' },
+		],
+		color: VariableColors[11],
+		description: '',
+	}
 }
-export const Position: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'x',
-		long: 'Position',
-	},
-	units: [
-		{ short: 'm', long: 'meters' },
-		{ short: 'cm', long: 'centimeters' },
-		{ short: 'km', long: 'kilometers' },
-		{ short: 'mm', long: 'millimeters' },
-	],
-	color: VariableColors[13],
-	description: '',
+export const Velocity = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'v',
+			long: 'Velocity',
+		},
+		subscript: subscript || '',
+		units: [
+			{
+				short: '\\frac{m}{s}',
+				long: '\\frac{meters}{second}',
+			},
+			{
+				short: '\\frac{cm}{s}',
+				long: '\\frac{centimeters}{second}',
+			},
+		],
+		color: VariableColors[12],
+		description: '',
+	}
+}
+export const Position = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'x',
+			long: 'Position',
+		},
+		subscript: subscript || '',
+		units: [
+			{ short: 'm', long: 'meters' },
+			{ short: 'cm', long: 'centimeters' },
+			{ short: 'km', long: 'kilometers' },
+			{ short: 'mm', long: 'millimeters' },
+		],
+		color: VariableColors[13],
+		description: '',
+	}
 }
 export const Delta = (variable: Variable, subscriptType: DeltaSubscript) => {
 	const subscripts = match(subscriptType)
@@ -377,203 +423,242 @@ export const Delta = (variable: Variable, subscriptType: DeltaSubscript) => {
 		description: '',
 	}
 }
-export const Acceleration: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'a',
-		long: 'Acceleration',
-	},
-	units: [
-		{
-			short: '\\frac{m}{s^2}',
-			long: '\\frac{meters}{seconds^2}',
+export const Acceleration = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'a',
+			long: 'Acceleration',
 		},
-		{
-			short: '\\frac{cm}{s^2}',
-			long: '\\frac{centimeters}{seconds^2}',
-		},
-	],
-	color: VariableColors[15],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: '\\frac{m}{s^2}',
+				long: '\\frac{meters}{seconds^2}',
+			},
+			{
+				short: '\\frac{cm}{s^2}',
+				long: '\\frac{centimeters}{seconds^2}',
+			},
+		],
+		color: VariableColors[15],
+		description: '',
+	}
 }
-export const Voltage: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'V',
-		long: 'Voltage',
-	},
-	units: [{ short: 'V', long: 'Volts' }],
-	color: VariableColors[16],
-	description: '',
+export const Voltage = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'V',
+			long: 'Voltage',
+		},
+		subscript: subscript || '',
+		units: [{ short: 'V', long: 'Volts' }],
+		color: VariableColors[16],
+		description: '',
+	}
 }
-export const Current: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'I',
-		long: 'Current',
-	},
-	units: [
-		{
-			short: 'A',
-			long: 'Amps',
+export const Current = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'I',
+			long: 'Current',
 		},
-		{
-			short: 'mA',
-			long: 'milliamps',
-		},
-	],
-	color: VariableColors[17],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: 'A',
+				long: 'Amps',
+			},
+			{
+				short: 'mA',
+				long: 'milliamps',
+			},
+		],
+		color: VariableColors[17],
+		description: '',
+	}
 }
-export const Resistance: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'R',
-		long: 'Resistance',
-	},
-	units: [{ short: '\\Omega', long: 'Ohms' }],
-	color: VariableColors[18],
-	description: '',
+export const Resistance = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'R',
+			long: 'Resistance',
+		},
+		subscript: subscript || '',
+		units: [{ short: '\\Omega', long: 'Ohms' }],
+		color: VariableColors[18],
+		description: '',
+	}
 }
-export const Momentum: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: '\\rho',
-		long: 'Momentum',
-	},
-	units: [
-		{
-			short: `kg \\cdot \\frac{m}{s^2}`,
-			long: 'kilograms\\cdot\\frac{meters}{seconds^2}',
+export const Momentum = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: '\\rho',
+			long: 'Momentum',
 		},
-	],
-	color: VariableColors[19],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: `kg \\cdot \\frac{m}{s^2}`,
+				long: 'kilograms\\cdot\\frac{meters}{seconds^2}',
+			},
+		],
+		color: VariableColors[19],
+		description: '',
+	}
 }
-export const Friction: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'F_{Friction}',
-		long: 'Force_{Friction}',
-	},
-	units: [
-		{
-			short: 'N',
-			long: 'Newtons',
+export const Friction = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'F_{Friction}',
+			long: 'Force_{Friction}',
 		},
-		{
-			short: `kg \\cdot \\frac{m}{s^2}`,
-			long: 'Newtons',
-		},
-		{
-			short: 'lbs',
-			long: 'Pounds',
-		},
-	],
-	color: VariableColors[20],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: 'N',
+				long: 'Newtons',
+			},
+			{
+				short: `kg \\cdot \\frac{m}{s^2}`,
+				long: 'Newtons',
+			},
+			{
+				short: 'lbs',
+				long: 'Pounds',
+			},
+		],
+		color: VariableColors[20],
+		description: '',
+	}
 }
-export const Mu: Term = {
-	termType: 'DIMENSIONLESS_VARIABLE',
-	variableSymbol: {
-		short: 'μ',
-		long: 'Mu',
-	},
-	color: VariableColors[21],
-	description: 'The Coefficient of Friction',
-}
-export const Work: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'W',
-		long: 'Work',
-	},
-	units: [
-		{
-			short: `J`,
-			long: 'Joules',
+export const Mu = (subscript?: string | number): Term => {
+	return {
+		termType: 'DIMENSIONLESS_VARIABLE',
+		variableSymbol: {
+			short: 'μ',
+			long: 'Mu',
 		},
-	],
-	color: VariableColors[22],
-	description: '',
+		subscript: subscript || '',
+		color: VariableColors[21],
+		description: 'The Coefficient of Friction',
+	}
 }
-export const WaveSpeed: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'S_{wave}',
-		long: 'Speed_{wave}',
-	},
-	units: [
-		{
-			short: '\\frac{m}{s}',
-			long: '\\frac{meters}{seconds}',
+export const Work = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'W',
+			long: 'Work',
 		},
-		{
-			short: '\\frac{cm}{s}',
-			long: '\\frac{centimeters}{seconds}',
-		},
-	],
-	color: VariableColors[23],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: `J`,
+				long: 'Joules',
+			},
+		],
+		color: VariableColors[22],
+		description: '',
+	}
 }
-export const Frequency: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'f',
-		long: 'Frequency',
-	},
-	units: [
-		{
-			short: `Hz`,
-			long: 'Hertz',
+export const WaveSpeed = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'S_{wave}',
+			long: 'Speed_{wave}',
 		},
-	],
-	color: VariableColors[24],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: '\\frac{m}{s}',
+				long: '\\frac{meters}{seconds}',
+			},
+			{
+				short: '\\frac{cm}{s}',
+				long: '\\frac{centimeters}{seconds}',
+			},
+		],
+		color: VariableColors[23],
+		description: '',
+	}
 }
-export const Wavelength: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: '\\lambda',
-		long: 'Wavelength',
-	},
-	units: [
-		{ short: 'm', long: 'meters' },
-		{ short: 'cm', long: 'centimeters' },
-		{ short: 'km', long: 'kilometers' },
-		{ short: 'mm', long: 'millimeters' },
-	],
-	color: VariableColors[25],
-	description: '',
-}
-export const Power: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'P',
-		long: 'Power',
-	},
-	units: [
-		{
-			short: `\\frac{J}{s}`,
-			long: '\\frac{Joules}{Second}',
+export const Frequency = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'f',
+			long: 'Frequency',
 		},
-	],
-	color: VariableColors[26],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: `Hz`,
+				long: 'Hertz',
+			},
+		],
+		color: VariableColors[24],
+		description: '',
+	}
+}
+export const Wavelength = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: '\\lambda',
+			long: 'Wavelength',
+		},
+		subscript: subscript || '',
+		units: [
+			{ short: 'm', long: 'meters' },
+			{ short: 'cm', long: 'centimeters' },
+			{ short: 'km', long: 'kilometers' },
+			{ short: 'mm', long: 'millimeters' },
+		],
+		color: VariableColors[25],
+		description: '',
+	}
+}
+export const Power = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'P',
+			long: 'Power',
+		},
+		subscript: subscript || '',
+		units: [
+			{
+				short: `\\frac{J}{s}`,
+				long: '\\frac{Joules}{Second}',
+			},
+		],
+		color: VariableColors[26],
+		description: '',
+	}
 }
 
-export const Energy: Term = {
-	termType: 'VARIABLE',
-	variableSymbol: {
-		short: 'E',
-		long: 'Energy',
-	},
-	units: [
-		{
-			short: `J`,
-			long: 'Joules',
+export const Energy = (subscript?: string | number): Term => {
+	return {
+		termType: 'VARIABLE',
+		variableSymbol: {
+			short: 'E',
+			long: 'Energy',
 		},
-	],
-	color: VariableColors[27],
-	description: '',
+		subscript: subscript || '',
+		units: [
+			{
+				short: `J`,
+				long: 'Joules',
+			},
+		],
+		color: VariableColors[27],
+		description: '',
+	}
 }

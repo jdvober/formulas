@@ -1,4 +1,9 @@
-type Var = { id: string; value: string | number; color: string } // A variable / value used in the formula that is being constructed
+type Var = {
+	id: string
+	value: { short: string | number; long: string | number }
+	subscript: { short: string | number; long: string | number }
+	color: string
+} // A variable / value used in the formula that is being constructed
 type VarList = Var[] // A list of all of the variables / values that are used in the formula that is being constructed
 export type TermType = { variableList: VarList; latexString: string } // The list of variables / values in the Term, and it's representation as Latex
 

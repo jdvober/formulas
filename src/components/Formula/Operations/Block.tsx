@@ -10,8 +10,11 @@ type BlockProps =
 
 export const Block: BlockProps = ({ children }) => {
 	return (
-		<Box>
-			<MathJax hideUntilTypeset='every'>{`\\[${children}\\]`}</MathJax>
+		<Box className='BlockContainer'>
+			<MathJax
+				className={`Block ${children?.toString()}`}
+				hideUntilTypeset='every'
+			>{`\\[${children}\\]`}</MathJax>
 		</Box>
 	)
 }

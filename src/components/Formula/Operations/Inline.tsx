@@ -11,7 +11,10 @@ type InlineProps =
 export const Inline: InlineProps = ({ children }) => {
 	return (
 		<Box>
-			<MathJax hideUntilTypeset='every'>{`\\(${children}\\)`}</MathJax>
+			<MathJax
+				className={`Inline ${children?.toString()}`}
+				hideUntilTypeset='every'
+			>{`\\(${children}\\)`}</MathJax>
 		</Box>
 	)
 }

@@ -13,7 +13,9 @@ import {
 } from '@/components/Formula/Operations/Operations'
 import { LongSymbolSwitch } from '@/components/LongSymbolSwitch'
 import { useMainStore } from '@/stores/MainStore'
-import { Center, Flex, Spacer, Text } from '@chakra-ui/react'
+import { VariableColors } from '@/stores/TermList'
+import { dracFg } from '@/theme/colors/colors'
+import { Box, Center, Flex, Spacer, Text } from '@chakra-ui/react'
 import {
 	DndContext,
 	MouseSensor,
@@ -33,67 +35,45 @@ export const App = () => {
 	)
 	const longSymbols = useMainStore((state) => state.longSymbols)
 
-	const a = {
-		variableList: [
-			{
-				id: uuid(),
-				value: longSymbols === true ? 6 : 6,
-				color: 'red',
-			},
-		],
-		latexString: longSymbols === true ? '6' : '6',
+	type MakeVarType = {
+		variableList: {
+			id: string
+			value: string | number
+			color: string
+		}[]
+		latexString: string
 	}
 
-	const b = {
-		variableList: [
-			{
-				id: uuid(),
-				value: longSymbols === true ? 'position' : 'x',
-				color: 'orange',
-			},
-		],
-		latexString: longSymbols === true ? 'position' : 'x',
+	const makeVar = (
+		s: string | number,
+		l: string | number,
+		color: string
+	): MakeVarType => {
+		return {
+			variableList: [
+				{
+					id: uuid(),
+					value: longSymbols === true ? l : s,
+					color: color,
+				},
+			],
+			latexString:
+				longSymbols === true
+					? `\\color{${color}}${l.toString()}\\color{${dracFg}}`
+					: `\\color{${color}}${s.toString()}\\color{${dracFg}}`,
+		}
 	}
+	const a = makeVar(6, 6, VariableColors[0])
 
-	const c = {
-		variableList: [
-			{
-				id: uuid(),
-				value: longSymbols === true ? 5 : 5,
-				color: 'yellow',
-			},
-		],
-		latexString: longSymbols === true ? '5' : '5',
-	}
+	const b = makeVar('position', 'x', VariableColors[1])
 
-	const d = {
-		variableList: [
-			{ id: uuid(), value: longSymbols === true ? 9 : 9, color: 'green' },
-		],
-		latexString: longSymbols === true ? '9' : '9',
-	}
+	const c = makeVar(5, 5, VariableColors[2])
 
-	const e = {
-		variableList: [
-			{
-				id: uuid(),
-				value: longSymbols === true ? 'height' : 'y',
-				color: 'blue',
-			},
-		],
-		latexString: longSymbols === true ? 'height' : 'y',
-	}
+	const d = makeVar(9, 9, VariableColors[3])
 
-	const f = {
-		variableList: [
-			{
-				id: uuid(),
-				value: longSymbols === true ? 'z' : 'z',
-				color: 'purple',
-			},
-		],
-		latexString: longSymbols === true ? 'z' : 'z',
-	}
+	const e = makeVar('height', 'y', VariableColors[4])
+
+	const f = makeVar('z', 'z', VariableColors[5])
 
 	return (
 		<Center bg='dracula.dracBG'>
@@ -101,8 +81,14 @@ export const App = () => {
 				{/* Output math as SVG */}
 				<MathJaxContext
 					config={{
-						loader: { load: ['input/tex', 'output/svg'] },
+						loader: {
+							load: ['input/tex', 'output/svg', '[tex]/color'],
+						},
 						tex: {
+							autoload: {
+								verb: ['verb'],
+							},
+							packages: { '[+]': ['color'] }, // Enable the 'color' package
 							inlineMath: [['\\(', '\\)']],
 							displayMath: [['\\[', '\\]']],
 						},
@@ -131,30 +117,41 @@ export const App = () => {
 									wrap={'wrap'}
 									fontSize='3xl'
 								>
-									<Block>
-										{
-											Equals(
-												f,
-												Sqrt(
-													Div(
-														Mult(
-															Sqrt(
-																Div(
-																	Mult(
-																		a,
-																		Delta(b)
-																	),
-																	c
-																)
+									<Flex direction='row' gapX='2em'>
+										<Block>
+											{
+												Equals(
+													f,
+													Sqrt(
+														Div(
+															Mult(
+																Sqrt(
+																	Div(
+																		Mult(
+																			a,
+																			Delta(
+																				b
+																			)
+																		),
+																		c
+																	)
+																),
+																d
 															),
-															d
-														),
-														DeltaExpanded(e)
+															DeltaExpanded(e)
+														)
 													)
-												)
-											).latexString
-										}
-									</Block>
+												).latexString
+											}
+										</Block>
+										<Flex direction='column'>
+											<Box
+												color={a.variableList[0].color}
+											>
+												{a.variableList[0].value}
+											</Box>
+										</Flex>
+									</Flex>
 								</Flex>
 							</Flex>
 						</Center>

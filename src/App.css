@@ -1,6 +1,6 @@
 * {
 	font-family: 'Fira Sans', sans-serif;
-	color: #f8f8f2;
+	/*color: #f8f8f2;*/
 	scrollbar-width: thin;
 	scrollbar-color: transparent var(--primary);
 	user-select: none;
@@ -30,4 +30,9 @@
 
 .monospace {
 	font-family: 'Fira Code', monospace;
+}
+
+/*Color the normal text without coloring the MathJax components*/
+:not([class*='mjx']) {
+	color: #f8f8f2;
 }

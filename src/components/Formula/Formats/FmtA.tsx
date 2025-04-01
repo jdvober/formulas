@@ -17,326 +17,211 @@ export const FmtA: FmtAProps = ({ terms }) => {
 	const longSymbols = useMainStore((state) => state.longSymbols)
 	const [a, b, c] = terms
 	const [format, setFormat] = useState('ALPHA')
-	const texToReturn = (a: Term, b: Term, c: Term) => {
-		let returnValue
+	const getReturnVal = (
+		newA: { long: string | number; short: string | number; color: string },
+		newB: { long: string | number; short: string | number; color: string },
+		newC: { long: string | number; short: string | number; color: string },
+		val: string
+	) => {
+		return (
+			<Flex direction='row' gapX='2em' alignItems='center'>
+				<Box>
+					<Block>{val}</Block>
+				</Box>
+				<Flex direction='column'>
+					<Center fontSize='1.5em'>
+						<u>Units</u>
+					</Center>
+					<Box
+						color={newA.color}
+						onClick={() => {
+							setFormat('ALPHA')
+						}}
+					>
+						{longSymbols === true ? newA.long : newA.short}
+					</Box>
+					<Box
+						color={newB.color}
+						onClick={() => {
+							setFormat('BETA')
+						}}
+					>
+						{longSymbols === true ? newB.long : newB.short}
+					</Box>
+					<Box
+						color={newC.color}
+						onClick={() => {
+							setFormat('GAMMA')
+						}}
+					>
+						{longSymbols === true ? newC.long : newC.short}
+					</Box>
+				</Flex>
+			</Flex>
+		)
+	}
+	const getFormat = (
+		newA: {
+			long: string | number
+			short: string | number
+			color: string
+		},
+		newB: {
+			long: string | number
+			short: string | number
+			color: string
+		},
+		newC: {
+			long: string | number
+			short: string | number
+			color: string
+		}
+	) => {
+		return format === 'ALPHA'
+			? `\\color{${newA.color}}${longSymbols === true ? newA.long : newA.short}` +
+					`\\color{${dracFg}}=` +
+					`\\frac` +
+					`{` +
+					`\\color{${newB.color}}${longSymbols === true ? newB.long : newB.short}` +
+					`}` +
+					`{` +
+					`\\color{${newC.color}}${longSymbols === true ? newC.long : newC.short}` +
+					`}`
+			: format === 'BETA'
+				? `\\color{${newB.color}}${longSymbols === true ? newB.long : newB.short}` +
+					`\\color{${dracFg}}=` +
+					`\\color{${newA.color}}${longSymbols === true ? newA.long : newA.short}` +
+					`\\cdot` +
+					`\\color{${newC.color}}${longSymbols === true ? newC.long : newC.short}`
+				: `\\color{${newC.color}}${longSymbols === true ? newC.long : newC.short}` +
+					`\\color{${dracFg}}=` +
+					`\\frac` +
+					`{` +
+					`\\color{${newB.color}}${longSymbols === true ? newB.long : newB.short}` +
+					`}` +
+					`{` +
+					`\\color{${newA.color}}${longSymbols === true ? newA.long : newA.short}` +
+					`}`
+	}
+	const texToReturn = (a: Term, b: Term, c: Term): JSX.Element => {
+		let params: {
+			long: string | number
+			short: string | number
+			color: string
+		}[] = [
+			{
+				long: 'ERROR',
+				short: 'ERROR',
+				color: 'red',
+			},
+			{
+				long: 'ERROR',
+				short: 'ERROR',
+				color: 'red',
+			},
+			{
+				long: 'ERROR',
+				short: 'ERROR',
+				color: 'red',
+			},
+		] // Placeholder Values
 		match(a.termType)
 			.with('DIMENSIONLESS_QUANTITY', () => {
 				const newA = a as DimensionlessQuantity
 				const newB = b as DimensionlessQuantity
 				const newC = c as DimensionlessQuantity
-				const val =
-					format === 'ALPHA'
-						? `${newA.magnitude}` +
-							`\\color{${dracFg}}=` +
-							`\\frac` +
-							`{` +
-							`${newB.magnitude}` +
-							`}` +
-							`{` +
-							`${newC.magnitude}` +
-							`}`
-						: format === 'BETA'
-							? `${newB.magnitude}` +
-								`\\color{${dracFg}}=` +
-								`${newA.magnitude}` +
-								`\\cdot` +
-								`${newC.magnitude}`
-							: `${newC.magnitude}` +
-								`\\color{${dracFg}}=` +
-								`\\frac` +
-								`{` +
-								`${newB.magnitude}` +
-								`}` +
-								`{` +
-								`${newA.magnitude}` +
-								`}`
-				returnValue = (
-					<Flex direction='row' gapX='2em' alignItems='center'>
-						<Box>
-							<Block>{val}</Block>
-						</Box>
-						<Flex direction='column'>
-							<Center fontSize='1.5em'>
-								<u>Units</u>
-							</Center>
-							<Box
-								color={newA.color}
-								onClick={() => {
-									console.log(`Clicked ${newA.magnitude}`)
-									setFormat('ALPHA')
-								}}
-							>
-								{newA.magnitude}
-							</Box>
-							<Box
-								color={newB.color}
-								onClick={() => {
-									console.log(`Clicked ${newB.magnitude}`)
-									setFormat('BETA')
-								}}
-							>
-								{newB.magnitude}
-							</Box>
-							<Box
-								color={newC.color}
-								onClick={() => {
-									console.log(`Clicked ${newC.magnitude}`)
-									setFormat('GAMMA')
-								}}
-							>
-								{newC.magnitude}
-							</Box>
-						</Flex>
-					</Flex>
-				)
+				params = [
+					{
+						long: newA.magnitude,
+						short: newA.magnitude,
+						color: newA.color,
+					},
+					{
+						long: newB.magnitude,
+						short: newB.magnitude,
+						color: newB.color,
+					},
+					{
+						long: newC.magnitude,
+						short: newC.magnitude,
+						color: newC.color,
+					},
+				]
 			})
 			.with('DIMENSIONLESS_VARIABLE', () => {
 				const newA = a as DimensionlessVariable
 				const newB = b as DimensionlessVariable
 				const newC = c as DimensionlessVariable
 
-				const val =
-					format === 'ALPHA'
-						? `${longSymbols === true ? newA.variableSymbol.long : newA.variableSymbol.short}` +
-							`\\color{${dracFg}}=` +
-							`\\frac` +
-							`{` +
-							`${longSymbols === true ? newB.variableSymbol.long : newB.variableSymbol.short}` +
-							`}` +
-							`{` +
-							`${longSymbols === true ? newC.variableSymbol.long : newC.variableSymbol.short}` +
-							`}`
-						: format === 'BETA'
-							? `${longSymbols === true ? newB.variableSymbol.long : newB.variableSymbol.short}` +
-								`\\color{${dracFg}}=` +
-								`${longSymbols === true ? newA.variableSymbol.long : newA.variableSymbol.short}` +
-								`\\cdot` +
-								`${longSymbols === true ? newC.variableSymbol.long : newC.variableSymbol.short}`
-							: `${longSymbols === true ? newC.variableSymbol.long : newC.variableSymbol.short}` +
-								`\\color{${dracFg}}=` +
-								`\\frac` +
-								`{` +
-								`${longSymbols === true ? newB.variableSymbol.long : newB.variableSymbol.short}` +
-								`}` +
-								`{` +
-								`${longSymbols === true ? newA.variableSymbol.long : newA.variableSymbol.short}` +
-								`}`
-
-				returnValue = (
-					<Flex direction='row' gapX='2em' alignItems='center'>
-						<Box>
-							<Block>{val}</Block>
-						</Box>
-						<Flex direction='column'>
-							<Center fontSize='1.5em'>
-								<u>Units</u>
-							</Center>
-							<Box
-								color={newA.color}
-								onClick={() => {
-									console.log(
-										`Clicked ${newA.variableSymbol.long}`
-									)
-									setFormat('ALPHA')
-								}}
-							>
-								{longSymbols === true
-									? newA.variableSymbol.long
-									: newA.variableSymbol.short}
-							</Box>
-							<Box
-								color={newB.color}
-								onClick={() => {
-									console.log(
-										`Clicked ${newB.variableSymbol.long}`
-									)
-									setFormat('BETA')
-								}}
-							>
-								{longSymbols === true
-									? newB.variableSymbol.long
-									: newB.variableSymbol.short}
-							</Box>
-							<Box
-								color={newC.color}
-								onClick={() => {
-									console.log(
-										`Clicked ${newC.variableSymbol.long}`
-									)
-									setFormat('GAMMA')
-								}}
-							>
-								{longSymbols === true
-									? newC.variableSymbol.long
-									: newC.variableSymbol.short}
-							</Box>
-						</Flex>
-					</Flex>
-				)
+				params = [
+					{
+						long: newA.variableSymbol.long,
+						short: newA.variableSymbol.short,
+						color: newA.color,
+					},
+					{
+						long: newB.variableSymbol.long,
+						short: newB.variableSymbol.short,
+						color: newB.color,
+					},
+					{
+						long: newC.variableSymbol.long,
+						short: newC.variableSymbol.short,
+						color: newC.color,
+					},
+				]
 			})
 			.with('QUANTITY', () => {
 				const newA = a as DimensionlessQuantity
 				const newB = b as DimensionlessQuantity
 				const newC = c as DimensionlessQuantity
-				const val =
-					format === 'ALPHA'
-						? `${newA.magnitude}` +
-							`\\color{${dracFg}}=` +
-							`\\frac` +
-							`{` +
-							`${newB.magnitude}` +
-							`}` +
-							`{` +
-							`${newC.magnitude}` +
-							`}`
-						: format === 'BETA'
-							? `${newB.magnitude}` +
-								`\\color{${dracFg}}=` +
-								`${newA.magnitude}` +
-								`\\cdot` +
-								`${newC.magnitude}`
-							: `${newC.magnitude}` +
-								`\\color{${dracFg}}=` +
-								`\\frac` +
-								`{` +
-								`${newB.magnitude}` +
-								`}` +
-								`{` +
-								`${newA.magnitude}` +
-								`}`
-
-				returnValue = (
-					<Flex direction='row' gapX='2em' alignItems='center'>
-						<Box>
-							<Block>{val}</Block>
-						</Box>
-						<Flex direction='column'>
-							<Center fontSize='1.5em'>
-								<u>Units</u>
-							</Center>
-							<Box
-								color={newA.color}
-								onClick={() => {
-									console.log(`Clicked ${newA.magnitude}`)
-								}}
-							>
-								{newA.magnitude}
-							</Box>
-							<Box
-								color={newB.color}
-								onClick={() => {
-									console.log(`Clicked ${newB.magnitude}`)
-								}}
-							>
-								{newB.magnitude}
-							</Box>
-							<Box
-								color={newC.color}
-								onClick={() => {
-									console.log(`Clicked ${newC.magnitude}`)
-								}}
-							>
-								{newC.magnitude}
-							</Box>
-						</Flex>
-					</Flex>
-				)
+				params = [
+					{
+						long: newA.magnitude,
+						short: newA.magnitude,
+						color: newA.color,
+					},
+					{
+						long: newB.magnitude,
+						short: newB.magnitude,
+						color: newB.color,
+					},
+					{
+						long: newC.magnitude,
+						short: newC.magnitude,
+						color: newC.color,
+					},
+				]
 			})
 			.with('VARIABLE', () => {
 				const newA = a as DimensionlessVariable
 				const newB = b as DimensionlessVariable
 				const newC = c as DimensionlessVariable
 
-				const val =
-					format === 'ALPHA'
-						? `\\color{${newA.color}}${longSymbols === true ? newA.variableSymbol.long : newA.variableSymbol.short}\\color{${dracFg}}` +
-							`\\color{${dracFg}}=` +
-							`\\frac` +
-							`{` +
-							`\\color{${newB.color}}` +
-							`${longSymbols === true ? newB.variableSymbol.long : newB.variableSymbol.short}` +
-							`\\color{${dracFg}}` +
-							`}` +
-							`{` +
-							`\\color{${newC.color}}` +
-							`${longSymbols === true ? newC.variableSymbol.long : newC.variableSymbol.short}` +
-							`\\color{${dracFg}}` +
-							`}`
-						: format === 'BETA'
-							? `\\color{${newB.color}}` +
-								`${longSymbols === true ? newB.variableSymbol.long : newB.variableSymbol.short}` +
-								`\\color{${dracFg}}=` +
-								`\\color{${newA.color}}` +
-								`${longSymbols === true ? newA.variableSymbol.long : newA.variableSymbol.short}` +
-								`\\cdot` +
-								`\\color{${newC.color}}` +
-								`${longSymbols === true ? newC.variableSymbol.long : newC.variableSymbol.short}`
-							: `\\color{${newC.color}}` +
-								`${longSymbols === true ? newC.variableSymbol.long : newC.variableSymbol.short}` +
-								`\\color{${dracFg}}=` +
-								`\\frac` +
-								`{` +
-								`\\color{${newB.color}}` +
-								`${longSymbols === true ? newB.variableSymbol.long : newB.variableSymbol.short}` +
-								`}` +
-								`{` +
-								`\\color{${newA.color}}` +
-								`${longSymbols === true ? newA.variableSymbol.long : newA.variableSymbol.short}` +
-								`}`
-
-				returnValue = (
-					<Flex direction='row' gapX='2em' alignItems='center'>
-						<Box>
-							<Block>{val}</Block>
-						</Box>
-						<Flex direction='column'>
-							<Center fontSize='1.5em'>
-								<u>Units</u>
-							</Center>
-							<Box
-								color={newA.color}
-								onClick={() => {
-									console.log(
-										`Clicked ${newA.variableSymbol.long}`
-									)
-									setFormat('ALPHA')
-								}}
-							>
-								{longSymbols === true
-									? newA.variableSymbol.long
-									: newA.variableSymbol.short}
-							</Box>
-							<Box
-								color={newB.color}
-								onClick={() => {
-									console.log(
-										`Clicked ${newB.variableSymbol.long}`
-									)
-									setFormat('BETA')
-								}}
-							>
-								{longSymbols === true
-									? newB.variableSymbol.long
-									: newB.variableSymbol.short}
-							</Box>
-							<Box
-								color={newC.color}
-								onClick={() => {
-									console.log(
-										`Clicked ${newC.variableSymbol.long}`
-									)
-									setFormat('GAMMA')
-								}}
-							>
-								{longSymbols === true
-									? newC.variableSymbol.long
-									: newC.variableSymbol.short}
-							</Box>
-						</Flex>
-					</Flex>
-				)
+				params = [
+					{
+						long: newA.variableSymbol.long,
+						short: newA.variableSymbol.short,
+						color: newA.color,
+					},
+					{
+						long: newB.variableSymbol.long,
+						short: newB.variableSymbol.short,
+						color: newB.color,
+					},
+					{
+						long: newC.variableSymbol.long,
+						short: newC.variableSymbol.short,
+						color: newC.color,
+					},
+				]
 			})
-		return returnValue
+		return getReturnVal(
+			params[0],
+			params[1],
+			params[2],
+			getFormat(params[0], params[1], params[2])
+		)
 	}
 
 	return <Box>{texToReturn(a, b, c)}</Box>

@@ -1,48 +1,91 @@
-type Var = {
-	id: string
-	value: { short: string | number; long: string | number }
-	subscript: { short: string | number; long: string | number }
-	color: string
-} // A variable / value used in the formula that is being constructed
-type VarList = Var[] // A list of all of the variables / values that are used in the formula that is being constructed
-export type TermType = { variableList: VarList; latexString: string } // The list of variables / values in the Term, and it's representation as Latex
+import { match } from 'ts-pattern'
 
-// Using Set for unique variables only
-export const Div = (a: TermType, b: TermType): TermType => {
-	const newVariableList = [...new Set([...a.variableList, ...b.variableList])]
-	const latex = `\\frac{${a.latexString}}{${b.latexString}}`
-	return { variableList: newVariableList, latexString: latex }
+export const GetValFromTerm = (term: Term) => {
+	return match(term.termType)
+		.with('DIMENSIONLESS_QUANTITY', 'QUANTITY', () => {
+			const t = term as DimensionlessQuantity
+			return { short: t.magnitude, long: t.magnitude }
+		})
+		.with('DIMENSIONLESS_VARIABLE', 'VARIABLE', () => {
+			const t = term as DimensionlessVariable
+			return {
+				short: t.variableSymbol.short,
+				long: t.variableSymbol.long,
+			}
+		})
+		.exhaustive()
 }
 
-export const Mult = (a: TermType, b: TermType): TermType => {
-	const newVariableList = [...new Set([...a.variableList, ...b.variableList])]
-	const latex = `${a.latexString}~\\boldsymbol{\\cdot}~${b.latexString}`
-	return { variableList: newVariableList, latexString: latex }
+const getTex = (term: Term, longSymbols: boolean) => {
+	return match(term.termType)
+		.with('DIMENSIONLESS_QUANTITY', () => {
+			const newTerm = term as Quantity
+			return longSymbols === true
+				? `\\color{${newTerm.color}}${newTerm.magnitude}` +
+						`\\color{${newTerm.color}}\_{${newTerm.subscript}}`
+				: `\\color{${newTerm.color}}${newTerm.magnitude}` +
+						`\\color{${newTerm.color}}\_{${newTerm.subscript}}`
+		})
+		.with('DIMENSIONLESS_VARIABLE', () => {
+			const newTerm = term as Variable
+			return longSymbols === true
+				? `\\color{${newTerm.color}}${newTerm.variableSymbol.long}` +
+						`\\color{${newTerm.color}}\_{${newTerm.subscript}}`
+				: `\\color{${newTerm.color}}${newTerm.variableSymbol.short}` +
+						`\\color{${newTerm.color}}\_{${newTerm.subscript}}`
+		})
+		.with('QUANTITY', () => {
+			const newTerm = term as Quantity
+			return longSymbols === true
+				? `\\color{${newTerm.color}}${newTerm.magnitude}` +
+						`\\color{${newTerm.color}}\_{${newTerm.subscript}}`
+				: `\\color{${newTerm.color}}${newTerm.magnitude}` +
+						`\\color{${newTerm.color}}\_{${newTerm.subscript}}`
+		})
+		.with('VARIABLE', () => {
+			const newTerm = term as Variable
+			return longSymbols === true
+				? `\\color{${newTerm.color}}${newTerm.variableSymbol.long}` +
+						`\\color{${newTerm.color}}\_{${newTerm.subscript}}`
+				: `\\color{${newTerm.color}}${newTerm.variableSymbol.short}` +
+						`\\color{${newTerm.color}}\_{${newTerm.subscript}}`
+			//return `4`
+		})
+		.exhaustive()
 }
 
-export const Exp = (a: TermType, exponent: number): TermType => {
-	const latex = `${a.latexString}^{${exponent}}`
-	return { variableList: a.variableList, latexString: latex }
-}
+export const Multiply = (
+	history: OperationHistory,
+	longSymbols: boolean
+): OperationHistory => {
+	// Handle empty history arrays
+	if (history.length === 0) return []
+	// Base Case
+	else if (history.length === 1) {
+		const [operation] = history
+		const aVal = getTex(operation.a, longSymbols)
+		const bVal = getTex(operation.b, longSymbols)
+		return [
+			{
+				...operation,
+				operator: 'MULTIPLY',
+				texString: `(${aVal} \\cdot ${bVal})`,
+			},
+		]
+	}
 
-export const Sqrt = (a: TermType): TermType => {
-	const latex = `\\sqrt{${a.latexString}}`
-	return { variableList: a.variableList, latexString: latex }
-}
+	// If the length of the history is greater than 1
+	const [first, ...rest] = history
+	const multipliedRest = Multiply(rest, longSymbols)
 
-export const Equals = (a: TermType, b: TermType): TermType => {
-	const newVariableList = [...new Set([...a.variableList, ...b.variableList])]
-	const latex = `${a.latexString} = ${b.latexString}`
-	return { variableList: newVariableList, latexString: latex }
-}
-
-export const Delta = (a: TermType): TermType => {
-	const latex = `\\Delta ${a.latexString}`
-	return { variableList: a.variableList, latexString: latex }
-}
-
-// (Final - Initial)
-export const DeltaExpanded = (a: TermType): TermType => {
-	const latex = `(${a.latexString}_{_{final}} - ${a.latexString}_{_{initial}})`
-	return { variableList: a.variableList, latexString: latex }
+	return [
+		{
+			a: first.a,
+			b: multipliedRest[0].a,
+			operator: 'MULTIPLY',
+			//texString: `${first.texString} \\times [${multipliedRest[0].texString}]`,
+			texString: `${Multiply([{ a: first.a, b: first.b, operator: 'MULTIPLY', texString: '' }], longSymbols)[0].texString} \\cdot ${multipliedRest[0].texString}`,
+		},
+		...multipliedRest.slice(1),
+	]
 }

@@ -3,19 +3,21 @@ import { v4 as uuid } from 'uuid'
 import './App.css'
 
 import { FmtA } from '@/components/Formula/Formats/FmtA'
-import {
-	Delta,
-	DeltaExpanded,
-	Div,
-	Equals,
-	Mult,
-	Sqrt,
-} from '@/components/Formula/Operations/Operations'
+import { Block } from '@/components/Formula/Operations/Block'
+import { Multiply } from '@/components/Formula/Operations/Operations'
 import { LongSymbolSwitch } from '@/components/LongSymbolSwitch'
 import { useMainStore } from '@/stores/MainStore'
-import { Density, Mass, VariableColors, Volume } from '@/stores/TermList'
+import {
+	Area,
+	Density,
+	Mass,
+	Pressure,
+	Temperature,
+	VariableColors,
+	Volume,
+} from '@/stores/TermList'
 import { dracFg } from '@/theme/colors/colors'
-import { Center, Flex, Spacer, Text } from '@chakra-ui/react'
+import { Box, Center, Flex, Spacer, Text } from '@chakra-ui/react'
 import {
 	DndContext,
 	MouseSensor,
@@ -79,11 +81,6 @@ export const App = () => {
 
 	const f = makeVar('z', 'z', '', '', VariableColors[5])
 
-	const formula1 = Equals(
-		f,
-		Sqrt(Div(Mult(Sqrt(Div(Mult(a, Delta(b)), c)), d), DeltaExpanded(e)))
-	)
-
 	return (
 		<Center bg='dracula.dracBG'>
 			<DndContext sensors={sensors} collisionDetection={rectIntersection}>
@@ -125,12 +122,49 @@ export const App = () => {
 									gapX='3em'
 									wrap={'wrap'}
 									fontSize='3xl'
+									w='75vw'
+									border='1px solid cyan'
 								>
 									{/* Format A */}
 									<FmtA
 										key={uuid()}
 										terms={[Density(), Mass(), Volume()]}
 									/>
+									<Box>
+										<Block>
+											{
+												Multiply(
+													[
+														{
+															a: Density('final'),
+															b: Volume(),
+															operator:
+																'MULTIPLY',
+															texString: 'test5',
+														},
+
+														{
+															a: Mass('initial'),
+															b: Area(),
+															operator:
+																'MULTIPLY',
+															texString: 'test1',
+														},
+														{
+															a: Pressure(
+																'initial'
+															),
+															b: Temperature(),
+															operator:
+																'MULTIPLY',
+															texString: 'test3',
+														},
+													],
+													longSymbols
+												)[0].texString
+											}
+										</Block>
+									</Box>
 								</Flex>
 							</Flex>
 						</Center>

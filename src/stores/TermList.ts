@@ -1,4 +1,5 @@
 import { match } from 'ts-pattern'
+import { v4 as uuid } from 'uuid'
 
 export const VariableColors: VariableColor[] = [
 	//Density
@@ -67,6 +68,7 @@ export const VariableColors: VariableColor[] = [
 
 export const Density = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'D',
@@ -89,6 +91,7 @@ export const Density = (subscript?: string | number): Term => {
 }
 export const Mass = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'm',
@@ -116,6 +119,7 @@ export const Mass = (subscript?: string | number): Term => {
 }
 export const Volume = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'v',
@@ -142,6 +146,7 @@ export const Volume = (subscript?: string | number): Term => {
 }
 export const Pressure = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'P',
@@ -164,6 +169,7 @@ export const Pressure = (subscript?: string | number): Term => {
 }
 export const Force = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'F',
@@ -190,6 +196,7 @@ export const Force = (subscript?: string | number): Term => {
 }
 export const Weight = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'W',
@@ -216,6 +223,7 @@ export const Weight = (subscript?: string | number): Term => {
 }
 export const Area = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'A',
@@ -238,6 +246,7 @@ export const Area = (subscript?: string | number): Term => {
 }
 export const Temperature = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'T',
@@ -264,6 +273,7 @@ export const Temperature = (subscript?: string | number): Term => {
 }
 export const HeatEnergy = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'Q',
@@ -282,6 +292,7 @@ export const HeatEnergy = (subscript?: string | number): Term => {
 }
 export const SpecificHeatCapacity = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'c',
@@ -300,6 +311,7 @@ export const SpecificHeatCapacity = (subscript?: string | number): Term => {
 }
 export const Speed = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 's',
@@ -322,6 +334,7 @@ export const Speed = (subscript?: string | number): Term => {
 }
 export const Distance = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'd',
@@ -340,6 +353,7 @@ export const Distance = (subscript?: string | number): Term => {
 }
 export const Time = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 't',
@@ -359,6 +373,7 @@ export const Time = (subscript?: string | number): Term => {
 }
 export const Velocity = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'v',
@@ -381,6 +396,7 @@ export const Velocity = (subscript?: string | number): Term => {
 }
 export const Position = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'x',
@@ -407,6 +423,7 @@ export const Delta = (variable: Variable, subscriptType: DeltaSubscript) => {
 		.otherwise(() => ['', ''])
 
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: `\\color{${VariableColors[14]}}\\Delta\\color{${variable.color}}${variable.variableSymbol.short}_{${subscripts[1]}} \\color{${VariableColors[14]}}~-~ \\color{${variable.color}}${variable.variableSymbol.short}_{${subscripts[0]}}\\color{${VariableColors[14]}})`,
@@ -425,6 +442,7 @@ export const Delta = (variable: Variable, subscriptType: DeltaSubscript) => {
 }
 export const Acceleration = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'a',
@@ -447,6 +465,7 @@ export const Acceleration = (subscript?: string | number): Term => {
 }
 export const Voltage = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'V',
@@ -460,6 +479,7 @@ export const Voltage = (subscript?: string | number): Term => {
 }
 export const Current = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'I',
@@ -482,6 +502,7 @@ export const Current = (subscript?: string | number): Term => {
 }
 export const Resistance = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'R',
@@ -495,6 +516,7 @@ export const Resistance = (subscript?: string | number): Term => {
 }
 export const Momentum = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: '\\rho',
@@ -513,6 +535,7 @@ export const Momentum = (subscript?: string | number): Term => {
 }
 export const Friction = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'F_{Friction}',
@@ -539,6 +562,7 @@ export const Friction = (subscript?: string | number): Term => {
 }
 export const Mu = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'DIMENSIONLESS_VARIABLE',
 		variableSymbol: {
 			short: 'μ',
@@ -551,6 +575,7 @@ export const Mu = (subscript?: string | number): Term => {
 }
 export const Work = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'W',
@@ -569,6 +594,7 @@ export const Work = (subscript?: string | number): Term => {
 }
 export const WaveSpeed = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'S_{wave}',
@@ -591,6 +617,7 @@ export const WaveSpeed = (subscript?: string | number): Term => {
 }
 export const Frequency = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'f',
@@ -609,6 +636,7 @@ export const Frequency = (subscript?: string | number): Term => {
 }
 export const Wavelength = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: '\\lambda',
@@ -627,6 +655,7 @@ export const Wavelength = (subscript?: string | number): Term => {
 }
 export const Power = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'P',
@@ -646,6 +675,7 @@ export const Power = (subscript?: string | number): Term => {
 
 export const Energy = (subscript?: string | number): Term => {
 	return {
+		id: uuid(),
 		termType: 'VARIABLE',
 		variableSymbol: {
 			short: 'E',

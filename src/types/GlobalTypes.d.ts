@@ -91,6 +91,7 @@ type VariableSymbol = {
 }
 
 type TermBase = {
+	id: string
 	color: VariableColor
 	description: string
 }
@@ -113,7 +114,7 @@ type Quantity = DimensionlessQuantity & {
 	units: Unit[]
 }
 
-type TermType =
+type TermStyle =
 	| 'DIMENSIONLESS_VARIABLE'
 	| 'VARIABLE'
 	| 'DIMENSIONLESS_QUANTITY'
@@ -124,7 +125,7 @@ type Term = (
 	| Quantity
 	| DimensionlessVariable
 	| Variable
-) & { termType: TermType }
+) & { termType: TermStyle }
 
 type Topic = {
 	title: string
@@ -157,4 +158,5 @@ type Operator =
 	| 'DERIVATIVE'
 	| 'UNION'
 
-type Operation = [Term, Term, Operator]
+type Operation = { a: Term; b: Term; operator: Operator; texString: string }
+type OperationHistory = Operation[]

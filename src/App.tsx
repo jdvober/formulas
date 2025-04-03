@@ -2,22 +2,12 @@ import { InfoDisplay } from '@/components/InfoDisplay/InfoDisplay'
 import { v4 as uuid } from 'uuid'
 import './App.css'
 
-import { FmtA } from '@/components/Formula/Formats/FmtA'
-import { Block } from '@/components/Formula/Operations/Block'
-import { Multiply } from '@/components/Formula/Operations/Operations'
+import { FmtB } from '@/components/Formula/Formats/FmtB'
 import { LongSymbolSwitch } from '@/components/LongSymbolSwitch'
 import { useMainStore } from '@/stores/MainStore'
-import {
-	Area,
-	Density,
-	Mass,
-	Pressure,
-	Temperature,
-	VariableColors,
-	Volume,
-} from '@/stores/TermList'
+import { Density, Mass, VariableColors, Volume } from '@/stores/TermList'
 import { dracFg } from '@/theme/colors/colors'
-import { Box, Center, Flex, Spacer, Text } from '@chakra-ui/react'
+import { Center, Flex, Spacer, Text } from '@chakra-ui/react'
 import {
 	DndContext,
 	MouseSensor,
@@ -118,53 +108,24 @@ export const App = () => {
 								</Text>
 								<LongSymbolSwitch />
 								<Flex
-									direction='row'
+									direction='column'
 									gapX='3em'
 									wrap={'wrap'}
 									fontSize='3xl'
 									w='75vw'
 									border='1px solid cyan'
 								>
-									{/* Format A */}
+									{/* Format A
 									<FmtA
 										key={uuid()}
 										terms={[Density(), Mass(), Volume()]}
 									/>
-									<Box>
-										<Block>
-											{
-												Multiply(
-													[
-														{
-															a: Density('final'),
-															b: Volume(),
-															operator:
-																'MULTIPLY',
-															texString: 'test5',
-														},
-
-														{
-															a: Mass('initial'),
-															b: Area(),
-															operator:
-																'MULTIPLY',
-															texString: 'test1',
-														},
-														{
-															a: Pressure(
-																'initial'
-															),
-															b: Temperature(),
-															operator:
-																'MULTIPLY',
-															texString: 'test3',
-														},
-													],
-													longSymbols
-												)[0].texString
-											}
-										</Block>
-									</Box>
+									*/}
+									{/* Format B */}
+									<FmtB
+										key={uuid()}
+										terms={[Density(), Mass(), Volume()]}
+									/>
 								</Flex>
 							</Flex>
 						</Center>

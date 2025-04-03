@@ -26,7 +26,7 @@ export const Formula: FormulaProps = ({ formula: formula }) => {
 		})
 		// Match the pattern [formula.format, formula.variables.length] with ['B', 4] and if it matches, run the function () => {return <FmtB vars={formula.variables} />}
 		.with(['B', 3], () => {
-			return <FmtB vars={formula.variables} />
+			return <FmtB terms={formula.variables} />
 		})
 		// etc, etc
 		.with(['C', 4], () => {

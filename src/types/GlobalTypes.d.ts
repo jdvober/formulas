@@ -147,16 +147,18 @@ type DeltaSubscript =
 	| 'STARTING_ENDING'
 
 type Operator =
+	| 'TERM'
+	| 'EQUALS'
 	| 'ADD'
 	| 'SUBTRACT'
 	| 'MULTIPLY'
 	| 'DIVIDE'
 	| 'EXPONENT'
-	| 'ROOT'
-	| 'SUM'
-	| 'INTEGRAL'
-	| 'DERIVATIVE'
-	| 'UNION'
 
-type Operation = { a: Term; b: Term; operator: Operator; texString: string }
+type Operation = {
+	a: Term | OperationHistory
+	b: Term | OperationHistory
+	operator: Operator
+	texString: string
+}
 type OperationHistory = Operation[]

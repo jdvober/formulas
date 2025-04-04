@@ -97,20 +97,24 @@ type TermBase = {
 }
 
 type DimensionlessVariable = TermBase & {
+	type: 'TERM'
 	variableSymbol: VariableSymbol
 	subscript: string | number
 }
 
 type Variable = DimensionlessVariable & {
+	type: 'TERM'
 	units: Unit[]
 }
 
 type DimensionlessQuantity = TermBase & {
+	type: 'TERM'
 	magnitude: number
 	subscript: number | string
 }
 
 type Quantity = DimensionlessQuantity & {
+	type: 'TERM'
 	units: Unit[]
 }
 
@@ -146,19 +150,5 @@ type DeltaSubscript =
 	| 'BEGINNING_END'
 	| 'STARTING_ENDING'
 
-type Operator =
-	| 'TERM'
-	| 'EQUALS'
-	| 'ADD'
-	| 'SUBTRACT'
-	| 'MULTIPLY'
-	| 'DIVIDE'
-	| 'EXPONENT'
-
-type Operation = {
-	a: Term | OperationHistory
-	b: Term | OperationHistory
-	operator: Operator
-	texString: string
-}
-type OperationHistory = Operation[]
+type Operation = 'EQUALS' | 'DIVIDE'
+type RPNStackEntry = [string | Term, string | Term, Operation]

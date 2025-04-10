@@ -1,42 +1,38 @@
-# Formula Sheet
+# sv
 
-## Formula Formats
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-### Variable Definition
+## Creating a project
 
-$a=b$
-$c$
+If you're seeing this, you've probably already done this step. Congrats!
 
-where $b$ is a description of $a$
+```bash
+# create a new project in the current directory
+npx sv create
 
-and
+# create a new project in my-app
+npx sv create my-app
+```
 
-$c$ is any supporting text.
+## Developing
 
-### Format A
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-$a=\frac{b}{c}$
+```bash
+npm run dev
 
-### Format B
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-$a=b \cdot c$
+## Building
 
-### Format C
+To create a production version of your app:
 
-$a \cdot b=c \cdot d$
+```bash
+npm run build
+```
 
-### Format D
+You can preview the production build with `npm run preview`.
 
-$a = \frac{b \cdot c}{d}$
-
-### Format E
-
-$a = b \cdot c \cdot d$
-
-### Format F
-
-$a = \frac{b}{c \cdot d}$
-
-### Format G
-
-$a = \sqrt{\frac{b \cdot c}{d}}$
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.

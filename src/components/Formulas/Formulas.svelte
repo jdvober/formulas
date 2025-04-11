@@ -2,41 +2,44 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	// Add any JavaScript logic here if needed
-	let count = $state(0);
-	let numbers = $state([1, 2, 3, 4]);
-	const increment = () => {
-		count += 1;
+	import Formula from './Formula.svelte';
+
+	const propsToPassDown = {
+		str: 'Test String',
 	};
-	const addNumber = () => {
-		numbers.push(numbers.length + 1);
-	};
+	let x = $state(1);
+
+	const formulaStrings = $derived([
+		`ax^2+bx+c=0`,
+		`speed = \\frac{distance}{time}`,
+		`\\textcolor{red}{volume_{${x}}} \\cdot \\textcolor{green}{temperature_2} = \\textcolor{blue}{termperature_1} \\cdot \\textcolor{purple}{volume_2}`,
+	]);
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<button
-	class="incrementButton"
-	onclick={increment}
->
-	Clicked {count}
-	{count === 1 ? 'time' : 'times'}
-</button>
-
-<button
-	class="addNumberButton"
-	onclick={addNumber}>Add to array</button
->
-<div>{numbers}</div>
+<div class="Formulas container">
+	{#each formulaStrings as formula}
+		<Formula
+			{...propsToPassDown}
+			str={formula}
+		/>
+	{/each}
+	<button
+		onclick={() => {
+			x++;
+		}}>Increment</button
+	>
+</div>
 
 <!----------------------------------------------------------------->
 <!-----------------| Styling |------------------------------------->
 <!----------------------------------------------------------------->
-<style lang="scss">
+<style>
 	/* Add any CSS styling here if needed */
-	.incrementButton {
-		border: 1px solid black;
-		width: 50vw;
+	.Formulas {
+		align-items: center;
+		width: 100vw;
 	}
 </style>

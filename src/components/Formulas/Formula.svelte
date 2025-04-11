@@ -2,41 +2,25 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
+	import { display } from 'mathlifier';
+
 	// Add any JavaScript logic here if needed
-	let count = $state(0);
-	let numbers = $state([1, 2, 3, 4]);
-	const increment = () => {
-		count += 1;
-	};
-	const addNumber = () => {
-		numbers.push(numbers.length + 1);
-	};
+	let { str = '?' } = $props();
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<button
-	class="incrementButton"
-	onclick={increment}
->
-	Clicked {count}
-	{count === 1 ? 'time' : 'times'}
-</button>
-
-<button
-	class="addNumberButton"
-	onclick={addNumber}>Add to array</button
->
-<div>{numbers}</div>
+<div class="Formula container">
+	<div class="math border-4">{@html display(str)}</div>
+</div>
 
 <!----------------------------------------------------------------->
 <!-----------------| Styling |------------------------------------->
 <!----------------------------------------------------------------->
 <style lang="scss">
-	/* Add any CSS styling here if needed */
-	.incrementButton {
-		border: 1px solid black;
-		width: 50vw;
+	/* Add any Per-Component CSS styling here */
+	.math {
+		font-size: 200%;
 	}
 </style>

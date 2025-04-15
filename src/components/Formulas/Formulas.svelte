@@ -2,6 +2,7 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
+	import FormatA from './FormatA.svelte';
 	import Formula from './Formula.svelte';
 
 	const propsToPassDown = {
@@ -31,6 +32,11 @@
 			x++;
 		}}>Increment</button
 	>
+	<FormatA
+		a={'a'}
+		b={'b'}
+		c={'c'}
+	/>
 </div>
 
 <!----------------------------------------------------------------->

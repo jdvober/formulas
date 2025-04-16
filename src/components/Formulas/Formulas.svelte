@@ -33,9 +33,9 @@
 		}}>Increment</button
 	>
 	<FormatA
-		a={'a'}
-		b={'b'}
-		c={'c'}
+		a={'speed'}
+		b={'distance'}
+		c={'time'}
 	/>
 </div>
 

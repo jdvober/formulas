@@ -37,6 +37,7 @@
 	},
 	"dependencies": {
 		"flowbite": "^3.1.2",
-		"mathlifier": "^2.0.3"
+		"mathlifier": "^2.0.3",
+		"ts-pattern": "^5.7.0"
 	}
 }

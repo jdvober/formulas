@@ -1,11 +1,9 @@
-<!----------------------------------------------------------------->
-<!----------------- Javascript ------------------------------------>
-<!----------------------------------------------------------------->
 <script lang="ts">
-	// Refs for the container and positions of terms
-	let mathContainer: HTMLDivElement;
-
+	import type { SvelteComponent } from 'svelte';
+	import type { FormatAProp } from '../../types/ambientTypes';
+	import TermSub from './TermSub.svelte';
 	type VARIATION = 'ALPHA' | 'BETA' | 'GAMMA';
+
 	let variation = $state('ALPHA') as VARIATION;
 
 	let {
@@ -13,193 +11,148 @@
 		b,
 		c,
 	}: {
-		a: { value: string | number; sub: string | number };
-		b: { value: string | number; sub: string | number };
-		c: { value: string | number; sub: string | number };
+		a: FormatAProp;
+		b: FormatAProp;
+		c: FormatAProp;
 	} = $props();
+
+	// Helper function to check if a prop is a FormatA component
+	function isComponent(prop: FormatAProp): prop is typeof SvelteComponent {
+		return prop && (prop as any).$$typeof === 'svelte';
+	}
 </script>
 
-<div
-	class="FormulaA container"
-	bind:this={mathContainer}
->
-	<!--Solving for a-->
-	{#if variation === 'ALPHA'}
-		<math
-			display="block"
-			class="formula ALPHA"
-		>
-			<button
-				onclick={() => {
-					console.log(`Clicked ${a.value}_${a.sub}`);
-					variation = 'ALPHA';
-				}}
-			>
-				<msub>
-					<mi class="aText">{a.value}</mi>
-					<mn class="aSub">{a.sub}</mn>
-				</msub>
-			</button>
-			<mrow>=</mrow>
-			<mfrac>
-				<!--Numerator-->
-				<mstyle scriptlevel="0">
-					<!-- Ensures proper rendering inside button -->
-					<button
-						onclick={() => {
-							console.log(`Clicked ${b.value}_${b.sub}`);
-							variation = 'BETA';
-						}}
-					>
-						<msub>
-							<mi class="bText">{b.value}</mi>
-							<mn class="bSub">{b.sub}</mn>
-						</msub>
-					</button>
-				</mstyle>
-				<!--Denominator-->
-
-				<mstyle scriptlevel="0">
-					<!-- Ensures proper rendering inside button -->
-					<button
-						onclick={() => {
-							console.log(`Clicked ${c.value}_${c.sub}`);
-							variation = 'GAMMA';
-						}}
-					>
-						<msub>
-							<mi class="cText">{c.value}</mi>
-							<mn class="cSub">{c.sub}</mn>
-						</msub>
-					</button>
-				</mstyle>
-			</mfrac>
-		</math>
-		<!--Solving for b-->
-	{:else if variation === 'BETA'}
-		<math
-			display="block"
-			class="formula BETA"
-		>
-			<button
-				onclick={() => {
-					console.log(`Clicked ${b.value}_${b.sub}`);
-					variation = 'BETA';
-				}}
-			>
-				<msub>
-					<mi class="bText">{b.value}</mi>
-					<mn class="bSub">{b.sub}</mn>
-				</msub>
-			</button>
-			<mrow>=</mrow>
-			<!--Numerator-->
-
-			<button
-				onclick={() => {
-					console.log(`Clicked ${a.value}_${a.sub}`);
-					variation = 'ALPHA';
-				}}
-			>
-				<msub>
-					<mi class="aText">{a.value}</mi>
-					<mn class="aSub">{a.sub}</mn>
-				</msub>
-			</button>
-			<!--\cdot (dot product)-->
-			<mo>&middot</mo>
-			<!--Denominator-->
-
-			<button
-				onclick={() => {
-					console.log(`Clicked ${c.value}_${c.sub}`);
-					variation = 'GAMMA';
-				}}
-			>
-				<msub>
-					<mi class="cText">{c.value}</mi>
-					<mn class="cSub">{c.sub}</mn>
-				</msub>
-			</button>
-		</math>
-		<!--Solving for c-->
+<div class="mathContainer">
+	{#if isComponent(a) || isComponent(b) || isComponent(c)}
+		{#if a}{@render a()}{/if}
+		{#if b}{@render b()}{/if}
+		{#if c}{@render c()}{/if}
 	{:else}
-		<math
-			display="block"
-			class="formula GAMMA"
-		>
-			<button
-				onclick={() => {
-					console.log(`Clicked ${c.value}_${c.sub}`);
-					variation = 'GAMMA';
-				}}
-			>
-				<msub>
-					<mi class="cText">{c.value}</mi>
-					<mn class="cSub">{c.sub}</mn>
-				</msub>
-			</button>
-			<mrow>=</mrow>
-			<mfrac>
-				<!--Numerator-->
-				<mstyle scriptlevel="0">
-					<!-- Ensures proper rendering inside button -->
-					<button
-						onclick={() => {
-							console.log(`Clicked ${b.value}_${b.sub}`);
-							variation = 'BETA';
-						}}
-					>
-						<msub>
-							<mi class="bText">{b.value}</mi>
-							<mn class="bSub">{b.sub}</mn>
-						</msub>
-					</button>
-				</mstyle>
-				<!--Denominator-->
+		<!--Solving for a-->
+		{#if variation === 'ALPHA'}
+			<math class=" ALPHA">
+				<button onclick={() => (variation = 'ALPHA')}>
+					<TermSub
+						term={a.term}
+						sub={a.sub}
+						className="a"
+					/>
+				</button>
+				<mrow class="equalsSign">=</mrow>
+				<mfrac>
+					<!--Numerator-->
+					<mstyle scriptlevel="0">
+						<button onclick={() => (variation = 'BETA')}>
+							<TermSub
+								term={b.term}
+								sub={b.sub}
+								className="b"
+							/>
+						</button>
+					</mstyle>
+					<!--Denominator-->
+					<mstyle scriptlevel="0">
+						<button onclick={() => (variation = 'GAMMA')}>
+							<TermSub
+								term={c.term}
+								sub={c.sub}
+								className="c"
+							/>
+						</button>
+					</mstyle>
+				</mfrac>
+			</math>
 
-				<mstyle scriptlevel="0">
-					<!-- Ensures proper rendering inside button -->
-					<button
-						onclick={() => {
-							console.log(`Clicked ${a.value}_${a.sub}`);
-							variation = 'ALPHA';
-						}}
-					>
-						<msub>
-							<mi class="aText">{a.value}</mi>
-							<mn class="aSub">{a.sub}</mn>
-						</msub>
-					</button>
-				</mstyle>
-			</mfrac>
-		</math>
+			<!--Solving for b-->
+		{:else if variation === 'BETA'}
+			<math class=" BETA">
+				<button onclick={() => (variation = 'BETA')}>
+					<TermSub
+						term={b.term}
+						sub={b.sub}
+						className="b"
+					/>
+				</button>
+				<mrow class="equalsSign">=</mrow>
+				<button onclick={() => (variation = 'ALPHA')}>
+					<TermSub
+						term={a.term}
+						sub={a.sub}
+						className="a"
+					/>
+				</button>
+				<mo class="cdot">&middot;</mo>
+				<button onclick={() => (variation = 'GAMMA')}>
+					<TermSub
+						term={c.term}
+						sub={c.sub}
+						className="c"
+					/>
+				</button>
+			</math>
+
+			<!--Solving for c-->
+		{:else}
+			<math class=" GAMMA">
+				<button onclick={() => (variation = 'GAMMA')}>
+					<TermSub
+						term={c.term}
+						sub={c.sub}
+						className="c"
+					/>
+				</button>
+				<mrow class="equalsSign">=</mrow>
+				<mfrac>
+					<!--Numerator-->
+					<mstyle scriptlevel="0">
+						<button onclick={() => (variation = 'BETA')}>
+							<TermSub
+								term={b.term}
+								sub={b.sub}
+								className="b"
+							/>
+						</button>
+					</mstyle>
+					<!--Denominator-->
+					<mstyle scriptlevel="0">
+						<button onclick={() => (variation = 'ALPHA')}>
+							<TermSub
+								term={a.term}
+								sub={a.sub}
+								className="a"
+							/>
+						</button>
+					</mstyle>
+				</mfrac>
+			</math>
+		{/if}
 	{/if}
 </div>
 
 <style>
-	.formula {
+	.mathContainer {
 		font-size: 2em;
+		user-select: none;
+		border: 2px solid orange;
+		display: flex;
+		max-width: 25vw;
+		height: 4em;
+		align-items: center;
+		justify-content: center;
 	}
 
-	.aText {
-		color: red;
-	}
-	.aSub {
-		color: pink;
-	}
-
-	.bText {
-		color: blue;
-	}
-	.bSub {
-		color: lightblue;
+	button {
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
 	}
 
-	.cText {
-		color: green;
+	.equalsSign {
+		padding: 0 0.5rem;
 	}
-	.cSub {
-		color: lightgreen;
+
+	.cdot {
+		padding: 0 0.5rem;
 	}
 </style>

@@ -1,22 +1,30 @@
 <script lang="ts">
-	import RecursiveComponentExample from '../../components/RecursiveComponentExample/RecursiveComponentExample.svelte';
+	import Multiplication from '../../components/Formulas/Multiplication.svelte';
+
+	let term1 = 'x';
+	let term2 = 'y';
+	let term3 = 'z';
+	let term4 = 'p';
 </script>
 
-{#snippet testSnippet()}
-	<div>This is a snippet</div>
-{/snippet}
-<RecursiveComponentExample
-	arrayTree={[
-		1,
-		2,
-		[3, 4, testSnippet],
-		5,
-		6,
-		7,
-		[8, [9, 10, testSnippet]],
-		11,
-		12,
-		testSnippet,
-	]}
-	level={0}
-/>
+<Multiplication
+	aColor="red"
+	bColor="blue"
+>
+	{#snippet a()}
+		<Multiplication
+			a={term1}
+			b={term2}
+			aColor="orange"
+			bColor="green"
+		/>
+	{/snippet}
+	{#snippet b()}
+		<Multiplication
+			a={term3}
+			b={term4}
+			aColor="yellow"
+			bColor="purple"
+		/>
+	{/snippet}
+</Multiplication>

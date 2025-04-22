@@ -14,18 +14,7 @@ declare import type FormatA from '/src/components/Formulas/FormatA.svelte'
  *
 */
 
-import type { FormatA as f } from '/src/components/Formulas/FormatA.svelte'
-
-declare interface TermData {
-	value: string | number
+type Term = {
+	val: string
 	color: string
 }
-
-declare interface FormatAData {
-	term: TermData
-	sub: TermData
-}
-
-export type FmtA = f
-
-declare type FormatAProp = FormatAData | typeof f

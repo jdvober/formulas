@@ -14,23 +14,30 @@
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
 <math
-	class="Multiplication container"
+	class="Division container"
 	display="block"
 >
 	<mrow>
-		<mo style:color={colors.parens}>(</mo>
-		{#if typeof a === 'string'}
-			<mi style:color={colors.a}>{@html a}</mi>
-		{:else}
-			{@render a()}
-		{/if}
-		<mo>&middot</mo>
-		{#if typeof b === 'string'}
-			<mi style:color={colors.b}>{@html b}</mi>
-		{:else}
-			{@render b()}
-		{/if}
-		<mo style:color={colors.parens}>)</mo>
+		<mfrac class="test">
+			<mrow>
+				{#if typeof a === 'string'}
+					<mi style:color={colors.a}>{@html a}</mi>
+				{:else}
+					{@render a()}
+				{/if}
+			</mrow>
+			<mrow>
+				{#if typeof b === 'string'}
+					<mi
+						class={'test'}
+						style:font-size="3em"
+						style:color={colors.b}>{@html b}</mi
+					>
+				{:else}
+					{@render b()}
+				{/if}
+			</mrow>
+		</mfrac>
 	</mrow>
 </math>
 
@@ -39,13 +46,8 @@
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
-	math :global {
-		math-style: compact;
-		mi {
-			font-size: 3em;
-		}
-		mo {
-			font-size: 3em;
-		}
+
+	mfrac {
+		font-size: 1em;
 	}
 </style>

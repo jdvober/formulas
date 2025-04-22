@@ -2,35 +2,25 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	const {
-		a,
-		b,
-		colors,
-	}: { a: any; b: any; colors: { a: string; b: string; parens: string } } =
-		$props();
+	const { lhs, rhs }: { lhs: any; rhs: any } = $props();
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<math
-	class="Multiplication container"
-	display="block"
->
+<math class="Equals container">
 	<mrow>
-		<mo style:color={colors.parens}>(</mo>
-		{#if typeof a === 'string'}
-			<mi style:color={colors.a}>{@html a}</mi>
+		{#if typeof lhs === 'string'}
+			<mi>{@html lhs}</mi>
 		{:else}
-			{@render a()}
+			{@render lhs()}
 		{/if}
-		<mo>&middot</mo>
-		{#if typeof b === 'string'}
-			<mi style:color={colors.b}>{@html b}</mi>
+		<mrow class="equalsSign"><mo>=</mo></mrow>
+		{#if typeof rhs === 'string'}
+			<mi>{@html rhs}</mi>
 		{:else}
-			{@render b()}
+			{@render rhs()}
 		{/if}
-		<mo style:color={colors.parens}>)</mo>
 	</mrow>
 </math>
 
@@ -47,5 +37,8 @@
 		mo {
 			font-size: 3em;
 		}
+	}
+	.equalsSign {
+		padding: 0 0.5rem;
 	}
 </style>

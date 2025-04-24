@@ -2,26 +2,24 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	const { lhs, rhs }: { lhs: any; rhs: any } = $props();
+	import Term from '../Term.svelte';
+	const {
+		superscriptContent,
+		base,
+	}: {
+		superscriptContent: any;
+		base: any;
+	} = $props();
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<math class="Equals container">
-	<mrow>
-		{#if typeof lhs === 'string'}
-			<mi>{@html lhs}</mi>
-		{:else}
-			{@render lhs()}
-		{/if}
-		<mrow class="equalsSign"><mo>=</mo></mrow>
-		{#if typeof rhs === 'string'}
-			<mi>{@html rhs}</mi>
-		{:else}
-			{@render rhs()}
-		{/if}
-	</mrow>
+<math class="Superscript container">
+	<msup>
+		<Term content={base} />
+		<Term content={superscriptContent} />
+	</msup>
 </math>
 
 <!----------------------------------------------------------------->
@@ -29,16 +27,4 @@
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
-	math :global {
-		math-style: compact;
-		mi {
-			font-size: 3em;
-		}
-		mo {
-			font-size: 3em;
-		}
-	}
-	.equalsSign {
-		padding: 0 0.5rem;
-	}
 </style>

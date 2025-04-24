@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/recursiveComponentExample/+page.svelte";
+export { default as component } from "../../../../src/routes/formulas/+page.svelte";

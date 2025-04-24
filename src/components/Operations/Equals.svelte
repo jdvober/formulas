@@ -2,35 +2,21 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	const {
-		a,
-		b,
-		colors,
-	}: { a: any; b: any; colors: { a: string; b: string; parens: string } } =
-		$props();
+	import Term from '../Term.svelte';
+	const { lhs, rhs }: { lhs: any; rhs: any } = $props();
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
 <math
-	class="Multiplication container"
 	display="block"
+	class="Equals container"
 >
 	<mrow>
-		<mo style:color={colors.parens}>(</mo>
-		{#if typeof a === 'string'}
-			<mi style:color={colors.a}>{@html a}</mi>
-		{:else}
-			{@render a()}
-		{/if}
-		<mo>&middot</mo>
-		{#if typeof b === 'string'}
-			<mi style:color={colors.b}>{@html b}</mi>
-		{:else}
-			{@render b()}
-		{/if}
-		<mo style:color={colors.parens}>)</mo>
+		<Term content={lhs} />
+		<mo form="infix">=</mo>
+		<Term content={rhs} />
 	</mrow>
 </math>
 
@@ -39,13 +25,4 @@
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
-	math :global {
-		math-style: compact;
-		mi {
-			font-size: 3em;
-		}
-		mo {
-			font-size: 3em;
-		}
-	}
 </style>

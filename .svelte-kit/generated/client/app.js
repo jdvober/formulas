@@ -12,8 +12,8 @@ export const server_loads = [];
 
 export const dictionary = {
 		"/": [2],
-		"/formulas": [3],
-		"/recursiveComponentExample": [4]
+		"/examples": [3],
+		"/formulas": [4]
 	};
 
 export const hooks = {

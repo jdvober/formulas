@@ -14,7 +14,7 @@ declare import type FormatA from '/src/components/Formulas/FormatA.svelte'
  *
 */
 
-type Term = {
+type TermType = {
 	val: string
 	color: string
 }

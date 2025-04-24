@@ -68,6 +68,12 @@
 	}
 }
 
+math {
+	font-size: 3em;
+	display: block;
+	user-select: none;
+}
+
 /* @layer base {
 	* {
 		@apply border-border;

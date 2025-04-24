@@ -17,6 +17,8 @@
 	let term8 = 'z';
 </script>
 
+<div style:height={'5vh'}></div>
+
 <Root rootNumber={3}>
 	{#snippet content()}
 		<Equals>
@@ -31,6 +33,7 @@
 							colors={{
 								a: 'firebrick',
 								b: 'gold',
+								parens: 'hidden',
 							}}
 						/>
 					{/snippet}
@@ -49,7 +52,7 @@
 			{/snippet}
 			{#snippet rhs()}
 				<Multiplication
-					colors={{ a: 'tomato', b: 'green', parens: 'blue' }}
+					colors={{ a: 'tomato', b: 'green', parens: 'fuchsia' }}
 				>
 					{#snippet a()}
 						<Multiplication
@@ -69,6 +72,7 @@
 							colors={{
 								a: 'lime',
 								b: 'navy',
+								parens: 'hidden',
 							}}
 						/>
 					{/snippet}

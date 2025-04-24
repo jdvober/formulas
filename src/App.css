@@ -1,3 +1,27 @@
+@font-face {
+	font-family: 'Computer Modern';
+	src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+}
+
+@font-face {
+	font-family: 'Computer Modern';
+	src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Computer Modern';
+	src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf');
+	font-style: italic, oblique;
+}
+
+@font-face {
+	font-family: 'Computer Modern';
+	src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf');
+	font-weight: bold;
+	font-style: italic, oblique;
+}
+
 @import 'tailwindcss/preflight';
 @tailwind utilities;
 @plugin 'flowbite/plugin';
@@ -68,10 +92,33 @@
 	}
 }
 
+* {
+	font-family: 'National Park';
+}
 math {
 	font-size: 3em;
 	display: block;
 	user-select: none;
+}
+
+mo {
+	font-family: 'Computer Modern';
+}
+
+mi {
+	font-family: 'National Park';
+}
+
+ms {
+	font-family: 'National Park';
+}
+
+ms {
+	font-family: 'National Park';
+}
+
+mn {
+	font-family: 'Computer Modern';
 }
 
 /* @layer base {

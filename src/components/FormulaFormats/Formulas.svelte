@@ -2,6 +2,10 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
+	import {
+		getUseLongValues,
+		setLongValues,
+	} from '../../state/mainState.svelte';
 	import FmtA from './FmtA.svelte';
 </script>
 
@@ -9,10 +13,18 @@
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
 <div class="Formulas container">
+	<button
+		onclick={() => {
+			setLongValues(getUseLongValues() === true ? false : true);
+		}}
+		>{getUseLongValues() === true
+			? 'Use Short Values'
+			: 'Use Long Values'}</button
+	>
 	<FmtA
-		a={{ value: 'Density', color: 'red' }}
-		b={{ value: 'Mass', color: 'green' }}
-		c={{ value: 'Volume', color: 'blue' }}
+		a={{ value: { long: 'Density', short: 'D' }, color: 'red' }}
+		b={{ value: { long: 'Mass', short: 'm' }, color: 'green' }}
+		c={{ value: { long: 'Volume', short: 'V' }, color: 'blue' }}
 	/>
 </div>
 

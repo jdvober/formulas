@@ -20,9 +20,16 @@
 >
 	<mrow>
 		{#if colors.parens !== undefined}
-			<mo style:color={colors.parens}>(</mo>
+			{#if colors.parens === 'hidden'}
+				<mphantom>(</mphantom>
+			{:else}
+				<mo
+					class="open-parens"
+					style:color={colors.parens}>(</mo
+				>
+			{/if}
 		{:else}
-			<mphantom>(</mphantom>
+			<mn></mn>
 		{/if}
 		<Term
 			content={a}
@@ -34,9 +41,16 @@
 			color={colors.b}
 		/>
 		{#if colors.parens !== undefined}
-			<mo style:color={colors.parens}>)</mo>
+			{#if colors.parens === 'hidden'}
+				<mphantom>)</mphantom>
+			{:else}
+				<mo
+					class="close-parens"
+					style:color={colors.parens}>)</mo
+				>
+			{/if}
 		{:else}
-			<mphantom>)</mphantom>
+			<mn></mn>
 		{/if}
 	</mrow>
 </math>

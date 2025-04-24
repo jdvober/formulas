@@ -17,9 +17,16 @@
 <math class="Division container">
 	<mrow>
 		{#if colors.parens !== undefined}
-			<mo style:color={colors.parens}>(</mo>
+			{#if colors.parens === 'hidden'}
+				<mphantom>(</mphantom>
+			{:else}
+				<mo
+					class="open-parens"
+					style:color={colors.parens}>(</mo
+				>
+			{/if}
 		{:else}
-			<mphantom>(</mphantom>
+			<mn></mn>
 		{/if}
 		<mfrac>
 			<mrow>
@@ -36,12 +43,16 @@
 			</mrow>
 		</mfrac>
 		{#if colors.parens !== undefined}
-			<mo style:color={colors.parens}>)</mo>
+			{#if colors.parens === 'hidden'}
+				<mphantom>)</mphantom>
+			{:else}
+				<mo
+					class="close-parens"
+					style:color={colors.parens}>)</mo
+				>
+			{/if}
 		{:else}
-			<mphantom
-				form="prefix"
-				class="close-parens-invis">)</mphantom
-			>
+			<mn></mn>
 		{/if}
 	</mrow>
 </math>

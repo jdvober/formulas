@@ -11,7 +11,10 @@
 <mrow class="Term">
 	{#if props.color !== undefined}
 		{#if typeof props.content === 'string' && props.content.length === 1}
-			<mi style:color={props.color}>{props.content}</mi>
+			<mi
+				mathvariant="normal"
+				style:color={props.color}>{props.content}</mi
+			>
 		{:else if typeof props.content === 'string'}
 			<ms style:color={props.color !== undefined ? props.color : 'black'}
 				>{props.content}</ms
@@ -21,16 +24,16 @@
 				>{props.content}</mn
 			>
 		{:else}
-			<div>{@render props.content()}</div>
+			{@render props.content()}
 		{/if}
 	{:else if typeof props.content === 'string' && props.content.length === 1}
-		<mi>{props.content}</mi>
+		<mi mathvariant="normal">{props.content}</mi>
 	{:else if typeof props.content === 'string'}
-		<mtext>{props.content}</mtext>
+		<ms>{props.content}</ms>
 	{:else if typeof props.content === 'number'}
 		<mn>{props.content}</mn>
 	{:else}
-		<div>{@render props.content()}</div>
+		{@render props.content()}
 	{/if}
 </mrow>
 

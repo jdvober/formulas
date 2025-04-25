@@ -12,7 +12,7 @@ export let setLongValues = (newUseLongValue: boolean) => {
 }
 */
 
-let useLongValues = $state(false)
+let useLongValues = $state(true)
 export let getUseLongValues = () => {
 	return useLongValues
 }

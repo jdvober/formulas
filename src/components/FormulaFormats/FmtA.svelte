@@ -2,6 +2,7 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
+	import type { Component } from 'svelte';
 	import { getUseLongValues } from '../../state/mainState.svelte';
 	import Division from '../Operations/Division.svelte';
 	import Equals from '../Operations/Equals.svelte';
@@ -16,28 +17,35 @@
 		b,
 		c,
 	}: {
-		a: TermType;
-		b: TermType;
-		c: TermType;
+		a: TermType | Component;
+		b: TermType | Component;
+		c: TermType | Component;
 	} = $props();
-	let aColor = a.color;
-	let bColor = b.color;
-	let cColor = c.color;
+	let aColor = typeof a === 'object' ? a.color : 'black';
+	let bColor = typeof b === 'object' ? b.color : 'black';
+	let cColor = typeof c === 'object' ? c.color : 'black';
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
+<!--TODO: Extract these snippet defs to a new file for use in all formats.-->
 {#snippet A()}
 	<button
 		onclick={() => {
 			variation = 'PRIMARY';
 		}}
 	>
-		<Term
-			content={getUseLongValues() === true ? a.value.long : a.value.short}
-			color={a.color}
-		/>
+		{#if typeof a === 'object'}
+			<Term
+				content={getUseLongValues() === true
+					? a.value.long
+					: a.value.short}
+				color={aColor}
+			/>
+		{:else}
+			<Term content={a} />
+		{/if}
 	</button>
 {/snippet}
 {#snippet B()}
@@ -46,10 +54,16 @@
 			variation = 'SECONDARY';
 		}}
 	>
-		<Term
-			content={getUseLongValues() === true ? b.value.long : b.value.short}
-			color={b.color}
-		/>
+		{#if typeof b === 'object'}
+			<Term
+				content={getUseLongValues() === true
+					? b.value.long
+					: b.value.short}
+				color={bColor}
+			/>
+		{:else}
+			<Term content={b} />
+		{/if}
 	</button>
 {/snippet}
 {#snippet C()}
@@ -58,16 +72,22 @@
 			variation = 'TERTIARY';
 		}}
 	>
-		<Term
-			content={getUseLongValues() === true ? c.value.long : c.value.short}
-			color={c.color}
-		/>
+		{#if typeof c === 'object'}
+			<Term
+				content={getUseLongValues() === true
+					? c.value.long
+					: c.value.short}
+				color={cColor}
+			/>
+		{:else}
+			<Term content={c} />
+		{/if}
 	</button>
 {/snippet}
 
 <!--a=b/c-->
 {#if variation === 'PRIMARY'}
-	<div class="FmtA container">
+	<div class="FmtA">
 		<Equals>
 			{#snippet lhs()}
 				{@render A()}
@@ -86,7 +106,7 @@
 	</div>
 	<!--b=axc-->
 {:else if variation === 'SECONDARY'}
-	<div class="FmtA container">
+	<div class="FmtA">
 		<Equals>
 			{#snippet lhs()}
 				{@render B()}
@@ -105,7 +125,7 @@
 	</div>
 	<!--c=b/a-->
 {:else}
-	<div class="FmtA container">
+	<div class="FmtA">
 		<Equals>
 			{#snippet lhs()}
 				{@render C()}
@@ -129,10 +149,15 @@
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
-	div {
+	.FmtA {
 		display: flex;
 		align-items: center;
-		height: 8em;
+		justify-content: center;
+		height: auto;
+		min-height: 25vh;
+		padding: 0.5em;
 		border: 1px solid black;
+		width: 43vw;
+		margin: 2em;
 	}
 </style>

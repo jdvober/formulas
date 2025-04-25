@@ -3,31 +3,68 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import Term from '../Term.svelte';
-	const props = $props();
+	import Subscript from './Subscript.svelte';
+	type subscriptsType = { final: string | number; initial: string | number };
+	let props = $props();
+	let f = props.f;
+	let i = props.i !== undefined ? props.i : null;
+	let colors = props.colors !== undefined ? props.colors : null;
+	let subscripts: subscriptsType =
+		props.subscripts !== undefined ? props.subscripts : null;
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<math class="Root container">
+<math
+	display="block"
+	class="Delta container"
+>
 	<mrow>
-		{#if props.initialContent === undefined}
-			<mo style:color={props.colors.parens}>&Delta;</mo>
-		{/if}
-		{#if props.initialContent !== undefined}
-			<mo style:color={props.colors.parens}>(</mo>
+		{#if i === null && i !== undefined}
+			<mo style:color={colors.parens}>Δ</mo>
+			<Term
+				content={f}
+				color={colors.f}
+			/>
 		{:else}
-			<mn></mn>
-		{/if}
-
-		<Term content={props.finalContent} />
-
-		{#if props.initialContent !== undefined}
+			{#if colors.parens !== null && colors.parens !== undefined}
+				{#if colors.parens === 'hidden'}
+					<mphantom>(</mphantom>
+				{:else}
+					<mo
+						class="open-parens"
+						style:color={colors.parens}>(</mo
+					>
+				{/if}
+			{:else}
+				<mn></mn>
+			{/if}
+			<Subscript
+				base={f}
+				baseColor={colors.f}
+				subscriptContent={subscripts.final}
+				subColor={colors.f}
+			/>
 			<mo>-</mo>
-			<Term content={props.initialContent} />
-			<mo style:color={props.colors.parens}>)</mo>
-		{:else}
-			<mn></mn>
+			<Subscript
+				base={i}
+				baseColor={colors.i}
+				subscriptContent={subscripts.initial}
+				subColor={colors.i}
+			/>
+			{#if colors.parens !== null && colors.parens !== undefined}
+				{#if colors.parens === 'hidden'}
+					<mphantom>)</mphantom>
+				{:else}
+					<mo
+						class="close-parens"
+						style:color={colors.parens}>)</mo
+					>
+				{/if}
+			{:else}
+				<mn></mn>
+			{/if}
 		{/if}
 	</mrow>
 </math>

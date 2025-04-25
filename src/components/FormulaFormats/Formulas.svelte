@@ -5,7 +5,7 @@
 	import { getUseLongValues } from '../../state/mainState.svelte';
 	import * as m from '../Measurements/Measurements.svelte';
 	import Delta from '../Operations/Delta.svelte';
-	import FmtA from './FmtA.svelte';
+	import Formula from './Formula.svelte';
 </script>
 
 <!----------------------------------------------------------------->
@@ -13,60 +13,53 @@
 <!----------------------------------------------------------------->
 <div class="Formulas">
 	<!--Density-->
-	<div class="formula">
-		<FmtA
-			a={m.DENSITY}
-			b={m.MASS}
-			c={m.VOLUME}
-		/>
-	</div>
+	<Formula
+		format="A"
+		initialVariant="PRIMARY"
+		values={{ a: m.DENSITY, b: m.MASS, c: m.VOLUME }}
+	/>
 	<!--Pressure-->
-	<div class="formula">
-		<FmtA
-			a={m.PRESSURE}
-			b={m.FORCE}
-			c={m.AREA}
-		/>
-	</div>
+	<Formula
+		format="A"
+		initialVariant="PRIMARY"
+		values={{ a: m.PRESSURE, b: m.FORCE, c: m.AREA }}
+	/>
 	<!--Speed-->
-	<div class="formula">
-		<FmtA
-			a={m.SPEED}
-			b={m.DISTANCE}
-			c={m.TIME}
-		/>
-	</div>
+	<Formula
+		format="A"
+		initialVariant="PRIMARY"
+		values={{ a: m.SPEED, b: m.DISTANCE, c: m.TIME }}
+	/>
 	<!--Velocity-->
-	<div class="formula">
-		<FmtA a={m.VELOCITY}>
-			{#snippet b()}
-				<Delta
-					f={getUseLongValues() === true
-						? m.POSITION.value.long
-						: m.POSITION.value.short}
-					subscripts={{ final: 'f', initial: 'i' }}
-					colors={{
-						f: m.POSITION.color,
-						i: m.POSITION.color,
-						parens: m.POSITION.color,
-					}}
-				/>
-			{/snippet}
-			{#snippet c()}
-				<Delta
-					f={getUseLongValues() === true
-						? m.TIME.value.long
-						: m.TIME.value.short}
-					subscripts={{ final: 'f', initial: 'i' }}
-					colors={{
-						f: m.TIME.color,
-						i: m.TIME.color,
-						parens: m.TIME.color,
-					}}
-				/>
-			{/snippet}
-		</FmtA>
-	</div>
+	{#snippet b1()}
+		<Delta
+			f={m.POSITION}
+			subscripts={{ final: 'f', initial: 'i' }}
+			colors={{
+				f: m.POSITION.color,
+				i: m.POSITION.color,
+				parens: m.POSITION.color,
+			}}
+		/>
+	{/snippet}
+	{#snippet c()}
+		<Delta
+			f={getUseLongValues() === true
+				? m.TIME.value.long
+				: m.TIME.value.short}
+			subscripts={{ final: 'f', initial: 'i' }}
+			colors={{
+				f: m.TIME.color,
+				i: m.TIME.color,
+				parens: m.TIME.color,
+			}}
+		/>
+	{/snippet}
+	<Formula
+		format="A"
+		initialVariant="PRIMARY"
+		values={{ a: m.VELOCITY, b: b1, c: c }}
+	></Formula>
 </div>
 
 <!----------------------------------------------------------------->

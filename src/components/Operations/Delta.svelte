@@ -18,7 +18,7 @@
 <!----------------------------------------------------------------->
 <math
 	display="block"
-	class="Delta container"
+	class="Delta"
 >
 	<mrow>
 		{#if i === null && i !== undefined}

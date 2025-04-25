@@ -25,6 +25,12 @@
 			<mn style:color={props.color !== undefined ? props.color : 'black'}
 				>{props.content}</mn
 			>
+		{:else if typeof props.content === 'object'}
+			<ms style:color={props.content.color}
+				>{getUseLongValues() === true
+					? props.content.value.long
+					: props.content.value.short}</ms
+			>
 		{:else}
 			{@render props.content()}
 		{/if}

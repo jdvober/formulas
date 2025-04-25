@@ -3,7 +3,6 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import type { Component } from 'svelte';
-	import { getUseLongValues } from '../../state/mainState.svelte';
 	import Division from '../Operations/Division.svelte';
 	import Equals from '../Operations/Equals.svelte';
 	import Multiplication from '../Operations/Multiplication.svelte';
@@ -11,15 +10,16 @@
 
 	export { A, B, C };
 
-	let variation = $state('PRIMARY');
 	let {
 		a,
 		b,
 		c,
+		variant = $bindable('PRIMARY'),
 	}: {
 		a: TermType | Component;
 		b: TermType | Component;
 		c: TermType | Component;
+		variant: 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 	} = $props();
 	let aColor = typeof a === 'object' ? a.color : 'black';
 	let bColor = typeof b === 'object' ? b.color : 'black';
@@ -33,14 +33,12 @@
 {#snippet A()}
 	<button
 		onclick={() => {
-			variation = 'PRIMARY';
+			variant = 'PRIMARY';
 		}}
 	>
 		{#if typeof a === 'object'}
 			<Term
-				content={getUseLongValues() === true
-					? a.value.long
-					: a.value.short}
+				content={a}
 				color={aColor}
 			/>
 		{:else}
@@ -51,14 +49,12 @@
 {#snippet B()}
 	<button
 		onclick={() => {
-			variation = 'SECONDARY';
+			variant = 'SECONDARY';
 		}}
 	>
 		{#if typeof b === 'object'}
 			<Term
-				content={getUseLongValues() === true
-					? b.value.long
-					: b.value.short}
+				content={b}
 				color={bColor}
 			/>
 		{:else}
@@ -69,14 +65,12 @@
 {#snippet C()}
 	<button
 		onclick={() => {
-			variation = 'TERTIARY';
+			variant = 'TERTIARY';
 		}}
 	>
 		{#if typeof c === 'object'}
 			<Term
-				content={getUseLongValues() === true
-					? c.value.long
-					: c.value.short}
+				content={c}
 				color={cColor}
 			/>
 		{:else}
@@ -86,7 +80,7 @@
 {/snippet}
 
 <!--a=b/c-->
-{#if variation === 'PRIMARY'}
+{#if variant === 'PRIMARY'}
 	<div class="FmtA">
 		<Equals>
 			{#snippet lhs()}
@@ -105,7 +99,7 @@
 		</Equals>
 	</div>
 	<!--b=axc-->
-{:else if variation === 'SECONDARY'}
+{:else if variant === 'SECONDARY'}
 	<div class="FmtA">
 		<Equals>
 			{#snippet lhs()}

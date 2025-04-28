@@ -19,3 +19,22 @@ export let getUseLongValues = () => {
 export let setLongValues = (newUseLongValue: boolean) => {
 	useLongValues = newUseLongValue
 }
+
+let unitInfo = $state({
+	value: {
+		long: '',
+		short: '',
+	},
+	color: '',
+	units: {
+		long: '',
+		short: '',
+	},
+	description: '',
+})
+export let getUnitInfo = () => {
+	return unitInfo
+}
+export let setUnitInfo = (newUnitInfo: TermType) => {
+	unitInfo = newUnitInfo
+}

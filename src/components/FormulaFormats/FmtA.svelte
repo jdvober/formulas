@@ -3,7 +3,7 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import type { Component } from 'svelte';
-	import UnitTooltip from '../Measurements/UnitTooltip.svelte';
+	import { setUnitInfo } from '../../state/mainState.svelte';
 	import Division from '../Operations/Division.svelte';
 	import Equals from '../Operations/Equals.svelte';
 	import Multiplication from '../Operations/Multiplication.svelte';
@@ -22,6 +22,19 @@
 		c: TermType | Component;
 		variant: 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 	} = $props();
+
+	let blankUnitInfo = {
+		value: {
+			long: '',
+			short: '',
+		},
+		color: '',
+		units: {
+			long: '',
+			short: '',
+		},
+		description: '',
+	};
 	let aColor = typeof a === 'object' ? a.color : 'black';
 	let bColor = typeof b === 'object' ? b.color : 'black';
 	let cColor = typeof c === 'object' ? c.color : 'black';
@@ -33,19 +46,16 @@
 <!--TODO: Extract these snippet defs to a new file for use in all formats.-->
 
 {#snippet T(t: TermType | Component, v: 'PRIMARY' | 'SECONDARY' | 'TERTIARY')}
-	<div class="tooltip">
-		<div class="tooltip-content">
-			<div class="animate-bounce text-orange-400 text-2xl font-black">
-				{#if typeof t === 'object'}
-					<UnitTooltip term={t as TermType} />
-				{:else}
-					Component
-				{/if}
-			</div>
-		</div>
+	<div>
 		<button
 			onclick={() => {
 				variant = v;
+			}}
+			onmouseenter={() => {
+				setUnitInfo(typeof t === 'object' ? t : blankUnitInfo);
+			}}
+			onmouseleave={() => {
+				setUnitInfo(blankUnitInfo);
 			}}
 		>
 			{#if typeof t === 'object'}

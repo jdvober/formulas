@@ -1,7 +1,7 @@
 /*
 Use
 
-declare type TypeName = {
+type TypeName = {
 	...etc
 }
 
@@ -20,4 +20,9 @@ type TermType = {
 		short: string
 	}
 	color: string
+	units: {
+		long: string
+		short: string
+	}
+	description: string
 }

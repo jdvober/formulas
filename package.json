@@ -22,6 +22,7 @@
 		"autoprefixer": "^10.4.21",
 		"bits-ui": "^0.22.0",
 		"clsx": "^2.1.1",
+		"daisyui": "^5.0.28",
 		"mdsvex": "^0.12.3",
 		"postcss": "^8.5.3",
 		"sass-embedded": "^1.86.3",

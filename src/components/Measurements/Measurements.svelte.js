@@ -1,12 +1,40 @@
 import { VariableColors as vc } from '../../theme/colors/Colors'
 export const DENSITY = { value: { long: 'Density', short: 'D' }, color: vc[0] }
 export const MASS = { value: { long: 'Mass', short: 'm' }, color: vc[1] }
-export const VOLUME = { value: { long: 'Volume', short: 'V' }, color: vc[2] }
-export const FORCE = { value: { long: 'Force', short: 'F' }, color: vc[3] }
-export const AREA = { value: { long: 'Volume', short: 'V' }, color: vc[4] }
+export const VOLUME = {
+	value: { long: 'Volume', short: 'V' },
+	color: vc[2],
+	units: {
+		long: 'Square Centimeters',
+		short: 'cm²',
+	},
+	description: 'The amount of space occupied by that object.',
+}
+export const FORCE = {
+	value: { long: 'Force', short: 'F' },
+	color: vc[3],
+	units: {
+		long: 'Newtons',
+		short: 'N',
+	},
+	description: 'A force is a push or pull or a twist between objects.',
+}
+export const AREA = {
+	value: { long: 'Area', short: 'A' },
+	color: vc[4],
+	units: {
+		long: 'Cubic Centimeters',
+		short: 'cm³',
+	},
+}
 export const PRESSURE = {
 	value: { long: 'Pressure', short: 'P' },
 	color: vc[5],
+	units: {
+		long: 'Atmospheres',
+		short: 'atm',
+	},
+	description: 'The amount of force applied over a specific area.',
 }
 export const TEMPERATURE = {
 	value: { long: 'Temperature', short: 'T' },

@@ -3,6 +3,7 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import type { Component } from 'svelte';
+	import UnitTooltip from '../Measurements/UnitTooltip.svelte';
 	import Division from '../Operations/Division.svelte';
 	import Equals from '../Operations/Equals.svelte';
 	import Multiplication from '../Operations/Multiplication.svelte';
@@ -30,53 +31,43 @@
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
 <!--TODO: Extract these snippet defs to a new file for use in all formats.-->
-{#snippet A()}
-	<button
-		onclick={() => {
-			variant = 'PRIMARY';
-		}}
-	>
-		{#if typeof a === 'object'}
-			<Term
-				content={a}
-				color={aColor}
-			/>
-		{:else}
-			<Term content={a} />
-		{/if}
-	</button>
+
+{#snippet T(t: TermType | Component, v: 'PRIMARY' | 'SECONDARY' | 'TERTIARY')}
+	<div class="tooltip">
+		<div class="tooltip-content">
+			<div class="animate-bounce text-orange-400 text-2xl font-black">
+				{#if typeof t === 'object'}
+					<UnitTooltip term={t as TermType} />
+				{:else}
+					Component
+				{/if}
+			</div>
+		</div>
+		<button
+			onclick={() => {
+				variant = v;
+			}}
+		>
+			{#if typeof t === 'object'}
+				<Term
+					content={t}
+					color={typeof t === 'object' ? t.color : 'black'}
+				/>
+			{:else}
+				<Term content={t} />
+			{/if}
+		</button>
+	</div>
 {/snippet}
-{#snippet B()}
-	<button
-		onclick={() => {
-			variant = 'SECONDARY';
-		}}
-	>
-		{#if typeof b === 'object'}
-			<Term
-				content={b}
-				color={bColor}
-			/>
-		{:else}
-			<Term content={b} />
-		{/if}
-	</button>
+
+{#snippet A(a: TermType | Component)}
+	{@render T(a, 'PRIMARY')}
 {/snippet}
-{#snippet C()}
-	<button
-		onclick={() => {
-			variant = 'TERTIARY';
-		}}
-	>
-		{#if typeof c === 'object'}
-			<Term
-				content={c}
-				color={cColor}
-			/>
-		{:else}
-			<Term content={c} />
-		{/if}
-	</button>
+{#snippet B(b: TermType | Component)}
+	{@render T(b, 'SECONDARY')}
+{/snippet}
+{#snippet C(c: TermType | Component)}
+	{@render T(c, 'TERTIARY')}
 {/snippet}
 
 <!--a=b/c-->
@@ -84,15 +75,15 @@
 	<div class="FmtA">
 		<Equals>
 			{#snippet lhs()}
-				{@render A()}
+				{@render A(a)}
 			{/snippet}
 			{#snippet rhs()}
 				<Division colors={{ a: bColor, b: cColor }}>
 					{#snippet a()}
-						{@render B()}
+						{@render B(b)}
 					{/snippet}
 					{#snippet b()}
-						{@render C()}
+						{@render C(c)}
 					{/snippet}
 				</Division>
 			{/snippet}
@@ -103,15 +94,15 @@
 	<div class="FmtA">
 		<Equals>
 			{#snippet lhs()}
-				{@render B()}
+				{@render B(b)}
 			{/snippet}
 			{#snippet rhs()}
 				<Multiplication colors={{ a: aColor, b: cColor }}>
 					{#snippet a()}
-						{@render A()}
+						{@render A(a)}
 					{/snippet}
 					{#snippet b()}
-						{@render C()}
+						{@render C(c)}
 					{/snippet}
 				</Multiplication>
 			{/snippet}
@@ -122,15 +113,15 @@
 	<div class="FmtA">
 		<Equals>
 			{#snippet lhs()}
-				{@render C()}
+				{@render C(c)}
 			{/snippet}
 			{#snippet rhs()}
 				<Division colors={{ a: bColor, b: cColor }}>
 					{#snippet a()}
-						{@render B()}
+						{@render B(b)}
 					{/snippet}
 					{#snippet b()}
-						{@render A()}
+						{@render A(a)}
 					{/snippet}
 				</Division>
 			{/snippet}
@@ -150,7 +141,8 @@
 		height: auto;
 		min-height: 25vh;
 		padding: 0.5em;
-		border: 1px solid black;
+		border: 1px solid #fafaf2;
+		border-radius: 1em;
 		width: 43vw;
 		margin: 2em;
 	}

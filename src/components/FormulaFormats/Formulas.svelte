@@ -11,6 +11,7 @@
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
+<!--TODO: Make categories / be able to select different formulas to display / hide. (FILTER)-->
 <div class="Formulas">
 	<!--Density-->
 	<Formula
@@ -60,6 +61,25 @@
 		initialVariant="PRIMARY"
 		values={{ a: m.VELOCITY, b: b1, c: c }}
 	></Formula>
+
+	{#snippet b2()}
+		<Delta
+			f={m.VELOCITY}
+			subscripts={{ final: 'f', initial: 'i' }}
+			colors={{
+				f: m.VELOCITY.color,
+				i: m.VELOCITY.color,
+				parens: m.VELOCITY.color,
+			}}
+		/>
+	{/snippet}
+
+	<!--Acceleration-->
+	<Formula
+		format="A"
+		initialVariant="PRIMARY"
+		values={{ a: m.ACCELERATION, b: b2, c: c }}
+	></Formula>
 </div>
 
 <!----------------------------------------------------------------->
@@ -68,7 +88,6 @@
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
 	.Formulas {
-		border: 1px solid red;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;

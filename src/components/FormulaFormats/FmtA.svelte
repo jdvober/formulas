@@ -33,6 +33,7 @@
 			long: '',
 			short: '',
 		},
+		example: '',
 		description: '',
 	};
 	let aColor = typeof a === 'object' ? a.color : 'black';

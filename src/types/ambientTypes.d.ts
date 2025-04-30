@@ -24,5 +24,6 @@ type TermType = {
 		long: string
 		short: string
 	}
+	example: string
 	description: string
 }

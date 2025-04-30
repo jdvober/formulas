@@ -20,7 +20,7 @@ export let setLongValues = (newUseLongValue: boolean) => {
 	useLongValues = newUseLongValue
 }
 
-let unitInfo = $state({
+export let blankUnitInfo = {
 	value: {
 		long: '',
 		short: '',
@@ -30,8 +30,11 @@ let unitInfo = $state({
 		long: '',
 		short: '',
 	},
+	example: '',
 	description: '',
-})
+}
+
+let unitInfo = $state(blankUnitInfo)
 export let getUnitInfo = () => {
 	return unitInfo
 }

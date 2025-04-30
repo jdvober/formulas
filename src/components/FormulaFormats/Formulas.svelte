@@ -2,7 +2,6 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import { getUseLongValues } from '../../state/mainState.svelte';
 	import * as m from '../Measurements/Measurements.svelte';
 	import UnitInfoBox from '../Measurements/UnitInfoBox.svelte';
 	import Delta from '../Operations/Delta.svelte';
@@ -48,9 +47,7 @@
 		{/snippet}
 		{#snippet c()}
 			<Delta
-				f={getUseLongValues() === true
-					? m.TIME.value.long
-					: m.TIME.value.short}
+				f={m.TIME}
 				subscripts={{ final: 'f', initial: 'i' }}
 				colors={{
 					f: m.TIME.color,
@@ -102,8 +99,13 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		width: 95vw;
+		height: 70vh;
 		justify-content: space-evenly;
 		margin-left: auto;
 		margin-right: auto;
+		margin-top: 1em;
+		border: 1px solid #fafaf2;
+		border-radius: 1em;
+		overflow-y: scroll;
 	}
 </style>

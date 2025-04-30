@@ -2,12 +2,13 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
+	import { blankUnitInfo, setUnitInfo } from '../../state/mainState.svelte';
 	import Term from '../Term.svelte';
 	import Subscript from './Subscript.svelte';
 	type subscriptsType = { final: string | number; initial: string | number };
 	let props = $props();
-	let f = props.f;
-	let i = props.i !== undefined ? props.i : null;
+	let final = props.f;
+	let initial = props.i !== undefined ? props.i : null;
 	let colors = props.colors !== undefined ? props.colors : null;
 	let subscripts: subscriptsType =
 		props.subscripts !== undefined ? props.subscripts : null;
@@ -21,12 +22,21 @@
 	class="Delta"
 >
 	<mrow>
-		{#if i === null && i !== undefined}
+		{#if initial === null && initial !== undefined}
 			<mo style:color={colors.parens}>Δ</mo>
-			<Term
-				content={f}
-				color={colors.f}
-			/>
+			<button
+				onmouseenter={() => {
+					setUnitInfo(final);
+				}}
+				onmouseleave={() => {
+					setUnitInfo(blankUnitInfo);
+				}}
+			>
+				<Term
+					content={final}
+					color={colors.f}
+				/>
+			</button>
 		{:else}
 			{#if colors.parens !== null && colors.parens !== undefined}
 				{#if colors.parens === 'hidden'}
@@ -41,14 +51,14 @@
 				<mn></mn>
 			{/if}
 			<Subscript
-				base={f}
+				base={final}
 				baseColor={colors.f}
 				subscriptContent={subscripts.final}
 				subColor={colors.f}
 			/>
 			<mo>-</mo>
 			<Subscript
-				base={i}
+				base={initial}
 				baseColor={colors.i}
 				subscriptContent={subscripts.initial}
 				subColor={colors.i}

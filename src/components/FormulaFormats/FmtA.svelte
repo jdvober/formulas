@@ -3,7 +3,7 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import type { Component } from 'svelte';
-	import { setUnitInfo } from '../../state/mainState.svelte';
+	import { blankUnitInfo, setUnitInfo } from '../../state/mainState.svelte';
 	import Division from '../Operations/Division.svelte';
 	import Equals from '../Operations/Equals.svelte';
 	import Multiplication from '../Operations/Multiplication.svelte';
@@ -23,19 +23,6 @@
 		variant: 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 	} = $props();
 
-	let blankUnitInfo = {
-		value: {
-			long: '',
-			short: '',
-		},
-		color: '',
-		units: {
-			long: '',
-			short: '',
-		},
-		example: '',
-		description: '',
-	};
 	let aColor = typeof a === 'object' ? a.color : 'black';
 	let bColor = typeof b === 'object' ? b.color : 'black';
 	let cColor = typeof c === 'object' ? c.color : 'black';
@@ -54,9 +41,6 @@
 			}}
 			onmouseenter={() => {
 				setUnitInfo(typeof t === 'object' ? t : blankUnitInfo);
-			}}
-			onmouseleave={() => {
-				setUnitInfo(blankUnitInfo);
 			}}
 		>
 			{#if typeof t === 'object'}
@@ -147,6 +131,7 @@
 	/* Add any Per-Component CSS styling here */
 	.FmtA {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
 		height: auto;
@@ -154,7 +139,8 @@
 		padding: 0.5em;
 		border: 1px solid #fafaf2;
 		border-radius: 1em;
-		width: 43vw;
-		margin: 2em;
+		min-width: 43vw;
+		max-width: 86vw;
+		overflow-x: scroll;
 	}
 </style>

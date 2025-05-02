@@ -2,7 +2,7 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import { blankUnitInfo, setUnitInfo } from '../../state/mainState.svelte';
+	import { setUnitInfo } from '../../state/mainState.svelte';
 	import Term from '../Term.svelte';
 	import Subscript from './Subscript.svelte';
 	type subscriptsType = { final: string | number; initial: string | number };
@@ -27,9 +27,6 @@
 			<button
 				onmouseenter={() => {
 					setUnitInfo(final);
-				}}
-				onmouseleave={() => {
-					setUnitInfo(blankUnitInfo);
 				}}
 			>
 				<Term

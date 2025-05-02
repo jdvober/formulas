@@ -80,6 +80,12 @@
 			initialVariant="PRIMARY"
 			values={{ a: m.ACCELERATION, b: b2, c: c }}
 		></Formula>
+		<!--Wave Speed-->
+		<Formula
+			format="A"
+			initialVariant="PRIMARY"
+			values={{ a: m.WAVE_SPEED, b: m.FREQUENCY, c: m.WAVELENGTH }}
+		></Formula>
 	</div>
 </div>
 
@@ -99,7 +105,7 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		width: 95vw;
-		height: 70vh;
+		height: 55vh;
 		justify-content: space-evenly;
 		margin-left: auto;
 		margin-right: auto;
@@ -107,5 +113,7 @@
 		border: 1px solid #fafaf2;
 		border-radius: 1em;
 		overflow-y: scroll;
+		row-gap: 2vh;
+		padding: 2vh;
 	}
 </style>

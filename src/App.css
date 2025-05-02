@@ -1,24 +1,36 @@
 @font-face {
-	font-family: 'Computer Modern';
-	src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+	font-family: 'National Park';
+	src: url('../src/theme/fonts/National_Park/static/NationalPark-Regular.ttf');
+	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Computer Modern';
-	src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf');
-	font-weight: bold;
-}
-
-@font-face {
-	font-family: 'Computer Modern';
-	src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf');
+	font-family: 'National Park';
+	src: url('../src/theme/fonts/National_Park/static/NationalPark-Regular.ttf');
 	font-style: italic, oblique;
 }
 
 @font-face {
-	font-family: 'Computer Modern';
-	src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf');
-	font-weight: bold;
+	font-family: 'Fira Code';
+	src: url('../src/theme/fonts/National_Park/static/FiraCode-Regular.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Fira Code';
+	src: url('../src/theme/fonts/National_Park/static/FiraCode-Regular.ttf');
+	font-style: italic, oblique;
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible Next';
+	src: url('../src/theme/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Regular.otf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible Next';
+	src: url('../src/theme/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-RegularItalic.otf');
 	font-style: italic, oblique;
 }
 
@@ -58,26 +70,36 @@
 	--dracCurrentLine2: #392b55;
 }
 
-* {
+body {
+	background: #282a36; /* Fallback solid color for older browsers */
+	background: radial-gradient(
+		circle at 50% 100%,
+		/* Position gradient center at bottom (100%) and center (50%) */
+			rgba(40, 42, 54, 1) 0%,
+		/* Start color: #282a36 */ rgba(12, 0, 32, 1) 100%
+			/* End color: #0c0020 */
+	);
+	background-attachment: fixed; /* Optional: Fix gradient relative to viewport */
+	background-repeat: no-repeat; /* Prevent repeating */
+	min-height: 100vh; /* Ensure gradient covers full viewport height */
+}
+
+div {
 	font-family: 'National Park';
 }
 
 math {
-	font-size: 3em;
+	font-size: 5vmin;
 	display: block;
 	user-select: none;
 }
 
 mo {
-	font-family: 'Computer Modern';
+	font-family: 'Atkinson Hyperlegible Next';
 }
 
 mi {
-	font-family: 'National Park';
-}
-
-ms {
-	font-family: 'National Park';
+	font-family: 'Atkinson Hyperlegible Next';
 }
 
 ms {
@@ -85,14 +107,29 @@ ms {
 }
 
 mn {
-	font-family: 'Computer Modern';
+	font-family: 'Atkinson Hyperlegible Next';
 }
 
-/* @layer base {
-	* {
-		@apply border-border;
-	}
-	body {
-		@apply bg-background text-foreground;
-	}
-} */
+.text-font {
+	font-family: 'National Park';
+	font-style: normal;
+	font-weight: normal;
+}
+
+.definition-font {
+	font-family: 'National Park';
+	font-style: normal;
+	font-weight: bold;
+}
+
+.math-font {
+	font-family: 'Atkinson Hyperlegible Next';
+	font-style: normal;
+	font-weight: normal;
+}
+
+.unit-font {
+	font-family: 'Atkinson Hyperlegible Next';
+	font-style: italic;
+	font-weight: normal;
+}

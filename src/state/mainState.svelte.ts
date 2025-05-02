@@ -20,21 +20,22 @@ export let setLongValues = (newUseLongValue: boolean) => {
 	useLongValues = newUseLongValue
 }
 
-export let blankUnitInfo = {
+export let blankUnitInfo: TermType = {
 	value: {
 		long: '',
 		short: '',
 	},
 	color: '',
 	units: {
-		long: '',
-		short: '',
+		type: 'SIMPLE',
+		long: { value1: '', value2: '' },
+		short: { value1: '', value2: '' },
 	},
-	example: '',
+	exampleValue: '',
 	description: '',
 }
 
-let unitInfo = $state(blankUnitInfo)
+let unitInfo: TermType = $state(blankUnitInfo)
 export let getUnitInfo = () => {
 	return unitInfo
 }

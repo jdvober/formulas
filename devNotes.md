@@ -1,3 +1,9 @@
+# TODO LIST
+
+1. Be able to hide / filter formulas by topic
+
+# Problems
+
 1. The formulas change size correctly initially, but after you interact with them, the division bars etc. don't change size properly anymore, and stay the same size as if you were using the long words (instead of symbols.)
 
     a. the Delta ones still work, but they don't change from long to short variables.

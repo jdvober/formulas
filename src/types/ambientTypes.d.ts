@@ -21,9 +21,11 @@ type TermType = {
 	}
 	color: string
 	units: {
-		long: string
-		short: string
+		type: 'SIMPLE' | 'FRACTIONAL'
+		long: { value1: string; value2: string }
+		short: { value1: string; value2: string }
 	}
-	example: string
+
+	exampleValue: string
 	description: string
 }

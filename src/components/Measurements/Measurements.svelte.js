@@ -1,4 +1,4 @@
-import { VariableColors as vc } from '../../theme/colors/Colors'
+import { VariableColors as vc } from '../../theme/colors/colors.ts'
 export const DENSITY = {
 	value: { long: 'Density', short: 'ρ' },
 	color: vc[0],

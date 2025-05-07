@@ -164,8 +164,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		overflow-x: scroll;
-		overflow-y: scroll;
+		overflow-y: auto; // Will only show scrollbars when needed, as opposed to overflow-y: scroll, which always shows them.
+		overflow-x: auto;
 		max-height: 14vh;
 		min-width: 26vw;
 		margin-left: auto;
@@ -182,7 +182,6 @@
 			'content';
 		justify-content: flex-start;
 		align-items: space-evenly;
-		overflow-y: scroll;
 		padding-left: 1em;
 		padding-right: 1em;
 		padding-bottom: 1em;
@@ -217,7 +216,5 @@
 		align-items: center;
 		flex-direction: column;
 		min-width: 26vw;
-		overflow-x: scroll;
-		overflow-y: scroll;
 	}
 </style>

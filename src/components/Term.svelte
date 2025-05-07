@@ -57,15 +57,12 @@
 				</ms>
 			{/if}
 		{:else}
-			<div
+			<ms
 				style:color={props.color}
 				role="tooltip"
-				onmouseenter={() => {
-					setUnitInfo(props.content);
-				}}
 			>
 				{@render props.content()}
-			</div>
+			</ms>
 		{/if}
 	{:else if typeof props.content === 'object'}
 		{#if getUseLongValues() === true}
@@ -111,15 +108,12 @@
 			}}>{props.content}</mn
 		>
 	{:else}
-		<div
+		<ms
 			style:color={props.color}
 			role="tooltip"
-			onmouseenter={() => {
-				setUnitInfo(props.content);
-			}}
 		>
 			{@render props.content()}
-		</div>
+		</ms>
 	{/if}
 </mrow>
 

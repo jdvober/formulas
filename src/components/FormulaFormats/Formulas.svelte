@@ -65,7 +65,7 @@
 		margin-top: 1em;
 		border: 1px solid #fafaf2;
 		border-radius: 1em;
-		overflow-y: scroll;
+		overflow-y: auto;
 		row-gap: 2vh;
 		padding: 2vh;
 	}

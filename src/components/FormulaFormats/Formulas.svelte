@@ -15,76 +15,29 @@
 <div class="formulas-container">
 	<UnitInfoBox />
 	<div class="Formulas">
-		<!--Density-->
+		<!--Wave Speed-->
 		<Formula
 			format="A"
 			initialVariant="PRIMARY"
-			values={{ a: m.DENSITY, b: m.MASS, c: m.VOLUME }}
-		/>
-		<!--Pressure-->
-		<Formula
-			format="A"
-			initialVariant="PRIMARY"
-			values={{ a: m.PRESSURE, b: m.FORCE, c: m.AREA }}
-		/>
-		<!--Speed-->
-		<Formula
-			format="A"
-			initialVariant="PRIMARY"
-			values={{ a: m.SPEED, b: m.DISTANCE, c: m.TIME }}
-		/>
+			values={{ a: m.WAVE_SPEED, b: m.FREQUENCY, c: m.WAVELENGTH }}
+		></Formula>
 		<!--Velocity-->
 		{#snippet b1()}
 			<Delta
 				f={m.POSITION}
-				subscripts={{ final: 'f', initial: 'i' }}
-				colors={{
-					f: m.POSITION.color,
-					i: m.POSITION.color,
-					parens: m.POSITION.color,
-				}}
+				colors={m.POSITION.color}
 			/>
 		{/snippet}
 		{#snippet c()}
 			<Delta
 				f={m.TIME}
-				subscripts={{ final: 'f', initial: 'i' }}
-				colors={{
-					f: m.TIME.color,
-					i: m.TIME.color,
-					parens: m.TIME.color,
-				}}
+				colors={m.TIME.color}
 			/>
 		{/snippet}
 		<Formula
 			format="A"
 			initialVariant="PRIMARY"
 			values={{ a: m.VELOCITY, b: b1, c: c }}
-		></Formula>
-
-		{#snippet b2()}
-			<Delta
-				f={m.VELOCITY}
-				subscripts={{ final: 'f', initial: 'i' }}
-				colors={{
-					f: m.VELOCITY.color,
-					i: m.VELOCITY.color,
-					parens: m.VELOCITY.color,
-				}}
-			/>
-		{/snippet}
-
-		<!--Acceleration-->
-		<Formula
-			format="A"
-			initialVariant="PRIMARY"
-			values={{ a: m.ACCELERATION, b: b2, c: c }}
-		></Formula>
-		<!--Wave Speed-->
-		<Formula
-			format="A"
-			initialVariant="PRIMARY"
-			values={{ a: m.WAVE_SPEED, b: m.FREQUENCY, c: m.WAVELENGTH }}
 		></Formula>
 	</div>
 </div>

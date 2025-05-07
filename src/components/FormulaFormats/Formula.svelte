@@ -28,7 +28,7 @@
 				a={values.a}
 				b={values.b}
 				c={values.c}
-				bind:variant
+				{variant}
 			/>
 		{/key}
 	{/if}

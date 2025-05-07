@@ -1,22 +1,22 @@
 <script lang="ts">
 	import Formulas from '../../components/FormulaFormats/Formulas.svelte';
-	import GlowButton from '../../lib/components/ui/button/GlowButton.svelte';
-	import {
-		getUseLongValues,
-		setLongValues,
-	} from '../../state/mainState.svelte';
+	// import GlowButton from '../../lib/components/ui/button/GlowButton.svelte';
+	// import {
+	// 	getUseLongValues,
+	// 	setLongValues,
+	// } from '../../state/mainState.svelte';
 </script>
 
 <div class="formulas-container">
 	<div class="long-values-button">
-		<GlowButton
+		<!-- <GlowButton
 			text={getUseLongValues() === true
 				? 'Use Short Values'
 				: 'Use Long Values'}
 			onClick={() => {
 				setLongValues(getUseLongValues() === true ? false : true);
 			}}
-		/>
+		/> -->
 	</div>
 	<Formulas />
 </div>

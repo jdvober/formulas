@@ -15,6 +15,24 @@
 <div class="formulas-container">
 	<UnitInfoBox />
 	<div class="Formulas">
+		<!--Density-->
+		<Formula
+			format="A"
+			initialVariant="PRIMARY"
+			values={{ a: m.DENSITY, b: m.MASS, c: m.VOLUME }}
+		/>
+		<!--Pressure-->
+		<Formula
+			format="A"
+			initialVariant="PRIMARY"
+			values={{ a: m.PRESSURE, b: m.FORCE, c: m.AREA }}
+		/>
+		<!--Speed-->
+		<Formula
+			format="A"
+			initialVariant="PRIMARY"
+			values={{ a: m.SPEED, b: m.DISTANCE, c: m.TIME }}
+		/>
 		<!--Wave Speed-->
 		<Formula
 			format="A"
@@ -38,6 +56,24 @@
 			format="A"
 			initialVariant="PRIMARY"
 			values={{ a: m.VELOCITY, b: b1, c: c }}
+		></Formula>
+		{#snippet b2()}
+			<Delta
+				f={m.VELOCITY}
+				subscripts={{ final: 'f', initial: 'i' }}
+				colors={{
+					f: m.VELOCITY.color,
+					i: m.VELOCITY.color,
+					parens: m.VELOCITY.color,
+				}}
+			/>
+		{/snippet}
+
+		<!--Acceleration-->
+		<Formula
+			format="A"
+			initialVariant="PRIMARY"
+			values={{ a: m.ACCELERATION, b: b2, c: c }}
 		></Formula>
 	</div>
 </div>

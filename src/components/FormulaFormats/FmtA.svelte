@@ -3,10 +3,6 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import type { Component } from 'svelte';
-	import {
-		getUseLongValues,
-		setUnitInfo,
-	} from '../../state/mainState.svelte';
 	import Term from '../Term.svelte';
 
 	let {
@@ -30,257 +26,77 @@
 {#if v === 'PRIMARY'}
 	<math class="FmtA">
 		<mrow>
-			{#if typeof a === 'object'}
-				<mi
-					onmouseenter={() => {
-						setUnitInfo(a);
+			<mi
+				><button
+					onclick={() => {
+						console.log(`Clicked ${a}`);
+						v = 'PRIMARY';
 					}}
-					role="tooltip"
-					style:color={a.color}
 				>
-					<button
-						onclick={() => {
-							v = 'PRIMARY';
-						}}
-					>
-						{getUseLongValues() === true
-							? (a.value.long as string)
-							: (a.value.short as string)}</button
-					></mi
-				>
-			{:else}
+					<Term content={a} />
+				</button></mi
+			>
+			<mo>=</mo>
+			<mfrac>
 				<mi
 					><button
 						onclick={() => {
-							console.log(`Clicked ${a}`);
-							v = 'PRIMARY';
+							console.log(`Clicked ${b}`);
+							v = 'SECONDARY';
 						}}
 					>
-						<Term content={a} />
+						<Term content={b} />
 					</button></mi
 				>
-			{/if}
-			<mo>=</mo>
-			<mfrac>
-				{#if typeof b === 'object'}
-					<mi
-						onmouseenter={() => {
-							setUnitInfo(b);
+				<mi
+					><button
+						onclick={() => {
+							console.log(`Clicked ${c}`);
+							v = 'TERTIARY';
 						}}
-						role="tooltip"
-						style:color={b.color}
 					>
-						<button
-							onclick={() => {
-								v = 'SECONDARY';
-							}}
-						>
-							{getUseLongValues() === true
-								? (b.value.long as string)
-								: (b.value.short as string)}</button
-						></mi
-					>
-				{:else}
-					<mi
-						><button
-							onclick={() => {
-								console.log(`Clicked ${b}`);
-								v = 'SECONDARY';
-							}}
-						>
-							<Term content={b} />
-						</button></mi
-					>
-				{/if}
-				{#if typeof c === 'object'}
-					<mi
-						onmouseenter={() => {
-							setUnitInfo(c);
-						}}
-						role="tooltip"
-						style:color={c.color}
-					>
-						<button
-							onclick={() => {
-								v = 'TERTIARY';
-							}}
-						>
-							{getUseLongValues() === true
-								? (c.value.long as string)
-								: (c.value.short as string)}</button
-						></mi
-					>
-				{:else}
-					<mi
-						><button
-							onclick={() => {
-								console.log(`Clicked ${c}`);
-								v = 'TERTIARY';
-							}}
-						>
-							<Term content={c} />
-						</button></mi
-					>
-				{/if}
+						<Term content={c} />
+					</button></mi
+				>
 			</mfrac>
 		</mrow>
 	</math>
 {:else if v === 'SECONDARY'}
 	<math class="FmtA">
 		<mrow>
-			{#if typeof b === 'object'}
-				<mi
-					onmouseenter={() => {
-						setUnitInfo(b);
-					}}
-					role="tooltip"
-					style:color={b.color}
-				>
-					<button
-						onclick={() => {
-							v = 'SECONDARY';
-						}}
-					>
-						{getUseLongValues() === true
-							? (b.value.long as string)
-							: (b.value.short as string)}</button
-					></mi
-				>
-			{:else}
-				<mi><Term content={b} /></mi>
-			{/if}
+			<mi><Term content={b} /></mi>
 			<mo>=</mo>
-			{#if typeof a === 'object'}
-				<mi
-					onmouseenter={() => {
-						setUnitInfo(a);
-					}}
-					role="tooltip"
-					style:color={a.color}
-				>
-					<button
-						onclick={() => {
-							v = 'PRIMARY';
-						}}
-					>
-						{getUseLongValues() === true
-							? (a.value.long as string)
-							: (a.value.short as string)}</button
-					></mi
-				>
-			{:else}
-				<mi><Term content={a} /></mi>
-			{/if}
+			<mi><Term content={a} /></mi>
 			<mo>&middot</mo>
-			{#if typeof c === 'object'}
-				<mi
-					onmouseenter={() => {
-						setUnitInfo(c);
-					}}
-					role="tooltip"
-					style:color={c.color}
-				>
-					<button
-						onclick={() => {
-							v = 'TERTIARY';
-						}}
-					>
-						{getUseLongValues() === true
-							? (c.value.long as string)
-							: (c.value.short as string)}</button
-					></mi
-				>
-			{:else}
-				<mi><Term content={c} /></mi>
-			{/if}
+			<mi><Term content={c} /></mi>
 		</mrow>
 	</math>
 {:else}
 	<math class="FmtA">
 		<mrow>
-			{#if typeof c === 'object'}
-				<mi
-					onmouseenter={() => {
-						setUnitInfo(c);
-					}}
-					role="tooltip"
-					style:color={c.color}
-				>
-					<button
-						onclick={() => {
-							v = 'TERTIARY';
-						}}
-					>
-						{getUseLongValues() === true
-							? (c.value.long as string)
-							: (c.value.short as string)}</button
-					></mi
-				>
-			{:else}
+			<mi
+				><button
+					onclick={() => {
+						v = 'TERTIARY';
+					}}><Term content={c} /></button
+				></mi
+			>
+			<mo>=</mo>
+			<mfrac>
 				<mi
 					><button
 						onclick={() => {
-							v = 'TERTIARY';
-						}}><Term content={c} /></button
+							v = 'SECONDARY';
+						}}><Term content={b} /></button
 					></mi
 				>
-			{/if}
-			<mo>=</mo>
-			<mfrac>
-				{#if typeof b === 'object'}
-					<mi
-						onmouseenter={() => {
-							setUnitInfo(b);
-						}}
-						role="tooltip"
-						style:color={b.color}
-					>
-						<button
-							onclick={() => {
-								v = 'SECONDARY';
-							}}
-						>
-							{getUseLongValues() === true
-								? (b.value.long as string)
-								: (b.value.short as string)}</button
-						></mi
-					>
-				{:else}
-					<mi
-						><button
-							onclick={() => {
-								v = 'SECONDARY';
-							}}><Term content={b} /></button
-						></mi
-					>
-				{/if}
-				{#if typeof a === 'object'}
-					<mi
-						onmouseenter={() => {
-							setUnitInfo(a);
-						}}
-						role="tooltip"
-						style:color={a.color}
-					>
-						<button
-							onclick={() => {
-								v = 'PRIMARY';
-							}}
-						>
-							{getUseLongValues() === true
-								? (a.value.long as string)
-								: (a.value.short as string)}</button
-						></mi
-					>
-				{:else}
-					<mi
-						><button
-							onclick={() => {
-								v = 'PRIMARY';
-							}}><Term content={a} /></button
-						></mi
-					>
-				{/if}
+				<mi
+					><button
+						onclick={() => {
+							v = 'PRIMARY';
+						}}><Term content={a} /></button
+					></mi
+				>
 			</mfrac>
 		</mrow>
 	</math>

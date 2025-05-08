@@ -1,3 +1,4 @@
+<!--TODO: For some reason, when changing from long to short values, the formula disappears for anything with a subscript-->
 <!----------------------------------------------------------------->
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
@@ -6,11 +7,9 @@
 
 	import { getUseLongValues, setUnitInfo } from '../state/mainState.svelte';
 
-	let { color = 'black', ...props } = $props();
+	let { color = 'black', subscript, ...props } = $props();
 
-	/**
-	 * @type {gsap.TweenTarget}
-	 */
+	let buttonRef = $state();
 	let glowRef: gsap.TweenTarget;
 
 	const handleMouseEnter = () => {
@@ -46,10 +45,9 @@
 	{#if typeof props.content === 'object'}
 		<msub
 			style:color={props.content.color}
-			style:margin-bottom={props.subscript !== undefined
-				? '0.25em'
-				: '0px'}
+			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
+			bind:this={buttonRef}
 			class="glow-term"
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
@@ -60,35 +58,33 @@
 					: props.content.value.short}
 				{@render glowEffect()}
 			</ms>
-			{#if props.subscript !== undefined}
-				<ms>{props.subscript}</ms>
+			{#if subscript !== 'NONE'}
+				<ms>{subscript}</ms>
 			{/if}
 		</msub>
 	{:else if typeof props.content === 'string' && props.content.length === 1}
 		<msub
 			style:color={props.color}
-			style:margin-bottom={props.subscript !== undefined
-				? '0.25em'
-				: '0px'}
+			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
+			bind:this={buttonRef}
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
 		>
-			<ms>
+			<mi>
 				{props.content}
 				{@render glowEffect()}
-			</ms>
-			{#if props.subscript !== undefined}
-				<ms>{props.subscript}</ms>
+			</mi>
+			{#if subscript !== 'NONE'}
+				<ms>{subscript}</ms>
 			{/if}
 		</msub>
 	{:else if typeof props.content === 'string'}
 		<msub
 			style:color={props.color}
-			style:margin-bottom={props.subscript !== undefined
-				? '0.25em'
-				: '0px'}
+			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
+			bind:this={buttonRef}
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
 		>
@@ -96,42 +92,40 @@
 				{props.content}
 				{@render glowEffect()}
 			</ms>
-			{#if props.subscript !== undefined}
-				<ms>{props.subscript}</ms>
+			{#if subscript !== 'NONE'}
+				<ms>{subscript}</ms>
 			{/if}
 		</msub>
 	{:else if typeof props.content === 'number'}
 		<msub
 			style:color={props.color}
-			style:margin-bottom={props.subscript !== undefined
-				? '0.25em'
-				: '0px'}
+			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
+			bind:this={buttonRef}
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
 		>
-			<ms>
+			<mn>
 				{props.content}
 				{@render glowEffect()}
-			</ms>
-			{#if props.subscript !== undefined}
-				<ms>{props.subscript}</ms>
+			</mn>
+			{#if subscript !== 'NONE'}
+				<ms>{subscript}</ms>
 			{/if}
 		</msub>
 	{:else}
 		<msub
 			style:color={props.color}
-			style:margin-bottom={props.subscript !== undefined
-				? '0.25em'
-				: '0px'}
+			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
+			bind:this={buttonRef}
 		>
 			<ms>
 				{@render props.content()}
 				{@render glowEffect()}
 			</ms>
-			{#if props.subscript !== undefined}
-				<ms>{props.subscript}</ms>
+			{#if subscript !== 'NONE'}
+				<ms>{subscript}</ms>
 			{/if}
 		</msub>
 	{/if}
@@ -142,6 +136,9 @@
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
+	msub {
+		border: '1px solid red';
+	}
 	.glow-term {
 		position: relative;
 		border: none;

@@ -10,12 +10,19 @@
 		b,
 		c,
 		d,
+		subscripts,
 		variant = 'DEFAULT',
 	}: {
 		a: TermType | Component;
 		b: TermType | Component;
 		c: TermType | Component;
 		d: TermType | Component;
+		subscripts: {
+			a: string | number;
+			b: string | number;
+			c: string | number;
+			d: string | number;
+		};
 		variant:
 			| 'DEFAULT'
 			| 'PRIMARY'
@@ -37,7 +44,7 @@
 		}}
 		><Term
 			content={a}
-			subscript="1"
+			subscript={subscripts.a}
 		/></button
 	>
 {/snippet}
@@ -49,7 +56,7 @@
 		}}
 		><Term
 			content={b}
-			subscript="1"
+			subscript={subscripts.b}
 		/></button
 	>
 {/snippet}
@@ -61,7 +68,7 @@
 		}}
 		><Term
 			content={c}
-			subscript="2"
+			subscript={subscripts.c}
 		/></button
 	>
 {/snippet}
@@ -73,7 +80,7 @@
 		}}
 		><Term
 			content={d}
-			subscript="2"
+			subscript={subscripts.d}
 		/></button
 	>
 {/snippet}
@@ -82,13 +89,13 @@
 	<!--ab=cd-->
 	<math>
 		<mrow>
-			<msub>{@render A()}<ms></ms></msub>
+			<msub>{@render A()}</msub>
 			<mo>&middot</mo>
-			<msub>{@render B()}<ms></ms></msub>
+			<msub>{@render B()}</msub>
 			<mo>=</mo>
-			<msub>{@render C()}<ms></ms></msub>
+			<msub>{@render C()}</msub>
 			<mo>&middot</mo>
-			<msub>{@render D()}<ms></ms></msub>
+			<msub>{@render D()}</msub>
 		</mrow>
 	</math>
 {:else if v === 'PRIMARY'}

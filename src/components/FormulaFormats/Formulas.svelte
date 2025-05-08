@@ -20,30 +20,35 @@
 			format="A"
 			initialVariant="PRIMARY"
 			values={{ a: m.DENSITY, b: m.MASS, c: m.VOLUME }}
+			subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE' }}
 		/>
 		<!--Pressure-->
 		<Formula
 			format="A"
 			initialVariant="PRIMARY"
 			values={{ a: m.PRESSURE, b: m.FORCE, c: m.AREA }}
+			subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE' }}
 		/>
 		<!--Boyle's Law-->
 		<Formula
 			format="B"
 			initialVariant="DEFAULT"
 			values={{ a: m.PRESSURE, b: m.VOLUME, c: m.PRESSURE, d: m.VOLUME }}
+			subscripts={{ a: '1', b: '1', c: '2', d: '2' }}
 		/>
 		<!--Speed-->
 		<Formula
 			format="A"
 			initialVariant="PRIMARY"
 			values={{ a: m.SPEED, b: m.DISTANCE, c: m.TIME }}
+			subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE' }}
 		/>
 		<!--Wave Speed-->
 		<Formula
 			format="A"
 			initialVariant="PRIMARY"
 			values={{ a: m.WAVE_SPEED, b: m.FREQUENCY, c: m.WAVELENGTH }}
+			subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE' }}
 		></Formula>
 		<!--Velocity-->
 		{#snippet b1()}
@@ -62,6 +67,7 @@
 			format="A"
 			initialVariant="PRIMARY"
 			values={{ a: m.VELOCITY, b: b1, c: c }}
+			subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE' }}
 		></Formula>
 		{#snippet b2()}
 			<Delta
@@ -80,6 +86,7 @@
 			format="A"
 			initialVariant="PRIMARY"
 			values={{ a: m.ACCELERATION, b: b2, c: c }}
+			subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE' }}
 		></Formula>
 	</div>
 </div>

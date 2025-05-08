@@ -10,12 +10,20 @@
 		format,
 		initialVariant,
 		values,
+		subscripts,
 	}: {
 		format: 'A' | 'B';
 		initialVariant: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 		values: { a: any; b?: any; c?: any; d?: any; e?: any };
+		subscripts: {
+			a: string | number;
+			b: string | number;
+			c: string | number;
+			d?: string | number;
+		};
 	} = $props();
 	let variant = $state(initialVariant);
+	let S = subscripts;
 </script>
 
 <!----------------------------------------------------------------->
@@ -29,6 +37,7 @@
 				a={values.a}
 				b={values.b}
 				c={values.c}
+				subscripts={S}
 				{variant}
 			/>
 		{/key}
@@ -40,6 +49,12 @@
 				b={values.b}
 				c={values.c}
 				d={values.d}
+				subscripts={{
+					a: subscripts.a,
+					b: subscripts.b,
+					c: subscripts.c,
+					d: subscripts.d !== undefined ? subscripts.d : '',
+				}}
 				{variant}
 			/>
 		{/key}

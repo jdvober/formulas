@@ -9,11 +9,17 @@
 		a,
 		b,
 		c,
+		subscripts,
 		variant,
 	}: {
 		a: TermType | Component;
 		b: TermType | Component;
 		c: TermType | Component;
+		subscripts: {
+			a: string | number;
+			b: string | number;
+			c: string | number;
+		};
 		variant: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 	} = $props();
 	let v = $state(variant);
@@ -27,7 +33,11 @@
 	<button
 		onclick={() => {
 			v = 'PRIMARY';
-		}}><Term content={a} /></button
+		}}
+		><Term
+			content={a}
+			subscript={subscripts.a}
+		/></button
 	>
 {/snippet}
 
@@ -35,7 +45,11 @@
 	<button
 		onclick={() => {
 			v = 'SECONDARY';
-		}}><Term content={b} /></button
+		}}
+		><Term
+			content={b}
+			subscript={subscripts.b}
+		/></button
 	>
 {/snippet}
 
@@ -43,7 +57,11 @@
 	<button
 		onclick={() => {
 			v = 'TERTIARY';
-		}}><Term content={c} /></button
+		}}
+		><Term
+			content={c}
+			subscript={subscripts.c}
+		/></button
 	>
 {/snippet}
 

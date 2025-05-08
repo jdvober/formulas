@@ -23,80 +23,59 @@
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
 
+{#snippet A()}
+	<button
+		onclick={() => {
+			v = 'PRIMARY';
+		}}><Term content={a} /></button
+	>
+{/snippet}
+
+{#snippet B()}
+	<button
+		onclick={() => {
+			v = 'SECONDARY';
+		}}><Term content={b} /></button
+	>
+{/snippet}
+
+{#snippet C()}
+	<button
+		onclick={() => {
+			v = 'TERTIARY';
+		}}><Term content={c} /></button
+	>
+{/snippet}
+
 {#if v === 'PRIMARY'}
 	<math class="FmtA">
 		<mrow>
-			<mi
-				><button
-					onclick={() => {
-						console.log(`Clicked ${a}`);
-						v = 'PRIMARY';
-					}}
-				>
-					<Term content={a} />
-				</button></mi
-			>
+			<mi>{@render A()}</mi>
 			<mo>=</mo>
 			<mfrac>
-				<mi
-					><button
-						onclick={() => {
-							console.log(`Clicked ${b}`);
-							v = 'SECONDARY';
-						}}
-					>
-						<Term content={b} />
-					</button></mi
-				>
-				<mi
-					><button
-						onclick={() => {
-							console.log(`Clicked ${c}`);
-							v = 'TERTIARY';
-						}}
-					>
-						<Term content={c} />
-					</button></mi
-				>
+				<mi>{@render B()}</mi>
+				<mi>{@render C()}</mi>
 			</mfrac>
 		</mrow>
 	</math>
 {:else if v === 'SECONDARY'}
 	<math class="FmtA">
 		<mrow>
-			<mi><Term content={b} /></mi>
+			<mi>{@render B()}</mi>
 			<mo>=</mo>
-			<mi><Term content={a} /></mi>
+			<mi>{@render A()}</mi>
 			<mo>&middot</mo>
-			<mi><Term content={c} /></mi>
+			<mi>{@render C()}</mi>
 		</mrow>
 	</math>
 {:else}
 	<math class="FmtA">
 		<mrow>
-			<mi
-				><button
-					onclick={() => {
-						v = 'TERTIARY';
-					}}><Term content={c} /></button
-				></mi
-			>
+			<mi>{@render C()}</mi>
 			<mo>=</mo>
 			<mfrac>
-				<mi
-					><button
-						onclick={() => {
-							v = 'SECONDARY';
-						}}><Term content={b} /></button
-					></mi
-				>
-				<mi
-					><button
-						onclick={() => {
-							v = 'PRIMARY';
-						}}><Term content={a} /></button
-					></mi
-				>
+				<mi>{@render B()}</mi>
+				<mi>{@render A()}</mi>
 			</mfrac>
 		</mrow>
 	</math>

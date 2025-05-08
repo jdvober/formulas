@@ -39,17 +39,18 @@
 <mrow class="Term">
 	{#if typeof props.content === 'object'}
 		<ms
-			style:border="1px solid red"
 			style:color={props.content.color}
 			role="tooltip"
 			bind:this={buttonRef}
+			class="glow-button"
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
 		>
-			{getUseLongValues() === true
-				? props.content.value.long
-				: props.content.value.short}
-
+			<span
+				>{getUseLongValues() === true
+					? props.content.value.long
+					: props.content.value.short}</span
+			>
 			<div
 				class="glow-effect"
 				bind:this={glowRef}
@@ -57,7 +58,6 @@
 		</ms>
 	{:else if typeof props.content === 'string' && props.content.length === 1}
 		<mi
-			style:border="1px solid blue"
 			style:color={props.color}
 			role="tooltip"
 			bind:this={buttonRef}
@@ -72,7 +72,6 @@
 		</mi>
 	{:else if typeof props.content === 'string'}
 		<ms
-			style:border="1px solid green"
 			style:color={props.color}
 			role="tooltip"
 			bind:this={buttonRef}
@@ -88,7 +87,6 @@
 		</ms>
 	{:else if typeof props.content === 'number'}
 		<mn
-			style:border="1px solid yellow"
 			style:color={props.color}
 			role="tooltip"
 			bind:this={buttonRef}
@@ -103,9 +101,6 @@
 		</mn>
 	{:else}
 		<ms
-			style:border="1px solid orange"
-			style:width="20vw"
-			style:height="15vh"
 			style:color={props.color}
 			bind:this={buttonRef}
 			role="tooltip"
@@ -125,17 +120,16 @@
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
-	.glow-term {
+	.glow-button {
 		position: relative;
 		border: none;
 		border-radius: 0.5em;
 		cursor: pointer;
-		overflow: hidden;
 		transition: transform 0.2s ease;
 	}
 
 	/* Optional: Add slight scale effect */
-	.glow-term:hover {
+	.glow-button:hover {
 		transform: scale(1.1);
 	}
 

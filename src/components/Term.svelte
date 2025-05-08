@@ -7,12 +7,11 @@
 	import { getUseLongValues, setUnitInfo } from '../state/mainState.svelte';
 
 	let { color = 'black', ...props } = $props();
-	let buttonRef;
 
 	/**
 	 * @type {gsap.TweenTarget}
 	 */
-	let glowRef: gsap.TweenTarget = null;
+	let glowRef: gsap.TweenTarget;
 
 	const handleMouseEnter = () => {
 		gsap.to(glowRef, {
@@ -36,82 +35,105 @@
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
+{#snippet glowEffect()}
+	<div
+		class="glow-effect"
+		bind:this={glowRef}
+	></div>
+{/snippet}
+
 <mrow class="Term">
 	{#if typeof props.content === 'object'}
-		<ms
+		<msub
 			style:color={props.content.color}
-			role="tooltip"
-			bind:this={buttonRef}
-			class="glow-button"
+			style:margin-bottom={props.subscript !== undefined
+				? '0.25em'
+				: '0px'}
+			role="math"
+			class="glow-term"
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
 		>
-			<span
-				>{getUseLongValues() === true
+			<ms>
+				{getUseLongValues() === true
 					? props.content.value.long
-					: props.content.value.short}</span
-			>
-			<div
-				class="glow-effect"
-				bind:this={glowRef}
-			></div>
-		</ms>
+					: props.content.value.short}
+				{@render glowEffect()}
+			</ms>
+			{#if props.subscript !== undefined}
+				<ms>{props.subscript}</ms>
+			{/if}
+		</msub>
 	{:else if typeof props.content === 'string' && props.content.length === 1}
-		<mi
+		<msub
 			style:color={props.color}
-			role="tooltip"
-			bind:this={buttonRef}
+			style:margin-bottom={props.subscript !== undefined
+				? '0.25em'
+				: '0px'}
+			role="math"
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
-			>{props.content}
-
-			<div
-				class="glow-effect"
-				bind:this={glowRef}
-			></div>
-		</mi>
+		>
+			<ms>
+				{props.content}
+				{@render glowEffect()}
+			</ms>
+			{#if props.subscript !== undefined}
+				<ms>{props.subscript}</ms>
+			{/if}
+		</msub>
 	{:else if typeof props.content === 'string'}
-		<ms
+		<msub
 			style:color={props.color}
-			role="tooltip"
-			bind:this={buttonRef}
+			style:margin-bottom={props.subscript !== undefined
+				? '0.25em'
+				: '0px'}
+			role="math"
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
 		>
-			{props.content}
-
-			<div
-				class="glow-effect"
-				bind:this={glowRef}
-			></div>
-		</ms>
+			<ms>
+				{props.content}
+				{@render glowEffect()}
+			</ms>
+			{#if props.subscript !== undefined}
+				<ms>{props.subscript}</ms>
+			{/if}
+		</msub>
 	{:else if typeof props.content === 'number'}
-		<mn
+		<msub
 			style:color={props.color}
-			role="tooltip"
-			bind:this={buttonRef}
+			style:margin-bottom={props.subscript !== undefined
+				? '0.25em'
+				: '0px'}
+			role="math"
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
-			>{props.content}
-
-			<div
-				class="glow-effect"
-				bind:this={glowRef}
-			></div>
-		</mn>
-	{:else}
-		<ms
-			style:color={props.color}
-			bind:this={buttonRef}
-			role="tooltip"
 		>
-			{@render props.content()}
-
-			<div
-				class="glow-effect"
-				bind:this={glowRef}
-			></div>
-		</ms>
+			<ms>
+				{props.content}
+				{@render glowEffect()}
+			</ms>
+			{#if props.subscript !== undefined}
+				<ms>{props.subscript}</ms>
+			{/if}
+		</msub>
+	{:else}
+		<msub
+			style:color={props.color}
+			style:margin-bottom={props.subscript !== undefined
+				? '0.25em'
+				: '0px'}
+			role="math"
+		>
+			<ms>
+				{@render props.content()}
+				{@render glowEffect()}
+			</ms>
+			{#if props.subscript !== undefined}
+				<ms>{props.subscript}</ms>
+			{/if}
+		</msub>
 	{/if}
 </mrow>
 
@@ -120,7 +142,7 @@
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
-	.glow-button {
+	.glow-term {
 		position: relative;
 		border: none;
 		border-radius: 0.5em;
@@ -129,7 +151,7 @@
 	}
 
 	/* Optional: Add slight scale effect */
-	.glow-button:hover {
+	.glow-term:hover {
 		transform: scale(1.1);
 	}
 

@@ -27,6 +27,12 @@
 			initialVariant="PRIMARY"
 			values={{ a: m.PRESSURE, b: m.FORCE, c: m.AREA }}
 		/>
+		<!--Boyle's Law-->
+		<Formula
+			format="B"
+			initialVariant="DEFAULT"
+			values={{ a: m.PRESSURE, b: m.VOLUME, c: m.PRESSURE, d: m.VOLUME }}
+		/>
 		<!--Speed-->
 		<Formula
 			format="A"

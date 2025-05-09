@@ -44,6 +44,17 @@ export const FORCE = {
 	description: 'a push or pull between objects.',
 	exampleValue: '100',
 }
+export const WEIGHT = {
+	value: { long: 'Weight', short: 'Fg' },
+	color: vc[3],
+	units: {
+		type: 'SIMPLE',
+		long: { value1: 'Newtons', value2: null },
+		short: { value1: 'N', value2: null },
+	},
+	description: 'a push or pull between objects due to gravity.',
+	exampleValue: '100',
+}
 export const AREA = {
 	value: { long: 'Area', short: 'A' },
 	color: vc[4],

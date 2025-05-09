@@ -9,18 +9,26 @@
 		a,
 		b,
 		c,
+		d,
 		subscripts,
 		variant = 'DEFAULT',
 	}: {
 		a: TermType | Component;
 		b: TermType | Component;
 		c: TermType | Component;
+		d: TermType | Component;
 		subscripts: {
 			a: string | number;
 			b: string | number;
 			c: string | number;
+			d: string | number;
 		};
-		variant: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
+		variant:
+			| 'DEFAULT'
+			| 'PRIMARY'
+			| 'SECONDARY'
+			| 'TERTIARY'
+			| 'QUARTENARY';
 	} = $props();
 	let v = $state(variant);
 </script>
@@ -65,35 +73,100 @@
 	>
 {/snippet}
 
-{#if v === 'PRIMARY' || v === 'DEFAULT'}
+{#snippet D()}
+	<button
+		onclick={() => {
+			v = 'QUARTENARY';
+		}}
+		><Term
+			content={d}
+			subscript={subscripts.d}
+		/></button
+	>
+{/snippet}
+
+{#if v === 'DEFAULT' || v === 'PRIMARY'}
+	<!--a=bcd-->
 	<math>
 		<mrow>
-			<mi>{@render A()}</mi>
+			<msub>{@render A()}</msub>
 			<mo>=</mo>
-			<mfrac>
-				<mi>{@render B()}</mi>
-				<mi>{@render C()}</mi>
-			</mfrac>
+			<msub>{@render B()}</msub>
+			<mo>&middot</mo>
+			<msub>{@render C()}</msub>
+			<mo>&middot</mo>
+			<msub>{@render D()}</msub>
 		</mrow>
 	</math>
 {:else if v === 'SECONDARY'}
+	<!--b=a/cd-->
 	<math>
 		<mrow>
 			<mi>{@render B()}</mi>
 			<mo>=</mo>
-			<mi>{@render A()}</mi>
-			<mo>&middot</mo>
-			<mi>{@render C()}</mi>
+			<mfrac>
+				<mrow>
+					<mi>{@render A()}</mi>
+				</mrow>
+				<mrow>
+					<ms>{@render C()}</ms>
+					<mo>&middot</mo>
+					<mi>{@render D()}</mi>
+				</mrow>
+			</mfrac>
 		</mrow>
 	</math>
-{:else}
+{:else if v === 'TERTIARY'}
+	<!--c=a/bd-->
 	<math>
 		<mrow>
 			<mi>{@render C()}</mi>
 			<mo>=</mo>
 			<mfrac>
-				<mi>{@render B()}</mi>
-				<mi>{@render A()}</mi>
+				<mrow>
+					<mi>{@render A()}</mi>
+				</mrow>
+				<mrow>
+					<ms>{@render B()}</ms>
+					<mo>&middot</mo>
+					<mi>{@render D()}</mi>
+				</mrow>
+			</mfrac>
+		</mrow>
+	</math>
+{:else if v === 'QUARTENARY'}
+	<!--d=a/bc-->
+	<math>
+		<mrow>
+			<mi>{@render D()}</mi>
+			<mo>=</mo>
+			<mfrac>
+				<mrow>
+					<mi>{@render A()}</mi>
+				</mrow>
+				<mrow>
+					<ms>{@render B()}</ms>
+					<mo>&middot</mo>
+					<mi>{@render C()}</mi>
+				</mrow>
+			</mfrac>
+		</mrow>
+	</math>
+{:else}
+	<!--d=ab/c-->
+	<math>
+		<mrow>
+			<mi>{@render D()}</mi>
+			<mo>=</mo>
+			<mfrac>
+				<mrow>
+					<mi>{@render A()}</mi>
+				</mrow>
+				<mrow>
+					<ms>{@render B()}</ms>
+					<mo>&middot</mo>
+					<mi>{@render C()}</mi>
+				</mrow>
 			</mfrac>
 		</mrow>
 	</math>

@@ -2,6 +2,7 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
+	import { findNestedObjectValueById } from '../../../functions/FindNestedObjectValueById.ts';
 	import { getTopicsToggleStates } from '../../../state/mainState.svelte.ts';
 	import Formula from '../../FormulaFormats/Formula.svelte';
 	import * as m from '../../Measurements/Measurements.svelte.js';
@@ -11,7 +12,7 @@
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
 <div class="PressureFormula">
-	{#if getTopicsToggleStates().PS.formulas.chemistry.formulas.pressure.checkedState === true}
+	{#if findNestedObjectValueById(getTopicsToggleStates(), 'Pressure', 'checkedState') === true}
 		<!--Pressure-->
 		<Formula
 			format="A"

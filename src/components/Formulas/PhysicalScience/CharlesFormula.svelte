@@ -3,22 +3,27 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import { findNestedObjectValueById } from '../../../functions/FindNestedObjectValueById.ts';
+	import { getTopicsToggleStates } from '../../../state/mainState.svelte.ts';
 	import Formula from '../../FormulaFormats/Formula.svelte';
-	import * as m from '../../Measurements/Measurements.svelte';
-	import { getTopicsToggleStates } from './../../../state/mainState.svelte.ts';
+	import * as m from '../../Measurements/Measurements.svelte.js';
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<div class="DensityFormula">
-	{#if findNestedObjectValueById(getTopicsToggleStates(), 'Density', 'checkedState') === true}
-		<!--Density-->
+<div class="CharlesFormula">
+	{#if findNestedObjectValueById(getTopicsToggleStates(), "Charles' Law", 'checkedState') === true}
+		<!--Boyle's Law-->
 		<Formula
-			format="A"
+			format="B"
 			initialVariant="DEFAULT"
-			values={{ a: m.DENSITY, b: m.MASS, c: m.VOLUME }}
-			subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE' }}
+			values={{
+				a: m.VOLUME,
+				b: m.TEMPERATURE,
+				c: m.VOLUME,
+				d: m.TEMPERATURE,
+			}}
+			subscripts={{ a: '1', b: '1', c: '2', d: '2' }}
 		/>
 	{:else}
 		<div></div>

@@ -46,52 +46,70 @@ export let setUnitInfo = (newUnitInfo: TermType) => {
 	unitInfo = newUnitInfo
 }
 
+export const psTopics = [
+	'Density',
+	'Pressure',
+	"Boyle's Law",
+	"Charles' Law",
+	"Gay-Lussac's Law",
+	'Specific Heat',
+	'Speed_PS',
+	'Velocity_PS',
+	'Acceleration_PS',
+	'Momentum_PS',
+	'Work',
+	'Power',
+	'Gravitational Potential Energy_PS',
+	'Kinetic Energy_PS',
+	'Wave Speed_PS',
+	"Ohm's Law_PS",
+]
 let topicsToggleStates = $state({
 	PS: {
-		id: 'PS',
+		id: '',
 		name: 'Physical Science',
 		checkedState: true,
 		formulas: {
 			chemistry: {
-				id: 'chemistryPS',
+				id: 'Chemistry_PS',
 				name: 'Chemistry',
 				checkedState: true,
 				formulas: {
 					density: {
-						id: 'density',
+						id: 'Density',
 						name: 'Density',
 						checkedState: true,
 					},
 					pressure: {
-						id: 'pressure',
+						id: 'Pressure',
 						name: 'Pressure',
 						checkedState: true,
 					},
 					gasLaws: {
-						id: 'gasLaws',
+						id: 'Gas Laws',
 						name: 'Gas Laws',
 						checkedState: true,
 						formulas: {
 							checkedState: true,
 							boyles: {
-								id: 'boyles',
+								id: "Boyle's Law",
 								name: "Boyle's Law",
 								checkedState: true,
 							},
 							charles: {
-								id: 'charles',
+								id: "Charles' Law",
 								name: "Charles' Law",
 								checkedState: true,
 							},
 							gls: {
-								id: 'gls',
+								id: "Gay-Lussac's Law",
 								name: "Gay-Lussac's Law",
 								checkedState: true,
 							},
 						},
 					},
 					specificHeat: {
-						id: 'specificHeat',
+						id: 'specific Heat',
 						name: 'Specific Heat',
 						checkedState: true,
 					},
@@ -108,63 +126,67 @@ let topicsToggleStates = $state({
 						checkedState: true,
 						formulas: {
 							speed: {
-								id: 'speedPS',
+								id: 'Speed_PS',
 								name: 'Speed',
 								checkedState: true,
 							},
 
 							velocity: {
-								id: 'velocityPS',
+								id: 'Velocity_PS',
 								name: 'Velocity',
 								checkedState: true,
 							},
 							acceleration: {
-								id: 'accelerationPS',
+								id: 'Acceleration_PS',
 								name: 'Acceleration',
 								checkedState: true,
 							},
 						},
 					},
 					momentum: {
-						id: 'momentumPS',
+						id: 'Momentum_PS',
 						name: 'Momentum',
 						checkedState: true,
 					},
-					force: { id: 'forcePS', name: 'Force', checkedState: true },
+					force: {
+						id: 'Force_PS',
+						name: 'Force',
+						checkedState: true,
+					},
 					energy: {
-						id: 'energyPS',
+						id: 'Energy_PS',
 						name: 'Work, Power and Energy',
 						checkedState: true,
 						formuals: {
 							work: {
-								id: 'work',
+								id: 'Work',
 								name: 'Work',
 								checkedState: true,
 							},
 							power: {
-								id: 'power',
+								id: 'Power',
 								name: 'Power',
 								checkedState: true,
 							},
 							gpe: {
-								id: 'gpePS',
+								id: 'Gravitational Potential Energy_PS',
 								name: 'Gravitational Potential Energy',
 								checkedState: true,
 							},
 							ke: {
-								id: 'kePS',
+								id: 'Kinetic Energy_PS',
 								name: 'Kinetic Energy',
 								checkedState: true,
 							},
 						},
 					},
 					waveSpeed: {
-						id: 'waveSpeedPS',
+						is: 'Wave Speed_PS',
 						name: 'Wave Speed',
 						checkedState: true,
 					},
 					ohmsLaw: {
-						id: 'ohmsLawPS',
+						id: "Ohm's Law_PS",
 						name: "Ohm's Law",
 						checkedState: true,
 					},

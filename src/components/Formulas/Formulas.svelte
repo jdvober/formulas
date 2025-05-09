@@ -7,7 +7,10 @@
 	import UnitInfoBox from '../Measurements/UnitInfoBox.svelte';
 	import Delta from '../Operations/Delta.svelte';
 	import Superscript from '../Operations/Superscript.svelte';
+	import BoyleFormula from './PhysicalScience/BoyleFormula.svelte';
+	import CharlesFormula from './PhysicalScience/CharlesFormula.svelte';
 	import DensityFormula from './PhysicalScience/DensityFormula.svelte';
+	import GLFormula from './PhysicalScience/GLFormula.svelte';
 	import PressureFormula from './PhysicalScience/PressureFormula.svelte';
 </script>
 
@@ -20,37 +23,9 @@
 	<div class="Formulas">
 		<DensityFormula />
 		<PressureFormula />
-		<!--Boyle's Law-->
-		<Formula
-			format="B"
-			initialVariant="DEFAULT"
-			values={{ a: m.PRESSURE, b: m.VOLUME, c: m.PRESSURE, d: m.VOLUME }}
-			subscripts={{ a: '1', b: '1', c: '2', d: '2' }}
-		/>
-		<!--Charles' Law-->
-		<Formula
-			format="B"
-			initialVariant="DEFAULT"
-			values={{
-				a: m.VOLUME,
-				b: m.TEMPERATURE,
-				c: m.VOLUME,
-				d: m.TEMPERATURE,
-			}}
-			subscripts={{ a: '1', b: '1', c: '2', d: '2' }}
-		/>
-		<!--Gay-Lussac's Law-->
-		<Formula
-			format="B"
-			initialVariant="DEFAULT"
-			values={{
-				a: m.TEMPERATURE,
-				b: m.PRESSURE,
-				c: m.TEMPERATURE,
-				d: m.PRESSURE,
-			}}
-			subscripts={{ a: '1', b: '1', c: '2', d: '2' }}
-		/>
+		<BoyleFormula />
+		<CharlesFormula />
+		<GLFormula />
 		<!--Speed-->
 		<Formula
 			format="A"

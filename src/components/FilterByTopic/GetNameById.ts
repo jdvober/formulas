@@ -1,19 +1,30 @@
-export let getNameById = (obj: any, targetId: string | number) => {
-	// Check if the current object is the one we're looking for
-	if (obj.id === targetId) {
-		return obj['name'] as string
+export let getNameById = (obj: any, targetId: string) => {
+	let returnValue = 'None'
+	//console.log(obj)
+	const [key, value] = Object.entries(obj)[0]
+	// console.log(key)
+	// console.log(value)
+	// console.log(`\n`)
+	if (typeof value === 'object' && value !== null) {
+		const entries = Object.entries(value)
+		entries.forEach((entry) => {
+			let found = false
+			let k = entry[0]
+			let v = entry[1]
+			if (k === 'id') {
+				if (v === targetId) {
+					returnValue = v
+					found = true
+				}
+			}
+			if (k === 'formulas') {
+			}
+			if (k !== 'name' && k !== 'checkedState' && k !== 'id') {
+			}
+		})
+	} else {
+		console.error('Value is not an object:', value)
 	}
-
-	// Recursively search through object properties or array elements
-	for (const key in obj) {
-		if (typeof obj[key] === 'object' && obj[key] !== null) {
-			const found = getNameById(obj[key], targetId) as string
-			if (found) return found
-		}
-	}
-	let first = targetId.toString().slice(0, 1)
-	let rest = targetId.toString().slice(1).endsWith('_PS')
-		? targetId.toString().slice(1, -3)
-		: targetId.toString().slice(1)
-	return `${first.toUpperCase()}${rest}`
+	console.log(`\n\n\n\n`)
+	return returnValue
 }

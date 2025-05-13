@@ -3,7 +3,7 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import { findNestedObjectValueById } from '../../../functions/FindNestedObjectValueById.ts';
-	import { getTopicsToggleStates } from '../../../state/mainState.svelte.ts';
+	import { topicsToggles } from '../../../state/mainState.svelte.ts';
 	import Formula from '../../FormulaFormats/Formula.svelte';
 	import * as m from '../../Measurements/Measurements.svelte.js';
 </script>
@@ -12,7 +12,7 @@
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
 <div class="GLFormula">
-	{#if findNestedObjectValueById(getTopicsToggleStates(), "Gay-Lussac's Law", 'checkedState') === true}
+	{#if findNestedObjectValueById(topicsToggles.state(), "Gay-Lussac's Law", 'checkedState') === true}
 		<!--Gay-Lussac's Law-->
 		<Formula
 			format="B"

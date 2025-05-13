@@ -3,9 +3,8 @@
 	import { findNestedObjectValueById } from '../../functions/FindNestedObjectValueById.ts';
 	import { updateNestedObjectById } from '../../functions/UpdateNestedObjectById.ts';
 	import {
-		getTopicsToggleStates,
-		psTopics,
-		setTopicsToggleStates,
+		psTopicsChem,
+		topicsToggles,
 	} from './../../state/mainState.svelte.ts';
 	import Modal from './FilterByTopicModal.svelte';
 	import { getNameById } from './GetNameById.ts';
@@ -14,8 +13,8 @@
 	let checkboxState = $state(true);
 
 	// Searches for the key with id that is passed in, and toggles the checkbox state.
-	let toggleState = (id: string) => {
-		let newTopicsToggleStates = getTopicsToggleStates();
+	let toggleTopicState = (id: string) => {
+		let newTopicsToggleStates = topicsToggles.state();
 		let oldCheckedState = findNestedObjectValueById(
 			newTopicsToggleStates,
 			id,
@@ -27,7 +26,7 @@
 			'checkedState',
 			oldCheckedState === true ? false : true
 		);
-		setTopicsToggleStates(newTopicsToggleStates);
+		topicsToggles.setState(newTopicsToggleStates);
 	};
 </script>
 
@@ -38,14 +37,15 @@
 			checked={checkboxState}
 			class="checkbox"
 			onchange={() => {
-				toggleState(id);
+				toggleTopicState(id);
 			}}
 		/>
 		<div style:margin-right={'5vmin'}>
-			{getNameById(getTopicsToggleStates(), id)}
+			{getNameById(topicsToggles.state(), id)}
 		</div>
 	</label>
 {/snippet}
+
 <GlowButton
 	text={'Filter By Topic'}
 	onClick={() => {
@@ -61,11 +61,9 @@
 	<fieldset
 		class="fieldset bg-base-100 border-base-300 rounded-box w-64 border p-4"
 	>
-		<legend class="fieldset-legend"
-			>{getNameById(getTopicsToggleStates(), 'Chemistry_PS')}</legend
-		>
-		{#each psTopics as topic}
-			{console.log(topic)}
+		<!--Chemistry-->
+		<legend class="fieldset-legend">Chemistry Header</legend>
+		{#each psTopicsChem as topic}
 			{@render makeCheckbox(topic)}
 		{/each}
 	</fieldset>

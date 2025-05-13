@@ -1,0 +1,28 @@
+export let getNameById = (obj: any, targetId: string): string => {
+	console.log(`targetId: ${targetId}`)
+	console.log(`obj:`)
+	console.log(obj)
+	let returnValue
+
+	for (let key in obj) {
+		//Check this level for matching targetId
+		console.log(`Checking\tkey: ${key}`)
+
+		if (key.toString() === targetId) {
+			//Found a match, return it's value
+			console.log(
+				`Found a match for ${key}, returning value of ${obj[key]}`
+			)
+			returnValue = obj[key].toString()
+		} else if (key !== undefined) {
+			console.log(
+				`Did not find a match for ${key}.  Attempting to search in ${obj[key]}.`
+			)
+			returnValue = getNameById(obj[key], targetId).toString()
+		} else {
+			returnValue = `No value found.`
+		}
+	}
+
+	return returnValue
+}

@@ -1,5 +1,5 @@
 /*
-Export functions, but never export variables that declare state with $state()
+Export functions/objects with getters/setters, but never export variables that declare state with $state()
 Example:
 
 
@@ -10,6 +10,17 @@ export let getUseLongValues = () => {
 export let setLongValues = (newUseLongValue: boolean) => {
 	useLongValues = newUseLongValue
 }
+
+
+OR
+
+export let topicsToggles = {
+	state: () => topicsToggles,
+	setState: (newTopicsToggles: typeof topicsToggles) => {
+		topicsToggles === newTopicsToggles
+	},
+}
+
 
 
 snippet stateUseGetSet for a template of getters/setters
@@ -46,162 +57,185 @@ export let setUnitInfo = (newUnitInfo: TermType) => {
 	unitInfo = newUnitInfo
 }
 
-export const psTopics = [
+export const psTopicsChem = ['Chemistry_PS', 'Matter_PS', 'Gas_Laws_PS']
+export const psTopicsPhy = [
+	'Physics_PS',
+	'Kinematics_PS',
+	'Dynamics_PS',
+	'Energy_PS',
+	'Waves_PS',
+	'Electricity_PS',
+]
+
+export const psFormulas = [
 	'Density',
 	'Pressure',
-	"Boyle's Law",
-	"Charles' Law",
-	"Gay-Lussac's Law",
-	'Specific Heat',
+	'Boyles_Law',
+	'Charles_Law',
+	'Gay-Lussacs_Law',
+	'Specific_Heat',
 	'Speed_PS',
 	'Velocity_PS',
 	'Acceleration_PS',
 	'Momentum_PS',
 	'Work',
 	'Power',
-	'Gravitational Potential Energy_PS',
-	'Kinetic Energy_PS',
-	'Wave Speed_PS',
-	"Ohm's Law_PS",
+	'Gravitational_Potential_Energy_PS',
+	'Kinetic_Energy_PS',
+	'Wave_Speed_PS',
+	'Ohms_Law_PS',
 ]
-let topicsToggleStates = $state({
-	PS: {
-		id: '',
+
+let topicsTogglesState = $state([
+	{
+		id: 'PhysicalScience',
 		name: 'Physical Science',
-		checkedState: true,
-		formulas: {
-			chemistry: {
-				id: 'Chemistry_PS',
-				name: 'Chemistry',
-				checkedState: true,
-				formulas: {
-					density: {
-						id: 'Density',
-						name: 'Density',
-						checkedState: true,
-					},
-					pressure: {
-						id: 'Pressure',
-						name: 'Pressure',
-						checkedState: true,
-					},
-					gasLaws: {
-						id: 'Gas Laws',
-						name: 'Gas Laws',
-						checkedState: true,
-						formulas: {
-							checkedState: true,
-							boyles: {
-								id: "Boyle's Law",
-								name: "Boyle's Law",
-								checkedState: true,
-							},
-							charles: {
-								id: "Charles' Law",
-								name: "Charles' Law",
-								checkedState: true,
-							},
-							gls: {
-								id: "Gay-Lussac's Law",
-								name: "Gay-Lussac's Law",
-								checkedState: true,
-							},
-						},
-					},
-					specificHeat: {
-						id: 'specific Heat',
-						name: 'Specific Heat',
-						checkedState: true,
-					},
-				},
-			},
-			physics: {
-				id: 'physicsPS',
-				name: 'Physics',
-				checkedState: true,
-				formulas: {
-					kinematics: {
-						id: 'kinematicsPS',
-						name: 'Kinematics',
-						checkedState: true,
-						formulas: {
-							speed: {
-								id: 'Speed_PS',
-								name: 'Speed',
-								checkedState: true,
-							},
-
-							velocity: {
-								id: 'Velocity_PS',
-								name: 'Velocity',
-								checkedState: true,
-							},
-							acceleration: {
-								id: 'Acceleration_PS',
-								name: 'Acceleration',
-								checkedState: true,
-							},
-						},
-					},
-					momentum: {
-						id: 'Momentum_PS',
-						name: 'Momentum',
-						checkedState: true,
-					},
-					force: {
-						id: 'Force_PS',
-						name: 'Force',
-						checkedState: true,
-					},
-					energy: {
-						id: 'Energy_PS',
-						name: 'Work, Power and Energy',
-						checkedState: true,
-						formuals: {
-							work: {
-								id: 'Work',
-								name: 'Work',
-								checkedState: true,
-							},
-							power: {
-								id: 'Power',
-								name: 'Power',
-								checkedState: true,
-							},
-							gpe: {
-								id: 'Gravitational Potential Energy_PS',
-								name: 'Gravitational Potential Energy',
-								checkedState: true,
-							},
-							ke: {
-								id: 'Kinetic Energy_PS',
-								name: 'Kinetic Energy',
-								checkedState: true,
-							},
-						},
-					},
-					waveSpeed: {
-						is: 'Wave Speed_PS',
-						name: 'Wave Speed',
-						checkedState: true,
-					},
-					ohmsLaw: {
-						id: "Ohm's Law_PS",
-						name: "Ohm's Law",
-						checkedState: true,
-					},
-				},
-			},
-		},
+		checkedState: false,
+		tags: ['PS'],
 	},
-})
+	{
+		id: 'Chemistry_PS',
+		name: 'All Chemistry',
+		checkedState: false,
+		tags: ['PS', 'Chemistry'],
+	},
+	{
+		id: 'Matter_PS',
+		name: 'Matter',
+		checkedState: false,
+		tags: ['PS', 'Chemistry', 'Matter'],
+	},
+	{
+		id: 'Density',
+		name: 'Density',
+		checkedState: true,
+		tags: ['PS', 'Chemistry', 'Matter', 'Density'],
+	},
+	{
+		id: 'Pressure',
+		name: 'Pressure',
+		checkedState: true,
+		tags: ['PS', 'Chemistry', 'Matter', 'Pressure'],
+	},
+	{
+		id: 'Specific_Heat',
+		name: 'Specific Heat',
+		checkedState: true,
+		tags: ['PS', 'Chemistry', 'Matter', 'SpecificHeat'],
+	},
+	{
+		id: 'Gas_Laws_PS',
+		name: 'Gas Laws',
+		checkedState: false,
+		tags: ['PS', 'Chemistry', 'GasLaws'],
+	},
+	{
+		id: 'Boyles_Law',
+		name: "Boyle's Law",
+		checkedState: true,
+		tags: ['PS', 'Chemistry', 'GasLaws', 'Boyle'],
+	},
+	{
+		id: 'Charles_Law',
+		name: "Charles' Law",
+		checkedState: true,
+		tags: ['PS', 'Chemistry', 'GasLaws', 'Charles'],
+	},
+	{
+		id: 'Gay-Lussacs_Law',
+		name: "Gay-Lussac's Law",
+		checkedState: true,
+		tags: ['PS', 'Chemistry', 'GasLaws', 'GayLussac'],
+	},
+	{
+		id: 'Physics_PS',
+		name: 'Physics_PS',
+		checkedState: true,
+		tags: ['PS', 'Physics'],
+	},
+	{
+		id: 'Kinematics_PS',
+		name: 'Kinematics',
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Kinematics'],
+	},
+	{
+		id: 'Speed_PS',
+		name: 'Speed',
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Kinematics', 'Speed'],
+	},
+	{
+		id: 'Velocity_PS',
+		name: 'Velocity',
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Kinematics', 'Velocity'],
+	},
+	{
+		id: 'Acceleration_PS',
+		name: 'Acceleration',
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Kinematics', 'Acceleration'],
+	},
+	{
+		id: 'Momentum_PS',
+		name: 'Momentum',
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Kinematics', 'Momentum'],
+	},
+	{
+		id: 'Dynamics_PS',
+		name: 'Force',
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Dynamics'],
+	},
+	{
+		id: 'Energy_PS',
+		name: 'Work, Power and Energy',
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Energy'],
+	},
+	{
+		id: 'Work',
+		name: 'Work',
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Energy', 'Work'],
+	},
+	{
+		id: 'Power',
+		name: 'Power',
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Energy', 'Power'],
+	},
+	{
+		id: 'Gravitational_Potential_Energy_PS',
+		name: 'Gravitational Potential Energy',
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Energy', 'GravitationalPotential'],
+	},
+	{
+		id: 'Kinetic_Energy_PS',
+		name: 'Kinetic Energy',
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Energy', 'Kinetic'],
+	},
+	{
+		id: 'Wave_Speed_PS',
+		name: 'Wave Speed',
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Waves', 'WaveSpeed'],
+	},
+	{
+		id: 'Ohms_Law_PS',
+		name: "Ohm's Law",
+		checkedState: true,
+		tags: ['PS', 'Physics', 'Electricity', 'OhmsLaw'],
+	},
+])
 
-export let getTopicsToggleStates = () => {
-	return topicsToggleStates
-}
-
-export let setTopicsToggleStates = (
-	newTopicsToggleStates: typeof topicsToggleStates
-) => {
-	topicsToggleStates = newTopicsToggleStates
+export let topicsToggles = {
+	state: () => topicsTogglesState,
+	setState: (newTopicsToggles: typeof topicsTogglesState) => {
+		topicsTogglesState === newTopicsToggles
+	},
 }

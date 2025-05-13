@@ -3,7 +3,7 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import { findNestedObjectValueById } from '../../../functions/FindNestedObjectValueById.ts';
-	import { getTopicsToggleStates } from '../../../state/mainState.svelte.ts';
+	import { topicsToggles } from '../../../state/mainState.svelte.ts';
 	import Formula from '../../FormulaFormats/Formula.svelte';
 	import * as m from '../../Measurements/Measurements.svelte.js';
 </script>
@@ -12,7 +12,7 @@
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
 <div class="CharlesFormula">
-	{#if findNestedObjectValueById(getTopicsToggleStates(), "Charles' Law", 'checkedState') === true}
+	{#if findNestedObjectValueById(topicsToggles.state(), "Charles' Law", 'checkedState') === true}
 		<!--Boyle's Law-->
 		<Formula
 			format="B"

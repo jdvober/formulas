@@ -1,17 +1,15 @@
 <script lang="ts">
+	import Formulas from '../components/Formulas/Formulas.svelte';
 </script>
 
-<h1>Home Page</h1>
+<div class="formulas-container">
+	<Formulas />
+</div>
 
 <style>
-	h1 {
+	.formulas-container {
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 25vh;
-		margin-bottom: 25vh;
-		width: auto;
-		font-size: 5em;
 	}
 </style>

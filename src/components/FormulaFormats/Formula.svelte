@@ -12,6 +12,8 @@
 		initialVariant,
 		values,
 		subscripts,
+		title,
+		notes,
 	}: {
 		format: 'A' | 'B' | 'C';
 		initialVariant: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
@@ -22,6 +24,8 @@
 			c: string | number;
 			d?: string | number;
 		};
+		title?: string;
+		notes?: string;
 	} = $props();
 	let variant = $state(initialVariant);
 </script>
@@ -30,6 +34,9 @@
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
 <div class="Formula">
+	{#if title !== undefined}
+		<u class="title">{title}</u>
+	{/if}
 	{#if format === 'A'}
 		<!-- wrapping the component in a {#key getUseLongValues()} makes sure the component is destroyed and re-rendered when the variant changes! -->
 		{#key getUseLongValues()}
@@ -80,6 +87,9 @@
 			/>
 		{/key}
 	{/if}
+	{#if notes !== undefined}
+		<div class="notes">{notes}</div>
+	{/if}
 </div>
 
 <!----------------------------------------------------------------->
@@ -87,4 +97,34 @@
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
+	.title {
+		align-self: center;
+		justify-self: flex-start;
+		margin-bottom: 1em;
+		font-size: 1.5em;
+	}
+
+	.notes {
+		align-self: center;
+		justify-self: flex-end;
+		margin-top: 1em;
+		font-size: 1.5em;
+	}
+	.Formula {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		height: auto;
+		min-height: 25vh;
+		padding: 0.5em;
+		border: 1px solid #fafaf2;
+		border-radius: 1em;
+		min-width: 43vw;
+		max-width: 86vw;
+		overflow-x: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
 </style>

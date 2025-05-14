@@ -182,14 +182,6 @@
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
-		height: auto;
-		min-height: 25vh;
-		padding: 0.5em;
-		border: 1px solid #fafaf2;
-		border-radius: 1em;
-		min-width: 43vw;
-		max-width: 86vw;
-		overflow-x: scroll;
 		margin-left: auto;
 		margin-right: auto;
 	}

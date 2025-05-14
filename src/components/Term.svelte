@@ -1,4 +1,4 @@
-<!--TODO: For some reason, when changing from long to short values, the formula disappears for anything with a subscript-->
+<!--TODO: For some reason, when changing from long to short values, the formula disappears for anything with a subscript.  Probably the way MathMl is rendered in Chromium based browsers.-->
 <!----------------------------------------------------------------->
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->

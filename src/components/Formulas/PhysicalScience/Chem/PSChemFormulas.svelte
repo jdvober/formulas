@@ -2,21 +2,29 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import UnitInfoBox from '../Measurements/UnitInfoBox.svelte';
-	import PsChemFormulas from './PhysicalScience/Chem/PSChemFormulas.svelte';
-	import PsPhyFormulas from './PhysicalScience/Phy/PSPhyFormulas.svelte';
+	import BoyleFormula from './BoyleFormula.svelte';
+	import CharlesFormula from './CharlesFormula.svelte';
+	import DensityFormula from './DensityFormula.svelte';
+	import GLFormula from './GLFormula.svelte';
+	import PressureFormula from './PressureFormula.svelte';
+	import SpecificHeatFormula from './SpecificHeatFormula.svelte';
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<!--TODO: Add seperate pages by topic for showing on the board.-->
-<div class="formulas-container">
-	<div class="Formulas">
-		<PsChemFormulas />
-		<PsPhyFormulas />
+<div class="PSChemFormulas">
+	<div class="header">
+		<h1>Chemistry Formulas</h1>
 	</div>
-	<UnitInfoBox />
+	<div class="Formulas">
+		<DensityFormula />
+		<PressureFormula />
+		<BoyleFormula />
+		<CharlesFormula />
+		<GLFormula />
+		<SpecificHeatFormula />
+	</div>
 </div>
 
 <!----------------------------------------------------------------->
@@ -24,18 +32,18 @@
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
-	.formulas-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		width: 100vw;
+	.header {
+		width: 90vw;
+	}
+	h1 {
+		justify-self: center;
+		align-items: center;
+		font-size: 4em;
 	}
 	.Formulas {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		width: 95vw;
-		height: 65vh;
 		justify-content: space-evenly;
 		margin-left: auto;
 		margin-right: auto;

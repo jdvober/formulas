@@ -143,6 +143,7 @@
 		width: 90.5vw;
 		justify-content: center;
 		justify-self: center;
+		margin-top: 2vh;
 		margin-left: auto;
 		margin-right: auto;
 		display: grid;

@@ -88,6 +88,12 @@ export const psFormulas = [
 
 let topicsTogglesState = $state([
 	{
+		id: 'Boyles_Law',
+		name: "Boyle's Law",
+		checkedState: true,
+		tags: ['PS', 'Chemistry', 'GasLaws', 'Boyle'],
+	},
+	{
 		id: 'PhysicalScience',
 		name: 'Physical Science',
 		checkedState: false,
@@ -128,12 +134,6 @@ let topicsTogglesState = $state([
 		name: 'Gas Laws',
 		checkedState: false,
 		tags: ['PS', 'Chemistry', 'GasLaws'],
-	},
-	{
-		id: 'Boyles_Law',
-		name: "Boyle's Law",
-		checkedState: true,
-		tags: ['PS', 'Chemistry', 'GasLaws', 'Boyle'],
 	},
 	{
 		id: 'Charles_Law',

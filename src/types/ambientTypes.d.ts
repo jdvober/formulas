@@ -29,3 +29,10 @@ type TermType = {
 	exampleValue: string
 	description: string
 }
+
+type ToggleState = {
+	id: string
+	name: string
+	checkedState: boolean
+	tags: string[]
+}

@@ -3,11 +3,11 @@
 	import { findNestedObjectValueById } from '../../functions/FindNestedObjectValueById.ts';
 	import { updateNestedObjectById } from '../../functions/UpdateNestedObjectById.ts';
 	import {
-		psTopicsChem,
+		psFormulas,
 		topicsToggles,
 	} from './../../state/mainState.svelte.ts';
 	import Modal from './FilterByTopicModal.svelte';
-	import { getNameById } from './GetNameById.ts';
+	import { getToggleStateById } from './GetToggleStateById.svelte.ts';
 
 	let showModal = $state(false);
 	let checkboxState = $state(true);
@@ -28,6 +28,11 @@
 		);
 		topicsToggles.setState(newTopicsToggleStates);
 	};
+
+	let getName = (id: string) => {
+		let toggleState = getToggleStateById(topicsToggles.state(), id);
+		return toggleState.name;
+	};
 </script>
 
 {#snippet makeCheckbox(id: string)}
@@ -41,7 +46,7 @@
 			}}
 		/>
 		<div style:margin-right={'5vmin'}>
-			{getNameById(topicsToggles.state(), id)}
+			{getName(id)}
 		</div>
 	</label>
 {/snippet}
@@ -63,7 +68,7 @@
 	>
 		<!--Chemistry-->
 		<legend class="fieldset-legend">Chemistry Header</legend>
-		{#each psTopicsChem as topic}
+		{#each psFormulas as topic}
 			{@render makeCheckbox(topic)}
 		{/each}
 	</fieldset>

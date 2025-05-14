@@ -27,7 +27,6 @@
 	.formulas-container {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		width: 100vw;
 	}
 	.Formulas {
@@ -36,7 +35,6 @@
 		flex-wrap: wrap;
 		width: 95vw;
 		height: 65vh;
-		justify-content: space-evenly;
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: 1em;

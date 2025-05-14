@@ -124,7 +124,5 @@
 		min-width: 43vw;
 		max-width: 86vw;
 		overflow-x: auto;
-		margin-left: auto;
-		margin-right: auto;
 	}
 </style>

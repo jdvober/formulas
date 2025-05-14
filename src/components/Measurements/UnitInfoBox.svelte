@@ -136,8 +136,8 @@
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
 	.UnitInfoBox {
-		min-height: 28vmin;
-		max-height: 28vmin;
+		min-height: 26vmin;
+		max-height: 26vmin;
 		border: 1px solid #fafaf2;
 		border-radius: 0.5em;
 		width: 90.5vw;
@@ -174,8 +174,8 @@
 	}
 
 	.container {
-		min-height: 4em;
 		display: grid;
+		height: 20vh;
 		grid-template-columns: 100%;
 		grid-template-rows: 1fr 3fr;
 		grid-template-areas:

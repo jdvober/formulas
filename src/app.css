@@ -82,6 +82,7 @@ body {
 	background-attachment: fixed; /* Optional: Fix gradient relative to viewport */
 	background-repeat: no-repeat; /* Prevent repeating */
 	min-height: 100vh; /* Ensure gradient covers full viewport height */
+	user-select: none;
 }
 
 div {

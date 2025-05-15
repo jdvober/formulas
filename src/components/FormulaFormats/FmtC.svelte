@@ -10,14 +10,18 @@
 		b,
 		c,
 		d,
+		e,
 		subscripts,
+		showAll = false,
 		variant = 'DEFAULT',
 	}: {
 		a: TermType | Component;
 		b: TermType | Component;
 		c: TermType | Component;
 		d: TermType | Component;
+		e: TermType | Component;
 		subscripts: SubS;
+		showAll: boolean;
 		variant:
 			| 'DEFAULT'
 			| 'PRIMARY'
@@ -60,7 +64,81 @@
 	/>
 {/snippet}
 
-{#if v === 'DEFAULT' || v === 'PRIMARY'}
+{#snippet E()}
+	<Term
+		content={e}
+		subscript={subscripts.e}
+	/>
+{/snippet}
+
+{#if showAll === true}
+	<div>
+		<div
+			style:margin-top={'1vh'}
+			style:margin-bottom={'1vh'}
+		>
+			<math>
+				<mrow>
+					<msub>{@render A()}</msub>
+					<mo>=</mo>
+					<msub>{@render B()}</msub>
+					<mo>&middot</mo>
+					<msub>{@render C()}</msub>
+					<mo>&middot</mo>
+					<msub>{@render D()}</msub>
+				</mrow>
+			</math>
+		</div>
+		<div
+			style:margin-top={'1vh'}
+			style:margin-bottom={'1vh'}
+		>
+			<math>
+				<mrow>
+					<mi>{@render C()}</mi>
+					<mo>=</mo>
+					<mfrac>
+						<mrow>
+							<mi>{@render A()}</mi>
+						</mrow>
+						<mrow>
+							<mn style:font-size={'1.5em'}>{2}</mn>
+							<mo>&middot</mo>
+							<mi>{@render D()}</mi>
+						</mrow>
+					</mfrac>
+				</mrow>
+			</math>
+		</div>
+		<div
+			style:margin-top={'1vh'}
+			style:margin-bottom={'1vh'}
+		>
+			<math>
+				<mrow>
+					<mi>{@render E()}</mi>
+					<mo>=</mo>
+					<mrow>
+						<msqrt>
+							<mrow>
+								<mfrac>
+									<mrow>
+										<mi>{@render A()}</mi>
+									</mrow>
+									<mrow>
+										<mn style:font-size={'1.5em'}>{2}</mn>
+										<mo>&middot</mo>
+										<mi>{@render C()}</mi>
+									</mrow>
+								</mfrac>
+							</mrow>
+						</msqrt>
+					</mrow>
+				</mrow></math
+			>
+		</div>
+	</div>
+{:else if v === 'DEFAULT' || v === 'PRIMARY'}
 	<!--a=bcd-->
 	<math>
 		<mrow>

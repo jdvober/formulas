@@ -37,7 +37,7 @@ type ToggleState = {
 	tags: string[]
 }
 
-// Accepts any form of {a: string | number}, {a: string | number, b: string | number} etc.
+// Accepts any form of {key: string | number}, {a: string | number}, {a: string | number, b: string | number}, {a: string | number, b: string | number, c: string | number} etc.
 type SubS = {
 	[key: string]: string | number
 }

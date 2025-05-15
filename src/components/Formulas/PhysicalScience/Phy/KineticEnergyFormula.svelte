@@ -12,7 +12,7 @@
 <!----------------------------------------------------------------->
 <div class="KineticEnergyFormula">
 	<!--Kinetic Energy-->
-	{#snippet bKineticEnergy()}
+	{#snippet oneHalf()}
 		<math>
 			<mfrac>
 				<mrow>
@@ -24,7 +24,7 @@
 			</mfrac>
 		</math>
 	{/snippet}
-	{#snippet dKineticEnergy()}
+	{#snippet velocitySquared()}
 		<Superscript
 			base={m.VELOCITY}
 			superscriptContent="2"
@@ -35,9 +35,10 @@
 		initialVariant="DEFAULT"
 		values={{
 			a: m.KINETIC_ENERGY,
-			b: bKineticEnergy,
+			b: oneHalf,
 			c: m.MASS,
-			d: dKineticEnergy,
+			d: velocitySquared,
+			e: m.VELOCITY,
 		}}
 		subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE', d: 'NONE' }}
 	></Formula>

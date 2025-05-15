@@ -12,6 +12,7 @@
 		d,
 		subscripts,
 		variant = 'DEFAULT',
+		showAll = false,
 	}: {
 		a: TermType | Component;
 		b: TermType | Component;
@@ -23,6 +24,7 @@
 			c: string | number;
 			d: string | number;
 		};
+		showAll: boolean;
 		variant:
 			| 'DEFAULT'
 			| 'PRIMARY'
@@ -65,7 +67,89 @@
 	/>
 {/snippet}
 
-{#if v === 'DEFAULT' || v === 'PRIMARY'}
+{#if showAll === true}
+	<div>
+		<div
+			style:margin-top={'1vh'}
+			style:margin-bottom={'1vh'}
+		>
+			<math>
+				<mrow>
+					<msub>{@render A()}</msub>
+					<mo>&middot</mo>
+					<msub>{@render B()}</msub>
+					<mo>=</mo>
+					<msub>{@render C()}</msub>
+					<mo>&middot</mo>
+					<msub>{@render D()}</msub>
+				</mrow>
+			</math>
+		</div>
+		<div
+			style:margin-top={'1vh'}
+			style:margin-bottom={'1vh'}
+		>
+			<math>
+				<mrow>
+					<mi>{@render B()}</mi>
+					<mo>=</mo>
+					<mfrac>
+						<mrow>
+							<mi>{@render C()}</mi>
+							<mo>&middot</mo>
+							<mi>{@render D()}</mi>
+						</mrow>
+						<mrow>
+							<ms>{@render A()}</ms>
+						</mrow>
+					</mfrac>
+				</mrow>
+			</math>
+		</div>
+		<div
+			style:margin-top={'1vh'}
+			style:margin-bottom={'1vh'}
+		>
+			<math>
+				<mrow>
+					<mi>{@render C()}</mi>
+					<mo>=</mo>
+					<mfrac>
+						<mrow>
+							<mi>{@render A()}</mi>
+							<mo>&middot</mo>
+							<mi>{@render B()}</mi>
+						</mrow>
+						<mrow>
+							<ms>{@render D()}</ms>
+						</mrow>
+					</mfrac>
+				</mrow>
+			</math>
+		</div>
+		<div
+			style:margin-top={'1vh'}
+			style:margin-bottom={'1vh'}
+		>
+			<math>
+				<mrow>
+					<mi>{@render D()}</mi>
+					<mo>=</mo>
+					<mfrac>
+						<mrow>
+							<mi>{@render A()}</mi>
+							<mo>&middot</mo>
+							<mi>{@render B()}</mi>
+						</mrow>
+						<mrow>
+							<ms>{@render C()}</ms>
+						</mrow>
+					</mfrac>
+				</mrow>
+			</math>
+		</div>
+	</div>
+{:else if v === 'DEFAULT' || v === 'PRIMARY'}
 	<!--ab=cd-->
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_noninteractive_element_to_interactive_role -->

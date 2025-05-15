@@ -11,12 +11,14 @@
 		c,
 		subscripts,
 		variant = 'DEFAULT',
+		showAll = false,
 	}: {
 		a: TermType | Component;
 		b: TermType | Component;
 		c: TermType | Component;
 		subscripts: SubS;
 		variant: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
+		showAll: boolean;
 	} = $props();
 	let v = $state(variant);
 </script>
@@ -46,7 +48,45 @@
 	/>
 {/snippet}
 
-{#if v === 'PRIMARY' || v === 'DEFAULT'}
+{#if showAll === true}
+	<div>
+		<div style:margin={'2vh'}>
+			<math>
+				<mrow>
+					<mi>{@render A()}</mi>
+					<mo>=</mo>
+					<mfrac>
+						<mi>{@render B()}</mi>
+						<mi>{@render C()}</mi>
+					</mfrac>
+				</mrow>
+			</math>
+		</div>
+		<div style:margin={'2vh'}>
+			<math>
+				<mrow>
+					<mi>{@render B()}</mi>
+					<mo>=</mo>
+					<mi>{@render A()}</mi>
+					<mo>&middot</mo>
+					<mi>{@render C()}</mi>
+				</mrow>
+			</math>
+		</div>
+		<div style:margin={'2vh'}>
+			<math>
+				<mrow>
+					<mi>{@render C()}</mi>
+					<mo>=</mo>
+					<mfrac>
+						<mi>{@render B()}</mi>
+						<mi>{@render A()}</mi>
+					</mfrac>
+				</mrow>
+			</math>
+		</div>
+	</div>
+{:else if v === 'PRIMARY' || v === 'DEFAULT'}
 	<math>
 		<mrow>
 			<mi

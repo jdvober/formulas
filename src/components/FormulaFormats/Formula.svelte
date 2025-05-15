@@ -115,6 +115,8 @@
 	.FormulaContainer {
 		min-height: 25vh;
 		padding: 0.5vw;
+		padding-left: 0.75vw;
+		padding-right: 0.75vw;
 		border: 1px solid #fafaf2;
 		border-radius: 1em;
 		min-width: 43vw;

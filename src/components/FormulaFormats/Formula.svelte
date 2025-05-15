@@ -18,12 +18,7 @@
 		format: 'A' | 'B' | 'C';
 		initialVariant: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 		values: { a: any; b?: any; c?: any; d?: any; e?: any };
-		subscripts: {
-			a: string | number;
-			b: string | number;
-			c: string | number;
-			d?: string | number;
-		};
+		subscripts: SubS;
 		title?: string;
 		notes?: string;
 	} = $props();
@@ -33,6 +28,7 @@
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
+
 <div class="Formula">
 	{#if title !== undefined}
 		<u class="title">{title}</u>
@@ -62,8 +58,8 @@
 				d={values.d}
 				subscripts={{
 					a: subscripts.a,
-					b: subscripts.b,
-					c: subscripts.c,
+					b: subscripts.b !== undefined ? subscripts.b : '',
+					c: subscripts.c !== undefined ? subscripts.c : '',
 					d: subscripts.d !== undefined ? subscripts.d : '',
 				}}
 				{variant}

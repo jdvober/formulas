@@ -36,3 +36,8 @@ type ToggleState = {
 	checkedState: boolean
 	tags: string[]
 }
+
+// Accepts any form of {a: string | number}, {a: string | number, b: string | number} etc.
+type SubS = {
+	[key: string]: string | number
+}

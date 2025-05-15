@@ -38,98 +38,119 @@
 <!----------------------------------------------------------------->
 
 {#snippet A()}
-	<button
-		onclick={() => {
-			v = 'PRIMARY';
-		}}
-		><Term
-			content={a}
-			subscript={subscripts.a}
-		/></button
-	>
+	<Term
+		content={a}
+		subscript={subscripts.a}
+	/>
 {/snippet}
 
 {#snippet B()}
-	<button
-		onclick={() => {
-			v = 'SECONDARY';
-		}}
-		><Term
-			content={b}
-			subscript={subscripts.b}
-		/></button
-	>
+	<Term
+		content={b}
+		subscript={subscripts.b}
+	/>
 {/snippet}
 
 {#snippet C()}
-	<button
-		onclick={() => {
-			v = 'TERTIARY';
-		}}
-		><Term
-			content={c}
-			subscript={subscripts.c}
-		/></button
-	>
+	<Term
+		content={c}
+		subscript={subscripts.c}
+	/>
 {/snippet}
 
 {#snippet D()}
-	<button
-		onclick={() => {
-			v = 'QUARTENARY';
-		}}
-		><Term
-			content={d}
-			subscript={subscripts.d}
-		/></button
-	>
+	<Term
+		content={d}
+		subscript={subscripts.d}
+	/>
 {/snippet}
 
-{#if v === 'DEFAULT'}
+{#if v === 'DEFAULT' || v === 'PRIMARY'}
 	<!--ab=cd-->
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_noninteractive_element_to_interactive_role -->
+
 	<math>
 		<mrow>
-			<msub>{@render A()}</msub>
+			<msub
+				role="button"
+				aria-label="Interactive math button"
+				tabindex="0"
+				onclick={() => {
+					v = 'PRIMARY';
+				}}>{@render A()}</msub
+			>
 			<mo>&middot</mo>
-			<msub>{@render B()}</msub>
+			<msub
+				role="button"
+				aria-label="Interactive math button"
+				tabindex="0"
+				onclick={() => {
+					v = 'SECONDARY';
+				}}>{@render B()}</msub
+			>
 			<mo>=</mo>
-			<msub>{@render C()}</msub>
+			<msub
+				role="button"
+				aria-label="Interactive math button"
+				tabindex="0"
+				onclick={() => {
+					v = 'TERTIARY';
+				}}>{@render C()}</msub
+			>
 			<mo>&middot</mo>
-			<msub>{@render D()}</msub>
-		</mrow>
-	</math>
-{:else if v === 'PRIMARY'}
-	<!--a=cd/b-->
-	<math>
-		<mrow>
-			<mi>{@render A()}</mi>
-			<mo>=</mo>
-			<mfrac>
-				<mrow>
-					<mi>{@render C()}</mi>
-					<mo>&middot</mo>
-					<mi>{@render D()}</mi>
-				</mrow>
-				<mrow>
-					<ms>{@render B()}</ms>
-				</mrow>
-			</mfrac>
+			<msub
+				role="button"
+				aria-label="Interactive math button"
+				tabindex="0"
+				onclick={() => {
+					v = 'QUARTENARY';
+				}}>{@render D()}</msub
+			>
 		</mrow>
 	</math>
 {:else if v === 'SECONDARY'}
 	<!--b=cd/a-->
 	<math>
 		<mrow>
-			<mi>{@render B()}</mi>
+			<mi
+				role="button"
+				aria-label="Interactive math button"
+				tabindex="0"
+				onclick={() => {
+					v = 'SECONDARY';
+				}}>{@render B()}</mi
+			>
 			<mo>=</mo>
 			<mfrac>
 				<mrow>
-					<mi>{@render C()}</mi>
+					<mi
+						role="button"
+						aria-label="Interactive math button"
+						tabindex="0"
+						onclick={() => {
+							v = 'TERTIARY';
+						}}>{@render C()}</mi
+					>
 					<mo>&middot</mo>
-					<mi>{@render D()}</mi>
+					<mi
+						role="button"
+						aria-label="Interactive math button"
+						tabindex="0"
+						onclick={() => {
+							v = 'QUARTENARY';
+						}}>{@render D()}</mi
+					>
 				</mrow>
 				<mrow>
-					<ms>{@render A()}</ms>
+					<ms
+						role="button"
+						aria-label="Interactive math button"
+						tabindex="0"
+						onclick={() => {
+							v = 'PRIMARY';
+						}}>{@render A()}</ms
+					>
 				</mrow>
 			</mfrac>
 		</mrow>
@@ -138,16 +159,44 @@
 	<!--c=ab/d-->
 	<math>
 		<mrow>
-			<mi>{@render C()}</mi>
+			<mi
+				role="button"
+				aria-label="Interactive math button"
+				tabindex="0"
+				onclick={() => {
+					v = 'TERTIARY';
+				}}>{@render C()}</mi
+			>
 			<mo>=</mo>
 			<mfrac>
 				<mrow>
-					<mi>{@render A()}</mi>
+					<mi
+						role="button"
+						aria-label="Interactive math button"
+						tabindex="0"
+						onclick={() => {
+							v = 'PRIMARY';
+						}}>{@render A()}</mi
+					>
 					<mo>&middot</mo>
-					<mi>{@render B()}</mi>
+					<mi
+						role="button"
+						aria-label="Interactive math button"
+						tabindex="0"
+						onclick={() => {
+							v = 'SECONDARY';
+						}}>{@render B()}</mi
+					>
 				</mrow>
 				<mrow>
-					<ms>{@render D()}</ms>
+					<ms
+						role="button"
+						aria-label="Interactive math button"
+						tabindex="0"
+						onclick={() => {
+							v = 'QUARTENARY';
+						}}>{@render D()}</ms
+					>
 				</mrow>
 			</mfrac>
 		</mrow>
@@ -156,16 +205,44 @@
 	<!--d=ab/c-->
 	<math>
 		<mrow>
-			<mi>{@render D()}</mi>
+			<mi
+				role="button"
+				aria-label="Interactive math button"
+				tabindex="0"
+				onclick={() => {
+					v = 'QUARTENARY';
+				}}>{@render D()}</mi
+			>
 			<mo>=</mo>
 			<mfrac>
 				<mrow>
-					<mi>{@render A()}</mi>
+					<mi
+						role="button"
+						aria-label="Interactive math button"
+						tabindex="0"
+						onclick={() => {
+							v = 'PRIMARY';
+						}}>{@render A()}</mi
+					>
 					<mo>&middot</mo>
-					<mi>{@render B()}</mi>
+					<mi
+						role="button"
+						aria-label="Interactive math button"
+						tabindex="0"
+						onclick={() => {
+							v = 'SECONDARY';
+						}}>{@render B()}</mi
+					>
 				</mrow>
 				<mrow>
-					<ms>{@render C()}</ms>
+					<ms
+						role="button"
+						aria-label="Interactive math button"
+						tabindex="0"
+						onclick={() => {
+							v = 'TERTIARY';
+						}}>{@render C()}</ms
+					>
 				</mrow>
 			</mfrac>
 		</mrow>

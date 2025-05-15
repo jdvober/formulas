@@ -17,12 +17,7 @@
 		b: TermType | Component;
 		c: TermType | Component;
 		d: TermType | Component;
-		subscripts: {
-			a: string | number;
-			b: string | number;
-			c: string | number;
-			d: string | number;
-		};
+		subscripts: SubS;
 		variant:
 			| 'DEFAULT'
 			| 'PRIMARY'
@@ -38,51 +33,31 @@
 <!----------------------------------------------------------------->
 
 {#snippet A()}
-	<button
-		onclick={() => {
-			v = 'PRIMARY';
-		}}
-		><Term
-			content={a}
-			subscript={subscripts.a}
-		/></button
-	>
+	<Term
+		content={a}
+		subscript={subscripts.a}
+	/>
 {/snippet}
 
 {#snippet B()}
-	<button
-		onclick={() => {
-			v = 'SECONDARY';
-		}}
-		><Term
-			content={b}
-			subscript={subscripts.b}
-		/></button
-	>
+	<Term
+		content={b}
+		subscript={subscripts.b}
+	/>
 {/snippet}
 
 {#snippet C()}
-	<button
-		onclick={() => {
-			v = 'TERTIARY';
-		}}
-		><Term
-			content={c}
-			subscript={subscripts.c}
-		/></button
-	>
+	<Term
+		content={c}
+		subscript={subscripts.c}
+	/>
 {/snippet}
 
 {#snippet D()}
-	<button
-		onclick={() => {
-			v = 'QUARTENARY';
-		}}
-		><Term
-			content={d}
-			subscript={subscripts.d}
-		/></button
-	>
+	<Term
+		content={d}
+		subscript={subscripts.d}
+	/>
 {/snippet}
 
 {#if v === 'DEFAULT' || v === 'PRIMARY'}

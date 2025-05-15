@@ -9,7 +9,6 @@
 
 	let { color = 'black', subscript, ...props } = $props();
 
-	let buttonRef = $state();
 	let glowRef: gsap.TweenTarget;
 
 	const handleMouseEnter = () => {
@@ -47,7 +46,6 @@
 			style:color={props.content.color}
 			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
-			bind:this={buttonRef}
 			class="glow-term"
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
@@ -67,7 +65,6 @@
 			style:color={props.color}
 			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
-			bind:this={buttonRef}
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
 		>
@@ -84,7 +81,6 @@
 			style:color={props.color}
 			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
-			bind:this={buttonRef}
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
 		>
@@ -101,7 +97,6 @@
 			style:color={props.color}
 			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
-			bind:this={buttonRef}
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
 		>
@@ -118,7 +113,6 @@
 			style:color={props.color}
 			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
-			bind:this={buttonRef}
 		>
 			<ms>
 				{@render props.content()}

@@ -15,11 +15,7 @@
 		a: TermType | Component;
 		b: TermType | Component;
 		c: TermType | Component;
-		subscripts: {
-			a: string | number;
-			b: string | number;
-			c: string | number;
-		};
+		subscripts: SubS;
 		variant: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 	} = $props();
 	let v = $state(variant);
@@ -30,70 +26,118 @@
 <!----------------------------------------------------------------->
 
 {#snippet A()}
-	<button
-		onclick={() => {
-			v = 'PRIMARY';
-		}}
-		><Term
-			content={a}
-			subscript={subscripts.a}
-		/></button
-	>
+	<Term
+		content={a}
+		subscript={subscripts.a}
+	/>
 {/snippet}
 
 {#snippet B()}
-	<button
-		onclick={() => {
-			v = 'SECONDARY';
-		}}
-		><Term
-			content={b}
-			subscript={subscripts.b}
-		/></button
-	>
+	<Term
+		content={b}
+		subscript={subscripts.b}
+	/>
 {/snippet}
 
 {#snippet C()}
-	<button
-		onclick={() => {
-			v = 'TERTIARY';
-		}}
-		><Term
-			content={c}
-			subscript={subscripts.c}
-		/></button
-	>
+	<Term
+		content={c}
+		subscript={subscripts.c}
+	/>
 {/snippet}
 
 {#if v === 'PRIMARY' || v === 'DEFAULT'}
 	<math>
 		<mrow>
-			<mi>{@render A()}</mi>
+			<mi
+				role="button"
+				aria-label="Interactive math button"
+				tabindex="0"
+				onclick={() => {
+					v = 'PRIMARY';
+				}}>{@render A()}</mi
+			>
 			<mo>=</mo>
 			<mfrac>
-				<mi>{@render B()}</mi>
-				<mi>{@render C()}</mi>
+				<mi
+					role="button"
+					aria-label="Interactive math button"
+					tabindex="0"
+					onclick={() => {
+						v = 'SECONDARY';
+					}}>{@render B()}</mi
+				>
+				<mi
+					role="button"
+					aria-label="Interactive math button"
+					tabindex="0"
+					onclick={() => {
+						v = 'TERTIARY';
+					}}>{@render C()}</mi
+				>
 			</mfrac>
 		</mrow>
 	</math>
 {:else if v === 'SECONDARY'}
 	<math>
 		<mrow>
-			<mi>{@render B()}</mi>
+			<mi
+				role="button"
+				aria-label="Interactive math button"
+				tabindex="0"
+				onclick={() => {
+					v = 'SECONDARY';
+				}}>{@render B()}</mi
+			>
 			<mo>=</mo>
-			<mi>{@render A()}</mi>
+			<mi
+				role="button"
+				aria-label="Interactive math button"
+				tabindex="0"
+				onclick={() => {
+					v = 'PRIMARY';
+				}}>{@render A()}</mi
+			>
 			<mo>&middot</mo>
-			<mi>{@render C()}</mi>
+			<mi
+				role="button"
+				aria-label="Interactive math button"
+				tabindex="0"
+				onclick={() => {
+					v = 'TERTIARY';
+				}}>{@render C()}</mi
+			>
 		</mrow>
 	</math>
 {:else}
 	<math>
 		<mrow>
-			<mi>{@render C()}</mi>
+			<mi
+				role="button"
+				aria-label="Interactive math button"
+				tabindex="0"
+				onclick={() => {
+					v = 'TERTIARY';
+				}}>{@render C()}</mi
+			>
 			<mo>=</mo>
 			<mfrac>
-				<mi>{@render B()}</mi>
-				<mi>{@render A()}</mi>
+				<mi
+					role="button"
+					aria-label="Interactive math button"
+					tabindex="0"
+					onclick={() => {
+						v = 'SECONDARY';
+					}}>{@render B()}</mi
+				>
+				<mi
+					role="button"
+					aria-label="Interactive math button"
+					tabindex="0"
+					onclick={() => {
+						v = 'PRIMARY';
+					}}>{@render A()}</mi
+				>
 			</mfrac>
 		</mrow>
 	</math>
@@ -104,4 +148,13 @@
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
+
+	math {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
 </style>

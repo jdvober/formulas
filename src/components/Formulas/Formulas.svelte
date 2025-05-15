@@ -34,7 +34,7 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		width: 95vw;
-		height: 68vh;
+		height: 64vh;
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: 1em;

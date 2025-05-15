@@ -38,7 +38,7 @@
 			b: oneHalf,
 			c: m.MASS,
 			d: velocitySquared,
-			e: m.VELOCITY,
+			coefficient: m.VELOCITY,
 		}}
 		subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE', d: 'NONE' }}
 	></Formula>

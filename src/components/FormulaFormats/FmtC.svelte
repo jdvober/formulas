@@ -10,7 +10,7 @@
 		b,
 		c,
 		d,
-		e,
+		coefficient,
 		subscripts,
 		showAll = false,
 		variant = 'DEFAULT',
@@ -19,7 +19,7 @@
 		b: TermType | Component;
 		c: TermType | Component;
 		d: TermType | Component;
-		e: TermType | Component;
+		coefficient?: TermType | Component;
 		subscripts: SubS;
 		showAll: boolean;
 		variant:
@@ -64,80 +64,171 @@
 	/>
 {/snippet}
 
-{#snippet E()}
-	<Term
-		content={e}
-		subscript={subscripts.e}
-	/>
+{#snippet Coefficient()}
+	{#if coefficient !== undefined}
+		<Term
+			content={coefficient}
+			subscript={subscripts.e}
+		/>
+	{:else}
+		<div></div>
+	{/if}
 {/snippet}
 
 {#if showAll === true}
-	<div>
-		<div
-			style:margin-top={'1vh'}
-			style:margin-bottom={'1vh'}
-		>
-			<math>
-				<mrow>
-					<msub>{@render A()}</msub>
-					<mo>=</mo>
-					<msub>{@render B()}</msub>
-					<mo>&middot</mo>
-					<msub>{@render C()}</msub>
-					<mo>&middot</mo>
-					<msub>{@render D()}</msub>
-				</mrow>
-			</math>
-		</div>
-		<div
-			style:margin-top={'1vh'}
-			style:margin-bottom={'1vh'}
-		>
-			<math>
-				<mrow>
-					<mi>{@render C()}</mi>
-					<mo>=</mo>
-					<mfrac>
-						<mrow>
-							<mi>{@render A()}</mi>
-						</mrow>
-						<mrow>
-							<mn style:font-size={'1.5em'}>{2}</mn>
-							<mo>&middot</mo>
-							<mi>{@render D()}</mi>
-						</mrow>
-					</mfrac>
-				</mrow>
-			</math>
-		</div>
-		<div
-			style:margin-top={'1vh'}
-			style:margin-bottom={'1vh'}
-		>
-			<math>
-				<mrow>
-					<mi>{@render E()}</mi>
-					<mo>=</mo>
-					<mrow>
-						<msqrt>
-							<mrow>
-								<mfrac>
-									<mrow>
-										<mi>{@render A()}</mi>
-									</mrow>
-									<mrow>
-										<mn style:font-size={'1.5em'}>{2}</mn>
-										<mo>&middot</mo>
-										<mi>{@render C()}</mi>
-									</mrow>
-								</mfrac>
-							</mrow>
-						</msqrt>
-					</mrow>
-				</mrow></math
+	{#if coefficient === undefined}
+		<div>
+			<div
+				style:margin-top={'1vh'}
+				style:margin-bottom={'1vh'}
 			>
+				<math>
+					<mrow>
+						<msub>{@render A()}</msub>
+						<mo>=</mo>
+						<msub>{@render B()}</msub>
+						<mo>&middot</mo>
+						<msub>{@render C()}</msub>
+						<mo>&middot</mo>
+						<msub>{@render D()}</msub>
+					</mrow>
+				</math>
+			</div>
+			<div
+				style:margin-top={'1vh'}
+				style:margin-bottom={'1vh'}
+			>
+				<math>
+					<mrow>
+						<mi>{@render B()}</mi>
+						<mo>=</mo>
+						<mfrac>
+							<mrow>
+								<mi>{@render A()}</mi>
+							</mrow>
+							<mrow>
+								<ms>{@render C()}</ms>
+								<mo>&middot</mo>
+								<mi>{@render D()}</mi>
+							</mrow>
+						</mfrac>
+					</mrow>
+				</math>
+			</div>
+			<div
+				style:margin-top={'1vh'}
+				style:margin-bottom={'1vh'}
+			>
+				<math>
+					<mrow>
+						<mi>{@render C()}</mi>
+						<mo>=</mo>
+						<mfrac>
+							<mrow>
+								<mi>{@render A()}</mi>
+							</mrow>
+							<mrow>
+								<ms>{@render B()}</ms>
+								<mo>&middot</mo>
+								<mi>{@render D()}</mi>
+							</mrow>
+						</mfrac>
+					</mrow>
+				</math>
+			</div>
+			<div
+				style:margin-top={'1vh'}
+				style:margin-bottom={'1vh'}
+			>
+				<math>
+					<mrow>
+						<mi>{@render D()}</mi>
+						<mo>=</mo>
+						<mfrac>
+							<mrow>
+								<mi>{@render A()}</mi>
+							</mrow>
+							<mrow>
+								<ms>{@render B()}</ms>
+								<mo>&middot</mo>
+								<mi>{@render C()}</mi>
+							</mrow>
+						</mfrac>
+					</mrow>
+				</math>
+			</div>
 		</div>
-	</div>
+	{:else}
+		<!--special case for formula with fraction (kinetic energy)-->
+		<div>
+			<div
+				style:margin-top={'1vh'}
+				style:margin-bottom={'1vh'}
+			>
+				<math>
+					<mrow>
+						<msub>{@render A()}</msub>
+						<mo>=</mo>
+						<msub>{@render B()}</msub>
+						<mo>&middot</mo>
+						<msub>{@render C()}</msub>
+						<mo>&middot</mo>
+						<msub>{@render D()}</msub>
+					</mrow>
+				</math>
+			</div>
+			<div
+				style:margin-top={'1vh'}
+				style:margin-bottom={'1vh'}
+			>
+				<math>
+					<mrow>
+						<mi>{@render C()}</mi>
+						<mo>=</mo>
+						<mfrac>
+							<mrow>
+								<mi>{@render A()}</mi>
+							</mrow>
+							<mrow>
+								<mn style:font-size={'1.5em'}>{2}</mn>
+								<mo>&middot</mo>
+								<mi>{@render D()}</mi>
+							</mrow>
+						</mfrac>
+					</mrow>
+				</math>
+			</div>
+			<div
+				style:margin-top={'1vh'}
+				style:margin-bottom={'1vh'}
+			>
+				<math>
+					<mrow>
+						<mi>{@render Coefficient()}</mi>
+						<mo>=</mo>
+						<mrow>
+							<msqrt>
+								<mrow>
+									<mfrac>
+										<mrow>
+											<mi>{@render A()}</mi>
+										</mrow>
+										<mrow>
+											<mn style:font-size={'1.5em'}
+												>{2}</mn
+											>
+											<mo>&middot</mo>
+											<mi>{@render C()}</mi>
+										</mrow>
+									</mfrac>
+								</mrow>
+							</msqrt>
+						</mrow>
+					</mrow></math
+				>
+			</div>
+		</div>
+	{/if}
 {:else if v === 'DEFAULT' || v === 'PRIMARY'}
 	<!--a=bcd-->
 	<math>

@@ -17,7 +17,7 @@
 	}: {
 		format: 'A' | 'B' | 'C';
 		initialVariant: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
-		values: { a: any; b?: any; c?: any; d?: any; e?: any };
+		values: { a: any; b?: any; c?: any; d?: any; coefficient?: any };
 		subscripts: SubS;
 		title?: string;
 		notes?: string;
@@ -88,7 +88,7 @@
 					b={values.b}
 					c={values.c}
 					d={values.d}
-					e={values.e}
+					coefficient={values.coefficient}
 					subscripts={{
 						a: subscripts.a,
 						b: subscripts.b,
@@ -131,10 +131,10 @@
 		margin-bottom: 1em;
 	}
 	.spacer {
-		width: 20%;
+		width: 22%;
 	}
 	.title-container {
-		width: 60%;
+		width: 56%;
 		align-items: center;
 		justify-content: center;
 		display: flex;
@@ -151,7 +151,7 @@
 
 	.showAllBtn {
 		margin-left: auto;
-		width: 20%;
+		width: 22%;
 	}
 
 	.Formula {

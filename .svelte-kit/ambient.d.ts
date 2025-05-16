@@ -35,11 +35,11 @@ declare module '$env/static/private' {
 	export const COMPUTERNAME: string;
 	export const ComSpec: string;
 	export const DriverData: string;
-	export const EFC_4920_1262719628: string;
-	export const EFC_4920_1592913036: string;
-	export const EFC_4920_2283032206: string;
-	export const EFC_4920_2775293581: string;
-	export const EFC_4920_3789132940: string;
+	export const EFC_24144_1262719628: string;
+	export const EFC_24144_1592913036: string;
+	export const EFC_24144_2283032206: string;
+	export const EFC_24144_2775293581: string;
+	export const EFC_24144_3789132940: string;
 	export const ELECTRON_NO_ASAR: string;
 	export const ELECTRON_RUN_AS_NODE: string;
 	export const FPS_BROWSER_APP_PROFILE_STRING: string;
@@ -85,6 +85,7 @@ declare module '$env/static/private' {
 	export const VSCODE_PID: string;
 	export const windir: string;
 	export const ZES_ENABLE_SYSMAN: string;
+	export const __COMPAT_LAYER: string;
 }
 
 /**
@@ -125,11 +126,11 @@ declare module '$env/dynamic/private' {
 		COMPUTERNAME: string;
 		ComSpec: string;
 		DriverData: string;
-		EFC_4920_1262719628: string;
-		EFC_4920_1592913036: string;
-		EFC_4920_2283032206: string;
-		EFC_4920_2775293581: string;
-		EFC_4920_3789132940: string;
+		EFC_24144_1262719628: string;
+		EFC_24144_1592913036: string;
+		EFC_24144_2283032206: string;
+		EFC_24144_2775293581: string;
+		EFC_24144_3789132940: string;
 		ELECTRON_NO_ASAR: string;
 		ELECTRON_RUN_AS_NODE: string;
 		FPS_BROWSER_APP_PROFILE_STRING: string;
@@ -175,6 +176,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_PID: string;
 		windir: string;
 		ZES_ENABLE_SYSMAN: string;
+		__COMPAT_LAYER: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}

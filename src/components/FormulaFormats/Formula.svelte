@@ -29,7 +29,7 @@
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-
+<!--TODO: Make it so when you hover over Delta character, it explains what Delta means-->
 <div class="FormulaContainer">
 	<div class="header">
 		<div class="spacer"></div>
@@ -147,6 +147,7 @@
 		font-size: 1.5em;
 		margin-left: auto;
 		margin-right: auto;
+		color: white;
 	}
 
 	.showAllBtn {

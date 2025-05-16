@@ -97,6 +97,19 @@ math {
 
 mo {
 	font-family: 'Atkinson Hyperlegible Next';
+	color: white;
+}
+
+button {
+	color: lightslategray;
+}
+
+h1 {
+	color: white;
+}
+
+mfrac {
+	color: white;
 }
 
 mi {

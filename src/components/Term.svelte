@@ -5,11 +5,7 @@
 <script lang="ts">
 	import { gsap } from 'gsap';
 
-	import {
-		blankUnitInfo,
-		getUseLongValues,
-		setUnitInfo,
-	} from '../state/mainState.svelte';
+	import { getUseLongValues, setUnitInfo } from '../state/mainState.svelte';
 	import { unitInfoBoxVisibilityState } from './Measurements/UnitInfoBox.svelte';
 
 	let { color = 'black', subscript, content } = $props();
@@ -33,8 +29,6 @@
 			duration: 0.3,
 			ease: 'power2.out',
 		});
-		setUnitInfo(blankUnitInfo);
-		unitInfoBoxVisibilityState.setVisibility(false);
 	};
 </script>
 

@@ -14,8 +14,8 @@
 	<Formula
 		format="A"
 		initialVariant="SECONDARY"
-		values={{ a: m.MASS, b: m.WEIGHT, c: m.ACCELERATION }}
-		subscripts={{ a: 'NONE', b: 'NONE', c: 'Gravity' }}
+		values={{ a: m.MASS, b: m.WEIGHT, c: m.GRAVITATIONAL_ACCELERATION }}
+		subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE' }}
 	></Formula>
 </div>
 

@@ -2,6 +2,7 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script module lang="ts">
+	import { clickOutside, tapOutside } from "../../functions/ClickOutside.svelte";
 	import { getUnitInfo } from '../../state/mainState.svelte';
 
 	let isVisible = $state(false);
@@ -134,7 +135,7 @@
 
 {#if isVisible === true}
 <div class="UnitInfoBoxContainer">
-	<div class="UnitInfoBox">
+	<div class="UnitInfoBox" use:clickOutside={() => {unitInfoBoxVisibilityState.setVisibility(false)}} use:tapOutside={() => {unitInfoBoxVisibilityState.setVisibility(false)}}>
 		{#if getUnitInfo().value.long !== ''}
 			{@render definition()}
 

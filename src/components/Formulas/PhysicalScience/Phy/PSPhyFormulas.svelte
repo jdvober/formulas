@@ -1,40 +1,45 @@
 <!----------------------------------------------------------------->
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
-<script lang="ts">
-	import AccelerationFormula from './AccelerationFormula.svelte';
-	import ForceFormula from './ForceFormula.svelte';
-	import ForceGravityFormula from './ForceGravityFormula.svelte';
-	import KineticEnergyFormula from './KineticEnergyFormula.svelte';
-	import MomentumFormula from './MomentumFormula.svelte';
-	import PowerFormula from './PowerFormula.svelte';
-	import SpeedFormula from './SpeedFormula.svelte';
-	import VelocityFormula from './VelocityFormula.svelte';
-	import WaveSpeedFormula from './WaveSpeedFormula.svelte';
-	import WeightFormula from './WeightFormula.svelte';
-	import WorkFormula from './WorkFormula.svelte';
+<script
+	module
+	lang="ts"
+>
+	import PSDynamicsFormulas from './PSDynamicsFormulas.svelte';
+	import PsElectricityFormulas from './PSElectricityFormulas.svelte';
+	import PSEnergyFormulas from './PSEnergyFormulas.svelte';
+	import PSKinematicsFormulas from './PSKinematicsFormulas.svelte';
+	import PSWavesFormulas from './PSWavesFormulas.svelte';
+
+	let name = 'Physics_PS';
+	let toggleState = $state(true);
+	export const ts = $state({
+		getName: () => {
+			return name;
+		},
+		isToggled: () => {
+			return toggleState;
+		},
+		toggle: () => (toggleState = toggleState === true ? false : true),
+	});
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<div class="PSChemFormulas">
-	<div class="header">
-		<h1>Physics Formulas</h1>
-	</div>
-	<div class="Formulas">
-		<SpeedFormula />
-		<VelocityFormula />
-		<AccelerationFormula />
-		<MomentumFormula />
-		<ForceFormula />
-		<ForceGravityFormula />
-		<WeightFormula />
-		<WorkFormula />
-		<PowerFormula />
-		<KineticEnergyFormula />
-		<WaveSpeedFormula />
-	</div>
+<div class="PSPhysicsFormulas">
+	{#if toggleState === true}
+		<div class="header">
+			<h1>Physics Formulas</h1>
+		</div>
+		<div class="Formulas">
+			<PSKinematicsFormulas />
+			<PSDynamicsFormulas />
+			<PSEnergyFormulas />
+			<PSWavesFormulas />
+			<PsElectricityFormulas />
+		</div>
+	{/if}
 </div>
 
 <!----------------------------------------------------------------->
@@ -43,7 +48,7 @@
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
 	.header {
-		width: 90vw;
+		width: 100%;
 		margin-top: 2em;
 	}
 	h1 {
@@ -59,7 +64,6 @@
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: 1em;
-		border: 1px solid #fafaf2;
 		border-radius: 1em;
 		overflow-y: auto;
 		row-gap: 2vh;

@@ -1,12 +1,7 @@
 <script>
 	import { gsap } from 'gsap';
 
-	let {
-		text = 'Default Text',
-		width = '10em',
-		height = '2em',
-		onClick,
-	} = $props();
+	let { children, width = '10em', height = '2em', onClick } = $props();
 	let buttonRef;
 	/**
 	 * @type {gsap.TweenTarget}
@@ -41,7 +36,7 @@
 		onClick();
 	}}
 >
-	<span class="content">{text}</span>
+	<span class="content">{@render children()}</span>
 	<div
 		class="glow-effect"
 		bind:this={glowRef}

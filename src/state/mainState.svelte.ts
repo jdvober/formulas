@@ -3,21 +3,24 @@ Export functions/objects with getters/setters, but never export variables that d
 Example:
 
 
-let useLongValues = $state(false)
-export let getUseLongValues = () => {
-	return useLongValues
+let val = $state(false)
+
+// Option 1
+
+export let getVal = () => {
+	return val
 }
-export let setLongValues = (newUseLongValue: boolean) => {
-	useLongValues = newUseLongValue
+export let setVal = (newVal: boolean) => {
+	val = newVal
 }
 
 
-OR
+// Option 2
 
-export let topicsToggles = {
-	state: () => topicsToggles,
-	setState: (newTopicsToggles: typeof topicsToggles) => {
-		topicsToggles === newTopicsToggles
+export let value = {
+	getState: () => val,
+	setState: (newValue: typeof val) => {
+		val === newValue
 	},
 }
 
@@ -67,19 +70,25 @@ export const psTopicsPhy = [
 	'Electricity_PS',
 ]
 
+let newArray = psTopicsChem
+psTopicsPhy.forEach((topic) => {
+	newArray.push(topic)
+})
+export const psTopics = newArray
+
 export const psFormulas = [
-	'Density',
-	'Pressure',
-	'Boyles_Law',
-	'Charles_Law',
-	'Gay-Lussacs_Law',
-	'Specific_Heat',
+	'Density_PS',
+	'Pressure_PS',
+	'Boyles_Law_PS',
+	'Charles_Law_PS',
+	'Gay-Lussacs_Law_PS',
+	'Specific_Heat_PS',
 	'Speed_PS',
 	'Velocity_PS',
 	'Acceleration_PS',
 	'Momentum_PS',
-	'Work',
-	'Power',
+	'Work_PS',
+	'Power_PS',
 	'Gravitational_Potential_Energy_PS',
 	'Kinetic_Energy_PS',
 	'Wave_Speed_PS',
@@ -88,7 +97,7 @@ export const psFormulas = [
 
 let topicsTogglesState = $state([
 	{
-		id: 'Boyles_Law',
+		id: 'Boyles_Law_PS',
 		name: "Boyle's Law",
 		checkedState: true,
 		tags: ['PS', 'Chemistry', 'GasLaws', 'Boyle'],
@@ -112,19 +121,19 @@ let topicsTogglesState = $state([
 		tags: ['PS', 'Chemistry', 'Matter'],
 	},
 	{
-		id: 'Density',
+		id: 'Density_PS',
 		name: 'Density',
 		checkedState: true,
 		tags: ['PS', 'Chemistry', 'Matter', 'Density'],
 	},
 	{
-		id: 'Pressure',
+		id: 'Pressure_PS',
 		name: 'Pressure',
 		checkedState: true,
 		tags: ['PS', 'Chemistry', 'Matter', 'Pressure'],
 	},
 	{
-		id: 'Specific_Heat',
+		id: 'Specific_Heat_PS',
 		name: 'Specific Heat',
 		checkedState: true,
 		tags: ['PS', 'Chemistry', 'Matter', 'SpecificHeat'],
@@ -136,19 +145,19 @@ let topicsTogglesState = $state([
 		tags: ['PS', 'Chemistry', 'GasLaws'],
 	},
 	{
-		id: 'Charles_Law',
+		id: 'Charles_Law_PS',
 		name: "Charles' Law",
 		checkedState: true,
 		tags: ['PS', 'Chemistry', 'GasLaws', 'Charles'],
 	},
 	{
-		id: 'Gay-Lussacs_Law',
+		id: 'Gay-Lussacs_Law_PS',
 		name: "Gay-Lussac's Law",
 		checkedState: true,
 		tags: ['PS', 'Chemistry', 'GasLaws', 'GayLussac'],
 	},
 	{
-		id: 'Physics_PS',
+		id: 'Physics_PS_PS',
 		name: 'Physics_PS',
 		checkedState: true,
 		tags: ['PS', 'Physics'],
@@ -196,13 +205,13 @@ let topicsTogglesState = $state([
 		tags: ['PS', 'Physics', 'Energy'],
 	},
 	{
-		id: 'Work',
+		id: 'Work_PS',
 		name: 'Work',
 		checkedState: true,
 		tags: ['PS', 'Physics', 'Energy', 'Work'],
 	},
 	{
-		id: 'Power',
+		id: 'Power_PS',
 		name: 'Power',
 		checkedState: true,
 		tags: ['PS', 'Physics', 'Energy', 'Power'],

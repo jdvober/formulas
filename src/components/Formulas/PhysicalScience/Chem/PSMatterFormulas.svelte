@@ -5,10 +5,11 @@
 	module
 	lang="ts"
 >
-	import PSGasLawsFormulas from './PSGasLawsFormulas.svelte';
-	import PSMatterFormulas from './PSMatterFormulas.svelte';
+	import DensityFormula from './DensityFormula.svelte';
+	import PressureFormula from './PressureFormula.svelte';
+	import SpecificHeatFormula from './SpecificHeatFormula.svelte';
 
-	let name = 'Chemistry_PS';
+	let name = 'Matter_PS';
 	let toggleState = $state(true);
 	export const ts = $state({
 		getName: () => {
@@ -25,14 +26,15 @@
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
 
-<div class="PSChemFormulas">
+<div class="PSMatterFormulas">
 	{#if toggleState === true}
 		<div class="header">
-			<h1>Chemistry Formulas</h1>
+			<h1>Matter</h1>
 		</div>
 		<div class="Formulas">
-			<PSMatterFormulas />
-			<PSGasLawsFormulas />
+			<DensityFormula />
+			<PressureFormula />
+			<SpecificHeatFormula />
 		</div>
 	{/if}
 </div>
@@ -48,7 +50,7 @@
 	h1 {
 		justify-self: center;
 		align-items: center;
-		font-size: 4em;
+		font-size: 2em;
 	}
 	.Formulas {
 		display: flex;

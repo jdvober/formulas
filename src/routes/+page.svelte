@@ -1,19 +1,23 @@
 <script lang="ts">
 	import GlowButton from '@/components/ui/button/GlowButton.svelte';
+	import FormulaFilterModal from '../components/Formulas/Filter/FormulaFilterByTopicModal.svelte';
 	import Formulas from '../components/Formulas/Formulas.svelte';
 	import { getUseLongValues, setLongValues } from '../state/mainState.svelte';
 </script>
 
 <div class="formulas-container">
-	<div class="long-values-button">
-		<GlowButton
-			text={getUseLongValues() === true
-				? 'Use Short Values'
-				: 'Use Long Values'}
-			onClick={() => {
-				setLongValues(getUseLongValues() === true ? false : true);
-			}}
-		/>
+	<div class="buttons">
+		<div class="long-values-button">
+			<GlowButton
+				onClick={() => {
+					setLongValues(getUseLongValues() === true ? false : true);
+				}}
+				>{getUseLongValues() === true
+					? 'Use Short Values'
+					: 'Use Long Values'}</GlowButton
+			>
+		</div>
+		<FormulaFilterModal />
 	</div>
 	<Formulas />
 </div>
@@ -23,5 +27,18 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+	}
+
+	.buttons {
+		display: flex;
+		flex-basis: row wrap;
+		gap: 1vw;
+		justify-content: flex-start;
+		align-items: center;
+		width: 95vw;
+		height: 6vh;
+		margin-top: 1.5vh;
+		margin-left: 2.5vw;
+		gap: 1vw;
 	}
 </style>

@@ -182,6 +182,18 @@ export const ACCELERATION = {
 	exampleValue: '18',
 	description: 'a measure of how fast velocity changes.',
 }
+export const GRAVITATIONAL_ACCELERATION = {
+	value: { long: 'Gravitational Acceleration', short: 'g' },
+	color: vc[14],
+	units: {
+		type: 'FRACTIONAL',
+		long: { value1: 'Meters', value2: 'seconds²' },
+		short: { value1: 'm', value2: 's²' },
+	},
+	exampleValue: '10',
+	description:
+		'a special case of acceleration that is due to the Gravity of an object pulling on another object.  On earth, this value is 10',
+}
 export const MOMENTUM = {
 	value: { long: 'Momentum', short: 'p' },
 	color: vc[15],

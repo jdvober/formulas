@@ -5,10 +5,12 @@
 	module
 	lang="ts"
 >
-	import PSGasLawsFormulas from './PSGasLawsFormulas.svelte';
-	import PSMatterFormulas from './PSMatterFormulas.svelte';
+	import AccelerationFormula from './AccelerationFormula.svelte';
+	import MomentumFormula from './MomentumFormula.svelte';
+	import SpeedFormula from './SpeedFormula.svelte';
+	import VelocityFormula from './VelocityFormula.svelte';
 
-	let name = 'Chemistry_PS';
+	let name = 'Kinematics_PS';
 	let toggleState = $state(true);
 	export const ts = $state({
 		getName: () => {
@@ -24,15 +26,16 @@
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-
-<div class="PSChemFormulas">
+<div class="PSKinematicsFormulas">
 	{#if toggleState === true}
 		<div class="header">
-			<h1>Chemistry Formulas</h1>
+			<h1>Motion (a.k.a. <em>Kinematics</em>)</h1>
 		</div>
 		<div class="Formulas">
-			<PSMatterFormulas />
-			<PSGasLawsFormulas />
+			<SpeedFormula />
+			<VelocityFormula />
+			<AccelerationFormula />
+			<MomentumFormula />
 		</div>
 	{/if}
 </div>
@@ -44,11 +47,12 @@
 	/* Add any Per-Component CSS styling here */
 	.header {
 		width: 100%;
+		margin-top: 2em;
 	}
 	h1 {
 		justify-self: center;
 		align-items: center;
-		font-size: 4em;
+		font-size: 2em;
 	}
 	.Formulas {
 		display: flex;

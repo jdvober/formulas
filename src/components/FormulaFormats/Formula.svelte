@@ -3,6 +3,7 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import { getUseLongValues } from '../../state/mainState.svelte';
+	import Constant from './Constant.svelte';
 	import FmtA from './FmtA.svelte';
 	import FmtB from './FmtB.svelte';
 	import FmtC from './FmtC.svelte';
@@ -14,13 +15,19 @@
 		subscripts,
 		title,
 		notes,
+		toggleState,
 	}: {
-		format: 'A' | 'B' | 'C';
+		format: 'CONSTANT' | 'A' | 'B' | 'C';
 		initialVariant: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
 		values: { a: any; b?: any; c?: any; d?: any; coefficient?: any };
 		subscripts: SubS;
 		title?: string;
 		notes?: string;
+		toggleState?: {
+			getName: () => string;
+			isToggled: () => boolean;
+			toggle: () => boolean;
+		};
 	} = $props();
 	let variant = $state(initialVariant);
 	let showAll = $state(false);
@@ -37,6 +44,13 @@
 			<div class="title-container"><u class="title">{title}</u></div>
 		{:else}
 			<div class="title-container"><div class="title"></div></div>
+		{/if}
+		{#if toggleState !== undefined}
+			<button
+				class="toggle-state-btn"
+				onclick={toggleState.toggle}
+				>{toggleState.isToggled() === true ? 'Hide' : 'Show'}</button
+			>
 		{/if}
 		<button
 			class="showAllBtn"
@@ -100,6 +114,13 @@
 					{showAll}
 				/>
 			{/key}
+		{:else if (format = 'CONSTANT')}
+			{#key getUseLongValues()}
+				<Constant
+					base={values.a}
+					subscript={subscripts.a}
+				/>
+			{/key}
 		{/if}
 		{#if notes !== undefined}
 			<div class="notes">{notes}</div>
@@ -119,7 +140,7 @@
 		padding-right: 0.75vw;
 		border: 1px solid #fafaf2;
 		border-radius: 1em;
-		min-width: 43vw;
+		// min-width: 43vw;
 		max-width: 86vw;
 		overflow-x: auto;
 	}
@@ -150,9 +171,15 @@
 		color: white;
 	}
 
+	.toggle-state-btn {
+		width: 88%;
+		margin-right: auto;
+	}
+
 	.showAllBtn {
 		margin-left: auto;
 		width: 22%;
+		min-width: 9vw;
 	}
 
 	.Formula {

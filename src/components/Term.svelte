@@ -7,7 +7,7 @@
 
 	import { getUseLongValues, setUnitInfo } from '../state/mainState.svelte';
 
-	let { color = 'black', subscript, ...props } = $props();
+	let { color = 'black', subscript, content } = $props();
 
 	let glowRef: gsap.TweenTarget;
 
@@ -18,7 +18,7 @@
 			ease: 'power2.out',
 		});
 
-		setUnitInfo(props.content);
+		setUnitInfo(content);
 	};
 
 	const handleMouseLeave = () => {
@@ -41,9 +41,9 @@
 {/snippet}
 
 <mrow class="Term">
-	{#if typeof props.content === 'object'}
+	{#if typeof content === 'object'}
 		<msub
-			style:color={props.content.color}
+			style:color={content.color}
 			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
 			class="glow-term"
@@ -52,56 +52,56 @@
 		>
 			<ms>
 				{getUseLongValues() === true
-					? props.content.value.long
-					: props.content.value.short}
+					? content.value.long
+					: content.value.short}
 				{@render glowEffect()}
 			</ms>
 			{#if subscript !== 'NONE'}
 				<ms>{subscript}</ms>
 			{/if}
 		</msub>
-	{:else if typeof props.content === 'string' && props.content.length === 1}
+	{:else if typeof content === 'string' && content.length === 1}
 		<msub
-			style:color={props.color}
+			style:color
 			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
 		>
 			<mi>
-				{props.content}
+				{content}
 				{@render glowEffect()}
 			</mi>
 			{#if subscript !== 'NONE'}
 				<ms>{subscript}</ms>
 			{/if}
 		</msub>
-	{:else if typeof props.content === 'string'}
+	{:else if typeof content === 'string'}
 		<msub
-			style:color={props.color}
+			style:color
 			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
 		>
 			<ms>
-				{props.content}
+				{content}
 				{@render glowEffect()}
 			</ms>
 			{#if subscript !== 'NONE'}
 				<ms>{subscript}</ms>
 			{/if}
 		</msub>
-	{:else if typeof props.content === 'number'}
+	{:else if typeof content === 'number'}
 		<msub
-			style:color={props.color}
+			style:color
 			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
 			onmouseleave={handleMouseLeave}
 			onmouseenter={handleMouseEnter}
 		>
 			<mn>
-				{props.content}
+				{content}
 				{@render glowEffect()}
 			</mn>
 			{#if subscript !== 'NONE'}
@@ -110,12 +110,12 @@
 		</msub>
 	{:else}
 		<msub
-			style:color={props.color}
+			style:color
 			style:margin-bottom={subscript !== 'NONE' ? '0.25em' : '0px'}
 			role="math"
 		>
 			<ms>
-				{@render props.content()}
+				{@render content()}
 				{@render glowEffect()}
 			</ms>
 			{#if subscript !== 'NONE'}

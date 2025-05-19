@@ -41,3 +41,7 @@ type ToggleState = {
 type SubS = {
 	[key: string]: string | number
 }
+
+type SupS = {
+	[key: string]: string | number
+}

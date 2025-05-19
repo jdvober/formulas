@@ -3,44 +3,50 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import type { Component } from 'svelte';
-	import Term from '../Term.svelte';
-	const {
-		subscriptContent,
+	import Subscript from '../Operations/Subscript.svelte';
+
+	let {
 		base,
-		baseColor,
-		subColor,
+		subscript,
 	}: {
-		subscriptContent: any;
 		base: TermType | Component;
-		baseColor: string;
-		subColor: string;
+		subscript: string | number;
 	} = $props();
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<math class="Subscript">
-	<msub>
-		<Term
-			content={base}
-			color={baseColor}
-			subscript="NONE"
-		/>
-		<Term
-			content={subscriptContent}
-			color={subColor}
-			subscript="NONE"
-		/>
-	</msub>
-</math>
+
+{#snippet S()}
+	<Subscript
+		{base}
+		baseColor={'black'}
+		subscriptContent={subscript}
+		subColor={'black'}
+	/>
+{/snippet}
+
+<div>
+	<div style:margin={'2vh'}>
+		<math>
+			{@render S()}
+		</math>
+	</div>
+</div>
 
 <!----------------------------------------------------------------->
 <!-----------------| Styling |------------------------------------->
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
-	.Subscript {
-		max-width: 5vw;
+
+	math {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		margin-left: auto;
+		margin-right: auto;
 	}
 </style>

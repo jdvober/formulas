@@ -1,8 +1,18 @@
 <!----------------------------------------------------------------->
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
-<script lang="ts">
+<script module lang="ts">
 	import { getUnitInfo } from '../../state/mainState.svelte';
+
+	let isVisible = $state(false);
+	export const unitInfoBoxVisibilityState = $state({
+		isVisible: () => {
+			return isVisible;
+		},
+		setVisibility: (newVisibilityState: boolean) => {isVisible = newVisibilityState},
+		toggle: () => (isVisible = isVisible === true ? false : true),
+	});
+
 </script>
 
 <!----------------------------------------------------------------->
@@ -121,21 +131,34 @@
 		<div></div>
 	{/if}
 {/snippet}
-<div class="UnitInfoBox">
-	{#if getUnitInfo().value.long !== ''}
-		{@render definition()}
 
-		{@render units()}
-		{@render example()}
-	{/if}
+{#if isVisible === true}
+<div class="UnitInfoBoxContainer">
+	<div class="UnitInfoBox">
+		{#if getUnitInfo().value.long !== ''}
+			{@render definition()}
+
+			{@render units()}
+			{@render example()}
+		{/if}
+	</div>
 </div>
+{/if}
 
 <!----------------------------------------------------------------->
 <!-----------------| Styling |------------------------------------->
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
+
+	.UnitInfoBoxContainer {
+		position: fixed;
+		left: 4.75vw;
+		top: 69vh;
+	}
+
 	.UnitInfoBox {
+		background-color: RGB(40, 42, 54, 0.95);
 		min-height: 26vmin;
 		max-height: 26vmin;
 		border: 1px solid #fafaf2;
@@ -186,7 +209,7 @@
 		padding-left: 1em;
 		padding-right: 1em;
 		padding-bottom: 1em;
-		border: 1px solid #44475a;
+		border: 1px solid #6272a4;
 		border-radius: 0.5em;
 	}
 

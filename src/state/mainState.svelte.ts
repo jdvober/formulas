@@ -20,7 +20,7 @@ export let setVal = (newVal: boolean) => {
 export let value = {
 	getState: () => val,
 	setState: (newValue: typeof val) => {
-		val === newValue
+		val = newValue
 	},
 }
 

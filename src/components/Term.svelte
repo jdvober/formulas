@@ -1,16 +1,51 @@
-<!--TODO: For some reason, when changing from long to short values, the formula disappears for anything with a subscript.  Probably the way MathMl is rendered in Chromium based browsers.-->
 <!----------------------------------------------------------------->
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import { gsap } from 'gsap';
+	import { v4 as uuid } from 'uuid';
 
+	import { onMount } from 'svelte';
+	import { getElementPos } from '../functions/GetElementPosition.svelte';
 	import { getUseLongValues, setUnitInfo } from '../state/mainState.svelte';
-	import { unitInfoBoxVisibilityState } from './Measurements/UnitInfoBox.svelte';
+	import {
+		unitInfoBoxCoordinatesState,
+		unitInfoBoxVisibilityState,
+	} from './Measurements/UnitInfoBox.svelte';
 
 	let { color = 'black', subscript, content } = $props();
 
 	let glowRef: gsap.TweenTarget;
+
+	let uniqueID = uuid();
+	let element = $state(null as HTMLElement | null);
+	let elementPosition = $state({ x: 0, y: 0, w: 0, h: 0 });
+
+	// Check to make sure we are not running on the server by only declaring element once it is mounted to the DOM.  If we don't do this, we get a "document is not defined error"
+	onMount(() => {
+		element = document.getElementById(`${uniqueID}`);
+	});
+
+	let getRenderCoord = (ey: number) => {
+		let coord = {
+			x: -1,
+			y: -1,
+		};
+		if (ey >= window.innerHeight / 2) {
+			coord = {
+				x: 0,
+				y: window.innerHeight - window.innerHeight * 0.65,
+			};
+			console.log('Rendering box on top.');
+		} else {
+			coord = {
+				x: 0,
+				y: window.innerHeight - window.innerHeight * 0.05,
+			};
+			console.log('Rendering box on bottom.');
+		}
+		return coord;
+	};
 
 	const handleMouseEnter = () => {
 		gsap.to(glowRef, {
@@ -19,6 +54,12 @@
 			ease: 'power2.out',
 		});
 
+		// Update element position
+		elementPosition = getElementPos(element);
+
+		unitInfoBoxCoordinatesState.setCoordinates(
+			getRenderCoord(elementPosition.y)
+		);
 		setUnitInfo(content);
 		unitInfoBoxVisibilityState.setVisibility(true);
 	};
@@ -42,7 +83,7 @@
 	></div>
 {/snippet}
 
-<mrow class="Term">
+<mrow id={`${uniqueID}`}>
 	{#if typeof content === 'object'}
 		<msub
 			style:color={content.color}

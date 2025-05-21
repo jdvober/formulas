@@ -1,19 +1,35 @@
 <!----------------------------------------------------------------->
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
-<script module lang="ts">
-	import { clickOutside, tapOutside } from "../../functions/ClickOutside.svelte";
+<script
+	module
+	lang="ts"
+>
+	import {
+		clickOutside,
+		tapOutside,
+	} from '../../functions/ClickOutside.svelte';
 	import { getUnitInfo } from '../../state/mainState.svelte';
 
 	let isVisible = $state(false);
+	let coordinates = $state({ x: 0, y: 0 });
 	export const unitInfoBoxVisibilityState = $state({
 		isVisible: () => {
 			return isVisible;
 		},
-		setVisibility: (newVisibilityState: boolean) => {isVisible = newVisibilityState},
+		setVisibility: (newVisibilityState: boolean) => {
+			isVisible = newVisibilityState;
+		},
 		toggle: () => (isVisible = isVisible === true ? false : true),
 	});
-
+	export const unitInfoBoxCoordinatesState = $state({
+		getCoordinates: () => {
+			return coordinates;
+		},
+		setCoordinates: (newCoordinates: { x: number; y: number }) => {
+			coordinates = newCoordinates;
+		},
+	});
 </script>
 
 <!----------------------------------------------------------------->
@@ -134,16 +150,32 @@
 {/snippet}
 
 {#if isVisible === true}
-<div class="UnitInfoBoxContainer">
-	<div class="UnitInfoBox" use:clickOutside={() => {unitInfoBoxVisibilityState.setVisibility(false)}} use:tapOutside={() => {unitInfoBoxVisibilityState.setVisibility(false)}}>
-		{#if getUnitInfo().value.long !== ''}
-			{@render definition()}
+	<div
+		class="UnitInfoBoxContainer"
+		style:top={`${(unitInfoBoxCoordinatesState.getCoordinates().y / window.innerHeight) * 100 - 26}vh`}
+	>
+		<div
+			class="UnitInfoBox"
+			role="button"
+			tabindex="0"
+			onclick={() => {
+				unitInfoBoxVisibilityState.setVisibility(false);
+			}}
+			use:clickOutside={() => {
+				unitInfoBoxVisibilityState.setVisibility(false);
+			}}
+			use:tapOutside={() => {
+				unitInfoBoxVisibilityState.setVisibility(false);
+			}}
+		>
+			{#if getUnitInfo().value.long !== ''}
+				{@render definition()}
 
-			{@render units()}
-			{@render example()}
-		{/if}
+				{@render units()}
+				{@render example()}
+			{/if}
+		</div>
 	</div>
-</div>
 {/if}
 
 <!----------------------------------------------------------------->
@@ -155,7 +187,6 @@
 	.UnitInfoBoxContainer {
 		position: fixed;
 		left: 4.75vw;
-		top: 69vh;
 	}
 
 	.UnitInfoBox {
@@ -223,18 +254,9 @@
 		margin-left: 0.25em;
 		margin-right: 0.25em;
 	}
-	.space-L {
-		margin-left: 0.25em;
-	}
-	.space-R {
-		margin-right: 0.25em;
-	}
 
 	.unit-fraction {
 		font-size: 2rem;
-	}
-	.def {
-		color: 'blue';
 	}
 	.unit-container {
 		display: flex;

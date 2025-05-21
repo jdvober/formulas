@@ -21,6 +21,7 @@
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"@tailwindcss/vite": "^4.0.0",
+		"@types/uuid": "^10.0.0",
 		"autoprefixer": "^10.4.21",
 		"clsx": "^2.1.1",
 		"daisyui": "^5.0.28",
@@ -45,6 +46,7 @@
 		"gsap": "^3.13.0",
 		"mathjax": "^3.2.2",
 		"mathlifier": "^2.0.3",
-		"ts-pattern": "^5.7.0"
+		"ts-pattern": "^5.7.0",
+		"uuid": "^11.1.0"
 	}
 }

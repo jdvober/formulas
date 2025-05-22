@@ -13,8 +13,8 @@
 	<!--Speed-->
 	<Formula
 		format="A"
-		initialVariant="DEFAULT"
-		values={{ a: m.SPEED, b: m.DISTANCE, c: m.TIME }}
+		initialVariant="SECONDARY"
+		values={{ a: m.MASS, b: m.MOMENTUM, c: m.VELOCITY }}
 		subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE' }}
 	/>
 </div>

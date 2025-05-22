@@ -1,6 +1,7 @@
 # TODO LIST
 
 1. Be able to hide / filter formulas by topic
+2. Have a ? button that explains how everything works.
 
 # Problems
 

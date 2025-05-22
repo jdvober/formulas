@@ -11,7 +11,7 @@
 
 	let name = 'Matter_PS';
 	let toggleState = $state(true);
-	export const ts = $state({
+	export const ts: Toggle = $state({
 		getName: () => {
 			return name;
 		},
@@ -19,6 +19,8 @@
 			return toggleState;
 		},
 		toggle: () => (toggleState = toggleState === true ? false : true),
+		setToggleState: (newToggleState: boolean) =>
+			(toggleState = newToggleState),
 	});
 </script>
 

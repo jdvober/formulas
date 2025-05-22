@@ -24,17 +24,25 @@
 		}
 	};
 
-	let toggleStates = [
-		Chemistry,
-		Matter,
-		Gas_Laws,
-		Physics,
-		Kinematics,
-		Dynamics,
-		Energy,
-		Waves,
-		Electricity,
-	];
+	// let toggleStates = [
+	// 	Chemistry,
+	// 	Matter,
+	// 	Gas_Laws,
+	// 	Physics,
+	// 	Kinematics,
+	// 	Dynamics,
+	// 	Energy,
+	// 	Waves,
+	// 	Electricity,
+	// ];
+
+	let ChemistryTopics = [Matter, Gas_Laws];
+	let Chem = [Chemistry, ...ChemistryTopics];
+
+	let PhysicsTopics = [Kinematics, Dynamics, Energy, Waves, Electricity];
+	let Phy = [Physics, ...PhysicsTopics];
+
+	let toggleStates = [...Chem, ...Phy];
 
 	let findIfChecked = (topicName: string) => {
 		let match = true;
@@ -50,6 +58,18 @@
 	let toggleToggleState = (topicName: string) => {
 		toggleStates.forEach((toggleState) => {
 			if (topicName === toggleState.getName()) {
+				if (topicName === 'Chemistry') {
+					let s = findIfChecked('Chemistry');
+					if (s === true) {
+						Chem.forEach((topic) => {
+							topic.setToggleState(false);
+						});
+					} else {
+						Chem.forEach((topic) => {
+							topic.setToggleState(true);
+						});
+					}
+				}
 				toggleState.toggle();
 			}
 		});

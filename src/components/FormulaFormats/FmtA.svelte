@@ -2,9 +2,10 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import { fade, scale } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	import type { Component } from 'svelte';
 	import Term from '../Term.svelte';
+	import { whoosh } from '../../functions/animations/svelteTransitions.svelte';
 
 	let {
 		a,
@@ -51,7 +52,7 @@
 
 {#if showAll === true}
 	<div
-		in:scale={{ duration: 250 }}
+		in:whoosh={{ delay: 0, duration: 200 }}
 		out:fade={{ duration: 0 }}
 	>
 		<div style:margin={'2vh'}>
@@ -94,7 +95,7 @@
 	<math>
 		<mrow>
 			<mi
-				in:scale={{ duration: 250 }}
+				in:whoosh={{ delay: 0, duration: 200 }}
 				out:fade={{ duration: 0 }}
 				role="button"
 				aria-label="Interactive math button"
@@ -104,41 +105,39 @@
 				}}>{@render A()}</mi
 			>
 			<mo
-				in:scale={{ duration: 250 }}
+				in:whoosh={{ delay: 0, duration: 200 }}
 				out:fade={{ duration: 0 }}>=</mo
 			>
 			<mfrac>
-				<mfrac>
-					<mi
-						in:scale={{ duration: 250 }}
-						out:fade={{ duration: 0 }}
-						role="button"
-						aria-label="Interactive math button"
-						tabindex="0"
-						onclick={() => {
-							v = 'SECONDARY';
-						}}>{@render B()}</mi
-					>
-					<mi
-						in:scale={{ duration: 250 }}
-						out:fade={{ duration: 0 }}
-						role="button"
-						aria-label="Interactive math button"
-						tabindex="0"
-						onclick={() => {
-							v = 'TERTIARY';
-						}}>{@render C()}</mi
-					>
-				</mfrac>
-			</mfrac></mrow
-		>
+				<mi
+					in:whoosh={{ delay: 0, duration: 200 }}
+					out:fade={{ duration: 0 }}
+					role="button"
+					aria-label="Interactive math button"
+					tabindex="0"
+					onclick={() => {
+						v = 'SECONDARY';
+					}}>{@render B()}</mi
+				>
+				<mi
+					in:whoosh={{ delay: 0, duration: 200 }}
+					out:fade={{ duration: 0 }}
+					role="button"
+					aria-label="Interactive math button"
+					tabindex="0"
+					onclick={() => {
+						v = 'TERTIARY';
+					}}>{@render C()}</mi
+				>
+			</mfrac>
+		</mrow>
 	</math>
 {:else if v === 'SECONDARY'}
 	<math>
 		<mrow>
 			<mrow>
 				<mi
-					in:scale={{ duration: 250 }}
+					in:whoosh={{ delay: 0, duration: 200 }}
 					out:fade={{ duration: 0 }}
 					role="button"
 					aria-label="Interactive math button"
@@ -148,11 +147,11 @@
 					}}>{@render B()}</mi
 				>
 				<mo
-					in:scale={{ duration: 250 }}
+					in:whoosh={{ delay: 0, duration: 200 }}
 					out:fade={{ duration: 0 }}>=</mo
 				>
 				<mi
-					in:scale={{ duration: 250 }}
+					in:whoosh={{ delay: 0, duration: 200 }}
 					out:fade={{ duration: 0 }}
 					role="button"
 					aria-label="Interactive math button"
@@ -162,11 +161,11 @@
 					}}>{@render A()}</mi
 				>
 				<mo
-					in:scale={{ duration: 250 }}
+					in:whoosh={{ delay: 0, duration: 200 }}
 					out:fade={{ duration: 0 }}>&middot</mo
 				>
 				<mi
-					in:scale={{ duration: 250 }}
+					in:whoosh={{ delay: 0, duration: 200 }}
 					out:fade={{ duration: 0 }}
 					role="button"
 					aria-label="Interactive math button"
@@ -180,12 +179,12 @@
 	>
 {:else}
 	<math
-		in:scale={{ duration: 250 }}
+		in:whoosh={{ delay: 0, duration: 200 }}
 		out:fade={{ duration: 0 }}
 	>
 		<mrow>
 			<mi
-				in:scale={{ duration: 250 }}
+				in:whoosh={{ delay: 0, duration: 200 }}
 				out:fade={{ duration: 0 }}
 				role="button"
 				aria-label="Interactive math button"
@@ -195,12 +194,12 @@
 				}}>{@render C()}</mi
 			>
 			<mo
-				in:scale={{ duration: 250 }}
+				in:whoosh={{ delay: 0, duration: 200 }}
 				out:fade={{ duration: 0 }}>=</mo
 			>
 			<mfrac>
 				<mi
-					in:scale={{ duration: 250 }}
+					in:whoosh={{ delay: 0, duration: 200 }}
 					out:fade={{ duration: 0 }}
 					role="button"
 					aria-label="Interactive math button"
@@ -210,7 +209,7 @@
 					}}>{@render B()}</mi
 				>
 				<mi
-					in:scale={{ duration: 250 }}
+					in:whoosh={{ delay: 0, duration: 200 }}
 					out:fade={{ duration: 0 }}
 					role="button"
 					aria-label="Interactive math button"

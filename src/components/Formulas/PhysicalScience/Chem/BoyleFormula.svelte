@@ -4,6 +4,21 @@
 <script lang="ts">
 	import Formula from '../../../FormulaFormats/Formula.svelte';
 	import * as m from '../../../Measurements/Measurements.svelte.js';
+
+	let name = 'Boyles_Law_PS';
+	let toggleState = $state(true);
+
+	export const ts: Toggle = $state({
+		getName: () => {
+			return name;
+		},
+		isToggled: () => {
+			return toggleState;
+		},
+		toggle: () => (toggleState = toggleState === true ? false : true),
+		setToggleState: (newToggleState: boolean) =>
+			(toggleState = newToggleState),
+	});
 </script>
 
 <!----------------------------------------------------------------->

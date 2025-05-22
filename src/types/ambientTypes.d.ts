@@ -45,3 +45,10 @@ type SubS = {
 type SupS = {
 	[key: string]: string | number
 }
+
+type Toggle = {
+	getName: () => string
+	isToggled: () => boolean
+	toggle: () => boolean
+	setToggleState: (newToggleState: boolean) => boolean
+}

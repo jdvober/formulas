@@ -5,6 +5,20 @@
 	import Formula from '../../../FormulaFormats/Formula.svelte';
 	import * as m from '../../../Measurements/Measurements.svelte';
 	import Delta from '../../../Operations/Delta.svelte';
+	let name = 'Acceleration_PS';
+	let toggleState = $state(true);
+
+	export const ts: Toggle = $state({
+		getName: () => {
+			return name;
+		},
+		isToggled: () => {
+			return toggleState;
+		},
+		toggle: () => (toggleState = toggleState === true ? false : true),
+		setToggleState: (newToggleState: boolean) =>
+			(toggleState = newToggleState),
+	});
 </script>
 
 <!----------------------------------------------------------------->
@@ -31,6 +45,7 @@
 
 	<!--Acceleration-->
 	<Formula
+		title="Acceleration"
 		format="A"
 		initialVariant="DEFAULT"
 		values={{ a: m.ACCELERATION, b: bAcceleration, c: c }}

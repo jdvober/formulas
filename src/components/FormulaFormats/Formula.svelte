@@ -37,7 +37,11 @@
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
 <!--TODO: Make it so when you hover over Delta character, it explains what Delta means-->
-<div class="FormulaContainer">
+<div
+	class="FormulaContainer"
+	style:margin-left={getUseLongValues() === true ? 0 : '1vw'}
+	style:margin-right={getUseLongValues() === true ? 0 : '1vw'}
+>
 	<div class="header">
 		<div class="spacer"></div>
 		{#if title !== undefined}

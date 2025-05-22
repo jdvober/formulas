@@ -10,7 +10,7 @@
 
 	let name = 'Density_PS';
 	let toggleState = $state(true);
-	export const ts = $state({
+	export const ts: Toggle = $state({
 		getName: () => {
 			return name;
 		},
@@ -18,23 +18,26 @@
 			return toggleState;
 		},
 		toggle: () => (toggleState = toggleState === true ? false : true),
+		setToggleState: (newToggleState: boolean) =>
+			(toggleState = newToggleState),
 	});
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<div class="DensityFormula">
-	{#if toggleState === true}
+{#if toggleState === true}
+	<div class="DensityFormula">
 		<!--Density-->
 		<Formula
 			format="A"
 			initialVariant="DEFAULT"
 			values={{ a: m.DENSITY, b: m.MASS, c: m.VOLUME }}
 			subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE' }}
+			title="Density"
 		/>
-	{/if}
-</div>
+	</div>
+{/if}
 
 <!----------------------------------------------------------------->
 <!-----------------| Styling |------------------------------------->

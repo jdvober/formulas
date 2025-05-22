@@ -2,6 +2,7 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
+	import { fade, scale } from 'svelte/transition';
 	import type { Component } from 'svelte';
 	import Term from '../Term.svelte';
 
@@ -49,7 +50,10 @@
 {/snippet}
 
 {#if showAll === true}
-	<div>
+	<div
+		in:scale={{ duration: 250 }}
+		out:fade={{ duration: 0 }}
+	>
 		<div style:margin={'2vh'}>
 			<math>
 				<mrow>
@@ -90,6 +94,8 @@
 	<math>
 		<mrow>
 			<mi
+				in:scale={{ duration: 250 }}
+				out:fade={{ duration: 0 }}
 				role="button"
 				aria-label="Interactive math button"
 				tabindex="0"
@@ -97,9 +103,43 @@
 					v = 'PRIMARY';
 				}}>{@render A()}</mi
 			>
-			<mo>=</mo>
+			<mo
+				in:scale={{ duration: 250 }}
+				out:fade={{ duration: 0 }}>=</mo
+			>
 			<mfrac>
+				<mfrac>
+					<mi
+						in:scale={{ duration: 250 }}
+						out:fade={{ duration: 0 }}
+						role="button"
+						aria-label="Interactive math button"
+						tabindex="0"
+						onclick={() => {
+							v = 'SECONDARY';
+						}}>{@render B()}</mi
+					>
+					<mi
+						in:scale={{ duration: 250 }}
+						out:fade={{ duration: 0 }}
+						role="button"
+						aria-label="Interactive math button"
+						tabindex="0"
+						onclick={() => {
+							v = 'TERTIARY';
+						}}>{@render C()}</mi
+					>
+				</mfrac>
+			</mfrac></mrow
+		>
+	</math>
+{:else if v === 'SECONDARY'}
+	<math>
+		<mrow>
+			<mrow>
 				<mi
+					in:scale={{ duration: 250 }}
+					out:fade={{ duration: 0 }}
 					role="button"
 					aria-label="Interactive math button"
 					tabindex="0"
@@ -107,7 +147,27 @@
 						v = 'SECONDARY';
 					}}>{@render B()}</mi
 				>
+				<mo
+					in:scale={{ duration: 250 }}
+					out:fade={{ duration: 0 }}>=</mo
+				>
 				<mi
+					in:scale={{ duration: 250 }}
+					out:fade={{ duration: 0 }}
+					role="button"
+					aria-label="Interactive math button"
+					tabindex="0"
+					onclick={() => {
+						v = 'PRIMARY';
+					}}>{@render A()}</mi
+				>
+				<mo
+					in:scale={{ duration: 250 }}
+					out:fade={{ duration: 0 }}>&middot</mo
+				>
+				<mi
+					in:scale={{ duration: 250 }}
+					out:fade={{ duration: 0 }}
 					role="button"
 					aria-label="Interactive math button"
 					tabindex="0"
@@ -115,44 +175,18 @@
 						v = 'TERTIARY';
 					}}>{@render C()}</mi
 				>
-			</mfrac>
-		</mrow>
-	</math>
-{:else if v === 'SECONDARY'}
-	<math>
-		<mrow>
-			<mi
-				role="button"
-				aria-label="Interactive math button"
-				tabindex="0"
-				onclick={() => {
-					v = 'SECONDARY';
-				}}>{@render B()}</mi
-			>
-			<mo>=</mo>
-			<mi
-				role="button"
-				aria-label="Interactive math button"
-				tabindex="0"
-				onclick={() => {
-					v = 'PRIMARY';
-				}}>{@render A()}</mi
-			>
-			<mo>&middot</mo>
-			<mi
-				role="button"
-				aria-label="Interactive math button"
-				tabindex="0"
-				onclick={() => {
-					v = 'TERTIARY';
-				}}>{@render C()}</mi
-			>
-		</mrow>
-	</math>
+			</mrow>
+		</mrow></math
+	>
 {:else}
-	<math>
+	<math
+		in:scale={{ duration: 250 }}
+		out:fade={{ duration: 0 }}
+	>
 		<mrow>
 			<mi
+				in:scale={{ duration: 250 }}
+				out:fade={{ duration: 0 }}
 				role="button"
 				aria-label="Interactive math button"
 				tabindex="0"
@@ -160,9 +194,14 @@
 					v = 'TERTIARY';
 				}}>{@render C()}</mi
 			>
-			<mo>=</mo>
+			<mo
+				in:scale={{ duration: 250 }}
+				out:fade={{ duration: 0 }}>=</mo
+			>
 			<mfrac>
 				<mi
+					in:scale={{ duration: 250 }}
+					out:fade={{ duration: 0 }}
 					role="button"
 					aria-label="Interactive math button"
 					tabindex="0"
@@ -171,6 +210,8 @@
 					}}>{@render B()}</mi
 				>
 				<mi
+					in:scale={{ duration: 250 }}
+					out:fade={{ duration: 0 }}
 					role="button"
 					aria-label="Interactive math button"
 					tabindex="0"

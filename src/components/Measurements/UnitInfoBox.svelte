@@ -5,6 +5,7 @@
 	module
 	lang="ts"
 >
+	import { fly } from 'svelte/transition';
 	import {
 		clickOutside,
 		tapOutside,
@@ -35,6 +36,41 @@
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
+
+{#if isVisible === true}
+	// Re-animate whenever the unit info changes, instead of only when the box
+	is mounted to the DOM
+	{#key getUnitInfo()}
+		<div
+			class="UnitInfoBoxContainer"
+			style:top={`${(unitInfoBoxCoordinatesState.getCoordinates().y / window.innerHeight) * 100 - 26}vh`}
+			transition:fly={{ y: 60, duration: 200 }}
+		>
+			<div
+				class="UnitInfoBox"
+				role="button"
+				tabindex="0"
+				onclick={() => {
+					unitInfoBoxVisibilityState.setVisibility(false);
+				}}
+				use:clickOutside={() => {
+					unitInfoBoxVisibilityState.setVisibility(false);
+				}}
+				use:tapOutside={() => {
+					unitInfoBoxVisibilityState.setVisibility(false);
+				}}
+			>
+				{#if getUnitInfo().value.long !== ''}
+					{@render definition()}
+
+					{@render units()}
+					{@render example()}
+				{/if}
+			</div>
+		</div>
+	{/key}
+{/if}
+
 {#snippet definition()}
 	<div class="container">
 		<u
@@ -148,35 +184,6 @@
 		<div></div>
 	{/if}
 {/snippet}
-
-{#if isVisible === true}
-	<div
-		class="UnitInfoBoxContainer"
-		style:top={`${(unitInfoBoxCoordinatesState.getCoordinates().y / window.innerHeight) * 100 - 26}vh`}
-	>
-		<div
-			class="UnitInfoBox"
-			role="button"
-			tabindex="0"
-			onclick={() => {
-				unitInfoBoxVisibilityState.setVisibility(false);
-			}}
-			use:clickOutside={() => {
-				unitInfoBoxVisibilityState.setVisibility(false);
-			}}
-			use:tapOutside={() => {
-				unitInfoBoxVisibilityState.setVisibility(false);
-			}}
-		>
-			{#if getUnitInfo().value.long !== ''}
-				{@render definition()}
-
-				{@render units()}
-				{@render example()}
-			{/if}
-		</div>
-	</div>
-{/if}
 
 <!----------------------------------------------------------------->
 <!-----------------| Styling |------------------------------------->

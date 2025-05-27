@@ -1,17 +1,21 @@
 <script lang="ts">
+	import PeriodicTable from '../../components/PeriodicTable/PeriodicTable.svelte';
 </script>
 
-<h1>Periodic Table</h1>
+<div class="container">
+	<div class="header">Header</div>
+	<div class="PTContainer"><PeriodicTable /></div>
+</div>
 
 <style>
-	h1 {
+	.header {
+		height: 10vh;
+	}
+
+	.PTContainer {
 		display: flex;
+		align-items: center;
 		justify-content: center;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 25vh;
-		margin-bottom: 25vh;
-		width: auto;
-		font-size: 5em;
+		height: 90vh;
 	}
 </style>

@@ -84,6 +84,8 @@
 			out:fade={{ duration: 0 }}
 		>
 			<div
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}
 				style:margin-top={'1vh'}
 				style:margin-bottom={'1vh'}
 			>
@@ -121,6 +123,8 @@
 				</math>
 			</div>
 			<div
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}
 				style:margin-top={'1vh'}
 				style:margin-bottom={'1vh'}
 			>
@@ -148,6 +152,8 @@
 				</math>
 			</div>
 			<div
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}
 				style:margin-top={'1vh'}
 				style:margin-bottom={'1vh'}
 			>
@@ -175,19 +181,30 @@
 				</math>
 			</div>
 			<div
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}
 				style:margin-top={'1vh'}
 				style:margin-bottom={'1vh'}
 			>
 				<math>
-					<mrow>
-						<mi>{@render D()}</mi>
+					<mrow
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
+					>
+						<mi
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>{@render D()}</mi
+						>
 						<mo
 							in:whoosh={{ delay: 0, duration: 200 }}
 							out:fade={{ duration: 0 }}>=</mo
 						>
 						<mfrac>
 							<mrow>
-								<mi>{@render A()}</mi>
+								<mi
+									in:whoosh={{ delay: 0, duration: 200 }}
+									out:fade={{ duration: 0 }}>{@render A()}</mi
+								>
 							</mrow>
 							<mrow>
 								<ms>{@render B()}</ms>

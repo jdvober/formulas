@@ -2,7 +2,7 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import UnitInfoBox from '../Measurements/UnitInfoBox.svelte';
+	import UnitInfoBox from './Measurements/UnitInfoBox.svelte';
 	import PsChemFormulas from './PhysicalScience/Chem/PSChemFormulas.svelte';
 	import PsPhyFormulas from './PhysicalScience/Phy/PSPhyFormulas.svelte';
 </script>

@@ -6,14 +6,25 @@
 	import { v4 as uuid } from 'uuid';
 
 	import { onMount } from 'svelte';
-	import { getElementPos } from '../functions/GetElementPosition.svelte';
-	import { getUseLongValues, setUnitInfo } from '../state/mainState.svelte';
+	import { getElementPos } from '../../functions/GetElementPosition.svelte';
+	import {
+		getUseLongValues,
+		setUnitInfo,
+	} from '../../state/mainState.svelte';
 	import {
 		unitInfoBoxCoordinatesState,
 		unitInfoBoxVisibilityState,
 	} from './Measurements/UnitInfoBox.svelte';
 
-	let { color = 'black', subscript, content } = $props();
+	let {
+		color = 'black',
+		subscript = '',
+		content,
+	}: {
+		color?: string | undefined;
+		subscript?: string | number | undefined;
+		content: any;
+	} = $props();
 
 	let glowRef: gsap.TweenTarget;
 

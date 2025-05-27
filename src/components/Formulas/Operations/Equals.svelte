@@ -3,29 +3,22 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import Term from '../Term.svelte';
-	const {
-		superscriptContent,
-		base,
-	}: {
-		superscriptContent: any;
-		base: any;
-	} = $props();
+
+	const { lhs, rhs }: { lhs: any; rhs: any } = $props();
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<math class="Superscript container">
-	<msup>
-		<Term
-			content={base}
-			subscript=""
-		/>
-		<Term
-			content={superscriptContent}
-			subscript=""
-		/>
-	</msup>
+<math
+	display="block"
+	class="Equals container"
+>
+	<mrow>
+		<Term content={lhs} />
+		<mo form="infix">=</mo>
+		<Term content={rhs} />
+	</mrow>
 </math>
 
 <!----------------------------------------------------------------->

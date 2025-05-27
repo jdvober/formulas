@@ -3,26 +3,31 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import Term from '../Term.svelte';
-
-	let props = $props();
-	let color = props.color !== undefined ? props.colors : null;
+	const {
+		superscriptContent,
+		base,
+	}: {
+		superscriptContent: any;
+		base: any;
+	} = $props();
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<math
-	display="block"
-	class="Delta"
->
-	<mrow>
-		<mo style:color={props.color}>Δ</mo><mi style:color
-			><Term
-				content={props.f}
-				color={props.color}
-			/></mi
-		>
-	</mrow>
+<math class="Superscript container">
+	<msup>
+		<Term
+			content={base}
+			subscript=""
+			color="black"
+		/>
+		<Term
+			content={superscriptContent}
+			subscript=""
+			color="black"
+		/>
+	</msup>
 </math>
 
 <!----------------------------------------------------------------->

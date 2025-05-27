@@ -2,7 +2,7 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import { getUseLongValues } from '../../state/mainState.svelte';
+	import { getUseLongValues } from '../../../state/mainState.svelte';
 	import Constant from './Constant.svelte';
 	import FmtA from './FmtA.svelte';
 	import FmtB from './FmtB.svelte';

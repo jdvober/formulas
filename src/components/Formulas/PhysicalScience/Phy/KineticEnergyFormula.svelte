@@ -2,9 +2,9 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import Formula from '../../../FormulaFormats/Formula.svelte';
-	import * as m from '../../../Measurements/Measurements.svelte';
-	import Superscript from '../../../Operations/Superscript.svelte';
+	import Formula from '../../FormulaFormats/Formula.svelte';
+	import * as m from '../../Measurements/Measurements.svelte';
+	import Superscript from '../../Operations/Superscript.svelte';
 	let name = 'Kinetic_Energy_PS';
 	let toggleState = $state(true);
 

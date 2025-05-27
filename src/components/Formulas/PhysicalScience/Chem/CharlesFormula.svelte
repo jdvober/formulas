@@ -2,8 +2,8 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import Formula from '../../../FormulaFormats/Formula.svelte';
-	import * as m from '../../../Measurements/Measurements.svelte.js';
+	import Formula from '../../FormulaFormats/Formula.svelte';
+	import * as m from '../../Measurements/Measurements.svelte';
 
 	let name = 'Charles_Law_PS';
 	let toggleState = $state(true);

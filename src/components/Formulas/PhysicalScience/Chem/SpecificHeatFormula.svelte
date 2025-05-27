@@ -2,9 +2,9 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import Formula from '../../../FormulaFormats/Formula.svelte';
-	import * as m from '../../../Measurements/Measurements.svelte';
-	import Delta from '../../../Operations/Delta.svelte';
+	import Formula from '../../FormulaFormats/Formula.svelte';
+	import * as m from '../../Measurements/Measurements.svelte';
+	import Delta from '../../Operations/Delta.svelte';
 
 	let name = 'SpecificHeat_PS';
 	let toggleState = $state(true);

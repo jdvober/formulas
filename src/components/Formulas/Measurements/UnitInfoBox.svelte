@@ -9,8 +9,8 @@
 	import {
 		clickOutside,
 		tapOutside,
-	} from '../../functions/ClickOutside.svelte';
-	import { getUnitInfo } from '../../state/mainState.svelte';
+	} from '../../../functions/ClickOutside.svelte';
+	import { getUnitInfo } from '../../../state/mainState.svelte';
 
 	let isVisible = $state(false);
 	let coordinates = $state({ x: 0, y: 0 });

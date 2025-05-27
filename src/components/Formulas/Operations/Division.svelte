@@ -33,12 +33,14 @@
 				<Term
 					content={a}
 					color={colors.a}
+					subscript=""
 				/>
 			</mrow>
 			<mrow>
 				<Term
 					content={b}
 					color={colors.b}
+					subscript=""
 				/>
 			</mrow>
 		</mfrac>

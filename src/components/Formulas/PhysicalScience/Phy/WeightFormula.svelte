@@ -2,8 +2,8 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import Formula from '../../../FormulaFormats/Formula.svelte';
-	import * as m from '../../../Measurements/Measurements.svelte';
+	import Formula from "../../FormulaFormats/Formula.svelte";
+	import * as m from '../../Measurements/Measurements.svelte';
 	let name = 'Weight_PS';
 	let toggleState = $state(true);
 

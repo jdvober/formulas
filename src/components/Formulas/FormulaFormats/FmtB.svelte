@@ -4,8 +4,8 @@
 <script lang="ts">
 	import type { Component } from 'svelte';
 	import Term from '../Term.svelte';
-	import { whoosh } from '../../functions/animations/svelteTransitions.svelte';
 	import { fade } from 'svelte/transition';
+	import { whoosh } from '../../../functions/animations/svelteTransitions.svelte';
 
 	let {
 		a,
@@ -45,6 +45,7 @@
 	<Term
 		content={a}
 		subscript={subscripts.a}
+		color="black"
 	/>
 {/snippet}
 
@@ -52,6 +53,7 @@
 	<Term
 		content={b}
 		subscript={subscripts.b}
+		color="black"
 	/>
 {/snippet}
 
@@ -59,6 +61,7 @@
 	<Term
 		content={c}
 		subscript={subscripts.c}
+		color="black"
 	/>
 {/snippet}
 
@@ -66,6 +69,7 @@
 	<Term
 		content={d}
 		subscript={subscripts.d}
+		color="black"
 	/>
 {/snippet}
 

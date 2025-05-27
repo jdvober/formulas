@@ -3,7 +3,9 @@
 <!----------------------------------------------------------------->
 <script lang="ts">
 	import Term from '../Term.svelte';
-	const { lhs, rhs }: { lhs: any; rhs: any } = $props();
+
+	let props = $props();
+	let color = props.color !== undefined ? props.colors : null;
 </script>
 
 <!----------------------------------------------------------------->
@@ -11,12 +13,16 @@
 <!----------------------------------------------------------------->
 <math
 	display="block"
-	class="Equals container"
+	class="Delta"
 >
 	<mrow>
-		<Term content={lhs} />
-		<mo form="infix">=</mo>
-		<Term content={rhs} />
+		<mo style:color={props.color}>Δ</mo><mi style:color
+			><Term
+				content={props.f}
+				color={props.color}
+				subscript=''
+			/></mi
+		>
 	</mrow>
 </math>
 

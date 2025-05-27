@@ -41,7 +41,10 @@
 	{#snippet velocitySquared()}
 		<Superscript
 			base={m.VELOCITY}
-			superscriptContent="2"
+			superscriptContent={{
+				value: { long: '2', short: '2' },
+				color: '#F1FA8C',
+			}}
 		/>
 	{/snippet}
 	<Formula
@@ -53,7 +56,7 @@
 			b: oneHalf,
 			c: m.MASS,
 			d: velocitySquared,
-			coefficient: m.VELOCITY,
+			coefficient: velocitySquared,
 		}}
 		subscripts={{ a: 'NONE', b: 'NONE', c: 'NONE', d: 'NONE' }}
 	></Formula>

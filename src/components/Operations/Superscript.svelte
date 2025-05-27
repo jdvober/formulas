@@ -17,8 +17,14 @@
 <!----------------------------------------------------------------->
 <math class="Superscript container">
 	<msup>
-		<Term content={base} />
-		<Term content={superscriptContent} />
+		<Term
+			content={base}
+			subscript=""
+		/>
+		<Term
+			content={superscriptContent}
+			subscript=""
+		/>
 	</msup>
 </math>
 

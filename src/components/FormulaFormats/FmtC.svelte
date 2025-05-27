@@ -4,6 +4,8 @@
 <script lang="ts">
 	import type { Component } from 'svelte';
 	import Term from '../Term.svelte';
+	import { whoosh } from '../../functions/animations/svelteTransitions.svelte';
+	import { fade } from 'svelte/transition';
 
 	let {
 		a,
@@ -77,20 +79,44 @@
 
 {#if showAll === true}
 	{#if coefficient === undefined}
-		<div>
+		<div
+			in:whoosh={{ delay: 0, duration: 200 }}
+			out:fade={{ duration: 0 }}
+		>
 			<div
 				style:margin-top={'1vh'}
 				style:margin-bottom={'1vh'}
 			>
 				<math>
 					<mrow>
-						<msub>{@render A()}</msub>
-						<mo>=</mo>
-						<msub>{@render B()}</msub>
-						<mo>&middot</mo>
-						<msub>{@render C()}</msub>
-						<mo>&middot</mo>
-						<msub>{@render D()}</msub>
+						<msub
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>{@render A()}</msub
+						>
+						<mo
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>=</mo
+						>
+						<msub
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>{@render B()}</msub
+						>
+						<mo
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>&middot</mo
+						>
+						<msub
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>{@render C()}</msub
+						>
+						<mo
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>&middot</mo
+						>
+						<msub
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>{@render D()}</msub
+						>
 					</mrow>
 				</math>
 			</div>
@@ -101,14 +127,20 @@
 				<math>
 					<mrow>
 						<mi>{@render B()}</mi>
-						<mo>=</mo>
+						<mo
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>=</mo
+						>
 						<mfrac>
 							<mrow>
 								<mi>{@render A()}</mi>
 							</mrow>
 							<mrow>
 								<ms>{@render C()}</ms>
-								<mo>&middot</mo>
+								<mo
+									in:whoosh={{ delay: 0, duration: 200 }}
+									out:fade={{ duration: 0 }}>&middot</mo
+								>
 								<mi>{@render D()}</mi>
 							</mrow>
 						</mfrac>
@@ -122,14 +154,20 @@
 				<math>
 					<mrow>
 						<mi>{@render C()}</mi>
-						<mo>=</mo>
+						<mo
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>=</mo
+						>
 						<mfrac>
 							<mrow>
 								<mi>{@render A()}</mi>
 							</mrow>
 							<mrow>
 								<ms>{@render B()}</ms>
-								<mo>&middot</mo>
+								<mo
+									in:whoosh={{ delay: 0, duration: 200 }}
+									out:fade={{ duration: 0 }}>&middot</mo
+								>
 								<mi>{@render D()}</mi>
 							</mrow>
 						</mfrac>
@@ -143,14 +181,20 @@
 				<math>
 					<mrow>
 						<mi>{@render D()}</mi>
-						<mo>=</mo>
+						<mo
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>=</mo
+						>
 						<mfrac>
 							<mrow>
 								<mi>{@render A()}</mi>
 							</mrow>
 							<mrow>
 								<ms>{@render B()}</ms>
-								<mo>&middot</mo>
+								<mo
+									in:whoosh={{ delay: 0, duration: 200 }}
+									out:fade={{ duration: 0 }}>&middot</mo
+								>
 								<mi>{@render C()}</mi>
 							</mrow>
 						</mfrac>
@@ -160,20 +204,44 @@
 		</div>
 	{:else}
 		<!--special case for formula with fraction (kinetic energy)-->
-		<div>
+		<div
+			in:whoosh={{ delay: 0, duration: 200 }}
+			out:fade={{ duration: 0 }}
+		>
 			<div
 				style:margin-top={'1vh'}
 				style:margin-bottom={'1vh'}
 			>
 				<math>
 					<mrow>
-						<msub>{@render A()}</msub>
-						<mo>=</mo>
-						<msub>{@render B()}</msub>
-						<mo>&middot</mo>
-						<msub>{@render C()}</msub>
-						<mo>&middot</mo>
-						<msub>{@render D()}</msub>
+						<msub
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>{@render A()}</msub
+						>
+						<mo
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>=</mo
+						>
+						<msub
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>{@render B()}</msub
+						>
+						<mo
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>&middot</mo
+						>
+						<msub
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>{@render C()}</msub
+						>
+						<mo
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>&middot</mo
+						>
+						<msub
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>{@render D()}</msub
+						>
 					</mrow>
 				</math>
 			</div>
@@ -184,14 +252,20 @@
 				<math>
 					<mrow>
 						<mi>{@render C()}</mi>
-						<mo>=</mo>
+						<mo
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>=</mo
+						>
 						<mfrac>
 							<mrow>
 								<mi>{@render A()}</mi>
 							</mrow>
 							<mrow>
 								<mn style:font-size={'1.5em'}>{2}</mn>
-								<mo>&middot</mo>
+								<mo
+									in:whoosh={{ delay: 0, duration: 200 }}
+									out:fade={{ duration: 0 }}>&middot</mo
+								>
 								<mi>{@render D()}</mi>
 							</mrow>
 						</mfrac>
@@ -205,7 +279,10 @@
 				<math>
 					<mrow>
 						<mi>{@render Coefficient()}</mi>
-						<mo>=</mo>
+						<mo
+							in:whoosh={{ delay: 0, duration: 200 }}
+							out:fade={{ duration: 0 }}>=</mo
+						>
 						<mrow>
 							<msqrt>
 								<mrow>
@@ -217,7 +294,14 @@
 											<mn style:font-size={'1.5em'}
 												>{2}</mn
 											>
-											<mo>&middot</mo>
+											<mo
+												in:whoosh={{
+													delay: 0,
+													duration: 200,
+												}}
+												out:fade={{ duration: 0 }}
+												>&middot</mo
+											>
 											<mi>{@render C()}</mi>
 										</mrow>
 									</mfrac>
@@ -234,6 +318,8 @@
 	<math>
 		<mrow>
 			<msub
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}
 				role="button"
 				aria-label="Interactive math button"
 				tabindex="0"
@@ -241,8 +327,13 @@
 					v = 'PRIMARY';
 				}}>{@render A()}</msub
 			>
-			<mo>=</mo>
+			<mo
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}>=</mo
+			>
 			<msub
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}
 				role="button"
 				aria-label="Interactive math button"
 				tabindex="0"
@@ -251,8 +342,13 @@
 				}}>{@render B()}</msub
 			>
 
-			<mo>&middot</mo>
+			<mo
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}>&middot</mo
+			>
 			<msub
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}
 				role="button"
 				aria-label="Interactive math button"
 				tabindex="0"
@@ -261,8 +357,13 @@
 				}}>{@render C()}</msub
 			>
 
-			<mo>&middot</mo>
+			<mo
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}>&middot</mo
+			>
 			<mi
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}
 				role="button"
 				aria-label="Interactive math button"
 				tabindex="0"
@@ -277,6 +378,8 @@
 	<math>
 		<mrow>
 			<ms
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}
 				role="button"
 				aria-label="Interactive math button"
 				tabindex="0"
@@ -285,10 +388,15 @@
 				}}>{@render B()}</ms
 			>
 
-			<mo>=</mo>
+			<mo
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}>=</mo
+			>
 			<mfrac>
 				<mrow>
 					<mi
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
 						role="button"
 						aria-label="Interactive math button"
 						tabindex="0"
@@ -299,6 +407,8 @@
 				</mrow>
 				<mrow>
 					<ms
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
 						role="button"
 						aria-label="Interactive math button"
 						tabindex="0"
@@ -306,8 +416,13 @@
 							v = 'TERTIARY';
 						}}>{@render C()}</ms
 					>
-					<mo>&middot</mo>
+					<mo
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}>&middot</mo
+					>
 					<mi
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
 						role="button"
 						aria-label="Interactive math button"
 						tabindex="0"
@@ -324,6 +439,8 @@
 	<math>
 		<mrow>
 			<mi
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}
 				role="button"
 				aria-label="Interactive math button"
 				tabindex="0"
@@ -331,10 +448,15 @@
 					v = 'TERTIARY';
 				}}>{@render C()}</mi
 			>
-			<mo>=</mo>
+			<mo
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}>=</mo
+			>
 			<mfrac>
 				<mrow>
 					<mi
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
 						role="button"
 						aria-label="Interactive math button"
 						tabindex="0"
@@ -345,6 +467,8 @@
 				</mrow>
 				<mrow>
 					<ms
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
 						role="button"
 						aria-label="Interactive math button"
 						tabindex="0"
@@ -353,8 +477,13 @@
 						}}>{@render B()}</ms
 					>
 
-					<mo>&middot</mo>
+					<mo
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}>&middot</mo
+					>
 					<mi
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
 						role="button"
 						aria-label="Interactive math button"
 						tabindex="0"
@@ -371,6 +500,8 @@
 	<math>
 		<mrow>
 			<mi
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}
 				role="button"
 				aria-label="Interactive math button"
 				tabindex="0"
@@ -378,10 +509,15 @@
 					v = 'QUARTENARY';
 				}}>{@render D()}</mi
 			>
-			<mo>=</mo>
+			<mo
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}>=</mo
+			>
 			<mfrac>
 				<mrow>
 					<mi
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
 						role="button"
 						aria-label="Interactive math button"
 						tabindex="0"
@@ -392,6 +528,8 @@
 				</mrow>
 				<mrow>
 					<ms
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
 						role="button"
 						aria-label="Interactive math button"
 						tabindex="0"
@@ -400,8 +538,13 @@
 						}}>{@render B()}</ms
 					>
 
-					<mo>&middot</mo>
+					<mo
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}>&middot</mo
+					>
 					<mi
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
 						role="button"
 						aria-label="Interactive math button"
 						tabindex="0"
@@ -418,6 +561,8 @@
 	<math>
 		<mrow>
 			<mi
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}
 				role="button"
 				aria-label="Interactive math button"
 				tabindex="0"
@@ -425,10 +570,15 @@
 					v = 'QUARTENARY';
 				}}>{@render D()}</mi
 			>
-			<mo>=</mo>
+			<mo
+				in:whoosh={{ delay: 0, duration: 200 }}
+				out:fade={{ duration: 0 }}>=</mo
+			>
 			<mfrac>
 				<mrow>
 					<mi
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
 						role="button"
 						aria-label="Interactive math button"
 						tabindex="0"
@@ -439,6 +589,8 @@
 				</mrow>
 				<mrow>
 					<ms
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
 						role="button"
 						aria-label="Interactive math button"
 						tabindex="0"
@@ -446,8 +598,13 @@
 							v = 'SECONDARY';
 						}}>{@render B()}</ms
 					>
-					<mo>&middot</mo>
+					<mo
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}>&middot</mo
+					>
 					<mi
+						in:whoosh={{ delay: 0, duration: 200 }}
+						out:fade={{ duration: 0 }}
 						role="button"
 						aria-label="Interactive math button"
 						tabindex="0"

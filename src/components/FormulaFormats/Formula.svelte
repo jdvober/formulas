@@ -144,8 +144,8 @@
 		padding-right: 0.75vw;
 		border: 1px solid #fafaf2;
 		border-radius: 1em;
-		// min-width: 43vw;
-		max-width: 86vw;
+		min-width: 43vw;
+		max-width: 90vw;
 		overflow-x: auto;
 	}
 

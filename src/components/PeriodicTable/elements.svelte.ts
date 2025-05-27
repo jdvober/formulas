@@ -1,10 +1,21 @@
-let lightPurple = '#D400FF' //light purple
-let lightYellow = '#D4FF00' // light yellow
-let lightBlue = '#E6FBFF' // alt light blue
-let lightRed = '#e82323'
-let lightBrown = '#6d6e3a'
+let lightPurple = { h: 265, s: 89, l: 78 }
+let orange = { h: 31, s: 100, l: 71 }
+let lightGreen = { h: 135, s: 94, l: 65 }
+let yellow = { h: 65, s: 92, l: 76 }
+let pink = { h: 326, s: 100, l: 74 }
+let lightYellow = { h: 65, s: 92, l: 76 }
+let lightBlue = { h: 191, s: 97, l: 77 }
+let lightRed = { h: 0, s: 100, l: 67 }
+let lightBrown = { h: 100, s: 100, l: 100 }
 
-export let elements = [
+let getColor = (color: { h: number; s: number; l: number }) => {
+	return `hsl(${color.h}, ${color.s}%, ${color.l}%)`
+}
+let darken = (color: { h: number; s: number; l: number }) => {
+	return `hsl(${color.h}, ${color.s}%, 10%)`
+}
+
+export let elements: ElementType[] = [
 	//
 	//
 	// Period 1
@@ -17,7 +28,8 @@ export let elements = [
 		period: 1,
 		group: 1,
 		location: 'LEFT',
-		color: lightPurple,
+		background: getColor(lightPurple),
+		color: darken(lightPurple),
 	},
 	{
 		name: 'Helium',
@@ -26,7 +38,8 @@ export let elements = [
 		period: 1,
 		group: 18,
 		location: 'RIGHT',
-		color: 'lightBlue',
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	//
 	//
@@ -39,8 +52,9 @@ export let elements = [
 		atomicNumber: 3,
 		period: 2,
 		group: 1,
-		color: 'orange',
 		location: 'LEFT',
+		background: getColor(orange),
+		color: darken(orange),
 	},
 	{
 		name: 'Beryllium',
@@ -49,7 +63,8 @@ export let elements = [
 		period: 2,
 		group: 2,
 		location: 'LEFT',
-		color: 'yellow',
+		background: getColor(yellow),
+		color: darken(yellow),
 	},
 	{
 		name: 'Boron',
@@ -58,7 +73,8 @@ export let elements = [
 		period: 2,
 		group: 13,
 		location: 'RIGHT',
-		color: 'lightGreen',
+		background: getColor(lightGreen),
+		color: darken(lightGreen),
 	},
 	{
 		name: 'Carbon',
@@ -67,7 +83,8 @@ export let elements = [
 		period: 2,
 		group: 14,
 		location: 'RIGHT',
-		color: lightPurple,
+		background: getColor(lightPurple),
+		color: darken(lightPurple),
 	},
 	{
 		name: 'Nitrogen',
@@ -76,7 +93,8 @@ export let elements = [
 		period: 2,
 		group: 15,
 		location: 'RIGHT',
-		color: lightPurple,
+		background: getColor(lightPurple),
+		color: darken(lightPurple),
 	},
 	{
 		name: 'Oxygen',
@@ -85,7 +103,8 @@ export let elements = [
 		period: 2,
 		group: 16,
 		location: 'RIGHT',
-		color: lightPurple,
+		background: getColor(lightPurple),
+		color: darken(lightPurple),
 	},
 	{
 		name: 'Fluorine',
@@ -94,7 +113,8 @@ export let elements = [
 		period: 2,
 		group: 17,
 		location: 'RIGHT',
-		color: 'pink',
+		background: getColor(pink),
+		color: darken(pink),
 	},
 	{
 		name: 'Neon',
@@ -103,7 +123,8 @@ export let elements = [
 		period: 2,
 		group: 18,
 		location: 'RIGHT',
-		color: 'lightBlue',
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	//
 	//
@@ -117,7 +138,8 @@ export let elements = [
 		period: 3,
 		group: 1,
 		location: 'LEFT',
-		color: 'orange',
+		background: getColor(orange),
+		color: darken(orange),
 	},
 	{
 		name: 'Magnesium',
@@ -126,7 +148,8 @@ export let elements = [
 		period: 3,
 		group: 2,
 		location: 'LEFT',
-		color: 'yellow',
+		background: getColor(yellow),
+		color: darken(yellow),
 	},
 	{
 		name: 'Aluminum',
@@ -135,7 +158,8 @@ export let elements = [
 		period: 3,
 		group: 13,
 		location: 'RIGHT',
-		color: lightYellow,
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Silicon',
@@ -144,7 +168,8 @@ export let elements = [
 		period: 3,
 		group: 14,
 		location: 'RIGHT',
-		color: 'lightGreen',
+		background: getColor(lightGreen),
+		color: darken(lightGreen),
 	},
 	{
 		name: 'Phosphorus',
@@ -153,7 +178,8 @@ export let elements = [
 		period: 3,
 		group: 15,
 		location: 'RIGHT',
-		color: lightPurple,
+		background: getColor(lightPurple),
+		color: darken(lightPurple),
 	},
 	{
 		name: 'Sulfur',
@@ -162,7 +188,8 @@ export let elements = [
 		period: 3,
 		group: 16,
 		location: 'RIGHT',
-		color: lightPurple,
+		background: getColor(lightPurple),
+		color: darken(lightPurple),
 	},
 	{
 		name: 'Chlorine',
@@ -171,7 +198,8 @@ export let elements = [
 		period: 3,
 		group: 17,
 		location: 'RIGHT',
-		color: 'pink',
+		background: getColor(pink),
+		color: darken(pink),
 	},
 	{
 		name: 'Argon',
@@ -180,7 +208,8 @@ export let elements = [
 		period: 3,
 		group: 18,
 		location: 'RIGHT',
-		color: 'lightBlue',
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	//
 	//
@@ -194,7 +223,8 @@ export let elements = [
 		period: 4,
 		group: 1,
 		location: 'LEFT',
-		color: 'orange',
+		background: getColor(orange),
+		color: darken(orange),
 	},
 	{
 		name: 'Calcium',
@@ -203,7 +233,8 @@ export let elements = [
 		period: 4,
 		group: 2,
 		location: 'LEFT',
-		color: 'yellow',
+		background: getColor(yellow),
+		color: darken(yellow),
 	},
 	{
 		name: 'Scandium',
@@ -212,7 +243,8 @@ export let elements = [
 		period: 4,
 		group: 3,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Titanium',
@@ -221,7 +253,8 @@ export let elements = [
 		period: 4,
 		group: 4,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Vanadium',
@@ -230,7 +263,8 @@ export let elements = [
 		period: 4,
 		group: 5,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Chromium',
@@ -239,7 +273,8 @@ export let elements = [
 		period: 4,
 		group: 6,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Manganese',
@@ -248,7 +283,8 @@ export let elements = [
 		period: 4,
 		group: 7,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Iron',
@@ -257,7 +293,8 @@ export let elements = [
 		period: 4,
 		group: 8,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Cobalt',
@@ -266,7 +303,8 @@ export let elements = [
 		period: 4,
 		group: 9,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Nickel',
@@ -275,7 +313,8 @@ export let elements = [
 		period: 4,
 		group: 10,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Copper',
@@ -284,7 +323,8 @@ export let elements = [
 		period: 4,
 		group: 11,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Zinc',
@@ -293,7 +333,8 @@ export let elements = [
 		period: 4,
 		group: 12,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Silicon',
@@ -302,7 +343,8 @@ export let elements = [
 		period: 4,
 		group: 14,
 		location: 'RIGHT',
-		color: 'lightGreen',
+		background: getColor(lightGreen),
+		color: darken(lightGreen),
 	},
 	{
 		name: 'Gallium',
@@ -311,7 +353,8 @@ export let elements = [
 		period: 4,
 		group: 13,
 		location: 'RIGHT',
-		color: lightYellow,
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Germanium',
@@ -320,7 +363,8 @@ export let elements = [
 		period: 4,
 		group: 14,
 		location: 'RIGHT',
-		color: 'lightGreen',
+		background: getColor(lightGreen),
+		color: darken(lightGreen),
 	},
 	{
 		name: 'Arsenic',
@@ -329,7 +373,8 @@ export let elements = [
 		period: 4,
 		group: 15,
 		location: 'RIGHT',
-		color: 'lightGreen',
+		background: getColor(lightGreen),
+		color: darken(lightGreen),
 	},
 	{
 		name: 'Selenium',
@@ -338,7 +383,8 @@ export let elements = [
 		period: 4,
 		group: 16,
 		location: 'RIGHT',
-		color: lightPurple,
+		background: getColor(lightPurple),
+		color: darken(lightPurple),
 	},
 	{
 		name: 'Bromine',
@@ -347,7 +393,8 @@ export let elements = [
 		period: 4,
 		group: 17,
 		location: 'RIGHT',
-		color: 'pink',
+		background: getColor(pink),
+		color: darken(pink),
 	},
 	{
 		name: 'Krypton',
@@ -356,7 +403,8 @@ export let elements = [
 		period: 4,
 		group: 18,
 		location: 'RIGHT',
-		color: 'lightBlue',
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	//
 	//
@@ -370,7 +418,8 @@ export let elements = [
 		period: 5,
 		group: 1,
 		location: 'LEFT',
-		color: 'orange',
+		background: getColor(orange),
+		color: darken(orange),
 	},
 	{
 		name: 'Strontium',
@@ -379,7 +428,8 @@ export let elements = [
 		period: 5,
 		group: 2,
 		location: 'LEFT',
-		color: 'yellow',
+		background: getColor(yellow),
+		color: darken(yellow),
 	},
 	{
 		name: 'Yttrium',
@@ -388,7 +438,8 @@ export let elements = [
 		period: 5,
 		group: 3,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Zirconium',
@@ -397,7 +448,8 @@ export let elements = [
 		period: 5,
 		group: 4,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Niobium',
@@ -406,7 +458,8 @@ export let elements = [
 		period: 5,
 		group: 5,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Molybendium',
@@ -415,7 +468,8 @@ export let elements = [
 		period: 5,
 		group: 6,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Technetium',
@@ -424,7 +478,8 @@ export let elements = [
 		period: 5,
 		group: 7,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Ruthenium',
@@ -433,7 +488,8 @@ export let elements = [
 		period: 5,
 		group: 8,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Rhodium',
@@ -442,7 +498,8 @@ export let elements = [
 		period: 5,
 		group: 9,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Palladium',
@@ -451,7 +508,8 @@ export let elements = [
 		period: 5,
 		group: 10,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Silver',
@@ -460,7 +518,8 @@ export let elements = [
 		period: 5,
 		group: 11,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Cadmium',
@@ -469,7 +528,8 @@ export let elements = [
 		period: 5,
 		group: 12,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Indium',
@@ -478,7 +538,8 @@ export let elements = [
 		period: 5,
 		group: 13,
 		location: 'RIGHT',
-		color: lightYellow,
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Tin',
@@ -487,7 +548,8 @@ export let elements = [
 		period: 5,
 		group: 14,
 		location: 'RIGHT',
-		color: lightYellow,
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Antimony',
@@ -496,7 +558,8 @@ export let elements = [
 		period: 5,
 		group: 15,
 		location: 'RIGHT',
-		color: 'lightGreen',
+		background: getColor(lightGreen),
+		color: darken(lightGreen),
 	},
 	{
 		name: 'Tellurium',
@@ -505,7 +568,8 @@ export let elements = [
 		period: 5,
 		group: 16,
 		location: 'RIGHT',
-		color: 'lightGreen',
+		background: getColor(lightGreen),
+		color: darken(lightGreen),
 	},
 	{
 		name: 'Iodine',
@@ -514,7 +578,8 @@ export let elements = [
 		period: 5,
 		group: 17,
 		location: 'RIGHT',
-		color: 'pink',
+		background: getColor(pink),
+		color: darken(pink),
 	},
 	{
 		name: 'Xenon',
@@ -523,7 +588,8 @@ export let elements = [
 		period: 5,
 		group: 18,
 		location: 'RIGHT',
-		color: 'lightBlue',
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	//
 	//
@@ -537,7 +603,8 @@ export let elements = [
 		period: 6,
 		group: 1,
 		location: 'LEFT',
-		color: 'orange',
+		background: getColor(orange),
+		color: darken(orange),
 	},
 	{
 		name: 'Barium',
@@ -546,7 +613,8 @@ export let elements = [
 		period: 6,
 		group: 2,
 		location: 'LEFT',
-		color: 'yellow',
+		background: getColor(yellow),
+		color: darken(yellow),
 	},
 
 	{
@@ -556,7 +624,8 @@ export let elements = [
 		period: 6,
 		group: 4,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Tantalum',
@@ -565,7 +634,8 @@ export let elements = [
 		period: 6,
 		group: 5,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Tungsten',
@@ -574,7 +644,8 @@ export let elements = [
 		period: 6,
 		group: 6,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Rhenium',
@@ -583,7 +654,8 @@ export let elements = [
 		period: 6,
 		group: 7,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Osmium',
@@ -592,7 +664,8 @@ export let elements = [
 		period: 6,
 		group: 8,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Iridium',
@@ -601,7 +674,8 @@ export let elements = [
 		period: 6,
 		group: 9,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Platinum',
@@ -610,7 +684,8 @@ export let elements = [
 		period: 6,
 		group: 10,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Gold',
@@ -619,7 +694,8 @@ export let elements = [
 		period: 6,
 		group: 11,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Mercury',
@@ -628,7 +704,8 @@ export let elements = [
 		period: 6,
 		group: 12,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Thallium',
@@ -637,7 +714,8 @@ export let elements = [
 		period: 6,
 		group: 13,
 		location: 'RIGHT',
-		color: lightYellow,
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Lead',
@@ -646,7 +724,8 @@ export let elements = [
 		period: 6,
 		group: 14,
 		location: 'RIGHT',
-		color: lightYellow,
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Bismuth',
@@ -655,7 +734,8 @@ export let elements = [
 		period: 6,
 		group: 15,
 		location: 'RIGHT',
-		color: lightYellow,
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Polonium',
@@ -664,7 +744,8 @@ export let elements = [
 		period: 6,
 		group: 16,
 		location: 'RIGHT',
-		color: lightYellow,
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Astatine',
@@ -673,7 +754,8 @@ export let elements = [
 		period: 6,
 		group: 17,
 		location: 'RIGHT',
-		color: 'pink',
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Radon',
@@ -682,7 +764,8 @@ export let elements = [
 		period: 6,
 		group: 18,
 		location: 'RIGHT',
-		color: 'lightBlue',
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	//
 	//
@@ -696,7 +779,8 @@ export let elements = [
 		period: 7,
 		group: 1,
 		location: 'LEFT',
-		color: 'orange',
+		background: getColor(orange),
+		color: darken(orange),
 	},
 	{
 		name: 'Radium',
@@ -705,7 +789,8 @@ export let elements = [
 		period: 7,
 		group: 2,
 		location: 'LEFT',
-		color: 'yellow',
+		background: getColor(yellow),
+		color: darken(yellow),
 	},
 
 	{
@@ -715,7 +800,8 @@ export let elements = [
 		period: 7,
 		group: 4,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Dubnium',
@@ -724,7 +810,8 @@ export let elements = [
 		period: 7,
 		group: 5,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Seaborgium',
@@ -733,7 +820,8 @@ export let elements = [
 		period: 7,
 		group: 6,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Bohrium',
@@ -742,7 +830,8 @@ export let elements = [
 		period: 7,
 		group: 7,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Hassium',
@@ -751,7 +840,8 @@ export let elements = [
 		period: 7,
 		group: 8,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Meitnerium',
@@ -760,7 +850,8 @@ export let elements = [
 		period: 7,
 		group: 9,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Darmstadtium',
@@ -769,7 +860,8 @@ export let elements = [
 		period: 7,
 		group: 10,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Roentgenium',
@@ -778,7 +870,8 @@ export let elements = [
 		period: 7,
 		group: 11,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Copernicium',
@@ -787,7 +880,8 @@ export let elements = [
 		period: 7,
 		group: 12,
 		location: 'MIDDLE',
-		color: lightBlue,
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 	{
 		name: 'Nihonium',
@@ -796,7 +890,8 @@ export let elements = [
 		period: 7,
 		group: 13,
 		location: 'RIGHT',
-		color: lightYellow,
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Flerovium',
@@ -805,7 +900,8 @@ export let elements = [
 		period: 7,
 		group: 14,
 		location: 'RIGHT',
-		color: lightYellow,
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Moscovium',
@@ -814,7 +910,8 @@ export let elements = [
 		period: 7,
 		group: 15,
 		location: 'RIGHT',
-		color: lightYellow,
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Livermorium',
@@ -823,7 +920,8 @@ export let elements = [
 		period: 7,
 		group: 16,
 		location: 'RIGHT',
-		color: lightYellow,
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Tennessine',
@@ -832,7 +930,8 @@ export let elements = [
 		period: 7,
 		group: 17,
 		location: 'RIGHT',
-		color: 'pink',
+		background: getColor(lightYellow),
+		color: darken(lightYellow),
 	},
 	{
 		name: 'Oganesson',
@@ -841,7 +940,8 @@ export let elements = [
 		period: 7,
 		group: 18,
 		location: 'RIGHT',
-		color: 'lightBlue',
+		background: getColor(lightBlue),
+		color: darken(lightBlue),
 	},
 
 	//
@@ -857,7 +957,8 @@ export let elements = [
 		period: 8,
 		group: 4,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Cerium',
@@ -866,7 +967,8 @@ export let elements = [
 		period: 8,
 		group: 5,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Praseodymium',
@@ -875,7 +977,8 @@ export let elements = [
 		period: 8,
 		group: 6,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Neodymium',
@@ -884,7 +987,8 @@ export let elements = [
 		period: 8,
 		group: 7,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Promethium',
@@ -893,7 +997,8 @@ export let elements = [
 		period: 8,
 		group: 8,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Samarium',
@@ -902,7 +1007,8 @@ export let elements = [
 		period: 8,
 		group: 9,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Europium',
@@ -911,7 +1017,8 @@ export let elements = [
 		period: 8,
 		group: 10,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Gadolinium',
@@ -920,7 +1027,8 @@ export let elements = [
 		period: 8,
 		group: 11,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Terbium',
@@ -929,7 +1037,8 @@ export let elements = [
 		period: 8,
 		group: 12,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Dysprosium',
@@ -938,7 +1047,8 @@ export let elements = [
 		period: 8,
 		group: 13,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Holmium',
@@ -947,7 +1057,8 @@ export let elements = [
 		period: 8,
 		group: 14,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Erbium',
@@ -956,7 +1067,8 @@ export let elements = [
 		period: 8,
 		group: 15,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Thulium',
@@ -965,7 +1077,8 @@ export let elements = [
 		period: 8,
 		group: 16,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Ytterbium',
@@ -974,7 +1087,8 @@ export let elements = [
 		period: 8,
 		group: 17,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 	{
 		name: 'Lutetium',
@@ -983,7 +1097,8 @@ export let elements = [
 		period: 8,
 		group: 18,
 		location: 'RARE_EARTH',
-		color: lightRed,
+		background: getColor(lightRed),
+		color: darken(lightRed),
 	},
 
 	//
@@ -999,7 +1114,8 @@ export let elements = [
 		period: 9,
 		group: 4,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Thorium',
@@ -1008,7 +1124,8 @@ export let elements = [
 		period: 9,
 		group: 5,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Protactinium',
@@ -1017,7 +1134,8 @@ export let elements = [
 		period: 9,
 		group: 6,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Uranium',
@@ -1026,7 +1144,8 @@ export let elements = [
 		period: 9,
 		group: 7,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Neptunium',
@@ -1035,7 +1154,8 @@ export let elements = [
 		period: 9,
 		group: 8,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Plutonium',
@@ -1044,7 +1164,8 @@ export let elements = [
 		period: 9,
 		group: 9,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Americium',
@@ -1053,7 +1174,8 @@ export let elements = [
 		period: 9,
 		group: 10,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Curium',
@@ -1062,7 +1184,8 @@ export let elements = [
 		period: 9,
 		group: 11,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Berkelium',
@@ -1071,7 +1194,8 @@ export let elements = [
 		period: 9,
 		group: 12,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Californium',
@@ -1080,7 +1204,8 @@ export let elements = [
 		period: 9,
 		group: 13,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Einsteinium',
@@ -1089,7 +1214,8 @@ export let elements = [
 		period: 9,
 		group: 14,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Fermium',
@@ -1098,7 +1224,8 @@ export let elements = [
 		period: 9,
 		group: 15,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Mendelevium',
@@ -1107,7 +1234,8 @@ export let elements = [
 		period: 9,
 		group: 16,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Nobelium',
@@ -1116,7 +1244,8 @@ export let elements = [
 		period: 9,
 		group: 17,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 	{
 		name: 'Lawrencium',
@@ -1125,6 +1254,7 @@ export let elements = [
 		period: 9,
 		group: 18,
 		location: 'RARE_EARTH',
-		color: lightBrown,
+		background: getColor(lightBrown),
+		color: darken(lightBrown),
 	},
 ]

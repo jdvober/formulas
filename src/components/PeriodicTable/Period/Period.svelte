@@ -6,15 +6,7 @@
 	let {
 		period,
 	}: {
-		period: {
-			name: string;
-			symbol: string;
-			atomicNumber: number;
-			period: number;
-			group: number;
-			location: string;
-			color: string;
-		}[];
+		period: ElementType[];
 	} = $props();
 
 	let groupNumbers = [
@@ -36,6 +28,7 @@
 				group: 0,
 				location: '',
 				color: 'rgb(0,0,0,0)',
+				background: 'rgb(0,0,0,0)',
 			};
 		}
 

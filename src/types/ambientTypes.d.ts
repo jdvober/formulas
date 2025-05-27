@@ -52,3 +52,14 @@ type Toggle = {
 	toggle: () => boolean
 	setToggleState: (newToggleState: boolean) => boolean
 }
+
+type ElementType = {
+	name: string
+	symbol: string
+	atomicNumber: number
+	period: number
+	group: number
+	location: string
+	background: string
+	color: string
+}

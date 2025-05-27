@@ -2,7 +2,7 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	let { element } = $props();
+	let { element }: { element: ElementType } = $props();
 
 	import { gsap } from 'gsap';
 	let buttonRef;
@@ -35,10 +35,7 @@
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<div
-	class="element-container"
-	style:background-color={element.color}
->
+<div class="element-container">
 	<button
 		onmouseenter={element.atomicNumber === 0 ? doNothing : handleMouseEnter}
 		onmouseleave={handleMouseLeave}
@@ -46,8 +43,8 @@
 		class={`glow-button`}
 		style:width="9vmin"
 		style:height="9vmin"
-		style:background={element.color}
-		style:color="#282A36"
+		style:color={element.color}
+		style:background={element.background}
 		style:cursor={element.atomicNumber === 0 ? 'default' : 'help'}
 		onclick={() => {
 			console.log('Clicked');
@@ -90,8 +87,11 @@
 
 	.atomic-number {
 		grid-area: atomic-number;
-		justify-self: center;
+		justify-self: start;
 		align-self: center;
+		font-size: 0.75em;
+		margin: 0.2vmin;
+		margin-left: 0.4vmin;
 	}
 	.symbol {
 		grid-area: symbol;
@@ -108,12 +108,7 @@
 	}
 
 	.glow-button {
-		position: relative;
 		border: none;
-		border-radius: 0.5em;
-		background: #6272a4;
-		color: #f8f8f2;
-		cursor: pointer;
 		overflow: hidden;
 		transition: transform 0.2s ease;
 	}

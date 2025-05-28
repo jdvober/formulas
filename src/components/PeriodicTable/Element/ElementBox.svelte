@@ -30,7 +30,40 @@
 
 	const handleClick = () => {
 		// Update the Info Box
-		infoBox.set(element);
+		infoBox.set({
+			...element,
+			name: element.name ?? '',
+			appearance: element.appearance ?? '',
+			atomicMass: element.atomicMass ?? 0,
+			boil: element.boil ?? 0,
+			category: element.category ?? '',
+			density: element.density ?? 0,
+			discoveredBy: element.discoveredBy ?? '',
+			melt: element.melt ?? 0,
+			molarHeat: element.molarHeat ?? 0,
+			namedBy: element.namedBy ?? '',
+			number: element.number ?? 0,
+			period: element.period ?? 0,
+			phase: element.phase ?? '',
+			source: element.source ?? '',
+			spectralImg: element.spectralImg ?? '',
+			summary: element.summary ?? '',
+			symbol: element.symbol ?? '',
+			xpos: element.xpos ?? 0,
+			ypos: element.ypos ?? 0,
+			//@ts-ignore
+			shells: element.shells ?? [0],
+			electronConfiguration: element.electronConfiguration ?? '',
+			electronConfigurationSemantic:
+				element.electronConfigurationSemantic ?? '',
+			electronAffinity: element.electronAffinity ?? 0,
+			electronegativityPauling: element.electronegativityPauling ?? 0,
+			ionizationEnergies: (element.ionizationEnergies as number[]) ?? [0],
+			hex: element.hex ?? '',
+			block: element.block ?? '',
+			color: element.color ?? '',
+			background: element.background ?? '',
+		});
 	};
 
 	const doNothing = () => {
@@ -47,8 +80,10 @@
 		onmouseleave={handleMouseLeave}
 		bind:this={buttonRef}
 		class={`glow-button`}
-		style:width="9vmin"
-		style:height="9vmin"
+		style:width="8vmin"
+		style:height="8vmin"
+		style:left={`${((element.xpos ?? 0) * (window.innerWidth / 25)) + (window.innerWidth / 6)}px`}
+		style:top={`${((element.ypos ?? 0) * (window.innerHeight / 11)) - (window.innerHeight / 1.75)}px`}
 		style:color={element.color}
 		style:background={element.background}
 		style:cursor={element.number === 0 ? 'default' : 'help'}
@@ -74,8 +109,8 @@
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
 	.element-container {
+		position: absolute;
 		display: grid;
-
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: auto;
 		grid-template-areas:

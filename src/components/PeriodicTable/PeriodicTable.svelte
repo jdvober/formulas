@@ -12,13 +12,7 @@
 <!----------------------------------------------------------------->
 <div class="PeriodicTable">
 	{#each elementInfo as elem}
-		<div
-			style:position="absolute"
-			style:top={elem.ypos}
-			style:left={elem.xpos}
-		>
-			<ElementBox element={elem} />
-		</div>
+		<ElementBox element={elem} />
 	{/each}
 </div>
 

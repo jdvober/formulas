@@ -54,44 +54,44 @@ type Toggle = {
 }
 
 type ElementType = {
-	name: string
-	appearance: string
-	atomic_mass: number
-	boil: number
-	category: string
-	density: number
-	discovered_by: string
-	melt: number
-	molar_heat: number
-	named_by: string
-	number: number
-	period: number
-	group: number
-	phase: string
-	source: string
-	bohr_model_image: string
-	bohr_model_3d: string
-	spectral_img: string
-	summary: string
-	symbol: string
-	xpos: number
-	ypos: number
-	wxpos: number
-	wypos: number
-	shells: number[]
-	electron_configuration: string
-	electron_configuration_semantic: string
-	electron_affinity: number
-	electronegativity_pauling: number
-	ionization_energies: number[]
-	hex: string
+	name: string | null
+	appearance: string | null
+	atomicMass: number | null
+	boil: number | null
+	category: string | null
+	density: number | null
+	discoveredBy: string | null
+	melt: number | null
+	molarHeat: number | null
+	namedBy: string | null
+	number: number | null
+	period: number | null
+	group: number | null
+	phase: string | null
+	source: string | null
+	bohrModelImage: string | null
+	bohrModel3d: string | null
+	spectralImg: string | null
+	summary: string | null
+	symbol: string | null
+	xpos: number | null
+	ypos: number | null
+	wxpos: number | null
+	wypos: number | null
+	shells: (number | null)[]
+	electronConfiguration: string | null
+	electronConfigurationSemantic: string | null
+	electronAffinity: number | null
+	electronegativityPauling: number | null
+	ionizationEnergies: (number | null)[]
+	hex: string | null
 	image: {
-		title: string
-		url: string
-		attribution: string
+		title: string | null
+		url: string | null
+		attribution: string | null
 	}
-	block: string
-	location: string
-	background: string
-	color: string
+	block: string | null
+	location: string | null
+	background: string | null
+	color: string | null
 }

@@ -2,24 +2,15 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import { elementInfo } from './ElementInfo.svelte';
-	import ElementBox from './Element/ElementBox.svelte';
+	import { infoBox } from '../../../state/periodicTableState.svelte';
 </script>
 
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
-
 <!----------------------------------------------------------------->
-<div class="PeriodicTable">
-	{#each elementInfo as elem}
-		<div
-			style:position="absolute"
-			style:top={elem.ypos}
-			style:left={elem.xpos}
-		>
-			<ElementBox element={elem} />
-		</div>
-	{/each}
+<div class="InfoBox">
+	<!-- svelte-ignore a11y_consider_explicit_label -->
+	{infoBox.info.name}
 </div>
 
 <!----------------------------------------------------------------->
@@ -27,7 +18,13 @@
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
-	.PeriodicTable {
-		width: 87vw;
+	.InfoBox {
+		position: absolute;
+		top: 21vh;
+		left: 17vw;
+		border: 1px solid red;
+		border-radius: 1.5vmin;
+		width: 47vw;
+		height: 17vh;
 	}
 </style>

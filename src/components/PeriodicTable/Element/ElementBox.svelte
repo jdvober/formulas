@@ -5,6 +5,7 @@
 	let { element }: { element: ElementType } = $props();
 
 	import { gsap } from 'gsap';
+	import { infoBox } from '../../../state/periodicTableState.svelte';
 	let buttonRef;
 	/**
 	 * @type {gsap.TweenTarget}
@@ -27,6 +28,11 @@
 		});
 	};
 
+	const handleClick = () => {
+		// Update the Info Box
+		infoBox.set(element);
+	};
+
 	const doNothing = () => {
 		return;
 	};
@@ -37,7 +43,7 @@
 <!----------------------------------------------------------------->
 <div class="element-container">
 	<button
-		onmouseenter={element.atomicNumber === 0 ? doNothing : handleMouseEnter}
+		onmouseenter={element.number === 0 ? doNothing : handleMouseEnter}
 		onmouseleave={handleMouseLeave}
 		bind:this={buttonRef}
 		class={`glow-button`}
@@ -45,13 +51,13 @@
 		style:height="9vmin"
 		style:color={element.color}
 		style:background={element.background}
-		style:cursor={element.atomicNumber === 0 ? 'default' : 'help'}
+		style:cursor={element.number === 0 ? 'default' : 'help'}
 		onclick={() => {
-			console.log('Clicked');
+			handleClick();
 		}}
 	>
 		<div class="atomic-number">
-			{element.atomicNumber === 0 ? null : element.atomicNumber}
+			{element.number === 0 ? null : element.number}
 		</div>
 		<div class="symbol">{element.symbol}</div>
 		<div class="name">{element.name}</div>

@@ -1,4 +1,4 @@
-# sv
+## sv
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
@@ -136,3 +136,8 @@ export let value = {
 }
 
 ```
+
+## Attributions
+
+Periodic Table Info from:
+<https://github.com/Bowserinator/Periodic-Table-JSON>

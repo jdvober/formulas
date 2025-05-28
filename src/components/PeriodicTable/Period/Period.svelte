@@ -2,7 +2,8 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import Element from '../Element/Element.svelte';
+	import Element from '../Element/ElementBox.svelte';
+	import { blankElementInfo } from "../ElementInfo.svelte";
 	let {
 		period,
 	}: {
@@ -20,16 +21,7 @@
 
 		if (elements.length < 1) {
 			// No elements found that match the period / group.  Return a blank space instead.
-			return {
-				name: '',
-				symbol: '',
-				atomicNumber: 0,
-				period: 0,
-				group: 0,
-				location: '',
-				color: 'rgb(0,0,0,0)',
-				background: 'rgb(0,0,0,0)',
-			};
+			return blankElementInfo;
 		}
 
 		// return the first found element (there really should only be one.)

@@ -688,9 +688,9 @@ export let elementInfo = [
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Phosphorus',
 		bohrModelImage:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_015Phosphorus/element_015Phosphorus_srp_th.png',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_015_phosphorus/element_015_phosphorus_srp_th.png',
 		bohrModel3d:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_015Phosphorus/element_015Phosphorus.glb',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_015_phosphorus/element_015_phosphorus.glb',
 		spectralImg: null,
 		summary:
 			'Phosphorus is a chemical element with symbol P and atomic number 15. As an element, phosphorus exists in two major forms—white phosphorus and red phosphorus—but due to its high reactivity, phosphorus is never found as a free element on Earth. Instead phosphorus-containing minerals are almost always present in their maximally oxidised state, as inorganic phosphate rocks.',
@@ -885,9 +885,9 @@ export let elementInfo = [
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Potassium',
 		bohrModelImage:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_019Potassium/element_019Potassium_srp_th.png',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_019_potassium/element_019_potassium_srp_th.png',
 		bohrModel3d:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_019Potassium/element_019Potassium.glb',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_019_potassium/element_019_potassium.glb',
 		spectralImg:
 			'https://en.wikipedia.org/wiki/File:Potassium_Spectrum.jpg',
 		summary:
@@ -935,7 +935,7 @@ export let elementInfo = [
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Calcium',
 		bohrModelImage:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_020_calcium/element_020_calcium_srp_th.png',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_019_potassium/element_019_potassium_srp_th.png',
 		bohrModel3d:
 			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_020_calcium/element_020_calcium.glb',
 		spectralImg: 'https://en.wikipedia.org/wiki/File:Calcium_Spectrum.png',
@@ -2155,7 +2155,7 @@ export let elementInfo = [
 		bohrModelImage:
 			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_044_ruthenium/element_044_ruthenium_srp_th.png',
 		bohrModel3d:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_044_ruthenium/element_044_ruthenium.glb',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_078_platinum/element_078_platinum.glb',
 		spectralImg: null,
 		summary:
 			'Ruthenium is a chemical element with symbol Ru and atomic number 44. It is a rare transition metal belonging to the platinum group of the periodic table. Like the other metals of the platinum group, ruthenium is inert to most other chemicals.',
@@ -2245,9 +2245,9 @@ export let elementInfo = [
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Palladium',
 		bohrModelImage:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_046Palladium/element_046Palladium_srp_th.png',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_046_palladium/element_046_palladium_srp_th.png',
 		bohrModel3d:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_046Palladium/element_046Palladium.glb',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_046_palladium/element_046_palladium.glb',
 		spectralImg: null,
 		summary:
 			'Palladium is a chemical element with symbol Pd and atomic number 46. It is a rare and lustrous silvery-white metal discovered in 1803 by William Hyde Wollaston. He named it after the asteroid Pallas, which was itself named after the epithet of the Greek goddess Athena, acquired by her when she slew Pallas.',
@@ -3037,7 +3037,7 @@ export let elementInfo = [
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Platinum',
 		bohrModelImage:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_078Platinum/element_078Platinum_srp_th.png',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_078_platinum/element_078_platinum_srp_th.png',
 		bohrModel3d:
 			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_078Platinum/element_078Platinum.glb',
 		spectralImg: null,
@@ -3319,9 +3319,9 @@ export let elementInfo = [
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Polonium',
 		bohrModelImage:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_084Polonium/element_084Polonium_srp_th.png',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_084_polonium/element_084_polonium_srp_th.png',
 		bohrModel3d:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_084Polonium/element_084Polonium.glb',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_084_polonium/element_084_polonium.glb',
 		spectralImg: null,
 		summary:
 			'Polonium is a chemical element with symbol Po and atomic number 84, discovered in 1898 by Marie Curie and Pierre Curie. A rare and highly radioactive element with no stable isotopes, polonium is chemically similar to bismuth and tellurium, and it occurs in uranium ores. Applications of polonium are few.',
@@ -4354,9 +4354,9 @@ export let elementInfo = [
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Praseodymium',
 		bohrModelImage:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_059Praseodymium/element_059Praseodymium_srp_th.png',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_059_praseodymium/element_059_praseodymium_srp_th.png',
 		bohrModel3d:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_059Praseodymium/element_059Praseodymium.glb',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_059_praseodymium/element_059_praseodymium.glb',
 		spectralImg: null,
 		summary:
 			'Praseodymium is a chemical element with symbol Pr and atomic number 59. Praseodymium is a soft, silvery, malleable and ductile metal in the lanthanide group. It is valued for its magnetic, electrical, chemical, and optical properties.',
@@ -4448,9 +4448,9 @@ export let elementInfo = [
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Promethium',
 		bohrModelImage:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_061Promethium/element_061Promethium_srp_th.png',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_061_promethium/element_061_promethium_srp_th.png',
 		bohrModel3d:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_061Promethium/element_061Promethium.glb',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_061_promethium/element_061_promethium.glb',
 		spectralImg: null,
 		summary:
 			'Promethium, originally prometheum, is a chemical element with the symbol Pm and atomic number 61. All of its isotopes are radioactive; it is one of only two such elements that are followed in the periodic table by elements with stable forms, a distinction shared with technetium. Chemically, promethium is a lanthanide, which forms salts when combined with other elements.',
@@ -5059,9 +5059,9 @@ export let elementInfo = [
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Protactinium',
 		bohrModelImage:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_091Protactinium/element_091Protactinium_srp_th.png',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_091_protactinium/element_091_protactinium_srp_th.png',
 		bohrModel3d:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_091Protactinium/element_091Protactinium.glb',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_091_protactinium/element_091_protactinium.glb',
 		spectralImg: null,
 		summary:
 			'Protactinium is a chemical element with symbol Pa and atomic number 91. It is a dense, silvery-gray metal which readily reacts with oxygen, water vapor and inorganic acids. It forms various chemical compounds where protactinium is usually present in the oxidation state +5, but can also assume +4 and even +2 or +3 states.',
@@ -5199,9 +5199,9 @@ export let elementInfo = [
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Plutonium',
 		bohrModelImage:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_094Plutonium/element_094Plutonium_srp_th.png',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_094_plutonium/element_094_plutonium_srp_th.png',
 		bohrModel3d:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_094Plutonium/element_094Plutonium.glb',
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_094_plutonium/element_094_plutonium.glb',
 		spectralImg: null,
 		summary:
 			'Plutonium is a transuranic radioactive chemical element with symbol Pu and atomic number 94. It is an actinide metal of silvery-gray appearance that tarnishes when exposed to air, and forms a dull coating when oxidized. The element normally exhibits six allotropes and four oxidation states.',

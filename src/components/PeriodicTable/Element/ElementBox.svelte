@@ -6,11 +6,20 @@
 
 	import { gsap } from 'gsap';
 	import { infoBox } from '../../../state/periodicTableState.svelte';
+	import { onMount } from 'svelte';
 	let buttonRef;
 	/**
 	 * @type {gsap.TweenTarget}
 	 */
 	let glowRef: any;
+
+	// Need to wait for window to load before using these
+	let width = $state(0);
+	let height = $state(0);
+	onMount(() => {
+		width = window.innerWidth;
+		height = window.innerHeight;
+	});
 
 	const handleMouseEnter = () => {
 		gsap.to(glowRef, {
@@ -82,8 +91,8 @@
 		class={`glow-button`}
 		style:width="8vmin"
 		style:height="8vmin"
-		style:left={`${((element.xpos ?? 0) * (window.innerWidth / 25)) + (window.innerWidth / 6)}px`}
-		style:top={`${((element.ypos ?? 0) * (window.innerHeight / 11)) - (window.innerHeight / 1.75)}px`}
+		style:left={`${(element.xpos ?? 0) * (width / 25) + width / 6}px`}
+		style:top={`${(element.ypos ?? 0) * (height / 11) - height / 1.75}px`}
 		style:color={element.color}
 		style:background={element.background}
 		style:cursor={element.number === 0 ? 'default' : 'help'}

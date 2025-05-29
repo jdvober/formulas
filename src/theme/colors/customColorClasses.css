@@ -1,0 +1,159 @@
+/*Text*/
+.text-massillon-orange {
+	color: #e6a000;
+}
+.text-drac-red {
+	color: #ff5555;
+}
+.text-drac-pink {
+	color: #ff79c6;
+}
+.text-drac-orange {
+	color: #ffb86c;
+}
+.text-drac-yellow {
+	color: #f1fa8c;
+}
+.text-drac-gold {
+	color: #d7af00;
+}
+.text-drac-yellowgreen {
+	color: #cafc03;
+}
+.text-drac-green {
+	color: #50fa7b;
+}
+.text-drac-blue {
+	color: #527cfa;
+}
+.text-drac-cyan {
+	color: #8be9fd;
+}
+.text-drac-purple {
+	color: #bd93f9;
+}
+.text-drac-tan {
+	color: #b7a48a;
+}
+.text-drac-white {
+	color: #f8f8f2;
+}
+.text-drac-black {
+	color: #1a1a21;
+}
+.text-drac-gray {
+	color: #44475a;
+}
+.text-drac-bg {
+	color: #282a36;
+}
+.text-drac-background {
+	color: #282a36;
+}
+.text-drac-currentLine {
+	color: #44475a;
+}
+.text-drac-cl {
+	color: #44475a;
+}
+.text-drac-fg {
+	color: #f8f8f2;
+}
+.text-drac-foreground {
+	color: #f8f8f2;
+}
+.text-drac-comment {
+	color: #6272a4;
+}
+.text-drac-bg2 {
+	color: #0c0020;
+}
+.text-drac-background2 {
+	color: #0c0020;
+}
+.text-drac-cl2 {
+	color: #392b55;
+}
+.text-drac-currentLine2 {
+	color: #392b55;
+}
+
+/*Backgrounds*/
+.bg-massillon-orange {
+	background-color: #e6a000;
+}
+.bg-drac-red {
+	background-color: #ff5555;
+}
+.bg-drac-pink {
+	background-color: #ff79c6;
+}
+.bg-drac-orange {
+	background-color: #ffb86c;
+}
+.bg-drac-yellow {
+	background-color: #f1fa8c;
+}
+.bg-drac-gold {
+	background-color: #d7af00;
+}
+.bg-drac-yellowgreen {
+	background-color: #cafc03;
+}
+.bg-drac-green {
+	background-color: #50fa7b;
+}
+.bg-drac-blue {
+	background-color: #527cfa;
+}
+.bg-drac-cyan {
+	background-color: #8be9fd;
+}
+.bg-drac-purple {
+	background-color: #bd93f9;
+}
+.bg-drac-tan {
+	background-color: #b7a48a;
+}
+.bg-drac-white {
+	background-color: #f8f8f2;
+}
+.bg-drac-black {
+	background-color: #1a1a21;
+}
+.bg-drac-gray {
+	background-color: #44475a;
+}
+.bg-drac-bg {
+	background-color: #282a36;
+}
+.bg-drac-background {
+	background-color: #282a36;
+}
+.bg-drac-currentLine {
+	background-color: #44475a;
+}
+.bg-drac-cl {
+	background-color: #44475a;
+}
+.bg-drac-fg {
+	background-color: #f8f8f2;
+}
+.bg-drac-foreground {
+	background-color: #f8f8f2;
+}
+.bg-drac-comment {
+	background-color: #6272a4;
+}
+.bg-drac-bg2 {
+	background-color: #0c0020;
+}
+.bg-drac-background2 {
+	background-color: #0c0020;
+}
+.bg-drac-cl2 {
+	background-color: #392b55;
+}
+.bg-drac-currentLine2 {
+	background-color: #392b55;
+}

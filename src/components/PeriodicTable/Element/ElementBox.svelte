@@ -5,8 +5,8 @@
 	let { element }: { element: ElementType } = $props();
 
 	import { gsap } from 'gsap';
-	import { infoBox } from '../../../state/periodicTableState.svelte';
 	import { onMount } from 'svelte';
+	import { infoBox } from '../../../state/periodicTableState.svelte';
 	let buttonRef;
 	/**
 	 * @type {gsap.TweenTarget}
@@ -39,7 +39,7 @@
 
 	const handleClick = () => {
 		// Update the Info Box
-		infoBox.set({
+		infoBox.info = {
 			...element,
 			name: element.name ?? '',
 			appearance: element.appearance ?? '',
@@ -72,11 +72,19 @@
 			block: element.block ?? '',
 			color: element.color ?? '',
 			background: element.background ?? '',
-		});
+		};
 	};
 
 	const doNothing = () => {
 		return;
+	};
+
+	const getPTXPos = (gridPositionX: number | null) => {
+		return `${(gridPositionX ?? 0) * (width / 25) + width / 4.55}px`;
+	};
+
+	const getPTYPos = (gridPositionY: number | null) => {
+		return `${(gridPositionY ?? 0) * (height / 11) - height / 2.0125}px`;
 	};
 </script>
 
@@ -91,8 +99,8 @@
 		class={`glow-button`}
 		style:width="8vmin"
 		style:height="8vmin"
-		style:left={`${(element.xpos ?? 0) * (width / 25) + width / 6}px`}
-		style:top={`${(element.ypos ?? 0) * (height / 11) - height / 1.75}px`}
+		style:left={getPTXPos(element.xpos)}
+		style:top={getPTYPos(element.ypos)}
 		style:color={element.color}
 		style:background={element.background}
 		style:cursor={element.number === 0 ? 'default' : 'help'}

@@ -24,7 +24,7 @@
 		"@types/uuid": "^10.0.0",
 		"autoprefixer": "^10.4.21",
 		"clsx": "^2.1.1",
-		"daisyui": "^5.0.28",
+		"flowbite-svelte-icons": "^2.2.0",
 		"mdsvex": "^0.12.3",
 		"postcss": "^8.5.3",
 		"sass-embedded": "^1.86.3",

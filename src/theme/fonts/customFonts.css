@@ -1,0 +1,73 @@
+@font-face {
+	font-family: 'National Park';
+	src: url('./National_Park/static/NationalPark-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Fira Code';
+	src: url('./National_Park/static/FiraCode-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible Next';
+	src: url('./AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Regular.otf');
+}
+
+.text-font {
+	font-family: 'National Park';
+	font-style: normal;
+	font-weight: normal;
+}
+
+.definition-font {
+	font-family: 'National Park';
+	font-style: normal;
+	font-weight: bold;
+}
+
+.math-font {
+	font-family: 'Atkinson Hyperlegible Next';
+	font-style: normal;
+	font-weight: normal;
+}
+
+.unit-font {
+	font-family: 'Atkinson Hyperlegible Next';
+	font-style: italic;
+	font-weight: normal;
+}
+
+div {
+	font-family: 'National Park';
+}
+
+math {
+	font-size: 5vmin;
+	display: block;
+	user-select: none;
+}
+
+mo {
+	font-family: 'Atkinson Hyperlegible Next';
+	color: white;
+}
+
+h1 {
+	color: white;
+}
+
+mfrac {
+	color: white;
+}
+
+mi {
+	font-family: 'Atkinson Hyperlegible Next';
+}
+
+ms {
+	font-family: 'National Park';
+}
+
+mn {
+	font-family: 'Atkinson Hyperlegible Next';
+}

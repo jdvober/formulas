@@ -1,73 +1,25 @@
-@font-face {
-	font-family: 'National Park';
-	src: url('../src/theme/fonts/National_Park/static/NationalPark-Regular.ttf');
-	font-style: normal;
-}
+@import 'tailwindcss';
 
-@font-face {
-	font-family: 'National Park';
-	src: url('../src/theme/fonts/National_Park/static/NationalPark-Regular.ttf');
-	font-style: italic, oblique;
-}
+/*Make custom color classes for text-drac-pink etc.*/
+@import '../src/theme/colors/customColorClasses.css';
+/*Adjust custom font stuff in this file*/
+@import '../src/theme/fonts/customFonts.css';
+/*For using Flowbite-svelte*/
+@import '../src/theme/flowbite-svelte.css';
+@source "../node_modules/flowbite-svelte/dist";
+@source "../node_modules/flowbite-svelte-icons/dist";
 
-@font-face {
-	font-family: 'Fira Code';
-	src: url('../src/theme/fonts/National_Park/static/FiraCode-Regular.ttf');
-	font-style: normal;
-}
+/*
 
-@font-face {
-	font-family: 'Fira Code';
-	src: url('../src/theme/fonts/National_Park/static/FiraCode-Regular.ttf');
-	font-style: italic, oblique;
-}
+Misc
 
-@font-face {
-	font-family: 'Atkinson Hyperlegible Next';
-	src: url('../src/theme/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-Regular.otf');
-	font-style: normal;
-}
+*/
 
-@font-face {
-	font-family: 'Atkinson Hyperlegible Next';
-	src: url('../src/theme/fonts/AtkinsonHyperlegibleNext/AtkinsonHyperlegibleNext-RegularItalic.otf');
-	font-style: italic, oblique;
-}
-
-@import 'tailwindcss/preflight';
-@tailwind utilities;
-@plugin 'flowbite/plugin';
-@plugin 'daisyui' {
-	themes: light --default, dark --prefersdark, dracula;
-}
-
-:root {
-	--massillonOrange: #ge6a00;
-	--dracRed: #ff5555;
-	--dracPink: #ff79c6;
-	--dracOrange: #ffb86c;
-	--dracYellow: #f1fa8c;
-	--dracGold: #d7af00;
-	--dracYellowgreen: #cafc03;
-	--dracGreen: #50fa7b;
-	--dracBlue: #527cfa;
-	--dracCyan: #8be9fd;
-	--dracPurple: #bd93f9;
-	--dracTan: #b7a48a;
-	--dracWhite: #f8f8f2;
-	--dracBlack: #1a1a21;
-	--dracGray: #44475a;
-	--dracBg: #282a36;
-	--dracBackground: #282a36;
-	--dracCurrentLine: #44475a;
-	--dracCl: #44475a;
-	--dracFg: #f8f8f2;
-	--dracForeground: #f8f8f2;
-	--dracComment: #6272a4;
-	--dracBg2: #0c0020;
-	--dracBackground2: #0c0020;
-	--dracCl2: #392b55;
-	--dracCurrentLine2: #392b55;
+@layer base {
+	/* disable chrome cancel button */
+	input[type='search']::-webkit-search-cancel-button {
+		display: none;
+	}
 }
 
 body {
@@ -83,67 +35,4 @@ body {
 	background-repeat: no-repeat; /* Prevent repeating */
 	min-height: 100vh; /* Ensure gradient covers full viewport height */
 	user-select: none;
-}
-
-div {
-	font-family: 'National Park';
-}
-
-math {
-	font-size: 5vmin;
-	display: block;
-	user-select: none;
-}
-
-mo {
-	font-family: 'Atkinson Hyperlegible Next';
-	color: white;
-}
-
-button {
-	color: lightslategray;
-}
-
-h1 {
-	color: white;
-}
-
-mfrac {
-	color: white;
-}
-
-mi {
-	font-family: 'Atkinson Hyperlegible Next';
-}
-
-ms {
-	font-family: 'National Park';
-}
-
-mn {
-	font-family: 'Atkinson Hyperlegible Next';
-}
-
-.text-font {
-	font-family: 'National Park';
-	font-style: normal;
-	font-weight: normal;
-}
-
-.definition-font {
-	font-family: 'National Park';
-	font-style: normal;
-	font-weight: bold;
-}
-
-.math-font {
-	font-family: 'Atkinson Hyperlegible Next';
-	font-style: normal;
-	font-weight: normal;
-}
-
-.unit-font {
-	font-family: 'Atkinson Hyperlegible Next';
-	font-style: italic;
-	font-weight: normal;
 }

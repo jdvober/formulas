@@ -6,7 +6,7 @@
 	import { infoBox } from '../../../state/periodicTableState.svelte';
 	import { slide } from 'svelte/transition';
 
-	let defaultModal = $state(false);
+	let advancedInfoModal = $state(false);
 </script>
 
 <!----------------------------------------------------------------->
@@ -36,19 +36,32 @@
 			src={infoBox.info.bohrModelImage}
 			alt={`Bohr model of ${infoBox.info.name}`}
 		/>
-		<div><em><b>Atomic Number:</b></em> {infoBox.info.number}</div>
-		<div><em><b>Mass:</b></em> {infoBox.info.atomicMass} a.m.u.</div>
-		<div>
-			<em><b>Category:</b></em>
-			{infoBox.info.category
-				.slice(0, 1)
-				.toUpperCase()}{infoBox.info.category.slice(1)}
+		<div class="entry">
+			<em><b>Atomic Number:</b></em>
+			{infoBox.info.number}
 		</div>
-		<span class="description"
-			><em><u><b>Description:</b></u></em> {infoBox.info.summary}</span
-		><Button
-			onclick={() => (defaultModal = true)}
-			class="btn rounded-box mt-auto">Default modal</Button
+		<div class="entry">
+			<em><b>Mass:</b></em>
+			{infoBox.info.atomicMass} a.m.u.
+		</div>
+		<div class="entry">
+			<em><b>Category:</b></em>
+			{#if infoBox.info.category.split(' ').length > 1}
+				<!--Handle Multiple Words-->
+				{infoBox.info.category.split(' ')[0].slice(0, 1).toUpperCase() +
+					infoBox.info.category.split(' ')[0].slice(1)}
+				{infoBox.info.category.split(' ')[1].slice(0, 1).toUpperCase() +
+					infoBox.info.category.split(' ')[1].slice(1)}
+			{:else}
+				{infoBox.info.category
+					.slice(0, 1)
+					.toUpperCase()}{infoBox.info.category.slice(1)}
+			{/if}
+		</div>
+		<Button
+			onclick={() => (advancedInfoModal = true)}
+			class="btn rounded-box mt-auto "
+			color="dark">View Detailed Info</Button
 		>
 	{/if}
 </div>
@@ -70,27 +83,44 @@
 
 <!--Advanced Information Modal-->
 <Modal
-	title="Terms of Service"
-	bind:open={defaultModal}
+	title={infoBox.info.name}
+	bind:open={advancedInfoModal}
 	autoclose
+	size="xl"
+	placement="center"
 >
-	<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-		With less than a month to go before the European Union enacts new
-		consumer privacy laws for its citizens, companies around the world are
-		updating their terms of service agreements to comply.
-	</p>
-	<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-		The European Union’s General Data Protection Regulation (G.D.P.R.) goes
-		into effect on May 25 and is meant to ensure a common set of data rights
-		in the European Union. It requires organizations to notify users as soon
-		as possible of high-risk data breaches that could personally affect
-		them.
-	</p>
+	<div class="row-entry">
+		<span class="detailed-entry number-font"
+			><em><u><b>Appearance:</b></u></em>
+			{infoBox.info.appearance}
+			{infoBox.info.phase.toLowerCase()} at room temperature.</span
+		>
 
-	{#snippet footer()}
-		<Button onclick={() => alert('Handle "success"')}>I accept</Button>
-		<Button color="alternative">Decline</Button>
-	{/snippet}
+		<span class="detailed-entry number-font"
+			><em><u><b>Melting Point:</b></u></em> {infoBox.info.melt} °C</span
+		>
+
+		<span class="detailed-entry number-font"
+			><em><u><b>Boiling Point:</b></u></em> {infoBox.info.boil} °C</span
+		>
+
+		<span class="detailed-entry number-font"
+			><em><u><b>Density:</b></u></em> {infoBox.info.density} g/cm³</span
+		>
+	</div>
+
+	<span class="detailed-entry-long"
+		><em><u><b>Description:</b></u></em> {infoBox.info.summary}</span
+	>
+
+	<span class="detailed-entry"
+		><u
+			><a
+				href={infoBox.info.source}
+				target="_blank">More Information at Wikipedia</a
+			></u
+		></span
+	>
 </Modal>
 
 <!----------------------------------------------------------------->
@@ -103,7 +133,7 @@
 		top: 7vh;
 		left: 1vw;
 		border-radius: 1.5vmin;
-		width: 23vw;
+		width: 17vw;
 		height: 90vh;
 		display: flex;
 		flex-direction: column;
@@ -127,14 +157,20 @@
 		align-items: center;
 		justify-content: center;
 	}
-	.description {
+	.detailed-entry {
+		display: flex;
+		flex-direction: row;
+		column-gap: 10px;
+	}
+
+	.detailed-entry-long {
 		display: flex;
 		flex-direction: column;
 	}
 
 	.preview-img {
 		margin: 0.5em;
-		width: 30%;
+		width: 50%;
 		justify-self: center;
 		align-self: center;
 		border-radius: 1.5em;
@@ -152,7 +188,18 @@
 		filter: invert(1);
 	}
 
-	.mod {
-		border: 1px solid red;
+	.entry {
+		display: flex;
+		column-gap: 5px;
+	}
+
+	.number-font {
+		font-family: 'Atkinson Hyperlegible Next';
+	}
+
+	.row-entry {
+		display: flex;
+		flex-direction: row;
+		column-gap: 10px;
 	}
 </style>

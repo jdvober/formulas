@@ -2,9 +2,11 @@
 <!----------------- Javascript ------------------------------------>
 <!----------------------------------------------------------------->
 <script lang="ts">
-	import { Popover } from 'flowbite-svelte';
+	import { Popover, Modal, Button } from 'flowbite-svelte';
 	import { infoBox } from '../../../state/periodicTableState.svelte';
 	import { slide } from 'svelte/transition';
+
+	let defaultModal = $state(false);
 </script>
 
 <!----------------------------------------------------------------->
@@ -16,29 +18,42 @@
 	style:color={infoBox.info.color}
 	style:border={`3px solid ${infoBox.info.color}`}
 >
-	<!-- svelte-ignore a11y_consider_explicit_label -->
-	<div class="name">{infoBox.info.name}</div>
-	<div
-		class="symbol"
-		style:border={`2px solid ${infoBox.info.color}`}
-		style:color={infoBox.info.color}
-	>
-		{infoBox.info.symbol}
-	</div>
+	<!--// Don't display if the default is selected (atomic number 0)-->
+	{#if infoBox.info.number > 0}
+		<!-- svelte-ignore a11y_consider_explicit_label -->
+		<div class="name">{infoBox.info.name}</div>
+		<div
+			class="symbol"
+			style:border={`2px solid ${infoBox.info.color}`}
+			style:color={infoBox.info.color}
+		>
+			{infoBox.info.symbol}
+		</div>
 
-	<img
-		class="preview-img"
-		id="preview-bohr"
-		src={infoBox.info.bohrModelImage}
-		alt={`Bohr model of ${infoBox.info.name}`}
-	/>
-	<div><em><b>Atomic Number:</b></em> {infoBox.info.number}</div>
-	<div><em><b>Mass:</b></em> {infoBox.info.atomicMass}</div>
-	<span class="description"
-		><em><u><b>Description:</b></u></em> {infoBox.info.summary}</span
-	>
+		<img
+			class="preview-img"
+			id="preview-bohr"
+			src={infoBox.info.bohrModelImage}
+			alt={`Bohr model of ${infoBox.info.name}`}
+		/>
+		<div><em><b>Atomic Number:</b></em> {infoBox.info.number}</div>
+		<div><em><b>Mass:</b></em> {infoBox.info.atomicMass} a.m.u.</div>
+		<div>
+			<em><b>Category:</b></em>
+			{infoBox.info.category
+				.slice(0, 1)
+				.toUpperCase()}{infoBox.info.category.slice(1)}
+		</div>
+		<span class="description"
+			><em><u><b>Description:</b></u></em> {infoBox.info.summary}</span
+		><Button
+			onclick={() => (defaultModal = true)}
+			class="btn rounded-box mt-auto">Default modal</Button
+		>
+	{/if}
 </div>
 
+<!--Zoomed in Bohr Model when hovering-->
 <Popover
 	triggeredBy="#preview-bohr"
 	class="w-96 text-sm font-light"
@@ -52,6 +67,31 @@
 		alt={`Bohr model of ${infoBox.info.name}`}
 	/>
 </Popover>
+
+<!--Advanced Information Modal-->
+<Modal
+	title="Terms of Service"
+	bind:open={defaultModal}
+	autoclose
+>
+	<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+		With less than a month to go before the European Union enacts new
+		consumer privacy laws for its citizens, companies around the world are
+		updating their terms of service agreements to comply.
+	</p>
+	<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+		The European Union’s General Data Protection Regulation (G.D.P.R.) goes
+		into effect on May 25 and is meant to ensure a common set of data rights
+		in the European Union. It requires organizations to notify users as soon
+		as possible of high-risk data breaches that could personally affect
+		them.
+	</p>
+
+	{#snippet footer()}
+		<Button onclick={() => alert('Handle "success"')}>I accept</Button>
+		<Button color="alternative">Decline</Button>
+	{/snippet}
+</Modal>
 
 <!----------------------------------------------------------------->
 <!-----------------| Styling |------------------------------------->

@@ -38,8 +38,8 @@
 <!----------------------------------------------------------------->
 
 {#if isVisible === true}
-	// Re-animate whenever the unit info changes, instead of only when the box
-	is mounted to the DOM
+	<!--// Re-animate whenever the unit info changes, instead of only when the box-->
+	<!--is mounted to the DOM-->
 	{#key getUnitInfo()}
 		<div
 			class="UnitInfoBoxContainer"
@@ -250,6 +250,7 @@
 		padding-bottom: 1em;
 		border: 1px solid #6272a4;
 		border-radius: 0.5em;
+		color: #fafaf2;
 	}
 
 	.row {

@@ -47,11 +47,11 @@
 		</div>
 
 		<img
-			class="preview-img"
 			id="preview-bohr"
-			src={infoBox.info.bohrModelImage}
-			alt={`Bohr model of ${infoBox.info.name}`}
+			alt={`Element ${infoBox.info.number} ${infoBox.info.name} (${infoBox.info.symbol}) enhanced Bohr model`}
+			src={`https://cdn.chemicalaid.com/assets/img/bohr-enhanced.php?symbol=${infoBox.info.symbol}`}
 		/>
+
 		<div class="entry">
 			<em><b>Atomic Number:</b></em>
 			{infoBox.info.number}
@@ -61,7 +61,8 @@
 			{infoBox.info.atomicMass} a.m.u.
 		</div>
 		<div class="entry">
-			<em><b>Valence Electrons:</b></em> {infoBox.info.valenceElectrons}
+			<em><b>Valence Electrons:</b></em>
+			{infoBox.info.valenceElectrons}
 		</div>
 		<div class="entry">
 			<em><b>Category:</b></em>
@@ -88,15 +89,15 @@
 <!--Zoomed in Bohr Model when hovering-->
 <Popover
 	triggeredBy="#preview-bohr"
-	class="w-96 text-sm font-light"
+	class="pop-container text-sm font-light"
 	defaultClass="p-0"
 	placement="right"
 	transition={slide}
 >
 	<img
 		class="zoomed-img"
-		src={infoBox.info.bohrModelImage}
-		alt={`Bohr model of ${infoBox.info.name}`}
+		alt={`Element ${infoBox.info.number} ${infoBox.info.name} (${infoBox.info.symbol}) enhanced Bohr model`}
+		src={`https://cdn.chemicalaid.com/assets/img/bohr-enhanced.php?symbol=${infoBox.info.symbol}`}
 	/>
 </Popover>
 
@@ -211,24 +212,11 @@
 		flex-direction: column;
 	}
 
-	.preview-img {
-		margin: 0.5em;
-		width: 50%;
-		justify-self: center;
-		align-self: center;
-		border-radius: 1.5em;
-		-webkit-filter: invert(1);
-		filter: invert(1);
-	}
-
 	.zoomed-img {
-		margin: 0.5em;
 		height: 95vmin;
 		justify-self: center;
 		align-self: center;
 		border-radius: 1.5em;
-		-webkit-filter: invert(1);
-		filter: invert(1);
 	}
 
 	.entry {

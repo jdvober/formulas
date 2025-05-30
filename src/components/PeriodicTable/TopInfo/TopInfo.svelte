@@ -53,7 +53,9 @@
 			style:top={getPTYPos(charge.ypos)}
 		>
 			<div class="charge-text">Charge</div>
-			<div>{charge.charge.sign}{charge.charge.val}</div>
+			<div class="charge-number">
+				{charge.charge.sign}{charge.charge.val}
+			</div>
 		</div>
 	{/each}
 </div>
@@ -87,5 +89,9 @@
 	.charge-text {
 		font-family: 'Atkinson Hyperlegible Next';
 		font-size: 0.5em;
+	}
+	.charge-number {
+		font-family: 'Atkinson Hyperlegible Next';
+		font-size: 1em;
 	}
 </style>

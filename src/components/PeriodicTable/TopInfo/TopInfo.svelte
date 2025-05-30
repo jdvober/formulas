@@ -20,6 +20,27 @@
 		return `${(gridPositionY ?? 0) * 25}%`;
 	};
 
+	let groups = [
+		{ xpos: 0, ypos: 0, charge: { sign: '+', val: 1 } },
+		{ xpos: 1, ypos: 1, charge: { sign: '+', val: 2 } },
+		{ xpos: 2, ypos: 3, charge: { sign: '?', val: null } },
+		{ xpos: 3, ypos: 3, charge: { sign: '?', val: null } },
+		{ xpos: 4, ypos: 3, charge: { sign: '?', val: null } },
+		{ xpos: 5, ypos: 3, charge: { sign: '?', val: null } },
+		{ xpos: 6, ypos: 3, charge: { sign: '?', val: null } },
+		{ xpos: 7, ypos: 3, charge: { sign: '?', val: null } },
+		{ xpos: 8, ypos: 3, charge: { sign: '?', val: null } },
+		{ xpos: 9, ypos: 3, charge: { sign: '?', val: null } },
+		{ xpos: 10, ypos: 3, charge: { sign: '?', val: null } },
+		{ xpos: 11, ypos: 3, charge: { sign: '?', val: null } },
+		{ xpos: 12, ypos: 1, charge: { sign: '+', val: 3 } },
+		{ xpos: 13, ypos: 1, charge: { sign: '±', val: 4 } },
+		{ xpos: 14, ypos: 1, charge: { sign: '-', val: 3 } },
+		{ xpos: 15, ypos: 1, charge: { sign: '-', val: 2 } },
+		{ xpos: 16, ypos: 1, charge: { sign: '-', val: 1 } },
+		{ xpos: 17, ypos: 0, charge: { sign: null, val: 0 } },
+	];
+
 	let charges = [
 		{ xpos: 0, ypos: 0, charge: { sign: '+', val: 1 } },
 		{ xpos: 1, ypos: 1, charge: { sign: '+', val: 2 } },
@@ -45,7 +66,19 @@
 <!----------------------------------------------------------------->
 <!-----------------| Component |----------------------------------->
 <!----------------------------------------------------------------->
-<div class="TopInfo">
+<div class="groups">
+	{#each groups as group, index}
+		<div
+			class="group"
+			style:left={getPTXPos(index)}
+			style:top={getPTYPos(group.ypos)}
+		>
+			<div class="charge-text">Group</div>
+			<div class="charge-text">{index + 1}</div>
+		</div>
+	{/each}
+</div>
+<div class="charges">
 	{#each charges as charge}
 		<div
 			class="charge"
@@ -65,10 +98,17 @@
 <!----------------------------------------------------------------->
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
-	.TopInfo {
+	.charges {
 		position: absolute;
 		left: 26vw;
-		top: 6vh;
+		top: 7vh;
+		width: 71.8vw;
+		height: 34vh;
+	}
+	.groups {
+		position: absolute;
+		left: 26vw;
+		top: -1vh;
 		width: 71.8vw;
 		height: 34vh;
 	}
@@ -83,7 +123,21 @@
 		width: 8vmin;
 		height: 8vmin;
 		background-color: none;
-		color: #f8f8f2;
+		color: #ffb86c;
+		font-size: 1.5em;
+	}
+	.group {
+		font-family: 'Atkinson Hyperlegible Next';
+		font-style: normal;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		width: 8vmin;
+		height: 8vmin;
+		background-color: none;
+		color: #ff79c6;
 		font-size: 2em;
 	}
 	.charge-text {

@@ -7,6 +7,22 @@
 	import { slide } from 'svelte/transition';
 
 	let advancedInfoModal = $state(false);
+
+	const getUniqueStr = (str1: string, str2: string, str3: string) => {
+		let words: string[] = [];
+		let phrase = str1
+			.concat(' ', str2)
+			.concat(' ', str3)
+			.split(' ')
+			.map((word) => {
+				return words.includes(word) ? '' : word;
+			})
+			.toString()
+			.replaceAll(',', ' ')
+			.toLowerCase();
+
+		return phrase[0].toUpperCase().concat(phrase.slice(1));
+	};
 </script>
 
 <!----------------------------------------------------------------->
@@ -43,6 +59,9 @@
 		<div class="entry">
 			<em><b>Mass:</b></em>
 			{infoBox.info.atomicMass} a.m.u.
+		</div>
+		<div class="entry">
+			<em><b>Valence Electrons:</b></em> {infoBox.info.valenceElectrons}
 		</div>
 		<div class="entry">
 			<em><b>Category:</b></em>
@@ -92,9 +111,12 @@
 	<div class="row-entry">
 		<span class="detailed-entry number-font"
 			><em><u><b>Appearance:</b></u></em>
-			{infoBox.info.appearance}
-			{infoBox.info.phase.toLowerCase()} at room temperature.</span
-		>
+			{getUniqueStr(
+				infoBox.info.appearance,
+				infoBox.info.phase,
+				'at room temperature'
+			)}
+		</span>
 
 		<span class="detailed-entry number-font"
 			><em><u><b>Melting Point:</b></u></em> {infoBox.info.melt} °C</span
@@ -106,6 +128,27 @@
 
 		<span class="detailed-entry number-font"
 			><em><u><b>Density:</b></u></em> {infoBox.info.density} g/cm³</span
+		>
+	</div>
+
+	<div class="row-entry">
+		<span class="detailed-entry number-font"
+			><em><u><b>Electron Configuration:</b></u></em>
+			{infoBox.info.electronConfigurationSemantic}</span
+		>
+
+		<span class="detailed-entry number-font"
+			><em><u><b>Electron Affinity:</b></u></em>
+			{infoBox.info.electronAffinity}</span
+		>
+
+		<span class="detailed-entry number-font"
+			><em><u><b>Electronegativity:</b></u></em>
+			{infoBox.info.electronegativityPauling}</span
+		>
+
+		<span class="detailed-entry number-font"
+			><em><u><b>Block:</b></u></em> {infoBox.info.block}</span
 		>
 	</div>
 

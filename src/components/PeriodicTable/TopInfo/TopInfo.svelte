@@ -85,6 +85,7 @@
 		font-size: 2em;
 	}
 	.charge-text {
+		font-family: 'Atkinson Hyperlegible Next';
 		font-size: 0.5em;
 	}
 </style>

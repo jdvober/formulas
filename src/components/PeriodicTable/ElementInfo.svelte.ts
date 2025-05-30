@@ -40,6 +40,7 @@ export let elementInfo = [
 			attribution:
 				'User:Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/hydrogen.php',
 		},
+		valenceElectrons: 1,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(265, 89%, 78%)',
@@ -87,13 +88,13 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/helium.php',
 		},
+		valenceElectrons: 2,
 		block: 's',
 		location: 'RIGHT',
 		background: 'hsl(191, 97%, 77%)',
 		color: 'hsl(191, 97%, 10%)',
 		charges: [{ sign: 'POSITIVE', magnitude: 1 }],
 		family: 'Hydrogen Family',
-		valenceElectrons: 1,
 	},
 	{
 		name: 'Lithium',
@@ -136,6 +137,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/lithium.php',
 		},
+		valenceElectrons: 1,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(31, 100%, 71%)',
@@ -182,6 +184,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/beryllium.php',
 		},
+		valenceElectrons: 2,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(65, 92%, 76%)',
@@ -228,6 +231,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/boron.php',
 		},
+		valenceElectrons: 3,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(135, 94%, 65%)',
@@ -274,6 +278,7 @@ export let elementInfo = [
 			attribution:
 				'Texas Lane, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 4,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(265, 89%, 78%)',
@@ -322,6 +327,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/nitrogen.php',
 		},
+		valenceElectrons: 5,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(265, 89%, 78%)',
@@ -370,6 +376,7 @@ export let elementInfo = [
 			attribution:
 				'Staff Sgt. Nika Glover, U.S. Air Force, Public domain, via Wikimedia Commons',
 		},
+		valenceElectrons: 6,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(265, 89%, 78%)',
@@ -419,6 +426,7 @@ export let elementInfo = [
 			attribution:
 				'Fulvio314, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 7,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(326, 100%, 74%)',
@@ -469,6 +477,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/neon.php',
 		},
+		valenceElectrons: 8,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(191, 97%, 77%)',
@@ -518,59 +527,11 @@ export let elementInfo = [
 			attribution:
 				'The original uploader was Dnn87 at English Wikipedia., CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 1,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(31, 100%, 71%)',
 		color: 'hsl(31, 100%, 10%)',
-	},
-	{
-		name: 'Aluminium',
-		appearance: 'silvery gray metallic',
-		atomicMass: 26.98153857,
-		boil: 2743,
-		category: 'post-transition metal',
-		density: 2.7,
-		discoveredBy: null,
-		melt: 933.47,
-		molarHeat: 24.2,
-		namedBy: 'Humphry Davy',
-		number: 13,
-		period: 3,
-		group: 13,
-		phase: 'Solid',
-		source: 'https://en.wikipedia.org/wiki/Aluminium',
-		bohrModelImage:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_013_aluminum/element_013_aluminum_srp_th.png',
-		bohrModel3d:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_013_aluminum/element_013_aluminum.glb',
-		spectralImg: null,
-		summary:
-			"Aluminium (or aluminum; see different endings) is a chemical element in the boron group with symbol Al and atomic number 13. It is a silvery-white, soft, nonmagnetic, ductile metal. Aluminium is the third most abundant element (after oxygen and silicon), and the most abundant metal, in the Earth's crust.",
-		symbol: 'Al',
-		xpos: 13,
-		ypos: 3,
-		wxpos: 27,
-		wypos: 3,
-		shells: [2, 8, 3],
-		electronConfiguration: '1s2 2s2 2p6 3s2 3p1',
-		electronConfigurationSemantic: '[Ne] 3s2 3p1',
-		electronAffinity: 41.762,
-		electronegativityPauling: 1.61,
-		ionizationEnergies: [
-			577.5, 1816.7, 2744.8, 11577, 14842, 18379, 23326, 27465, 31853,
-			38473, 42647, 201266, 222316,
-		],
-		hex: 'bfa6a6',
-		image: {
-			title: 'Pure aluminium foil. Original size in cm: 5 x 5',
-			url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Aluminium.jpg',
-			attribution:
-				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/aluminium.php ',
-		},
-		block: 'p',
-		location: 'RIGHT',
-		background: 'hsl(135, 94%, 65%)',
-		color: 'hsl(135, 94%, 10%)',
 	},
 	{
 		name: 'Magnesium',
@@ -616,10 +577,61 @@ export let elementInfo = [
 			attribution:
 				'Warut Roonguthai, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 2,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(65, 92%, 76%)',
 		color: 'hsl(65, 92%, 10%)',
+	},
+	{
+		name: 'Aluminium',
+		appearance: 'silvery gray metallic',
+		atomicMass: 26.98153857,
+		boil: 2743,
+		category: 'post-transition metal',
+		density: 2.7,
+		discoveredBy: null,
+		melt: 933.47,
+		molarHeat: 24.2,
+		namedBy: 'Humphry Davy',
+		number: 13,
+		period: 3,
+		group: 13,
+		phase: 'Solid',
+		source: 'https://en.wikipedia.org/wiki/Aluminium',
+		bohrModelImage:
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_013_aluminum/element_013_aluminum_srp_th.png',
+		bohrModel3d:
+			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_013_aluminum/element_013_aluminum.glb',
+		spectralImg: null,
+		summary:
+			"Aluminium (or aluminum; see different endings) is a chemical element in the boron group with symbol Al and atomic number 13. It is a silvery-white, soft, nonmagnetic, ductile metal. Aluminium is the third most abundant element (after oxygen and silicon), and the most abundant metal, in the Earth's crust.",
+		symbol: 'Al',
+		xpos: 13,
+		ypos: 3,
+		wxpos: 27,
+		wypos: 3,
+		shells: [2, 8, 3],
+		electronConfiguration: '1s2 2s2 2p6 3s2 3p1',
+		electronConfigurationSemantic: '[Ne] 3s2 3p1',
+		electronAffinity: 41.762,
+		electronegativityPauling: 1.61,
+		ionizationEnergies: [
+			577.5, 1816.7, 2744.8, 11577, 14842, 18379, 23326, 27465, 31853,
+			38473, 42647, 201266, 222316,
+		],
+		hex: 'bfa6a6',
+		image: {
+			title: 'Pure aluminium foil. Original size in cm: 5 x 5',
+			url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Aluminium.jpg',
+			attribution:
+				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/aluminium.php ',
+		},
+		valenceElectrons: 3,
+		block: 'p',
+		location: 'RIGHT',
+		background: 'hsl(135, 94%, 65%)',
+		color: 'hsl(135, 94%, 10%)',
 	},
 	{
 		name: 'Silicon',
@@ -665,6 +677,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/silicon.php',
 		},
+		valenceElectrons: 4,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(135, 94%, 65%)',
@@ -715,6 +728,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/phosphorus.php',
 		},
+		valenceElectrons: 5,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(265, 89%, 78%)',
@@ -764,6 +778,7 @@ export let elementInfo = [
 			attribution:
 				'James St. John, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 6,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(265, 89%, 78%)',
@@ -813,6 +828,7 @@ export let elementInfo = [
 			url: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Chlorine-sample-flip.jpg',
 			attribution: 'Benjah-bmm27, Public domain, via Wikimedia Commons',
 		},
+		valenceElectrons: 7,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(326, 100%, 74%)',
@@ -863,6 +879,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/argon.php',
 		},
+		valenceElectrons: 8,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(191, 97%, 77%)',
@@ -913,6 +930,7 @@ export let elementInfo = [
 			attribution:
 				'Dnn87, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 1,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(31, 100%, 71%)',
@@ -963,6 +981,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/calcium.php',
 		},
+		valenceElectrons: 2,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(65, 92%, 76%)',
@@ -1013,6 +1032,7 @@ export let elementInfo = [
 			attribution:
 				'JanDerChemiker, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 3,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -1063,6 +1083,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/titanium.php',
 		},
+		valenceElectrons: 4,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -1113,6 +1134,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/vanadium.php',
 		},
+		valenceElectrons: 5,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -1163,6 +1185,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/chromium.php',
 		},
+		valenceElectrons: 6,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -1213,6 +1236,7 @@ export let elementInfo = [
 			attribution:
 				'W. Oelen, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 7,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -1263,6 +1287,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical ELements A Virtual Museum, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0> source: https://images-of-elements.com/iron.php',
 		},
+		valenceElectrons: 8,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -1313,6 +1338,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/cobalt.php',
 		},
+		valenceElectrons: 9,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -1364,6 +1390,7 @@ export let elementInfo = [
 			attribution:
 				'Materialscientist at English Wikipedia, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 10,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -1415,6 +1442,7 @@ export let elementInfo = [
 			attribution:
 				"Native_Copper_Macro_Digon3.jpg: 'Jonathan Zander (Digon3)' derivative work: Materialscientist, CC BY-SA 2.5 <https://creativecommons.org/licenses/by-sa/2.5>, via Wikimedia Commons",
 		},
+		valenceElectrons: 11,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -1465,59 +1493,11 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/zinc.php',
 		},
+		valenceElectrons: 12,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
 		color: 'hsl(191, 97%, 10%)',
-	},
-	{
-		name: 'Silicon',
-		appearance: 'crystalline, reflective with bluish-tinged faces',
-		atomicMass: 28.085,
-		boil: 3538,
-		category: 'metalloid',
-		density: 2.329,
-		discoveredBy: 'Jöns Jacob Berzelius',
-		melt: 1687,
-		molarHeat: 19.789,
-		namedBy: 'Thomas Thomson (chemist)',
-		number: 14,
-		period: 3,
-		group: 14,
-		phase: 'Solid',
-		source: 'https://en.wikipedia.org/wiki/Silicon',
-		bohrModelImage:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_014_silicon/element_014_silicon_srp_th.png',
-		bohrModel3d:
-			'https://storage.googleapis.com/search-ar-edu/periodic-table/element_014_silicon/element_014_silicon.glb',
-		spectralImg: 'https://en.wikipedia.org/wiki/File:Silicon_Spectra.jpg',
-		summary:
-			"Silicon is a chemical element with symbol Si and atomic number 14. It is a tetravalent metalloid, more reactive than germanium, the metalloid directly below it in the table. Controversy about silicon's character dates to its discovery.",
-		symbol: 'Si',
-		xpos: 14,
-		ypos: 3,
-		wxpos: 28,
-		wypos: 3,
-		shells: [2, 8, 4],
-		electronConfiguration: '1s2 2s2 2p6 3s2 3p2',
-		electronConfigurationSemantic: '[Ne] 3s2 3p2',
-		electronAffinity: 134.0684,
-		electronegativityPauling: 1.9,
-		ionizationEnergies: [
-			786.5, 1577.1, 3231.6, 4355.5, 16091, 19805, 23780, 29287, 33878,
-			38726, 45962, 50502, 235196, 257923,
-		],
-		hex: 'f0c8a0',
-		image: {
-			title: 'Chunk of Ultrapure Silicon, 2 x 2 cm',
-			url: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Silicon.jpg',
-			attribution:
-				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/silicon.php',
-		},
-		block: 'p',
-		location: 'RIGHT',
-		background: 'hsl(135, 94%, 65%)',
-		color: 'hsl(135, 94%, 10%)',
 	},
 	{
 		name: 'Gallium',
@@ -1560,6 +1540,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/gallium.php',
 		},
+		valenceElectrons: 3,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -1606,6 +1587,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/germanium.php',
 		},
+		valenceElectrons: 4,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(135, 94%, 65%)',
@@ -1652,6 +1634,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/arsenic.php',
 		},
+		valenceElectrons: 5,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(135, 94%, 65%)',
@@ -1698,6 +1681,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/selenium.php',
 		},
+		valenceElectrons: 6,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(265, 89%, 78%)',
@@ -1744,6 +1728,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/bromine.php',
 		},
+		valenceElectrons: 7,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(326, 100%, 74%)',
@@ -1796,6 +1781,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/krypton.php',
 		},
+		valenceElectrons: 8,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(191, 97%, 77%)',
@@ -1844,6 +1830,7 @@ export let elementInfo = [
 			attribution:
 				'Dnn87, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 1,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(31, 100%, 71%)',
@@ -1893,6 +1880,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/strontium.php',
 		},
+		valenceElectrons: 2,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(65, 92%, 76%)',
@@ -1942,6 +1930,7 @@ export let elementInfo = [
 			attribution:
 				'Jan Anskeit, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 3,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -1988,6 +1977,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/zirconium.php',
 		},
+		valenceElectrons: 4,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2034,6 +2024,7 @@ export let elementInfo = [
 			attribution:
 				'Mauro Cateb, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 5,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2085,6 +2076,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/molybdenum.php',
 		},
+		valenceElectrons: 6,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2131,6 +2123,7 @@ export let elementInfo = [
 			attribution:
 				'GFDL, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 7,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2177,6 +2170,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/ruthenium.php',
 		},
+		valenceElectrons: 8,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2223,6 +2217,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/rhodium.php',
 		},
+		valenceElectrons: 9,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2269,6 +2264,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/palladium.php',
 		},
+		valenceElectrons: 10,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2315,6 +2311,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: http://images-of-elements.com/silver.php',
 		},
+		valenceElectrons: 11,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2361,6 +2358,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/cadmium.php',
 		},
+		valenceElectrons: 12,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2407,6 +2405,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: http://images-of-elements.com/indium.php',
 		},
+		valenceElectrons: 3,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -2453,6 +2452,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: http://images-of-elements.com/tin.php',
 		},
+		valenceElectrons: 4,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -2499,6 +2499,7 @@ export let elementInfo = [
 			attribution:
 				'Unknown authorUnknown author, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/antimony.php',
 		},
+		valenceElectrons: 5,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(135, 94%, 65%)',
@@ -2545,6 +2546,7 @@ export let elementInfo = [
 			attribution:
 				'Unknown authorUnknown author, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/tellurium.php',
 		},
+		valenceElectrons: 6,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(135, 94%, 65%)',
@@ -2590,6 +2592,7 @@ export let elementInfo = [
 			url: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Iodine-sample.jpg',
 			attribution: 'Benjah-bmm27, Public domain, via Wikimedia Commons',
 		},
+		valenceElectrons: 7,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(326, 100%, 74%)',
@@ -2637,6 +2640,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/xenon.php',
 		},
+		valenceElectrons: 8,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(191, 97%, 77%)',
@@ -2684,6 +2688,7 @@ export let elementInfo = [
 			attribution:
 				'Dnn87 Contact email: Dnn87yahoo.dk, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 1,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(31, 100%, 71%)',
@@ -2731,6 +2736,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/barium.php',
 		},
+		valenceElectrons: 2,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(65, 92%, 76%)',
@@ -2779,6 +2785,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/hafnium.php',
 		},
+		valenceElectrons: 4,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2827,6 +2834,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/tantalum.php',
 		},
+		valenceElectrons: 5,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2874,6 +2882,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 1.0 <https://creativecommons.org/licenses/by/1.0>, via Wikimedia Commons, source: https://images-of-elements.com/tungsten.php',
 		},
+		valenceElectrons: 6,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2921,6 +2930,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/rhenium.php',
 		},
+		valenceElectrons: 7,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -2968,6 +2978,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/osmium.php',
 		},
+		valenceElectrons: 8,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3015,6 +3026,7 @@ export let elementInfo = [
 			attribution:
 				'Unknown authorUnknown author, CC BY 1.0 <https://creativecommons.org/licenses/by/1.0>, via Wikimedia Commons, source: https://images-of-elements.com/iridium.php',
 		},
+		valenceElectrons: 9,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3062,6 +3074,7 @@ export let elementInfo = [
 			attribution:
 				'Periodictableru, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 10,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3109,6 +3122,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/gold.php',
 		},
+		valenceElectrons: 11,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3156,6 +3170,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images of Chemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/mercury.php',
 		},
+		valenceElectrons: 12,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3203,6 +3218,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/thallium.php',
 		},
+		valenceElectrons: 3,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -3250,6 +3266,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/lead.php',
 		},
+		valenceElectrons: 4,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -3297,6 +3314,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/bismuth.php',
 		},
+		valenceElectrons: 5,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -3344,6 +3362,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical ELements A Virtual Museum, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0> source: https://images-of-elements.com/polonium.php',
 		},
+		valenceElectrons: 6,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -3391,6 +3410,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical ELements A Virtual Museum, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0> source: https://images-of-elements.com/astatine.php',
 		},
+		valenceElectrons: 7,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -3439,6 +3459,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical ELements A Virtual Museum, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0> source: https://images-of-elements.com/radon.php',
 		},
+		valenceElectrons: 8,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(191, 97%, 77%)',
@@ -3486,6 +3507,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical ELements A Virtual Museum, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0> source: https://images-of-elements.com/francium.jpg',
 		},
+		valenceElectrons: 1,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(31, 100%, 71%)',
@@ -3533,6 +3555,7 @@ export let elementInfo = [
 			attribution:
 				'grenadier, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 2,
 		block: 's',
 		location: 'LEFT',
 		background: 'hsl(65, 92%, 76%)',
@@ -3580,6 +3603,7 @@ export let elementInfo = [
 			attribution:
 				'Image © CERN, Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/rutherfordium.php',
 		},
+		valenceElectrons: 4,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3627,6 +3651,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/dubnium.php',
 		},
+		valenceElectrons: 5,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3674,6 +3699,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/seaborgium.php',
 		},
+		valenceElectrons: 6,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3721,6 +3747,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/bohrium.php',
 		},
+		valenceElectrons: 7,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3768,6 +3795,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/hassium.php',
 		},
+		valenceElectrons: 8,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3815,6 +3843,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/meitnerium.php',
 		},
+		valenceElectrons: 9,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3862,6 +3891,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/darmstadtium.php',
 		},
+		valenceElectrons: 10,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3909,6 +3939,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/roentgenium.php',
 		},
+		valenceElectrons: 11,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -3956,6 +3987,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/copernicium.php',
 		},
+		valenceElectrons: 12,
 		block: 'd',
 		location: 'MIDDLE',
 		background: 'hsl(191, 97%, 77%)',
@@ -4003,6 +4035,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/nihonium.php',
 		},
+		valenceElectrons: 3,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -4050,6 +4083,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/flerovium.php',
 		},
+		valenceElectrons: 4,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -4097,6 +4131,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/moscovium.php',
 		},
+		valenceElectrons: 5,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -4144,6 +4179,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/livermorium.php',
 		},
+		valenceElectrons: 6,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -4191,6 +4227,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/tenessine.php',
 		},
+		valenceElectrons: 7,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(65, 92%, 76%)',
@@ -4238,6 +4275,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/oganesson.php',
 		},
+		valenceElectrons: 8,
 		block: 'p',
 		location: 'RIGHT',
 		background: 'hsl(191, 97%, 77%)',
@@ -4285,6 +4323,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/lanthanum.php',
 		},
+		valenceElectrons: 3,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4332,6 +4371,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 1.0 <https://creativecommons.org/licenses/by/1.0>, via Wikimedia Commons, source: https://images-of-elements.com/cerium.php',
 		},
+		valenceElectrons: 4,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4379,6 +4419,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/praseodymium.php',
 		},
+		valenceElectrons: 5,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4426,6 +4467,7 @@ export let elementInfo = [
 			attribution:
 				'Hi-Res Images ofChemical Elements, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/neodymium.php',
 		},
+		valenceElectrons: 6,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4473,6 +4515,7 @@ export let elementInfo = [
 			attribution:
 				'Unknown authorUnknown author, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/promethium.php',
 		},
+		valenceElectrons: 7,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4520,6 +4563,7 @@ export let elementInfo = [
 			attribution:
 				'Unknown authorUnknown author, CC BY 1.0 <https://creativecommons.org/licenses/by/1.0>, via Wikimedia Commons, source: https://images-of-elements.com/samarium.php',
 		},
+		valenceElectrons: 8,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4567,6 +4611,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/europium.php',
 		},
+		valenceElectrons: 9,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4614,6 +4659,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/gadolinium.php',
 		},
+		valenceElectrons: 10,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4661,6 +4707,7 @@ export let elementInfo = [
 			attribution:
 				'Unknown authorUnknown author, CC BY 1.0 <https://creativecommons.org/licenses/by/1.0>, via Wikimedia Commons, source: https://images-of-elements.com/terbium.php',
 		},
+		valenceElectrons: 11,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4708,6 +4755,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/dysprosium.php',
 		},
+		valenceElectrons: 12,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4755,6 +4803,7 @@ export let elementInfo = [
 			attribution:
 				'Unknown authorUnknown author, CC BY 1.0 <https://creativecommons.org/licenses/by/1.0>, via Wikimedia Commons, source: https://images-of-elements.com/holmium.php',
 		},
+		valenceElectrons: 13,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4802,6 +4851,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/erbium.php',
 		},
+		valenceElectrons: 14,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4849,6 +4899,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/thulium.php',
 		},
+		valenceElectrons: 15,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4896,6 +4947,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 1.0 <https://creativecommons.org/licenses/by/1.0>, via Wikimedia Commons, source: https://images-of-elements.com/ytterbium.php',
 		},
+		valenceElectrons: 16,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4943,6 +4995,7 @@ export let elementInfo = [
 			attribution:
 				'Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/lutetium.php',
 		},
+		valenceElectrons: 3,
 		block: 'd',
 		location: 'RARE_EARTH',
 		background: 'hsl(0, 100%, 67%)',
@@ -4990,6 +5043,7 @@ export let elementInfo = [
 			attribution:
 				'Oak Ridge National Laboratory, CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons, source: https://www.flickr.com/photos/oakridgelab/31481701837/',
 		},
+		valenceElectrons: 3,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5037,6 +5091,7 @@ export let elementInfo = [
 			attribution:
 				'W. Oelen, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 4,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5083,6 +5138,7 @@ export let elementInfo = [
 			url: 'https://upload.wikimedia.org/wikipedia/commons/a/af/Protactinium-233.jpg',
 			attribution: 'ENERGY.GOV, Public domain, via Wikimedia Commons',
 		},
+		valenceElectrons: 5,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5130,6 +5186,7 @@ export let elementInfo = [
 			attribution:
 				'Unknown authorUnknown author, Public domain, via Wikimedia Commons',
 		},
+		valenceElectrons: 6,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5177,6 +5234,7 @@ export let elementInfo = [
 			attribution:
 				'Los Alamos National Laboratory,, Public domain, via Wikimedia Commons',
 		},
+		valenceElectrons: 7,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5224,6 +5282,7 @@ export let elementInfo = [
 			attribution:
 				'Los Alamos National Laboratory, Attribution, via Wikimedia Commons',
 		},
+		valenceElectrons: 8,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5272,6 +5331,7 @@ export let elementInfo = [
 			attribution:
 				'Bionerd, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons',
 		},
+		valenceElectrons: 9,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5319,6 +5379,7 @@ export let elementInfo = [
 			attribution:
 				'European Union, The Actinide Group, Institute for Transuranium Elements (JRC-ITU), source: https://images-of-elements.com/curium.php',
 		},
+		valenceElectrons: 10,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5366,6 +5427,7 @@ export let elementInfo = [
 			attribution:
 				'ORNL, Department of Energy, Public domain, via Wikimedia Commons',
 		},
+		valenceElectrons: 11,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5413,6 +5475,7 @@ export let elementInfo = [
 			attribution:
 				'United States Department of Energy (see File:Einsteinium.jpg), Public domain, via Wikimedia Commons',
 		},
+		valenceElectrons: 12,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5460,6 +5523,7 @@ export let elementInfo = [
 			attribution:
 				'Haire, R. G., US Department of Energy.Touched up by Materialscientist at en.wikipedia., Public domain, via Wikimedia Commons',
 		},
+		valenceElectrons: 13,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5507,6 +5571,7 @@ export let elementInfo = [
 			attribution:
 				'U.S. Department of Energy, Public domain, via Wikimedia Commons',
 		},
+		valenceElectrons: 14,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5554,6 +5619,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/mendelevium.php',
 		},
+		valenceElectrons: 15,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5601,6 +5667,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/nobelium.php',
 		},
+		valenceElectrons: 16,
 		block: 'f',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5648,6 +5715,7 @@ export let elementInfo = [
 			attribution:
 				'Chemical Elements A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com/lawrencium.php',
 		},
+		valenceElectrons: 3,
 		block: 'd',
 		location: 'RARE_EARTH',
 		background: 'hsl(100, 100%, 100%)',
@@ -5692,6 +5760,7 @@ export let blankElementInfo = {
 		url: '',
 		attribution: '',
 	},
+	valenceElectrons: 0,
 	block: '',
 	location: '',
 	background: '',
@@ -5739,6 +5808,7 @@ export let defaultElementInfo = {
 		attribution:
 			'User:Jurii, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons, source: https://images-of-elements.com/hydrogen.php',
 	},
+	valenceElectrons: 1,
 	block: 's',
 	location: 'LEFT',
 	background: 'hsl(265, 89%, 78%)',

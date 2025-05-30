@@ -90,6 +90,7 @@ type ElementType = {
 		url: string | null
 		attribution: string | null
 	}
+	valenceElectrons: number | null
 	block: string | null
 	location: string | null
 	background: string | null

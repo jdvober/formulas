@@ -67,6 +67,7 @@ type ElementType = {
 	number: number | null
 	period: number | null
 	group: number | null
+	charge: string | null
 	phase: string | null
 	source: string | null
 	bohrModelImage: string | null

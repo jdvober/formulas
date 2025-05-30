@@ -173,11 +173,9 @@
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
 	.InfoBox {
-		position: absolute;
-		top: 7vh;
-		left: 1vw;
 		border-radius: 1.5vmin;
 		width: 17vw;
+		max-width: 17vw;
 		height: 90vh;
 		display: flex;
 		flex-direction: column;

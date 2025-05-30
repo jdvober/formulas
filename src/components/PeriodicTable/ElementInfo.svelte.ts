@@ -13,6 +13,7 @@ export let elementInfo = [
 		number: 1,
 		period: 1,
 		group: 1,
+		charge: '1+',
 		phase: 'Gas',
 		source: 'https://en.wikipedia.org/wiki/Hydrogen',
 		bohrModelImage:
@@ -61,6 +62,7 @@ export let elementInfo = [
 		number: 2,
 		period: 1,
 		group: 18,
+		charge: '0',
 		phase: 'Gas',
 		source: 'https://en.wikipedia.org/wiki/Helium',
 		bohrModelImage:
@@ -110,6 +112,7 @@ export let elementInfo = [
 		number: 3,
 		period: 2,
 		group: 1,
+		charge: '1+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Lithium',
 		bohrModelImage:
@@ -157,6 +160,7 @@ export let elementInfo = [
 		number: 4,
 		period: 2,
 		group: 2,
+		charge: '2+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Beryllium',
 		bohrModelImage:
@@ -204,6 +208,7 @@ export let elementInfo = [
 		number: 5,
 		period: 2,
 		group: 13,
+		charge: '3+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Boron',
 		bohrModelImage:
@@ -251,6 +256,7 @@ export let elementInfo = [
 		number: 6,
 		period: 2,
 		group: 14,
+		charge: '4±',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Carbon',
 		bohrModelImage:
@@ -298,6 +304,7 @@ export let elementInfo = [
 		number: 7,
 		period: 2,
 		group: 15,
+		charge: '3-',
 		phase: 'Gas',
 		source: 'https://en.wikipedia.org/wiki/Nitrogen',
 		bohrModelImage:
@@ -347,6 +354,7 @@ export let elementInfo = [
 		number: 8,
 		period: 2,
 		group: 16,
+		charge: '2-',
 		phase: 'Gas',
 		source: 'https://en.wikipedia.org/wiki/Oxygen',
 		bohrModelImage:
@@ -396,6 +404,7 @@ export let elementInfo = [
 		number: 9,
 		period: 2,
 		group: 17,
+		charge: '1-',
 		phase: 'Gas',
 		source: 'https://en.wikipedia.org/wiki/Fluorine',
 		bohrModelImage:
@@ -447,6 +456,7 @@ export let elementInfo = [
 		number: 10,
 		period: 2,
 		group: 18,
+		charge: '0',
 		phase: 'Gas',
 		source: 'https://en.wikipedia.org/wiki/Neon',
 		bohrModelImage:
@@ -497,6 +507,7 @@ export let elementInfo = [
 		number: 11,
 		period: 3,
 		group: 1,
+		charge: '1+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Sodium',
 		bohrModelImage:
@@ -547,6 +558,7 @@ export let elementInfo = [
 		number: 12,
 		period: 3,
 		group: 2,
+		charge: '2+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Magnesium',
 		bohrModelImage:
@@ -597,6 +609,7 @@ export let elementInfo = [
 		number: 13,
 		period: 3,
 		group: 13,
+		charge: '3+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Aluminium',
 		bohrModelImage:
@@ -647,6 +660,7 @@ export let elementInfo = [
 		number: 14,
 		period: 3,
 		group: 14,
+		charge: '4±',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Silicon',
 		bohrModelImage:
@@ -698,6 +712,7 @@ export let elementInfo = [
 		number: 15,
 		period: 3,
 		group: 15,
+		charge: '3-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Phosphorus',
 		bohrModelImage:
@@ -748,6 +763,7 @@ export let elementInfo = [
 		number: 16,
 		period: 3,
 		group: 16,
+		charge: '2-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Sulfur',
 		bohrModelImage:
@@ -798,6 +814,7 @@ export let elementInfo = [
 		number: 17,
 		period: 3,
 		group: 17,
+		charge: '1-',
 		phase: 'Gas',
 		source: 'https://en.wikipedia.org/wiki/Chlorine',
 		bohrModelImage:
@@ -849,6 +866,7 @@ export let elementInfo = [
 		number: 18,
 		period: 3,
 		group: 18,
+		charge: '0',
 		phase: 'Gas',
 		source: 'https://en.wikipedia.org/wiki/Argon',
 		bohrModelImage:
@@ -899,6 +917,7 @@ export let elementInfo = [
 		number: 19,
 		period: 4,
 		group: 1,
+		charge: '1+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Potassium',
 		bohrModelImage:
@@ -950,6 +969,7 @@ export let elementInfo = [
 		number: 20,
 		period: 4,
 		group: 2,
+		charge: '2+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Calcium',
 		bohrModelImage:
@@ -1001,6 +1021,7 @@ export let elementInfo = [
 		number: 21,
 		period: 4,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Scandium',
 		bohrModelImage:
@@ -1052,6 +1073,7 @@ export let elementInfo = [
 		number: 22,
 		period: 4,
 		group: 4,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Titanium',
 		bohrModelImage:
@@ -1103,6 +1125,7 @@ export let elementInfo = [
 		number: 23,
 		period: 4,
 		group: 5,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Vanadium',
 		bohrModelImage:
@@ -1154,6 +1177,7 @@ export let elementInfo = [
 		number: 24,
 		period: 4,
 		group: 6,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Chromium',
 		bohrModelImage:
@@ -1205,6 +1229,7 @@ export let elementInfo = [
 		number: 25,
 		period: 4,
 		group: 7,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Manganese',
 		bohrModelImage:
@@ -1256,6 +1281,7 @@ export let elementInfo = [
 		number: 26,
 		period: 4,
 		group: 8,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Iron',
 		bohrModelImage:
@@ -1307,6 +1333,7 @@ export let elementInfo = [
 		number: 27,
 		period: 4,
 		group: 9,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Cobalt',
 		bohrModelImage:
@@ -1358,6 +1385,7 @@ export let elementInfo = [
 		number: 28,
 		period: 4,
 		group: 10,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Nickel',
 		bohrModelImage:
@@ -1410,6 +1438,7 @@ export let elementInfo = [
 		number: 29,
 		period: 4,
 		group: 11,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Copper',
 		bohrModelImage:
@@ -1462,6 +1491,7 @@ export let elementInfo = [
 		number: 30,
 		period: 4,
 		group: 12,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Zinc',
 		bohrModelImage:
@@ -1513,6 +1543,7 @@ export let elementInfo = [
 		number: 31,
 		period: 4,
 		group: 13,
+		charge: '3+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Gallium',
 		bohrModelImage:
@@ -1560,6 +1591,7 @@ export let elementInfo = [
 		number: 32,
 		period: 4,
 		group: 14,
+		charge: '4±',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Germanium',
 		bohrModelImage:
@@ -1607,6 +1639,7 @@ export let elementInfo = [
 		number: 33,
 		period: 4,
 		group: 15,
+		charge: '3-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Arsenic',
 		bohrModelImage:
@@ -1654,6 +1687,7 @@ export let elementInfo = [
 		number: 34,
 		period: 4,
 		group: 16,
+		charge: '2-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Selenium',
 		bohrModelImage:
@@ -1701,6 +1735,7 @@ export let elementInfo = [
 		number: 35,
 		period: 4,
 		group: 17,
+		charge: '1-',
 		phase: 'Liquid',
 		source: 'https://en.wikipedia.org/wiki/Bromine',
 		bohrModelImage:
@@ -1749,6 +1784,7 @@ export let elementInfo = [
 		number: 36,
 		period: 4,
 		group: 18,
+		charge: '0',
 		phase: 'Gas',
 		source: 'https://en.wikipedia.org/wiki/Krypton',
 		bohrModelImage:
@@ -1801,6 +1837,7 @@ export let elementInfo = [
 		number: 37,
 		period: 5,
 		group: 1,
+		charge: '1+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Rubidium',
 		bohrModelImage:
@@ -1850,6 +1887,7 @@ export let elementInfo = [
 		number: 38,
 		period: 5,
 		group: 2,
+		charge: '2+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Strontium',
 		bohrModelImage:
@@ -1900,6 +1938,7 @@ export let elementInfo = [
 		number: 39,
 		period: 5,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Yttrium',
 		bohrModelImage:
@@ -1950,6 +1989,7 @@ export let elementInfo = [
 		number: 40,
 		period: 5,
 		group: 4,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Zirconium',
 		bohrModelImage:
@@ -1997,6 +2037,7 @@ export let elementInfo = [
 		number: 41,
 		period: 5,
 		group: 5,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Niobium',
 		bohrModelImage:
@@ -2044,6 +2085,7 @@ export let elementInfo = [
 		number: 42,
 		period: 5,
 		group: 6,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Molybdenum',
 		bohrModelImage:
@@ -2096,6 +2138,7 @@ export let elementInfo = [
 		number: 43,
 		period: 5,
 		group: 7,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Technetium',
 		bohrModelImage:
@@ -2143,6 +2186,7 @@ export let elementInfo = [
 		number: 44,
 		period: 5,
 		group: 8,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Ruthenium',
 		bohrModelImage:
@@ -2190,6 +2234,7 @@ export let elementInfo = [
 		number: 45,
 		period: 5,
 		group: 9,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Rhodium',
 		bohrModelImage:
@@ -2237,6 +2282,7 @@ export let elementInfo = [
 		number: 46,
 		period: 5,
 		group: 10,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Palladium',
 		bohrModelImage:
@@ -2284,6 +2330,7 @@ export let elementInfo = [
 		number: 47,
 		period: 5,
 		group: 11,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Silver',
 		bohrModelImage:
@@ -2331,6 +2378,7 @@ export let elementInfo = [
 		number: 48,
 		period: 5,
 		group: 12,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Cadmium',
 		bohrModelImage:
@@ -2378,6 +2426,7 @@ export let elementInfo = [
 		number: 49,
 		period: 5,
 		group: 13,
+		charge: '3+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Indium',
 		bohrModelImage:
@@ -2425,6 +2474,7 @@ export let elementInfo = [
 		number: 50,
 		period: 5,
 		group: 14,
+		charge: '4±',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Tin',
 		bohrModelImage:
@@ -2472,6 +2522,7 @@ export let elementInfo = [
 		number: 51,
 		period: 5,
 		group: 15,
+		charge: '3-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Antimony',
 		bohrModelImage:
@@ -2519,6 +2570,7 @@ export let elementInfo = [
 		number: 52,
 		period: 5,
 		group: 16,
+		charge: '2-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Tellurium',
 		bohrModelImage:
@@ -2566,6 +2618,7 @@ export let elementInfo = [
 		number: 53,
 		period: 5,
 		group: 17,
+		charge: '1-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Iodine',
 		bohrModelImage:
@@ -2613,6 +2666,7 @@ export let elementInfo = [
 		number: 54,
 		period: 5,
 		group: 18,
+		charge: '0',
 		phase: 'Gas',
 		source: 'https://en.wikipedia.org/wiki/Xenon',
 		bohrModelImage:
@@ -2660,6 +2714,7 @@ export let elementInfo = [
 		number: 55,
 		period: 6,
 		group: 1,
+		charge: '1+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Cesium',
 		bohrModelImage:
@@ -2708,6 +2763,7 @@ export let elementInfo = [
 		number: 56,
 		period: 6,
 		group: 2,
+		charge: '2+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Barium',
 		bohrModelImage:
@@ -2756,6 +2812,7 @@ export let elementInfo = [
 		number: 72,
 		period: 6,
 		group: 4,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Hafnium',
 		bohrModelImage:
@@ -2805,6 +2862,7 @@ export let elementInfo = [
 		number: 73,
 		period: 6,
 		group: 5,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Tantalum',
 		bohrModelImage:
@@ -2854,6 +2912,7 @@ export let elementInfo = [
 		number: 74,
 		period: 6,
 		group: 6,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Tungsten',
 		bohrModelImage:
@@ -2902,6 +2961,7 @@ export let elementInfo = [
 		number: 75,
 		period: 6,
 		group: 7,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Rhenium',
 		bohrModelImage:
@@ -2950,6 +3010,7 @@ export let elementInfo = [
 		number: 76,
 		period: 6,
 		group: 8,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Osmium',
 		bohrModelImage:
@@ -2998,6 +3059,7 @@ export let elementInfo = [
 		number: 77,
 		period: 6,
 		group: 9,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Iridium',
 		bohrModelImage:
@@ -3046,6 +3108,7 @@ export let elementInfo = [
 		number: 78,
 		period: 6,
 		group: 10,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Platinum',
 		bohrModelImage:
@@ -3094,6 +3157,7 @@ export let elementInfo = [
 		number: 79,
 		period: 6,
 		group: 11,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Gold',
 		bohrModelImage:
@@ -3142,6 +3206,7 @@ export let elementInfo = [
 		number: 80,
 		period: 6,
 		group: 12,
+		charge: '?',
 		phase: 'Liquid',
 		source: 'https://en.wikipedia.org/wiki/Mercury (Element)',
 		bohrModelImage:
@@ -3190,6 +3255,7 @@ export let elementInfo = [
 		number: 81,
 		period: 6,
 		group: 13,
+		charge: '3+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Thallium',
 		bohrModelImage:
@@ -3238,6 +3304,7 @@ export let elementInfo = [
 		number: 82,
 		period: 6,
 		group: 14,
+		charge: '4±',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Lead_(element)',
 		bohrModelImage:
@@ -3286,6 +3353,7 @@ export let elementInfo = [
 		number: 83,
 		period: 6,
 		group: 15,
+		charge: '3-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Bismuth',
 		bohrModelImage:
@@ -3334,6 +3402,7 @@ export let elementInfo = [
 		number: 84,
 		period: 6,
 		group: 16,
+		charge: '2-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Polonium',
 		bohrModelImage:
@@ -3382,6 +3451,7 @@ export let elementInfo = [
 		number: 85,
 		period: 6,
 		group: 17,
+		charge: '1-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Astatine',
 		bohrModelImage:
@@ -3431,6 +3501,7 @@ export let elementInfo = [
 		number: 86,
 		period: 6,
 		group: 18,
+		charge: '0',
 		phase: 'Gas',
 		source: 'https://en.wikipedia.org/wiki/Radon',
 		bohrModelImage:
@@ -3479,6 +3550,7 @@ export let elementInfo = [
 		number: 87,
 		period: 7,
 		group: 1,
+		charge: '1+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Francium',
 		bohrModelImage:
@@ -3527,6 +3599,7 @@ export let elementInfo = [
 		number: 88,
 		period: 7,
 		group: 2,
+		charge: '2+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Radium',
 		bohrModelImage:
@@ -3575,6 +3648,7 @@ export let elementInfo = [
 		number: 104,
 		period: 7,
 		group: 4,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Rutherfordium',
 		bohrModelImage:
@@ -3623,6 +3697,7 @@ export let elementInfo = [
 		number: 105,
 		period: 7,
 		group: 5,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Dubnium',
 		bohrModelImage:
@@ -3671,6 +3746,7 @@ export let elementInfo = [
 		number: 106,
 		period: 7,
 		group: 6,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Seaborgium',
 		bohrModelImage:
@@ -3719,6 +3795,7 @@ export let elementInfo = [
 		number: 107,
 		period: 7,
 		group: 7,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Bohrium',
 		bohrModelImage:
@@ -3767,6 +3844,7 @@ export let elementInfo = [
 		number: 108,
 		period: 7,
 		group: 8,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Hassium',
 		bohrModelImage:
@@ -3815,6 +3893,7 @@ export let elementInfo = [
 		number: 109,
 		period: 7,
 		group: 9,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Meitnerium',
 		bohrModelImage:
@@ -3863,6 +3942,7 @@ export let elementInfo = [
 		number: 110,
 		period: 7,
 		group: 10,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Darmstadtium',
 		bohrModelImage:
@@ -3911,6 +3991,7 @@ export let elementInfo = [
 		number: 111,
 		period: 7,
 		group: 11,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Roentgenium',
 		bohrModelImage:
@@ -3959,6 +4040,7 @@ export let elementInfo = [
 		number: 112,
 		period: 7,
 		group: 12,
+		charge: '?',
 		phase: 'Liquid',
 		source: 'https://en.wikipedia.org/wiki/Copernicium',
 		bohrModelImage:
@@ -4007,6 +4089,7 @@ export let elementInfo = [
 		number: 113,
 		period: 7,
 		group: 13,
+		charge: '3+',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Ununtrium',
 		bohrModelImage:
@@ -4055,6 +4138,7 @@ export let elementInfo = [
 		number: 114,
 		period: 7,
 		group: 14,
+		charge: '4±',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Flerovium',
 		bohrModelImage:
@@ -4103,6 +4187,7 @@ export let elementInfo = [
 		number: 115,
 		period: 7,
 		group: 15,
+		charge: '3-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Ununpentium',
 		bohrModelImage:
@@ -4151,6 +4236,7 @@ export let elementInfo = [
 		number: 116,
 		period: 7,
 		group: 16,
+		charge: '2-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Livermorium',
 		bohrModelImage:
@@ -4199,6 +4285,7 @@ export let elementInfo = [
 		number: 117,
 		period: 7,
 		group: 17,
+		charge: '1-',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Tennessine',
 		bohrModelImage:
@@ -4247,6 +4334,7 @@ export let elementInfo = [
 		number: 118,
 		period: 7,
 		group: 18,
+		charge: '0',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Oganesson',
 		bohrModelImage:
@@ -4295,6 +4383,7 @@ export let elementInfo = [
 		number: 57,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Lanthanum',
 		bohrModelImage:
@@ -4343,6 +4432,7 @@ export let elementInfo = [
 		number: 58,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Cerium',
 		bohrModelImage:
@@ -4391,6 +4481,7 @@ export let elementInfo = [
 		number: 59,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Praseodymium',
 		bohrModelImage:
@@ -4439,6 +4530,7 @@ export let elementInfo = [
 		number: 60,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Neodymium',
 		bohrModelImage:
@@ -4487,6 +4579,7 @@ export let elementInfo = [
 		number: 61,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Promethium',
 		bohrModelImage:
@@ -4535,6 +4628,7 @@ export let elementInfo = [
 		number: 62,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Samarium',
 		bohrModelImage:
@@ -4583,6 +4677,7 @@ export let elementInfo = [
 		number: 63,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Europium',
 		bohrModelImage:
@@ -4631,6 +4726,7 @@ export let elementInfo = [
 		number: 64,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Gadolinium',
 		bohrModelImage:
@@ -4679,6 +4775,7 @@ export let elementInfo = [
 		number: 65,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Terbium',
 		bohrModelImage:
@@ -4727,6 +4824,7 @@ export let elementInfo = [
 		number: 66,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Dysprosium',
 		bohrModelImage:
@@ -4775,6 +4873,7 @@ export let elementInfo = [
 		number: 67,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Holmium',
 		bohrModelImage:
@@ -4823,6 +4922,7 @@ export let elementInfo = [
 		number: 68,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Erbium',
 		bohrModelImage:
@@ -4871,6 +4971,7 @@ export let elementInfo = [
 		number: 69,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Thulium',
 		bohrModelImage:
@@ -4919,6 +5020,7 @@ export let elementInfo = [
 		number: 70,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Ytterbium',
 		bohrModelImage:
@@ -4967,6 +5069,7 @@ export let elementInfo = [
 		number: 71,
 		period: 6,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Lutetium',
 		bohrModelImage:
@@ -5015,6 +5118,7 @@ export let elementInfo = [
 		number: 89,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Actinium',
 		bohrModelImage:
@@ -5063,6 +5167,7 @@ export let elementInfo = [
 		number: 90,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Thorium',
 		bohrModelImage:
@@ -5111,6 +5216,7 @@ export let elementInfo = [
 		number: 91,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Protactinium',
 		bohrModelImage:
@@ -5158,6 +5264,7 @@ export let elementInfo = [
 		number: 92,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Uranium',
 		bohrModelImage:
@@ -5206,6 +5313,7 @@ export let elementInfo = [
 		number: 93,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Neptunium',
 		bohrModelImage:
@@ -5254,6 +5362,7 @@ export let elementInfo = [
 		number: 94,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Plutonium',
 		bohrModelImage:
@@ -5302,6 +5411,7 @@ export let elementInfo = [
 		number: 95,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Americium',
 		bohrModelImage:
@@ -5351,6 +5461,7 @@ export let elementInfo = [
 		number: 96,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Curium',
 		bohrModelImage:
@@ -5399,6 +5510,7 @@ export let elementInfo = [
 		number: 97,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Berkelium',
 		bohrModelImage:
@@ -5447,6 +5559,7 @@ export let elementInfo = [
 		number: 98,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Californium',
 		bohrModelImage:
@@ -5495,6 +5608,7 @@ export let elementInfo = [
 		number: 99,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Einsteinium',
 		bohrModelImage:
@@ -5543,6 +5657,7 @@ export let elementInfo = [
 		number: 100,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Fermium',
 		bohrModelImage:
@@ -5591,6 +5706,7 @@ export let elementInfo = [
 		number: 101,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Mendelevium',
 		bohrModelImage:
@@ -5639,6 +5755,7 @@ export let elementInfo = [
 		number: 102,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Nobelium',
 		bohrModelImage:
@@ -5687,6 +5804,7 @@ export let elementInfo = [
 		number: 103,
 		period: 7,
 		group: 3,
+		charge: '?',
 		phase: 'Solid',
 		source: 'https://en.wikipedia.org/wiki/Lawrencium',
 		bohrModelImage:
@@ -5781,6 +5899,7 @@ export let defaultElementInfo = {
 	number: 1,
 	period: 1,
 	group: 1,
+	charge: '1+',
 	phase: 'Gas',
 	source: 'https://en.wikipedia.org/wiki/Hydrogen',
 	bohrModelImage:

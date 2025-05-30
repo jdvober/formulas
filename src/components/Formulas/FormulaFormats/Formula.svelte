@@ -184,6 +184,7 @@
 		margin-left: auto;
 		width: 22%;
 		min-width: 9vw;
+		color: #f8f8f2;
 	}
 
 	.Formula {

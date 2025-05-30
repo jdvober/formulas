@@ -17,6 +17,9 @@
 .text-drac-gold {
 	color: #d7af00;
 }
+.text-drac-golden-brown {
+	color: #856c00;
+}
 .text-drac-yellowgreen {
 	color: #cafc03;
 }
@@ -96,6 +99,9 @@
 }
 .bg-drac-gold {
 	background-color: #d7af00;
+}
+.bg-drac-golden-brown {
+	background-color: #856c00;
 }
 .bg-drac-yellowgreen {
 	background-color: #cafc03;

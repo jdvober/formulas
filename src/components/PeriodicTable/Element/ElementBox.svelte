@@ -78,14 +78,6 @@
 	const doNothing = () => {
 		return;
 	};
-
-	const getPTXPos = (gridPositionX: number | null) => {
-		return `${(gridPositionX ?? 0) * (width / 25) + width / 4.55}px`;
-	};
-
-	const getPTYPos = (gridPositionY: number | null) => {
-		return `${(gridPositionY ?? 0) * (height / 11) - height / 2.0125}px`;
-	};
 </script>
 
 <!----------------------------------------------------------------->
@@ -99,8 +91,6 @@
 		class={`glow-button`}
 		style:width="8vmin"
 		style:height="8vmin"
-		style:left={getPTXPos(element.xpos)}
-		style:top={getPTYPos(element.ypos)}
 		style:color={element.color}
 		style:background={element.background}
 		style:cursor={element.number === 0 ? 'default' : 'help'}
@@ -117,6 +107,7 @@
 			class="glow-effect"
 			bind:this={glowRef}
 		></div>
+		<div class="charge">{element.charge}</div>
 	</button>
 </div>
 
@@ -126,12 +117,11 @@
 <style lang="scss">
 	/* Add any Per-Component CSS styling here */
 	.element-container {
-		position: absolute;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: auto;
 		grid-template-areas:
-			'atomic-number . . .'
+			'atomic-number . . charge'
 			'. symbol symbol .'
 			'. symbol symbol .'
 			'name name name name';
@@ -140,7 +130,10 @@
 		width: 9vmin;
 		height: 9vmin;
 		color: black;
-		padding: 0.2vmin;
+	}
+
+	.charge {
+		font-family: 'Atkinson Hyperlegible Next';
 	}
 
 	.atomic-number {

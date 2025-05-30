@@ -1,32 +1,27 @@
 <script lang="ts">
-	import { Modal, Button } from 'flowbite-svelte';
-	let defaultModal = $state(false);
+	import { elementInfo } from '../../components/PeriodicTable/ElementInfo.svelte';
 </script>
 
-<Button onclick={() => (defaultModal = true)}>Default modal</Button>
-<Modal
-	title="Terms of Service"
-	bind:open={defaultModal}
-	autoclose
->
-	<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-		With less than a month to go before the European Union enacts new
-		consumer privacy laws for its citizens, companies around the world are
-		updating their terms of service agreements to comply.
-	</p>
-	<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-		The European Union’s General Data Protection Regulation (G.D.P.R.) goes
-		into effect on May 25 and is meant to ensure a common set of data rights
-		in the European Union. It requires organizations to notify users as soon
-		as possible of high-risk data breaches that could personally affect
-		them.
-	</p>
-
-	{#snippet footer()}
-		<Button onclick={() => alert('Handle "success"')}>I accept</Button>
-		<Button color="alternative">Decline</Button>
-	{/snippet}
-</Modal>
+<div class="pt-container">
+	{#each elementInfo as element}
+		<div class="element" style:grid-column-start={element.xpos}>{element.symbol}</div>
+	{/each}
+</div>
 
 <style>
+	.pt-container {
+		border: 1px solid red;
+		width: 80vw;
+		height: 100vh;
+		display: grid;
+		grid-template-columns: repeat(50px, 18);
+		grid-template-rows: repeat(50px, 11);
+	}
+
+	.element {
+		color: cyan;
+		width: 8vmin;
+		height: 8vmin;
+		border: 1px solid white;
+	}
 </style>

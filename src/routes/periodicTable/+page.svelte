@@ -1,25 +1,17 @@
 <script lang="ts">
 	import InfoBox from '../../components/PeriodicTable/InfoBox/InfoBox.svelte';
-	import PeriodicTable from '../../components/PeriodicTable/PeriodicTable.svelte';
-	import TopInfo from '../../components/PeriodicTable/TopInfo/TopInfo.svelte';
+	import PTable from '../../components/PeriodicTable/PTable/PTable.svelte';
 </script>
 
 <div class="container">
-	<div class="header">Header</div>
-	<div class="pt-top"><TopInfo /></div>
-	<div class="PTContainer"><PeriodicTable /></div>
 	<InfoBox />
+	<PTable />
 </div>
 
 <style>
-	.header {
-		height: 10vh;
-	}
-
-	.PTContainer {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 90vh;
+	.container {
+		display: grid;
+		grid-template-columns: 1fr 1fr 6fr;
+		column-gap: 1vw;
 	}
 </style>
